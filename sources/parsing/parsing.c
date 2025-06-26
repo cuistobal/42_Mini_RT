@@ -1,6 +1,14 @@
 #include "minirt.h"
 
+bool	readContentAndCreateScene(t_scene *scene, int fd)
+{
+	char	*element;
 
+	element = getNextLine(fd);
+	if (!element)
+		return (close(fd), scene);
+	parseLine()
+}
 
 int		openFile(const char *file)
 {
