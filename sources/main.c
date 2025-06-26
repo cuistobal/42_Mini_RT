@@ -29,5 +29,6 @@ int	main(int argc, char **argv, char **envp)
 	fd = openFile(file);
 	if (fd < 0)
 		return (fd);
+	readContentAndCreateScene(NULL, fd);
 	return (0);
 }

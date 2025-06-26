@@ -4,10 +4,14 @@ bool	readContentAndCreateScene(t_scene *scene, int fd)
 {
 	char	*element;
 
-	element = getNextLine(fd);
-	if (!element)
-		return (close(fd), scene);
-	parseLine()
+	element = get_next_line(fd);
+	while (element)
+	{
+		ft_printf_fd(1, "%s\n", element);	
+		free(element);
+		element = get_next_line(fd);
+	}
+	return (close(fd), scene);
 }
 
 int		openFile(const char *file)
