@@ -20,9 +20,14 @@ void	*openWIndow()
 
 int	main(int argc, char **argv, char **envp)
 {
+	int			fd;
+	const char	*file;
 
-	if (!envp || !*envp || argc != 2)
+	file = initParsing(argc, argv + 1, envp);
+	if (!file)
 		return (1);
-	*argv = NULL;
+	fd = openFile(file);
+	if (fd < 0)
+		return (fd);
 	return (0);
 }

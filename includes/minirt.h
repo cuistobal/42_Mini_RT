@@ -1,10 +1,15 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# include "temp.h" //includes for forbidden functions
+
+# include <fcntl.h>
 # include <math.h>
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "errors.h"
+# include "globalVariables.h"
 # include "utilities.h"
 # include "parsing.h"
 # include "execution.h"
