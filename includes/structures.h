@@ -20,7 +20,7 @@ typedef struct	objects
 {
 	char	type;
 	void	*next;
-}	t_objects;
+}	t_object;
 
 typedef struct vector
 {
