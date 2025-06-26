@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-static void	fillCoordinates(t_object **object, char *str)
+static bool	fillCoordinates(t_object **object, char *str)
 {
 	int		i;
 	int		j;
@@ -15,9 +15,13 @@ static void	fillCoordinates(t_object **object, char *str)
 	*object->coordinates = coordinates;
 }
 
-static void	fillLightingRatio(t_object **object, char *str)
+static bool	fillLightingRatio(t_object **object, char *str)
 {
+	float	ratio;
 
+	if (ratio < 0 || ratio > 1)
+		return (false);
+	return (*object->coordinates[0] = ratio, true);
 }
 
 
