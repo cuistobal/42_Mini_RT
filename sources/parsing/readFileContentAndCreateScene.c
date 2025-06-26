@@ -1,4 +1,4 @@
-include "minirt.h"
+#include "minirt.h"
 
 static char	findType(char *ptr)
 {
@@ -33,7 +33,7 @@ static t_object	parseLine(char *line)
 	new->color = findColor(line);
 /*
 	int			len;
-	char		**split;
+	char		**charsplit;
 	
 	len = 0;
 	split = splitLine(line, WHITESPACES, &len);
@@ -46,17 +46,16 @@ static t_object	parseLine(char *line)
 }
 
 //
-t_minirt	*readFileContentAndCreateScene(t_scene *scene, int fd)
+t_minirt	*readFileContentAndCreateScene(int fd)
 {
 	t_object	*new;
-	t_object	*head;
 	t_object	*tail;
-	t_minirt	*scene;
+	t_minirt	*minirt;
 	char		*element;
 
 	head = NULL;
 	tail = NULL;
-	scene = createMinirtNode();
+	minirt->scene = createMinirtNode();
 	if (!scene)
 		return (NULL);
 	element = get_next_line(fd);
@@ -65,10 +64,10 @@ t_minirt	*readFileContentAndCreateScene(t_scene *scene, int fd)
 		new = parseLine(element);
 		if (!new)
 			return (close(fd), freeMinirt(scene), scene);	
-		insertNewObject(&head, &tail, new);
+		insertNewObject(&minirt->scene->objects, &tail, new);
 		free(element);
 		element = get_next_line(fd);
 	}
-	return (close(fd), scene);
+	return (close(fd), minirt);
 }
 

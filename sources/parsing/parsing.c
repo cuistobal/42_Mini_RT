@@ -30,9 +30,8 @@ static const char	*initParsing(int argc, char **argv, char **envp)
 t_minirt	*parsing(int argc, char **argv, char **envp)
 {
 	int			fd;
-	t_minirt	*scene;
 	const char	*filename;
-
+	
 	filename = initParsing(argv, argv + 1, envp);
 	if (!file)
 		return (NULL);
