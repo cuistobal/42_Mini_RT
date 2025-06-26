@@ -3,6 +3,6 @@
 
 # include <stdlib.h>
 # include <unistd.h> 
-# include <maths.h>
+# include <math.h>
 
 #endif
