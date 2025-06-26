@@ -1,4 +1,4 @@
-#include "minirt.h"
+include "minirt.h"
 
 static char	findType(char *ptr)
 {

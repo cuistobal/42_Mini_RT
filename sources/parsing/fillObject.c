@@ -1,7 +1,11 @@
 #include "minirt.h"
 
-
-void	fillObject(t_object **object, char *line)
+void	fillCoordinates(t_object **object, char *str)
 {
-	
+
+}
+//
+void	fillObject(t_object **object, char *str)
+{
+		
 }
