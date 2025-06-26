@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-void	*openWIndow()
+void	*openWIndow(char *winname)
 {
     void    *mlx_ptr;
     void    *win_ptr;
@@ -9,7 +9,7 @@ void	*openWIndow()
     if (!mlx_ptr)
         return NULL;
 
-    win_ptr = mlx_new_window(mlx_ptr, 800, 600, "My MiniRT");
+    win_ptr = mlx_new_window(mlx_ptr, 800, 600, winname);
     if (!win_ptr)
         return NULL;
 
@@ -30,5 +30,6 @@ int	main(int argc, char **argv, char **envp)
 	if (fd < 0)
 		return (fd);
 	readContentAndCreateScene(NULL, fd);
+	openWIndow(*argv);
 	return (0);
 }
