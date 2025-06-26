@@ -10,6 +10,27 @@
 # include "execution.h"
 # include "minilibx-linux/mlx.h"
 
+typedef	struct	minirt
+{
+	void	*scene;
+	void	*mlxptr;
+	void	*mlxwin;
+	void	*objects;
+
+}	t_minirt;
+
+typedef struct	scene
+{
+
+	void	*objects;
+}	t_scene;
+
+typedef struct	objects
+{
+	char	type;
+	void	*next;
+}	t_objects;
+
 int	main(int argc, char **argv, char **envp);
 
 #endif
