@@ -1,22 +1,7 @@
 #include "minirt.h"
 
 //
-void	insertNewObject(t_object **head, t_object **tail, t_object *new)
-{
-	if (!*head)
-	{
-		*head = new;
-		*tail = new;
-	}
-	else
-	{
-		(*tail)->next = new;
-		*tail = (*tail)->next;
-	}
-}
-
-//
-void	*createObjectNode(void)
+t_object    *createObjectNode(void)
 {
 	t_object	*new;
 
@@ -24,6 +9,10 @@ void	*createObjectNode(void)
 	if (!new)
 		return (NULL);
 	new->type = 0;
+    ft_bzero(new->ratio, sizeof(long) * 2);
+    ft_bzero(new->coordinates, sizeof(long) * 3);
+    ft_bzero(new->normVector, sizeof(long) * 3);
+    ft_bzero(new->colour, sizeof(long) * 4);
 	new->next = NULL;
 	return (new);
 }

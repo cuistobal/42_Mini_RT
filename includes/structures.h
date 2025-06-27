@@ -3,31 +3,27 @@
 
 typedef	struct	minirt
 {
-	void	*scene;
-	void	*mlxptr;
-	void	*mlxwin;
-	void	*objects;
-
+	void    	    *mlxptr;
+	void	        *mlxwin;
+    struct scene    *scene;
 }	t_minirt;
 
 typedef struct	scene
 {
-
-	void	*objects;
+    struct objects  *light;
+    struct objects  *camera;
+    struct objects  *objects;
+    struct objects  *ambiantLightning;
 }	t_scene;
 
 typedef struct	objects
 {
-	char	type;
-	void	*next;
+	char	        type;
+    long            ratio[2];
+    long            coordinates[3];
+    long            normVector[3];
+    long            colours[4];
+    struct objects  *next;
 }	t_object;
-
-typedef struct vector
-{
-	int		size;
-	int		type;
-	int		capacity;
-	void	*data;
-}	t_vector;
 
 #endif

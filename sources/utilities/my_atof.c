@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-double  appendDot(const char *str, double result, int sign)
+static double  appendDot(const char *str, double result, int sign)
 {
     double  div;
     double  dot;

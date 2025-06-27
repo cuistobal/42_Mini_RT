@@ -1,0 +1,532 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/cuistobal/Code/42_Mini_RT/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+$(LIBFT_LIB)	Makefile	/^$(LIBFT_LIB):$/;"	t
+$(MLX_LIB)	Makefile	/^$(MLX_LIB):$/;"	t
+$(NAME)	Makefile	/^$(NAME): $(MLX_LIB) $(LIBFT_LIB) $(OBJ)$/;"	t
+$(NAME)	includes/minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
+$(NAME)	includes/minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
+$(NAME)	sources/utilities/Libft/Makefile	/^$(NAME): $(MLX_LIB) $(OBJ)$/;"	t
+$(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
+$(OBJ_DIR)/%.o	includes/minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
+$(OBJ_DIR)/%.o	sources/utilities/Libft/Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
+AMBIENT_LIGHTNING	includes/globalVariables.h	/^# define AMBIENT_LIGHTNING /;"	d
+AUTHOR	includes/minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man3/mlx.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+BUFFER_SIZE	sources/utilities/Libft/includes/get_next_line.h	/^#  define BUFFER_SIZE /;"	d
+CAMERA	includes/globalVariables.h	/^# define CAMERA /;"	d
+CC	Makefile	/^CC		= cc$/;"	m
+CC	includes/minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
+CC	includes/minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
+CC	includes/minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
+CC	includes/minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
+CC	sources/utilities/Libft/Makefile	/^CC 		= cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	= -Wall -Werror -Wextra -g3$/;"	m
+CFLAGS	includes/minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
+CFLAGS	includes/minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+CHAR_OCTET	sources/utilities/Libft/includes/get_next_line.h	/^#  define CHAR_OCTET /;"	d
+COLOR	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+COLOR	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+CONE	includes/globalVariables.h	/^# define CONE /;"	d
+CYLINDER	includes/globalVariables.h	/^# define CYLINDER /;"	d
+DEPS	Makefile	/^DEPS	= $(OBJ:.o=.d)$/;"	m
+DEPS	sources/utilities/Libft/Makefile	/^DEPS	= $(OBJ:.o=.d)$/;"	m
+DESCRIPTION	includes/minilibx-linux/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man3/mlx.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+EALIGHT	includes/globalVariables.h	/^# define EALIGHT /;"	d
+ECAMERA	includes/globalVariables.h	/^# define ECAMERA /;"	d
+ECYLINDER	includes/globalVariables.h	/^# define ECYLINDER /;"	d
+ELIGHT	includes/globalVariables.h	/^# define ELIGHT /;"	d
+ENVIRON	includes/errors.h	/^# define ENVIRON /;"	d
+ENV_DISPLAY	includes/minilibx-linux/mlx_int.h	/^# define ENV_DISPLAY /;"	d
+EOF	includes/minilibx-linux/configure	/^cat <<EOF$/;"	h
+EPLANE	includes/globalVariables.h	/^# define EPLANE /;"	d
+ERRORS_H	includes/errors.h	/^# define ERRORS_H$/;"	d
+ERR_NO_TRUECOLOR	includes/minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
+ESPHERE	includes/globalVariables.h	/^# define ESPHERE /;"	d
+EXECUTION_H	includes/execution.h	/^# define EXECUTION_H$/;"	d
+EXTENSION	includes/globalVariables.h	/^# define EXTENSION /;"	d
+E_ENVIRON	includes/errors.h	/^# define E_ENVIRON /;"	d
+E_FILE	includes/errors.h	/^# define E_FILE /;"	d
+E_USAGE	includes/errors.h	/^# define E_USAGE /;"	d
+FILENAME	includes/errors.h	/^# define FILENAME /;"	d
+FLAGS	sources/utilities/Libft/Makefile	/^FLAGS 	= -Werror -Wextra -Wall -g3 -I.\/include$/;"	m
+GET_NEXT_LINE_H	sources/utilities/Libft/includes/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
+GLOBALVARIABLES_H	includes/globalVariables.h	/^# define GLOBALVARIABLES_H$/;"	d
+GOING	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+GOING	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+IM1_SX	includes/minilibx-linux/test/main.c	/^#define	IM1_SX	/;"	d	file:
+IM1_SY	includes/minilibx-linux/test/main.c	/^#define	IM1_SY	/;"	d	file:
+IM3_SX	includes/minilibx-linux/test/main.c	/^#define	IM3_SX	/;"	d	file:
+IM3_SY	includes/minilibx-linux/test/main.c	/^#define	IM3_SY	/;"	d	file:
+INC	includes/minilibx-linux/Makefile.mk	/^INC	=%%%%$/;"	m
+INC	includes/minilibx-linux/test/Makefile.mk	/^INC=%%%%$/;"	m
+INCLIB	includes/minilibx-linux/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
+INCLUDE	includes/minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+INCLUDE	includes/minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+INC_DIR	Makefile	/^INC_DIR	= includes$/;"	m
+INC_DIR	sources/utilities/Libft/Makefile	/^INC_DIR	= includes$/;"	m
+LFLAGS	includes/minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
+LIBFT_DIR	Makefile	/^LIBFT_DIR = $(SRC_DIR)\/utilities\/Libft$/;"	m
+LIBFT_H	sources/utilities/Libft/includes/libft.h	/^# define LIBFT_H$/;"	d
+LIBFT_LIB	Makefile	/^LIBFT_LIB = $(LIBFT_DIR)\/libft.a$/;"	m
+LIBRARY	includes/minilibx-linux/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LIBRARY	includes/minilibx-linux/man/man3/mlx.3	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LIGHT	includes/globalVariables.h	/^# define LIGHT /;"	d
+LINKING	includes/minilibx-linux/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LINKING	includes/minilibx-linux/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LOCALHOST	includes/minilibx-linux/mlx_int.h	/^# define LOCALHOST /;"	d
+MINIRT_H	includes/minirt.h	/^# define MINIRT_H$/;"	d
+MLX_DIR	Makefile	/^MLX_DIR = $(INC_DIR)\/minilibx-linux$/;"	m
+MLX_H	includes/minilibx-linux/mlx.h	/^#define	MLX_H$/;"	d
+MLX_INT_H	includes/minilibx-linux/mlx_int.h	/^# define MLX_INT_H$/;"	d
+MLX_LIB	Makefile	/^MLX_LIB = $(MLX_DIR)\/libmlx.a$/;"	m
+MLX_MAX_EVENT	includes/minilibx-linux/mlx_int.h	/^# define MLX_MAX_EVENT /;"	d
+MLX_TYPE_SHM	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM /;"	d
+MLX_TYPE_SHM_PIXMAP	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM_PIXMAP /;"	d
+MLX_TYPE_XIMAGE	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_XIMAGE /;"	d
+MiniLibX	includes/minilibx-linux/man/man1/mlx.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man1/mlx_loop.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man3/mlx.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man3/mlx_loop.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+NAME	Makefile	/^NAME	= miniRT$/;"	m
+NAME	includes/minilibx-linux/Makefile.mk	/^NAME		= libmlx.a$/;"	m
+NAME	includes/minilibx-linux/man/man1/mlx.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man3/mlx.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	includes/minilibx-linux/test/Makefile.mk	/^NAME= mlx-test$/;"	m
+NAME	sources/utilities/Libft/Makefile	/^NAME 	= libft.a$/;"	m
+NAME_UNAME	includes/minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
+OBJ	Makefile	/^OBJ		= $(SRC:%.c=$(OBJ_DIR)\/%.o)$/;"	m
+OBJ	includes/minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
+OBJ	includes/minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
+OBJ	sources/utilities/Libft/Makefile	/^OBJ		= $(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR	= objects$/;"	m
+OBJ_DIR	includes/minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+OBJ_DIR	sources/utilities/Libft/Makefile	/^OBJ_DIR	= objects$/;"	m
+PARSING_H	includes/parsing.h	/^# define PARSING_H$/;"	d
+PERMISSIONS	includes/errors.h	/^# define PERMISSIONS /;"	d
+PLANE	includes/globalVariables.h	/^# define PLANE /;"	d
+PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
+RETURN	includes/minilibx-linux/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	includes/minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
+RM	Makefile	/^RM		= rm -f$/;"	m
+RM	sources/utilities/Libft/Makefile	/^RM		= rm -f$/;"	m
+SEE	includes/minilibx-linux/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man3/mlx.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SPHERE	includes/globalVariables.h	/^# define SPHERE /;"	d
+SRC	Makefile	/^SRC		= $(shell find $(SRC_DIR) -name "*.c")$/;"	m
+SRC	includes/minilibx-linux/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
+SRC	includes/minilibx-linux/test/Makefile.mk	/^SRC = main.c$/;"	m
+SRC	sources/utilities/Libft/Makefile	/^SRC		= $(shell find $(SRC_DIR) -name "*.c")$/;"	m
+SRC_DIR	Makefile	/^SRC_DIR	= sources$/;"	m
+SRC_DIR	sources/utilities/Libft/Makefile	/^SRC_DIR	= sources$/;"	m
+STORING	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+STORING	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+STRUCTURES_H	includes/structures.h	/^# define STRUCTURES_H$/;"	d
+SYNOPSYS	includes/minilibx-linux/man/man1/mlx.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man3/mlx.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+TEMP_H	includes/temp.h	/^# define TEMP_H$/;"	d
+UNAME	includes/minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
+UNAME	includes/minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
+USAGE	includes/errors.h	/^# define USAGE /;"	d
+UTILITIES_H	includes/utilities.h	/^# define UTILITIES_H$/;"	d
+WARN_SHM_ATTACH	includes/minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
+WHITESPACES	includes/globalVariables.h	/^# define WHITESPACES /;"	d
+WIN1_SX	includes/minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
+WIN1_SY	includes/minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
+X-WINDOW	includes/minilibx-linux/man/man1/mlx.1	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+X-WINDOW	includes/minilibx-linux/man/man3/mlx.3	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+XPM	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+XPM	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+X_ShmAttach	includes/minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
+all	Makefile	/^all: $(NAME)$/;"	t
+all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
+all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
+all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
+all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
+ambiantLightning	includes/structures.h	/^    struct objects  *ambiantLightning;$/;"	m	struct:scene	typeref:struct:objects *
+appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign)$/;"	f	typeref:typename:double	file:
+at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
+bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
+bpp1	includes/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
+bpp2	includes/minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
+bpp3	includes/minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
+bpp4	includes/minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
+camera	includes/structures.h	/^    struct objects  *camera;$/;"	m	struct:scene	typeref:struct:objects *
+check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
+check_format	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^static int	check_format( int fd, char format, va_list arg)$/;"	f	typeref:typename:int	file:
+clean	Makefile	/^clean:$/;"	t
+clean	includes/minilibx-linux/Makefile	/^clean	:$/;"	t
+clean	includes/minilibx-linux/Makefile.mk	/^clean	:$/;"	t
+clean	includes/minilibx-linux/configure	/^clean(){$/;"	f
+clean	includes/minilibx-linux/test/Makefile.mk	/^clean:$/;"	t
+clean	sources/utilities/Libft/Makefile	/^clean:$/;"	t
+cmap	includes/minilibx-linux/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar	typeref:typename:Colormap
+col	includes/minilibx-linux/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typeref:typename:int
+color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
+color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
+color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
+colours	includes/structures.h	/^    long            colours[4];$/;"	m	struct:objects	typeref:typename:long[4]
+content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
+coordinates	includes/structures.h	/^    long            coordinates[3];$/;"	m	struct:objects	typeref:typename:long[3]
+countArgs	sources/utilities/splitLine.c	/^static int	countArgs(char const *s, char c)$/;"	f	typeref:typename:int	file:
+createMinirtNode	sources/utilities/createNodes.c	/^void	*createMinirtNode(void)$/;"	f	typeref:typename:void *
+createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
+data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
+data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
+data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
+data3	includes/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
+data4	includes/minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
+decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
+depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
+display	includes/minilibx-linux/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
+do_configure	includes/minilibx-linux/Makefile	/^do_configure	:$/;"	t
+do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
+endOfParsing	sources/parsing/readFileContentAndCreateScene.c	/^static bool endOfParsing(t_minirt *minirt, bool status)$/;"	f	typeref:typename:bool	file:
+end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
+endian1	includes/minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
+endian2	includes/minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
+endian3	includes/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
+endian4	includes/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
+expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
+expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
+extractFloat	sources/utilities/extractFloat.c	/^float	extractFloat(char *s, int *i)$/;"	f	typeref:typename:float
+fclean	Makefile	/^fclean: clean$/;"	t
+fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
+fillCoordinates	sources/parsing/fillObject.c	/^static bool	fillCoordinates(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
+fillCoordinates	sources/parsing/fillObjectHelpers.c	/^bool	fillCoordinates(t_object **object, char *str)$/;"	f	typeref:typename:bool
+fillLightingRatio	sources/parsing/fillObject.c	/^static bool	fillLightingRatio(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
+fillLightingRatio	sources/parsing/fillObjectHelpers.c	/^bool	fillLightingRatio(t_object **object, char *str)$/;"	f	typeref:typename:bool
+fillObject	sources/parsing/fillObject.c	/^bool	fillObject(t_object **object, char *str)$/;"	f	typeref:typename:bool
+fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
+findType	sources/parsing/readFileContentAndCreateScene.c	/^static char	findType(char *ptr)$/;"	f	typeref:typename:char	file:
+format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
+freeArr	sources/utilities/freeUtils.c	/^void	*freeArr(char **arr, int len)$/;"	f	typeref:typename:void *
+freeMinirt	sources/utilities/freeUtils.c	/^void	*freeMinirt(t_minirt *ptr)$/;"	f	typeref:typename:void *
+freeObject	sources/utilities/freeUtils.c	/^void	*freeObject(t_object *ptr)$/;"	f	typeref:typename:void *
+freeScene	sources/utilities/freeUtils.c	/^void	*freeScene(t_scene *ptr)$/;"	f	typeref:typename:void *
+ft_atof	sources/utilities/my_atof.c	/^double ft_atof(const char *str)$/;"	f	typeref:typename:double
+ft_atoi	sources/utilities/Libft/sources/mandatory/ft_convert/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
+ft_base_attribution	sources/utilities/Libft/sources/printf_fd/utilities/ft_base_attribution.c	/^char	*ft_base_attribution(char format)$/;"	f	typeref:typename:char *
+ft_bzero	sources/utilities/Libft/sources/mandatory/ft_mem/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
+ft_calloc	sources/utilities/Libft/sources/mandatory/ft_heap/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
+ft_countword	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static int	ft_countword(char const *s, char c)$/;"	f	typeref:typename:int	file:
+ft_fill	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	*ft_fill(const char *s, char c)$/;"	f	typeref:typename:char *	file:
+ft_fill	sources/utilities/splitLine.c	/^static char	*ft_fill(const char *s, char c)$/;"	f	typeref:typename:char *	file:
+ft_free	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	**ft_free(char **dest, int words)$/;"	f	typeref:typename:char **	file:
+ft_isalnum	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
+ft_isalpha	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
+ft_isascii	sources/utilities/Libft/sources/mandatory/ft_is/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
+ft_isdigit	sources/utilities/Libft/sources/mandatory/ft_is/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
+ft_isprint	sources/utilities/Libft/sources/mandatory/ft_is/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
+ft_itoa	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_lstadd_back	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_back_bonus.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstadd_front	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_front_bonus.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstclear	sources/utilities/Libft/sources/bonus/ft_list/ft_lstclear_bonus.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstdelone	sources/utilities/Libft/sources/bonus/ft_list/ft_lstdelone_bonus.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstiter	sources/utilities/Libft/sources/bonus/ft_list/ft_lstiter_bonus.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
+ft_lstlast	sources/utilities/Libft/sources/bonus/ft_list/ft_lstlast_bonus.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
+ft_lstmap	sources/utilities/Libft/sources/bonus/ft_list/ft_lstmap_bonus.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
+ft_lstnew	sources/utilities/Libft/sources/bonus/ft_list/ft_lstnew_bonus.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
+ft_lstsize	sources/utilities/Libft/sources/bonus/ft_list/ft_lstsize_bonus.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
+ft_memchr	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_memcmp	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
+ft_memcpy	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memmove	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memset	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_num_len	sources/utilities/Libft/sources/printf_fd/utilities/ft_num_len.c	/^int	ft_num_len(unsigned	int num, char *base)$/;"	f	typeref:typename:int
+ft_pointer_len	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_pointer_len(uintptr_t num)$/;"	f	typeref:typename:int
+ft_print_char	sources/utilities/Libft/sources/printf_fd/src/ft_print_char.c	/^int	ft_print_char(int c, int fd)$/;"	f	typeref:typename:int
+ft_print_hexa	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^int	ft_print_hexa(unsigned int num, char format, int fd)$/;"	f	typeref:typename:int
+ft_print_number_base	sources/utilities/Libft/sources/printf_fd/src/ft_print_number_base.c	/^int	ft_print_number_base(int num, char format, int fd)$/;"	f	typeref:typename:int
+ft_print_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_print_pointer(unsigned long long num, int fd)$/;"	f	typeref:typename:int
+ft_print_string	sources/utilities/Libft/sources/printf_fd/src/ft_print_string.c	/^int	ft_print_string(char *s, int fd)$/;"	f	typeref:typename:int
+ft_print_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^int	ft_print_unsigned(unsigned long long num, char format, int fd)$/;"	f	typeref:typename:int
+ft_printf_fd	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^int	ft_printf_fd(int fd, char *toprint, ...)$/;"	f	typeref:typename:int
+ft_put_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^void	ft_put_pointer(uintptr_t num, int fd)$/;"	f	typeref:typename:void
+ft_putchar_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_base	sources/utilities/Libft/sources/printf_fd/utilities/ft_putnbr_base.c	/^void	ft_putnbr_base(long long int num, char format, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_hex	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^static void	ft_putnbr_hex(unsigned int num, const char format, int fd)$/;"	f	typeref:typename:void	file:
+ft_putstr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_size	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^int	ft_size(int n)$/;"	f	typeref:typename:int
+ft_split	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
+ft_strchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strchr.c	/^char	*ft_strchr(const char *string, int c)$/;"	f	typeref:typename:char *
+ft_strcmp	sources/utilities/Libft/sources/mandatory/misc/ft_strcmp.c	/^int	ft_strcmp(const char *source, const char *comp)$/;"	f	typeref:typename:int
+ft_strdup	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strdup.c	/^char	*ft_strdup(const char *string)$/;"	f	typeref:typename:char *
+ft_striteri	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f	typeref:typename:void
+ft_strjoin	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*ft_strjoin(const char *s1, const char *s2)$/;"	f	typeref:typename:char *
+ft_strlcat	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
+ft_strlcpy	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
+ft_strlen	sources/utilities/Libft/sources/mandatory/misc/ft_strlen.c	/^int	ft_strlen(const char *string)$/;"	f	typeref:typename:int
+ft_strmapi	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
+ft_strncmp	sources/utilities/Libft/sources/mandatory/misc/ft_strncmp.c	/^int	ft_strncmp(const char *source, const char *comp, size_t n)$/;"	f	typeref:typename:int
+ft_strnstr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
+ft_strrchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strtok_r	sources/utilities/Libft/sources/additional/ft_strtok_r.c	/^char	*ft_strtok_r(char *str, const char *delim, char **saveptr)$/;"	f	typeref:typename:char *
+ft_strtrim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_substr	sources/utilities/Libft/sources/mandatory/ft_heap/ft_substr.c	/^char	*ft_substr(const char *string, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
+ft_tolower	sources/utilities/Libft/sources/mandatory/misc/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
+ft_toupper	sources/utilities/Libft/sources/mandatory/misc/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+ft_trim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^int	ft_trim(char c, char const *set)$/;"	f	typeref:typename:int
+gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
+gc	includes/minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
+gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object **object, char *str)$/;"	f	typeref:typename:bool
+getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd)$/;"	f	typeref:typename:char *	file:
+get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
+get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
+height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
+hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
+hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
+im1	includes/minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
+im2	includes/minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
+im3	includes/minilibx-linux/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
+im4	includes/minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
+image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
+initParsing	sources/parsing/parsing.c	/^static const char	*initParsing(int argc, char **argv, char **envp)$/;"	f	typeref:typename:const char *	file:
+insertNewObject	sources/parsing/insertNewObjectInMinirt.c	/^static void	insertNewObject(t_object **head, t_object **tail, t_object *new)$/;"	f	typeref:typename:void	file:
+insertNewObjectInMinirt	sources/parsing/insertNewObjectInMinirt.c	/^bool    insertNewObjectInMinirt(t_minirt *minirt, t_object *new, t_object **tail)$/;"	f	typeref:typename:bool
+insertSceneParameter	sources/parsing/insertNewObjectInMinirt.c	/^static bool insertSceneParameter(t_scene *scene, t_object *new, char type)$/;"	f	typeref:typename:bool	file:
+join_s1	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s1(const char *s1, char *joined)$/;"	f	typeref:typename:char *
+join_s2	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s2(const char *s2, char *joined)$/;"	f	typeref:typename:char *
+key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
+key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
+key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
+light	includes/structures.h	/^    struct objects  *light;$/;"	m	struct:scene	typeref:struct:objects *
+local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
+log_error	includes/minilibx-linux/configure	/^log_error(){$/;"	f
+log_error	includes/minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f
+log_info	includes/minilibx-linux/configure	/^log_info(){$/;"	f
+log_info	includes/minilibx-linux/test/run_tests.sh	/^log_info(){$/;"	f
+logging	includes/minilibx-linux/configure	/^logging(){$/;"	f
+logging	includes/minilibx-linux/test/run_tests.sh	/^logging(){$/;"	f
+loop_hook	includes/minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
+loop_param	includes/minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
+main	includes/minilibx-linux/configure	/^main(){$/;"	f
+main	includes/minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
+main	includes/minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
+main	includes/minilibx-linux/test/run_tests.sh	/^main(){$/;"	f
+main	sources/main.c	/^int	main(int argc, char **argv, char **envp)$/;"	f	typeref:typename:int
+mask	includes/minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
+minirt	includes/structures.h	/^typedef	struct	minirt$/;"	s
+mlx	includes/minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
+mlx	includes/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
+mlx_X_error	includes/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
+mlx_clear_window	includes/minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_col_name	includes/minilibx-linux/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name[]
+mlx_destroy_display	includes/minilibx-linux/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_destroy_image	includes/minilibx-linux/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f	typeref:typename:int
+mlx_destroy_window	includes/minilibx-linux/mlx_destroy_window.c	/^int	mlx_destroy_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeatoff	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeatoff(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeaton	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeaton(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_sync	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_sync(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_expose_hook	includes/minilibx-linux/mlx_expose_hook.c	/^int		mlx_expose_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_ext_fullscreen	includes/minilibx-linux/mlx_ext_randr.c	/^int			mlx_ext_fullscreen(t_xvar *xvar, t_win_list *win, int fullscreen)$/;"	f	typeref:typename:int
+mlx_flush_event	includes/minilibx-linux/mlx_flush_event.c	/^int	mlx_flush_event(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_get_color_value	includes/minilibx-linux/mlx_get_color_value.c	/^int             mlx_get_color_value(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_get_data_addr	includes/minilibx-linux/mlx_get_data_addr.c	/^char	*mlx_get_data_addr(t_img *img,int *bits_per_pixel,$/;"	f	typeref:typename:char *
+mlx_get_screen_size	includes/minilibx-linux/mlx_screen_size.c	/^int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)$/;"	f	typeref:typename:int
+mlx_hook	includes/minilibx-linux/mlx_hook.c	/^int	mlx_hook(t_win_list *win, int x_event, int x_mask, $/;"	f	typeref:typename:int
+mlx_init	includes/minilibx-linux/mlx_init.c	/^void	*mlx_init()$/;"	f	typeref:typename:void *
+mlx_int_anti_resize_win	includes/minilibx-linux/mlx_int_anti_resize_win.c	/^int	mlx_int_anti_resize_win(t_xvar *xvar,Window win,int w,int h)$/;"	f	typeref:typename:int
+mlx_int_deal_shm	includes/minilibx-linux/mlx_init.c	/^int		mlx_int_deal_shm(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_do_nothing	includes/minilibx-linux/mlx_int_do_nothing.c	/^int	mlx_int_do_nothing(void *param)$/;"	f	typeref:typename:int
+mlx_int_egal_img	includes/minilibx-linux/mlx_lib_xpm.c	/^int	mlx_int_egal_img(XImage *img1,XImage *img2)$/;"	f	typeref:typename:int
+mlx_int_file_get_rid_comment	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_file_get_rid_comment(char *ptr, int size)$/;"	f	typeref:typename:int
+mlx_int_get_col_name	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_col_name(char *str,int size)$/;"	f	typeref:typename:int
+mlx_int_get_good_color	includes/minilibx-linux/mlx_get_color_value.c	/^int		mlx_int_get_good_color(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_int_get_line	includes/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_get_line(char *ptr,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_get_text_rgb	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_text_rgb(char *name, char *end)$/;"	f	typeref:typename:int
+mlx_int_get_visual	includes/minilibx-linux/mlx_int_get_visual.c	/^int		mlx_int_get_visual(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_new_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_image(t_xvar *xvar,int width, int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_new_xshm_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_param_ButtonPress	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_ButtonRelease	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_Expose	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_Expose(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyPress	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyRelease	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_MotionNotify	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_MotionNotify(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_event	includes/minilibx-linux/mlx_int_param_event.c	/^int	(*(mlx_int_param_event[]))() =$/;"	v	typeref:typename:int (* ([]))()
+mlx_int_param_generic	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_generic(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_undef	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_undef()$/;"	f	typeref:typename:int
+mlx_int_parse_xpm	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())$/;"	f	typeref:typename:void *
+mlx_int_rgb_conversion	includes/minilibx-linux/mlx_init.c	/^int		mlx_int_rgb_conversion(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_set_win_event_mask	includes/minilibx-linux/mlx_int_set_win_event_mask.c	/^int	mlx_int_set_win_event_mask(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_static_line	includes/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_static_line(char **xpm_data,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_str_str	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_str_cote	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str_cote(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_to_wordtab	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^char	**mlx_int_str_to_wordtab(char *str)$/;"	f	typeref:typename:char **
+mlx_int_wait_first_expose	includes/minilibx-linux/mlx_int_wait_first_expose.c	/^int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)$/;"	f	typeref:typename:int
+mlx_int_xpm_f_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void		*mlx_int_xpm_f_image(t_xvar *xvar,int *width,int *height,$/;"	f	typeref:typename:void *
+mlx_int_xpm_set_pixel	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)$/;"	f	typeref:typename:int
+mlx_key_hook	includes/minilibx-linux/mlx_key_hook.c	/^int		mlx_key_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_loop	includes/minilibx-linux/mlx_loop.c	/^int			mlx_loop(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_end	includes/minilibx-linux/mlx_loop.c	/^int			mlx_loop_end(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_hook	includes/minilibx-linux/mlx_loop_hook.c	/^int	mlx_loop_hook(t_xvar *xvar,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_get_pos	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \\$/;"	f	typeref:typename:int
+mlx_mouse_hide	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_mouse_hook	includes/minilibx-linux/mlx_mouse_hook.c	/^int		mlx_mouse_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_move	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)$/;"	f	typeref:typename:int
+mlx_mouse_show	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_new_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_image2	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image2(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_window	includes/minilibx-linux/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title)$/;"	f	typeref:typename:void *
+mlx_pixel_put	includes/minilibx-linux/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_put_image_to_window	includes/minilibx-linux/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f	typeref:typename:int
+mlx_set_font	includes/minilibx-linux/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f	typeref:typename:void
+mlx_string_put	includes/minilibx-linux/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_xpm_file_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f	typeref:typename:void *
+mlx_xpm_file_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
+mlxptr	includes/structures.h	/^	void    	    *mlxptr;$/;"	m	struct:minirt	typeref:typename:void *
+mlxwin	includes/structures.h	/^	void	        *mlxwin;$/;"	m	struct:minirt	typeref:typename:void *
+mouse_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+mouse_param	includes/minilibx-linux/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+mouse_win1	includes/minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win2	includes/minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win3	includes/minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
+name	includes/minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
+name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
+next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
+next	includes/structures.h	/^    struct objects  *next;$/;"	m	struct:objects	typeref:struct:objects *
+next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
+normVector	includes/structures.h	/^    long            normVector[3];$/;"	m	struct:objects	typeref:typename:long[3]
+objects	includes/structures.h	/^    struct objects  *objects;$/;"	m	struct:scene	typeref:struct:objects *
+objects	includes/structures.h	/^typedef struct	objects$/;"	s
+openFile	sources/parsing/parsing.c	/^static int	openFile(const char *file)$/;"	f	typeref:typename:int	file:
+param	includes/minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
+parseLine	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parseLine(char *line)$/;"	f	typeref:typename:t_object *	file:
+parse_args	includes/minilibx-linux/configure	/^parse_args(){$/;"	f
+parsing	sources/parsing/parsing.c	/^bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)$/;"	f	typeref:typename:bool
+pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
+private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
+pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
+putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
+ratio	includes/structures.h	/^    long            ratio[2];$/;"	m	struct:objects	typeref:typename:long[2]
+re	Makefile	/^re: fclean all$/;"	t
+re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
+re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
+re	sources/utilities/Libft/Makefile	/^re: fclean all$/;"	t
+readFileContentAndCreateScene	sources/parsing/readFileContentAndCreateScene.c	/^bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)$/;"	f	typeref:typename:bool
+root	includes/minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
+s_col_name	includes/minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
+s_event_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_event_list$/;"	s
+s_img	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_img$/;"	s
+s_list	sources/utilities/Libft/includes/libft.h	/^typedef struct s_list$/;"	s
+s_win_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_win_list$/;"	s
+s_xpm_col	includes/minilibx-linux/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
+s_xvar	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_xvar$/;"	s
+saved_mode	includes/minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
+scene	includes/structures.h	/^    struct scene    *scene;$/;"	m	struct:minirt	typeref:struct:scene *
+scene	includes/structures.h	/^typedef struct	scene$/;"	s
+screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
+set_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*set_line(char *line)$/;"	f	typeref:typename:char *
+shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
+shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
+show	includes/minilibx-linux/Makefile.mk	/^show:$/;"	t
+show	includes/minilibx-linux/test/Makefile.mk	/^show:$/;"	t
+show_help	includes/minilibx-linux/configure	/^show_help(){$/;"	f
+sigint_handler	includes/minilibx-linux/test/run_tests.sh	/^sigint_handler(){$/;"	f
+size_line	includes/minilibx-linux/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img	typeref:typename:int
+sl1	includes/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
+sl2	includes/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
+sl3	includes/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
+sl4	includes/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
+splitLine	sources/utilities/splitLine.c	/^char	**splitLine(char const *s, char *c, int *len)$/;"	f	typeref:typename:char **
+strlcpy_is_not_posix	includes/minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
+t_event_list	includes/minilibx-linux/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
+t_img	includes/minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
+t_list	sources/utilities/Libft/includes/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
+t_minirt	includes/structures.h	/^}	t_minirt;$/;"	t	typeref:struct:minirt
+t_object	includes/structures.h	/^}	t_object;$/;"	t	typeref:struct:objects
+t_scene	includes/structures.h	/^}	t_scene;$/;"	t	typeref:struct:scene
+t_win_list	includes/minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
+t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
+t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
+test_default_main	includes/minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
+type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
+type	includes/structures.h	/^	char	        type;$/;"	m	struct:objects	typeref:typename:char
+use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
+visual	includes/minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
+width	includes/minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
+win1	includes/minilibx-linux/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
+win1	includes/minilibx-linux/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
+win2	includes/minilibx-linux/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *
+win2	includes/minilibx-linux/test/new_win.c	/^void *win2;$/;"	v	typeref:typename:void *
+win3	includes/minilibx-linux/test/main.c	/^void    *win3;$/;"	v	typeref:typename:void *
+win_count	includes/minilibx-linux/mlx_loop.c	/^static int	win_count(t_xvar *xvar)$/;"	f	typeref:typename:int	file:
+win_list	includes/minilibx-linux/mlx_int.h	/^	t_win_list	*win_list;$/;"	m	struct:s_xvar	typeref:typename:t_win_list *
+window	includes/minilibx-linux/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win_list	typeref:typename:Window
+wm_delete_window	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar	typeref:typename:Atom
+wm_protocols	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
+xpm1_x	includes/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
+xpm1_y	includes/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int

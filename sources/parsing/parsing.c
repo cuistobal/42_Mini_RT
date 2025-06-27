@@ -27,7 +27,7 @@ static const char	*initParsing(int argc, char **argv, char **envp)
 }
 
 //
-t_minirt	*parsing(int argc, char **argv, char **envp)
+bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)
 {
 	int			fd;
 	const char	*filename;
@@ -38,5 +38,8 @@ t_minirt	*parsing(int argc, char **argv, char **envp)
 	fd = openFile(filename);
 	if (fd < 0)
 		return (NULL);
-	return (readFileContentAndCreateScene(fd));
+    minirt->scene = NULL;
+    minirt->mlxptr = NULL;
+    minirt->mlxwin = NULL;
+	return (readFileContentAndCreateScene(minirt, fd));
 }

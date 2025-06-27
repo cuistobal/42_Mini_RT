@@ -1,7 +1,7 @@
 #ifndef PARSING_H
 # define PARSING_H
 
-t_minirt	*readContentAndCreateScene(t_scene *scene, int fd);
-t_minirt	*parsing(int argc, char **argv, char **envp);
+bool    readFileContentAndCreateScene(t_minirt *minirt, int fd);
+bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt);
 
 #endif
