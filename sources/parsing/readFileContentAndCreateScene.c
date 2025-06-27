@@ -86,6 +86,7 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
             break ;
         if (!insertNewObjectInMinirt(minirt, new, &tail))
             break ;
+        printf("%c element sucessfully parsed\n", new->type);
 		saveptr = freeGenericPointer(saveptr);
 	}
 	return (close(fd), endOfParsing(minirt, &saveptr));

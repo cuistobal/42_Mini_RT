@@ -77,6 +77,7 @@ E_FILE	includes/errors.h	/^# define E_FILE /;"	d
 E_USAGE	includes/errors.h	/^# define E_USAGE /;"	d
 FILENAME	includes/errors.h	/^# define FILENAME /;"	d
 FLAGS	sources/utilities/Libft/Makefile	/^FLAGS 	= -Werror -Wextra -Wall -g3 -I.\/include$/;"	m
+FOVCOEF	includes/globalVariables.h	/^# define FOVCOEF /;"	d
 GET_NEXT_LINE_H	sources/utilities/Libft/includes/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 GLOBALVARIABLES_H	includes/globalVariables.h	/^# define GLOBALVARIABLES_H$/;"	d
 GOING	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
@@ -147,6 +148,8 @@ PARSING_H	includes/parsing.h	/^# define PARSING_H$/;"	d
 PERMISSIONS	includes/errors.h	/^# define PERMISSIONS /;"	d
 PLANE	includes/globalVariables.h	/^# define PLANE /;"	d
 PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
+RATIOLIMAX	includes/globalVariables.h	/^# define RATIOLIMAX /;"	d
+RATIOLIMIN	includes/globalVariables.h	/^# define RATIOLIMIN /;"	d
 RETURN	includes/minilibx-linux/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
@@ -191,6 +194,8 @@ UNAME	includes/minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	includes/minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
 USAGE	includes/errors.h	/^# define USAGE /;"	d
 UTILITIES_H	includes/utilities.h	/^# define UTILITIES_H$/;"	d
+VECLIMAX	includes/globalVariables.h	/^# define VECLIMAX /;"	d
+VECLIMIN	includes/globalVariables.h	/^# define VECLIMIN /;"	d
 WARN_SHM_ATTACH	includes/minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
 WHITESPACES	includes/globalVariables.h	/^# define WHITESPACES /;"	d
 WIN1_SX	includes/minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
@@ -231,9 +236,8 @@ color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int 
 color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
 colours	includes/structures.h	/^    long            colours[4];$/;"	m	struct:objects	typeref:typename:long[4]
 content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+convert	sources/parsing/fillObjectHelpers.c	/^bool	convert(float *coordinates, char *str)$/;"	f	typeref:typename:bool
 convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
-convertToFloatEnforceLimits	sources/parsing/fillObjectHelpers.c	/^bool	convertToFloatEnforceLimits(float *ratio, char *str, float min, float max)$/;"	f	typeref:typename:bool
-convertToFloatLimitless	sources/parsing/fillObjectHelpers.c	/^bool	convertToFloatLimitless(float *coordinates, char *str)$/;"	f	typeref:typename:bool
 coordinates	includes/structures.h	/^    float           coordinates[3];$/;"	m	struct:objects	typeref:typename:float[3]
 createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
 createSceneNode	sources/utilities/createNodes.c	/^t_scene *createSceneNode(void)$/;"	f	typeref:typename:t_scene *
@@ -259,10 +263,10 @@ expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
-fillObject	sources/parsing/fillObject.c	/^bool	fillObject(t_object **object, char *str)$/;"	f	typeref:typename:bool
-fillScenarioOne	sources/parsing/fillObject.c	/^static bool fillScenarioOne(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
-fillScenarioThree	sources/parsing/fillObject.c	/^static bool fillScenarioThree(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
-fillScenarioTwo	sources/parsing/fillObject.c	/^static bool fillScenarioTwo(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
+fillObject	sources/parsing/fillObject.c	/^bool	fillObject(t_object *object, char *str)$/;"	f	typeref:typename:bool
+fillScenarioOne	sources/parsing/fillObject.c	/^static bool fillScenarioOne(t_object *object, char *str)$/;"	f	typeref:typename:bool	file:
+fillScenarioThree	sources/parsing/fillObject.c	/^static bool fillScenarioThree(t_object *object, char *str)$/;"	f	typeref:typename:bool	file:
+fillScenarioTwo	sources/parsing/fillObject.c	/^static bool fillScenarioTwo(t_object *object, char *str)$/;"	f	typeref:typename:bool	file:
 fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
 findType	sources/parsing/readFileContentAndCreateScene.c	/^static char	findType(char *ptr)$/;"	f	typeref:typename:char	file:
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
@@ -338,9 +342,10 @@ ft_trim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^int	ft_
 gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
 gc	includes/minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
-getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object **object, char *str)$/;"	f	typeref:typename:bool
-getCoordinates	sources/parsing/fillObjectHelpers.c	/^bool    getCoordinates(float **coordinates, char *str)$/;"	f	typeref:typename:bool
+getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object *object, char *str)$/;"	f	typeref:typename:bool
+getCoordinates	sources/parsing/fillObjectHelpers.c	/^bool    getCoordinates(t_object *obj, char *str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
 getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
+getRatio	sources/parsing/fillObjectHelpers.c	/^bool    getRatio(t_object *obj, char *str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void
@@ -364,6 +369,7 @@ key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"
 key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
 light	includes/structures.h	/^    struct objects  *light;$/;"	m	struct:scene	typeref:struct:objects *
+limits	sources/parsing/fillObjectHelpers.c	/^bool	limits(bool status, float value, float min, float max)$/;"	f	typeref:typename:bool
 local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
 log_error	includes/minilibx-linux/configure	/^log_error(){$/;"	f
 log_error	includes/minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f

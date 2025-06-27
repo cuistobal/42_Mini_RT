@@ -5,7 +5,7 @@ static double  appendDot(const char *str, double result, int sign, bool *error)
     double  divisor;
     double  decimals;
 
-    divisor = 0.0;
+    divisor = 1;
     decimals = 0.0;
     if (*str != '.')
         return (*error = isspace(*str), result * sign);
@@ -45,5 +45,7 @@ double ft_atof(const char *str, bool *error)
     handleSign(str, &sign, &i);
     while (str[i] >= '0' && str[i] <= '9')
         result = result * 10.0 + (str[i++] - '0');
-    return (appendDot(str + i, result, sign, error));    
+    if (str[i])
+        return (appendDot(str + i, result, sign, error));    
+    return (result * sign);
 }

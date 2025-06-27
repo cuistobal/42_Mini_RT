@@ -11,8 +11,10 @@ bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt);
 //bool	convertToFloatEnforceLimits(float *ratio, char *str, float min, float max);
 //bool    getCoordinates(float **coordinates, char *str);
 bool    convert(float *coordinates, char *str);
-bool    limits(bool status, float ratio, float min, float max);
-bool    getCoordinates(t_object *obj, char *str, bool (*convert)(float *dst, \
+bool    checkLimits(bool status, float ratio, float min, float max);
+bool    getCoordinates(t_object *obj, char **str, bool (*convert)(float *dst, \
             char *src), bool (*limits)(bool s, float i, float j, float k));
+bool    getRatio(float *value, char **str, bool (*convert)(float *dst, \
+            char *src), bool limits);
 
 #endif

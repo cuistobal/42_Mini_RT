@@ -20,9 +20,9 @@ static bool insertSceneParameter(t_scene **scene, t_object *new, char type)
 {
     if (type == EALIGHT && !(*scene)->ambiantLightning)
         return ((*scene)->ambiantLightning = new, true);
-    else if (type == ECAMERA && (*scene)->camera)
+    else if (type == ECAMERA && !(*scene)->camera)
         return((*scene)->camera = new, true);
-    if (type == ELIGHT && (*scene)->light)
+    if (type == ELIGHT && !(*scene)->light)
         return ((*scene)->light = new, true);
     return (false);
 }

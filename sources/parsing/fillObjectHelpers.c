@@ -11,19 +11,29 @@ bool	convert(float *coordinates, char *str)
 }
 
 //
-bool	limits(bool status, float value, float min, float max)
+bool	checkLimits(bool status, float value, float min, float max)
 {
     return (status && value >= min && value <= max);
 }
 
-static float    getObjLimits(char type)
-{
-    (void)type;
-    return 0.0;
+//
+bool    getRatio(float *value, char **str, bool (*convert)(float *dst, \
+            char *src), bool limits)
+{ 
+    char    *temp;
+    bool    status;
+
+    status = true;
+    temp = ft_strtok_r(*str, WHITESPACES, str);
+    status = convert(value, temp);
+    if (limits)
+        return (status && checkLimits(status, *value, RATIOLIMIN, RATIOLIMAX));
+    return (status);
 }
 
-bool    getCoordinates(t_object *obj, char *str, bool (*convert)(float *dst, \
-            char *src), bool (*limits)(bool s, float i, float j, float k))
+//
+bool    getCoordinates(t_object *obj, char **str, bool (*convert)(float *dst, \
+            char *src), bool (*checkLimits)(bool s, float i, float j, float k))
 {
     int     i;
     char    *temp;
@@ -32,14 +42,14 @@ bool    getCoordinates(t_object *obj, char *str, bool (*convert)(float *dst, \
 
     i = 0;
     status = true;
-    temp = ft_strtok_r(str, WHITESPACES, &str);
-    while (status && i++ < 4)
+    temp = ft_strtok_r(*str, WHITESPACES, str);
+    while (status && i++ < 3)
     {
         param = ft_strtok_r(temp, ",", &temp);
         status = convert(&obj->coordinates[i], param);
-        if (limits)
-            status = limits(status, obj->coordinates[i], \
-                    getObjLimits(obj->type), getObjLimits(obj->type));
+        if (checkLimits)
+            status = checkLimits(status, obj->coordinates[i], \
+                    VECLIMIN, VECLIMAX);
     }
     return (status && i == 4);
 }
