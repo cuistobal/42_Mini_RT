@@ -208,7 +208,7 @@ all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
 all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
 all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
 ambiantLightning	includes/structures.h	/^    struct objects  *ambiantLightning;$/;"	m	struct:scene	typeref:struct:objects *
-appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign)$/;"	f	typeref:typename:double	file:
+appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign, bool *error)$/;"	f	typeref:typename:double	file:
 at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
 bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
 bpp1	includes/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
@@ -229,15 +229,15 @@ col	includes/minilibx-linux/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typere
 color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
 color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
 color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
-colours	includes/structures.h	/^    long            colours[4];$/;"	m	struct:objects	typeref:typename:long[4]
+colours	includes/structures.h	/^    float          colours[4];$/;"	m	struct:objects	typeref:typename:float[4]
 content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
 convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
 convertToFloatEnforceLimits	sources/parsing/fillObjectHelpers.c	/^bool	convertToFloatEnforceLimits(float *ratio, char *str, float min, float max)$/;"	f	typeref:typename:bool
 convertToFloatLimitless	sources/parsing/fillObjectHelpers.c	/^bool	convertToFloatLimitless(float *coordinates, char *str)$/;"	f	typeref:typename:bool
-coordinates	includes/structures.h	/^    long            coordinates[3];$/;"	m	struct:objects	typeref:typename:long[3]
+coordinates	includes/structures.h	/^    float          coordinates[3];$/;"	m	struct:objects	typeref:typename:float[3]
 countArgs	sources/utilities/splitLine.c	/^static int	countArgs(char const *s, char c)$/;"	f	typeref:typename:int	file:
-createMinirtNode	sources/utilities/createNodes.c	/^void	*createMinirtNode(void)$/;"	f	typeref:typename:void *
 createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
+createSceneNode	sources/utilities/createNodes.c	/^t_scene *createSceneNode(void)$/;"	f	typeref:typename:t_scene *
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
 data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
@@ -258,19 +258,21 @@ expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m
 expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
 expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
-extractFloat	sources/utilities/extractFloat.c	/^float	extractFloat(char *s, int *i)$/;"	f	typeref:typename:float
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
+fillObject	sources/parsing/fillObject.c	/^bool	fillObject(t_object **object, char *str)$/;"	f	typeref:typename:bool
 fillScenarioOne	sources/parsing/fillObject.c	/^static bool fillScenarioOne(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
+fillScenarioThree	sources/parsing/fillObject.c	/^static bool fillScenarioThree(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
+fillScenarioTwo	sources/parsing/fillObject.c	/^static bool fillScenarioTwo(t_object **object, char *str)$/;"	f	typeref:typename:bool	file:
 fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
 findType	sources/parsing/readFileContentAndCreateScene.c	/^static char	findType(char *ptr)$/;"	f	typeref:typename:char	file:
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 freeArr	sources/utilities/freeUtils.c	/^void	*freeArr(char **arr, int len)$/;"	f	typeref:typename:void *
+freeGenericPointer	sources/utilities/freeUtils.c	/^void    *freeGenericPointer(void *ptr)$/;"	f	typeref:typename:void *
 freeMinirt	sources/utilities/freeUtils.c	/^void	*freeMinirt(t_minirt *ptr)$/;"	f	typeref:typename:void *
 freeObject	sources/utilities/freeUtils.c	/^void	*freeObject(t_object *ptr)$/;"	f	typeref:typename:void *
 freeScene	sources/utilities/freeUtils.c	/^void	*freeScene(t_scene *ptr)$/;"	f	typeref:typename:void *
-freeStringSetNull	sources/utilities/freeUtils.c	/^void    *freeStringSetNull(char *string)$/;"	f	typeref:typename:void *
-ft_atof	sources/utilities/my_atof.c	/^double ft_atof(const char *str)$/;"	f	typeref:typename:double
+ft_atof	sources/utilities/my_atof.c	/^double ft_atof(const char *str, bool *error)$/;"	f	typeref:typename:double
 ft_atoi	sources/utilities/Libft/sources/mandatory/ft_convert/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
 ft_base_attribution	sources/utilities/Libft/sources/printf_fd/utilities/ft_base_attribution.c	/^char	*ft_base_attribution(char format)$/;"	f	typeref:typename:char *
 ft_bzero	sources/utilities/Libft/sources/mandatory/ft_mem/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
@@ -342,6 +344,7 @@ getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object **object
 getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
+handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void
 height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
@@ -353,7 +356,7 @@ image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	t
 initParsing	sources/parsing/parsing.c	/^static const char	*initParsing(int argc, char **argv, char **envp)$/;"	f	typeref:typename:const char *	file:
 insertNewObject	sources/parsing/insertNewObjectInMinirt.c	/^static void	insertNewObject(t_object **head, t_object **tail, t_object *new)$/;"	f	typeref:typename:void	file:
 insertNewObjectInMinirt	sources/parsing/insertNewObjectInMinirt.c	/^bool    insertNewObjectInMinirt(t_minirt *minirt, t_object *new, t_object **tail)$/;"	f	typeref:typename:bool
-insertSceneParameter	sources/parsing/insertNewObjectInMinirt.c	/^static bool insertSceneParameter(t_scene *scene, t_object *new, char type)$/;"	f	typeref:typename:bool	file:
+insertSceneParameter	sources/parsing/insertNewObjectInMinirt.c	/^static bool insertSceneParameter(t_scene **scene, t_object *new, char type)$/;"	f	typeref:typename:bool	file:
 join_s1	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s1(const char *s1, char *joined)$/;"	f	typeref:typename:char *
 join_s2	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s2(const char *s2, char *joined)$/;"	f	typeref:typename:char *
 key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
@@ -460,19 +463,19 @@ name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	type
 next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 next	includes/structures.h	/^    struct objects  *next;$/;"	m	struct:objects	typeref:struct:objects *
 next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
-normVector	includes/structures.h	/^    long            normVector[3];$/;"	m	struct:objects	typeref:typename:long[3]
+normVector	includes/structures.h	/^    float          normVector[3];$/;"	m	struct:objects	typeref:typename:float[3]
 objects	includes/structures.h	/^    struct objects  *objects;$/;"	m	struct:scene	typeref:struct:objects *
 objects	includes/structures.h	/^typedef struct	objects$/;"	s
 openFile	sources/parsing/parsing.c	/^static int	openFile(const char *file)$/;"	f	typeref:typename:int	file:
 param	includes/minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
-parseLine	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parseLine(char *line, char **saveptr)$/;"	f	typeref:typename:t_object *	file:
+parseLine	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parseLine(char *line)$/;"	f	typeref:typename:t_object *	file:
 parse_args	includes/minilibx-linux/configure	/^parse_args(){$/;"	f
 parsing	sources/parsing/parsing.c	/^bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)$/;"	f	typeref:typename:bool
 pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
 private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
-ratio	includes/structures.h	/^    long            ratio[2];$/;"	m	struct:objects	typeref:typename:long[2]
+ratio	includes/structures.h	/^    float          ratio[2];$/;"	m	struct:objects	typeref:typename:float[2]
 re	Makefile	/^re: fclean all$/;"	t
 re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
@@ -515,7 +518,7 @@ t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:stru
 t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
 test_default_main	includes/minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
-type	includes/structures.h	/^	char	        type;$/;"	m	struct:objects	typeref:typename:char
+type	includes/structures.h	/^	char	       type;$/;"	m	struct:objects	typeref:typename:char
 use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 visual	includes/minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
 width	includes/minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int

@@ -1,38 +1,47 @@
 #include "minirt.h"
 
-static double  appendDot(const char *str, double result, int sign)
+static double  appendDot(const char *str, double result, int sign, bool *error)
 {
-    double  div;
-    double  dot;
+    double  divisor;
+    double  decimals;
 
-    div = 0.0;
-    dot = 0.0;
-    if (*str == '.')
+    divisor = 0.0;
+    decimals = 0.0;
+    if (*str != '.')
+        return (*error = isspace(*str), result * sign);
+    str++;
+    while (*str >= '0' && *str <= '9')
     {
-        str++;
-        while (*str >= '0' && *str <= '9')
-        {
-            fraction = fraction * 10.0 + (*str++ - '0');
-            divisor *= 10.0;
-        }
-        result += fraction / divisor;
+        decimals = decimals * 10.0 + (*str++ - '0');
+        divisor *= 10.0;
     }
+    result += decimals / divisor;
     return (result * sign);
-
 }
 
-double ft_atof(const char *str)
+void    handleSign(const char *str, int *sign, int *i)
 {
+    if (str[*i] == '-' || str[*i] == '+')
+    {
+        if (str[*i] == '-')
+            *sign = -1;
+        (*i)++;
+    }
+}
+
+double ft_atof(const char *str, bool *error)
+{
+    int     i;
     int     sign;
     double  result;
 
+    i = 0;
     sign = 1;
     result = 0.0;
-    while (is_space(*str))
-        str++;
-    if (*str == '-' || *str == '+')
-        sign = (*str++ == '-') ? -1 : 1;
-    while (*str >= '0' && *str <= '9')
-        result = result * 10.0 + (*str++ - '0');
-    return (appendDot(str, result, sign);    
+    while (isspace(str[i]))
+        i++;
+    handleSign(str, &sign, &i);
+    while (str[i] >= '0' && str[i] <= '9')
+        result = result * 10.0 + (str[i++] - '0');
+    return (appendDot(str + i, result, sign, error));    
 }

@@ -18,16 +18,21 @@ static bool fillScenarioOne(t_object **object, char *str)
 //
 static bool fillScenarioTwo(t_object **object, char *str)
 {
+    (void)object;
+    (void)str;
     //Coord
     //
     //Vector
     //
     //Ratio
+    return true;
 }
 
 //
 static bool fillScenarioThree(t_object **object, char *str)
 {
+    (void)object;
+    (void)str;
     //Coord
     //
     //Vector
@@ -37,6 +42,7 @@ static bool fillScenarioThree(t_object **object, char *str)
     //Ratio
     //
     //Colours
+    return true;
 }
 
 //
@@ -47,7 +53,7 @@ bool	fillObject(t_object **object, char *str)
     type = (*object)->type;
     if (type == EALIGHT)
         return (fillScenarioOne(object, str));
-    if (type == ELIGHT || type == ESPHERE | type == ECAMERA)
+    if (type == ELIGHT || type == ESPHERE || type == ECAMERA)
         return (fillScenarioTwo(object, str));
     if (type == EPLANE || type == ECYLINDER)
         return (fillScenarioThree(object, str));

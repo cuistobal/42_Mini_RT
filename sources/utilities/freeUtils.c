@@ -1,21 +1,16 @@
 #include "minirt.h"
 
-void    *freeStringSetNull(char *string)
+void    *freeGenericPointer(void *ptr)
 {
-    if (string)
-        free(string);
+    if (ptr)
+        free(ptr);
     return (NULL);
 }
 
 void	*freeArr(char **arr, int len)
 {
-	char	*curr;
-
 	while (--len)
-	{
-		free(arr[len])
-		arr[len] = NULL;
-	}
+        arr[len] = freeGenericPointer(arr[len]);
 	free(arr);
 	arr = NULL;
 	return (arr);
@@ -24,9 +19,8 @@ void	*freeArr(char **arr, int len)
 //
 void	*freeObject(t_object *ptr)
 {
-	if (!ptr)
-		return ;
-	free(ptr);
+	if (ptr)
+    	free(ptr);
 	ptr = NULL;
 	return (ptr);
 }
@@ -35,46 +29,27 @@ void	*freeScene(t_scene *ptr)
 {
 	t_object	*next;
 
-	if (!scene)
-		return ;
-	while (scene->objects)
-	{
-		next = scene->objects->next;
-		free(scene->objects);
-		scene->objects = NULL;
-	}
-	free(ptr);
-	ptr = NULL;
-	return (ptr);
+    if (!ptr)
+        return (NULL);
+    if (ptr->objects)
+    {
+        next = ptr->objects->next;
+        freeObject(ptr->objects);
+        ptr->objects = next;
+        return (freeScene(ptr));
+    }
+    ptr->light = freeObject(ptr->light);
+    ptr->camera = freeObject(ptr->camera);
+	return (free(ptr), NULL);
 }
 
 //
 void	*freeMinirt(t_minirt *ptr)
 {
 	if (!ptr)
-		return ;
-	if (ptr->scene)
-	{
-		freeScene(ptr->scene);
-		ptr->scene = NULL;
-	}
-	if (ptr->mlxptr)
-	{
-	}
-	if (ptr->mlxwin)
-	{
-	}
-/*
- *	DOuble free() possible since objects are freed in freeSene();
- *
-	while (ptr->object)
-	{
-		next = ptr->object->next;
-		freeObject(ptr->objects);
-		ptr->objects = next;
-	}
-*/
-	free(ptr);
-	ptr = NULL;
-	return (ptr);
+		return (NULL);
+    ptr->scene = freeScene(ptr->scene);
+	ptr->mlxptr = freeGenericPointer(ptr->mlxptr);  
+	ptr->mlxwin = freeGenericPointer(ptr->mlxwin);
+	return (NULL);
 }

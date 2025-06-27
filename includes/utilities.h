@@ -4,7 +4,7 @@
 # include "libft.h"
 
 //sources/utilities/freeUtils.c
-void    *freeStringSetNull(char *string);
+void    *freeGenericPointer(void *ptr);
 void	*freeArr(char **arr, int len);
 void	*freeObject(t_object *ptr);
 void	*freeScene(t_scene *ptr);
@@ -12,11 +12,11 @@ void	*freeMinirt(t_minirt *ptr);
 
 //sources/utilities/createNodes.c
 //void	insertNewObject(t_object **head, t_object **tail, t_object *new);
-void	*createObjectNode(void);
-void	*createMinirtNode(void);
+t_object    *createObjectNode(void);
+t_scene     *createSceneNode(void);
 
 //sources/utilities/my_atof.c
-double  ft_atof(const char *str);
+double  ft_atof(const char *str, bool *error);
 
 //sources/utilities/rgbConvert.c
 bool    getColours(t_object **object, char *str);

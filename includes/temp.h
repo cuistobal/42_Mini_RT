@@ -2,5 +2,6 @@
 # define TEMP_H
 
 # include <string.h>
+# include <ctype.h>
 
 #endif

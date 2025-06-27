@@ -12,23 +12,21 @@ t_object    *createObjectNode(void)
     ft_bzero(new->ratio, sizeof(float) * 2);
     ft_bzero(new->coordinates, sizeof(float) * 3);
     ft_bzero(new->normVector, sizeof(float) * 3);
-    ft_bzero(new->colour, sizeof(float) * 4);
+    ft_bzero(new->colours, sizeof(float) * 4);
 	new->next = NULL;
 	return (new);
 }
 
-//
-void	*createMinirtNode(void)
+t_scene *createSceneNode(void)
 {
-	t_minirt	*new;
+    t_scene *new;
 
-	new = malloc(sizeof(t_minirt));
-	if (!new)
-		return (NULL);
-	new->scene = NULL;
-	new->mlxptr = NULL;
-	new->mlxwin = NULL;
-	new->objects = NULL;
-	return (new);
+    new = malloc(sizeof(t_scene));
+    if (new)
+        return (NULL);
+    new->light = NULL;
+    new->camera = NULL;
+    new->objects = NULL;
+    new->ambiantLightning = NULL;
+    return (new);
 }
-

@@ -43,7 +43,7 @@ static char *getNextValidLine(int fd, char **saveptr)
     line = get_next_line(fd);
     if (line && (!*line || *line == '\n' || !ft_strcmp(line, "")))
     {
-        line = freeStringSetNull(line);
+        line = freeGenericPointer(line);
         return (getNextValidLine(fd, saveptr));
     }
     *saveptr = line;
@@ -57,7 +57,7 @@ static bool endOfParsing(t_minirt *minirt, bool status, char **saveptr)
 {
     t_scene *scene;
 
-    *saveptr = freeStringSetNull(*saveptr);
+    *saveptr = freeGenericPointer(*saveptr);
     if (!status)
         return (status);
     scene = minirt->scene;
@@ -77,7 +77,7 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
 	tail = NULL;
     saveptr = NULL;
     parsingStatus = true;
-	minirt->scene = createMinirtNode();
+	minirt->scene = createSceneNode();
 	if (!minirt->scene)
 		return (NULL);
 	while (parsingStatus)
@@ -90,7 +90,7 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
             break ;
         if (!insertNewObjectInMinirt(minirt, new, &tail))
             break ;
-		saveptr = freeStringSetNull(saveptr);
+		saveptr = freeGenericPointer(saveptr);
 	}
 	return (close(fd), endOfParsing(minirt, parsingStatus, &saveptr));
 }

@@ -12,22 +12,20 @@ bool    getColours(t_object **object, char *str)
 {
     int     i;
     int     mask;
-    int     colour;
     char    *param;
 
     i = 1;
     mask = 16;
-    colour = 0;
     if (!str)
         return (false);
     while (i < 3)
     {
-        if (!is_digit(*str))
+        if (!isdigit(*str))
             break ;
         param = ft_strtok_r(str, ",", &str);
-        if (!convertRGB(param, &(*object)->colour[i]))
+        if (!convertRGB(param, &(*object)->colours[i]))
             break ;
-        *(*object)->colour |= (*object)->colour[i] << mask;
+        *(*object)->colours |= (*object)->colours[i] << mask;
         mask = mask - 8;
     }
     return (!*str);

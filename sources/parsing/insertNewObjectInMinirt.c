@@ -1,4 +1,4 @@
-#include "minirt"
+#include "minirt.h"
 
 //Appends the new objet as the head or tail of the list.
 static void	insertNewObject(t_object **head, t_object **tail, t_object *new)
@@ -16,26 +16,27 @@ static void	insertNewObject(t_object **head, t_object **tail, t_object *new)
 }
 
 //Ternaries and for loops rock
-static bool insertSceneParameter(t_scene *scene, t_object *new, char type)
+static bool insertSceneParameter(t_scene **scene, t_object *new, char type)
 {
-    if (new->type == EALIGHT)
+    if (type == EALIGHT)
     {
-        if (scene->ambiantLightning)
+        if ((*scene)->ambiantLightning)
             return (false);
-        scene->ambiantLightning = new;
+        (*scene)->ambiantLightning = new;
     }
-    else if (new->type == ECAMERA)
+    else if (type == ECAMERA)
     {
-        if (scene->camera)
+        if ((*scene)->camera)
             return (false);
-        scene->camera = new;
+        (*scene)->camera = new;
     }
-    if (new->type == ELIGHT)
+    if (type == ELIGHT)
     {
-        if (scene->light)
+        if ((*scene)->light)
             return (false);
-        scene->light = new;
+        (*scene)->light = new;
     }
+    return (false);
 }
 
 //This helper plces the new object where it belongs. If the object is a scene
