@@ -22,43 +22,42 @@ static char	findType(char *ptr)
 static t_object	*parseLine(char *line)
 {
 	t_object	*new;
-	char		*src;
 	char		*ptr;
-    char        type;
 
 	new = createObjectNode();
 	if (!new)
 		return (NULL);
-	src = line;	
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
 	new->type = findType(ptr);
-    if (!new->type)
-        return (line = src, free(new), NULL);
-    if (!fillObject(&new, line))
-        return (line = src, free(new), NULL);
-	new->color = findColor(line);
-	return (free(src), src = NULL, new);
+    if (!new->type || !fillObject(&new, line))
+        new = freeObject(new);
+    return (new);
 }
 
 //This helper returns the next line that is either NULL (EOF) or has some
 //content. Empty lines are skipped recursively.
-static char *getNextValidLine(int fd)
+static char *getNextValidLine(int fd, char **saveptr)
 {
     char    *line;
 
     line = get_next_line(fd);
     if (line && (!*line || *line == '\n' || !ft_strcmp(line, "")))
-        return (free(line), line = NULL, getNextValidLine(fd));
+    {
+        line = freeStringSetNull(line);
+        return (getNextValidLine(fd, saveptr));
+    }
+    *saveptr = line;
     return (line);
 }
 
 //If the parsing was interrupted due to invalid, status, we return false.
 //Else, we return true if the scene as a light source, a camera && ambiaent
 //light settings.
-static bool endOfParsing(t_minirt *minirt, bool status)
+static bool endOfParsing(t_minirt *minirt, bool status, char **saveptr)
 {
     t_scene *scene;
 
+    *saveptr = freeStringSetNull(*saveptr);
     if (!status)
         return (status);
     scene = minirt->scene;
@@ -72,16 +71,18 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
 	t_object	*new;
 	t_object	*tail;
 	char		*line;
+    char        *saveptr;
     bool        parsingStatus;
 
 	tail = NULL;
+    saveptr = NULL;
     parsingStatus = true;
 	minirt->scene = createMinirtNode();
-	if (!scene)
+	if (!minirt->scene)
 		return (NULL);
 	while (parsingStatus)
 	{
-        line = getNextValidLine(fd);
+        line = getNextValidLine(fd, &saveptr);
         if (!line)
             break ;
 		new = parseLine(line);
@@ -89,8 +90,7 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
             break ;
         if (!insertNewObjectInMinirt(minirt, new, &tail))
             break ;
-		free(line);
-		line = get_next_line(fd);
+		saveptr = freeStringSetNull(saveptr);
 	}
-	return (close(fd), free(line), endOfParsing(minirt, parsingStatus));
+	return (close(fd), endOfParsing(minirt, parsingStatus, &saveptr));
 }

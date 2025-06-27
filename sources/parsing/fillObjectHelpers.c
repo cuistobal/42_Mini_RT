@@ -1,29 +1,14 @@
 #include "minirt.h"
 
 //
-bool	fillCoordinates(t_object **object, char *str)
+bool	convertToFloatLimitless(float *coordinates, char *str)
 {
-	int		i;
-	int		j;
-	float	coordinates[3];
-
-	j = 0;
-	i = 0;
-	while (str[i] && j++ < 3)
-	{
-		extractFloat(str, &i, coordinates, j);
-	}
-	*object->coordinates = coordinates;
+    *coordinates = ft_atof(str);
 }
 
 //
-bool	fillLightingRatio(t_object **object, char *str)
+bool	convertToFloatEnforceLimits(float *ratio, char *str, float min, float max)
 {
-	float	ratio;
-
-    ratio = my_atof(str);
-	if (ratio < 0 || ratio > 1)
-		return (false);
-	return (*object->coordinates[0] = ratio, true);
+    *ratio = my_atof(str);
+    return (*ratio >= min && *ratio <= max);
 }
-

@@ -23,4 +23,8 @@
 //Bonus
 # define CONE "co"
 
+//Limits
+# define ALOWLIM 0.0
+# define AMAXLIM 1.0
+
 #endif

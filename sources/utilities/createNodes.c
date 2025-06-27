@@ -9,10 +9,10 @@ t_object    *createObjectNode(void)
 	if (!new)
 		return (NULL);
 	new->type = 0;
-    ft_bzero(new->ratio, sizeof(long) * 2);
-    ft_bzero(new->coordinates, sizeof(long) * 3);
-    ft_bzero(new->normVector, sizeof(long) * 3);
-    ft_bzero(new->colour, sizeof(long) * 4);
+    ft_bzero(new->ratio, sizeof(float) * 2);
+    ft_bzero(new->coordinates, sizeof(float) * 3);
+    ft_bzero(new->normVector, sizeof(float) * 3);
+    ft_bzero(new->colour, sizeof(float) * 4);
 	new->next = NULL;
 	return (new);
 }

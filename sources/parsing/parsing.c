@@ -32,12 +32,12 @@ bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)
 	int			fd;
 	const char	*filename;
 	
-	filename = initParsing(argv, argv + 1, envp);
-	if (!file)
-		return (NULL);
+	filename = initParsing(argc, argv + 1, envp);
+	if (!filename)
+		return (false);
 	fd = openFile(filename);
 	if (fd < 0)
-		return (NULL);
+		return (false);
     minirt->scene = NULL;
     minirt->mlxptr = NULL;
     minirt->mlxwin = NULL;

@@ -1,5 +1,12 @@
 #include "minirt.h"
 
+void    *freeStringSetNull(char *string)
+{
+    if (string)
+        free(string);
+    return (NULL);
+}
+
 void	*freeArr(char **arr, int len)
 {
 	char	*curr;

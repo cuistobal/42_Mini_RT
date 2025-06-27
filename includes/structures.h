@@ -18,11 +18,11 @@ typedef struct	scene
 
 typedef struct	objects
 {
-	char	        type;
-    long            ratio[2];
-    long            coordinates[3];
-    long            normVector[3];
-    long            colours[4];
+	char	       type;
+    float          ratio[2];
+    float          coordinates[3];
+    float          normVector[3];
+    float          colours[4];
     struct objects  *next;
 }	t_object;
 

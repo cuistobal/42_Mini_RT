@@ -1,30 +1,43 @@
 #include "minirt.h"
 
-static bool	fillCoordinates(t_object **object, char *str)
+//
+static bool fillScenarioOne(t_object **object, char *str)
 {
-	int		i;
-	int		j;
-	float	coordinates[3];
+    //Ratio
+    //
+    //Colours
+    char    *temp;
 
-	j = 0;
-	i = 0;
-	while (str[i] && j++ < 3)
-	{
-		extractFloat(str, &i, coordinates, j);
-	}
-	*object->coordinates = coordinates;
+    temp = ft_strtok_r(str, WHITESPACES, &str);
+    if (!temp || convertToFloatEnforceLimits(&(*(*object)->ratio), str, ALOWLIM, AMAXLIM))
+        return (false);
+    temp = ft_strtok_r(str, WHITESPACES, &str);
+    return (getColours(object, temp));
 }
 
-static bool	fillLightingRatio(t_object **object, char *str)
+//
+static bool fillScenarioTwo(t_object **object, char *str)
 {
-	float	ratio;
-
-    ratio = my_atof(str);
-	if (ratio < 0 || ratio > 1)
-		return (false);
-	return (*object->coordinates[0] = ratio, true);
+    //Coord
+    //
+    //Vector
+    //
+    //Ratio
 }
 
+//
+static bool fillScenarioThree(t_object **object, char *str)
+{
+    //Coord
+    //
+    //Vector
+    //
+    //Ratio
+    //
+    //Ratio
+    //
+    //Colours
+}
 
 //
 bool	fillObject(t_object **object, char *str)
@@ -32,5 +45,11 @@ bool	fillObject(t_object **object, char *str)
     char    type;
 
     type = (*object)->type;
-    if (type = )
+    if (type == EALIGHT)
+        return (fillScenarioOne(object, str));
+    if (type == ELIGHT || type == ESPHERE | type == ECAMERA)
+        return (fillScenarioTwo(object, str));
+    if (type == EPLANE || type == ECYLINDER)
+        return (fillScenarioThree(object, str));
+    return (false);
 }
