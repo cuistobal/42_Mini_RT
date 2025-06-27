@@ -18,24 +18,12 @@ static void	insertNewObject(t_object **head, t_object **tail, t_object *new)
 //Ternaries and for loops rock
 static bool insertSceneParameter(t_scene **scene, t_object *new, char type)
 {
-    if (type == EALIGHT)
-    {
-        if ((*scene)->ambiantLightning)
-            return (false);
-        (*scene)->ambiantLightning = new;
-    }
-    else if (type == ECAMERA)
-    {
-        if ((*scene)->camera)
-            return (false);
-        (*scene)->camera = new;
-    }
-    if (type == ELIGHT)
-    {
-        if ((*scene)->light)
-            return (false);
-        (*scene)->light = new;
-    }
+    if (type == EALIGHT && !(*scene)->ambiantLightning)
+        return ((*scene)->ambiantLightning = new, true);
+    else if (type == ECAMERA && (*scene)->camera)
+        return((*scene)->camera = new, true);
+    if (type == ELIGHT && (*scene)->light)
+        return ((*scene)->light = new, true);
     return (false);
 }
 

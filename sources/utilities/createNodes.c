@@ -22,7 +22,7 @@ t_scene *createSceneNode(void)
     t_scene *new;
 
     new = malloc(sizeof(t_scene));
-    if (new)
+    if (!new)
         return (NULL);
     new->light = NULL;
     new->camera = NULL;
