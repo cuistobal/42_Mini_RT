@@ -38,6 +38,8 @@ double ft_atof(const char *str, bool *error)
     i = 0;
     sign = 1;
     result = 0.0;
+    if (!str)
+        return (*error = false, result);
     while (isspace(str[i]))
         i++;
     handleSign(str, &sign, &i);

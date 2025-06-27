@@ -8,7 +8,7 @@ static bool convertRGB(char *rgb, long *value)
 
 //static bool purgeWhitespaces()
 
-bool    getColours(t_object **object, char *str)
+bool    getColours(t_object *object, char *str)
 {
     int     i;
     int     mask;
@@ -23,9 +23,9 @@ bool    getColours(t_object **object, char *str)
         if (!isdigit(*str))
             break ;
         param = ft_strtok_r(str, ",", &str);
-        if (!convertRGB(param, &(*object)->colours[i]))
+        if (!convertRGB(param, &object->colours[i]))
             break ;
-        *(*object)->colours |= (*object)->colours[i] << mask;
+        *object->colours |= object->colours[i] << mask;
         mask = mask - 8;
     }
     return (!*str);

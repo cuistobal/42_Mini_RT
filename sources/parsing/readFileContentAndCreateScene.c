@@ -29,7 +29,7 @@ static t_object	*parseLine(char *line)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
 	new->type = findType(ptr);
-    if (!new->type || !fillObject(&new, line))
+    if (!new->type || !fillObject(new, line))
         new = freeObject(new);
     return (new);
 }
@@ -53,14 +53,12 @@ static char *getNextValidLine(int fd, char **saveptr)
 //If the parsing was interrupted due to invalid, status, we return false.
 //Else, we return true if the scene as a light source, a camera && ambiaent
 //light settings.
-static bool endOfParsing(t_minirt *minirt, bool status, char **saveptr)
+static bool endOfParsing(t_minirt *minirt, char **saveptr)
 {
     t_scene *scene;
 
-    *saveptr = freeGenericPointer(*saveptr);
-    if (!status)
-        return (status);
     scene = minirt->scene;
+    *saveptr = freeGenericPointer(*saveptr);
     return (scene->light && scene->camera && scene->ambiantLightning);
 }
 
@@ -72,15 +70,13 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
 	t_object	*tail;
 	char		*line;
     char        *saveptr;
-    bool        parsingStatus;
 
 	tail = NULL;
     saveptr = NULL;
-    parsingStatus = true;
 	minirt->scene = createSceneNode();
 	if (!minirt->scene)
 		return (NULL);
-	while (parsingStatus)
+	while (true)
 	{
         line = getNextValidLine(fd, &saveptr);
         if (!line)
@@ -92,5 +88,5 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
             break ;
 		saveptr = freeGenericPointer(saveptr);
 	}
-	return (close(fd), endOfParsing(minirt, parsingStatus, &saveptr));
+	return (close(fd), endOfParsing(minirt, &saveptr));
 }
