@@ -11,8 +11,7 @@ void	*freeArr(char **arr, int len)
 {
 	while (--len)
         arr[len] = freeGenericPointer(arr[len]);
-	free(arr);
-	arr = NULL;
+	arr = freeGenericPointer(arr);
 	return (arr);
 }
 
@@ -20,8 +19,7 @@ void	*freeArr(char **arr, int len)
 void	*freeObject(t_object *ptr)
 {
 	if (ptr)
-    	free(ptr);
-	ptr = NULL;
+		ptr = freeGenericPointer(ptr);
 	return (ptr);
 }
 
@@ -33,14 +31,18 @@ void	*freeScene(t_scene *ptr)
         return (NULL);
     if (ptr->objects)
     {
-        next = ptr->objects->next;
-        freeObject(ptr->objects);
-        ptr->objects = next;
-        return (freeScene(ptr));
+		while (ptr->objects)
+		{
+        	next = ptr->objects->next;
+        	freeObject(ptr->objects);
+        	ptr->objects = next;
+		}
     }
     ptr->light = freeObject(ptr->light);
     ptr->camera = freeObject(ptr->camera);
-	return (free(ptr), NULL);
+    ptr->ambiantLightning = freeObject(ptr->ambiantLightning);
+	ptr = freeGenericPointer(ptr);
+	return (ptr);
 }
 
 //
