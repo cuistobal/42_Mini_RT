@@ -22,11 +22,17 @@ int	main(int argc, char **argv, char **envp)
 {
 	int			fd;
 	const char	*file;
+    (void)fd;
+    (void)file;
 	t_minirt	scene;
+    (void)argc;
+    (void)envp;
+    (void)argc;
 
-	scene = parsing(argc, argv, envp);
+	/*scene = parsing(argc, argv, envp);
 	if (!scene)
-		return (1);
+		return (1);*/
+    init_window(&scene);
 	openWIndow(*argv);
-	return (free_minirt(&scene), 0);
+	return 0;
 }

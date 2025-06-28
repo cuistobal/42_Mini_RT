@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //
-static int	openFile(const char *file)
+/*static int	openFile(const char *file)
 {
 	int fd;
 
@@ -9,10 +9,10 @@ static int	openFile(const char *file)
 	if (fd < 0)
 		write(2, PERMISSIONS, strlen(PERMISSIONS));
 	return (fd);
-}
+}*/
 
 //
-static const char	*initParsing(int argc, char **argv, char **envp)
+/*static const char	*initParsing(int argc, char **argv, char **envp)
 {
 	int			len;
 
@@ -24,20 +24,20 @@ static const char	*initParsing(int argc, char **argv, char **envp)
 	if (len < 3 || strcmp(*argv + len - 3, EXTENSION))
 		return (write(2, FILENAME, strlen(FILENAME)), NULL);
 	return (*argv);
-}
+}*/
 
 //
-t_minirt	*parsing(int argc, char **argv, char **envp)
+/*t_minirt	*parsing(int argc, char **argv, char **envp)
 {
 	int			fd;
 	t_minirt	*scene;
 	const char	*filename;
 
 	filename = initParsing(argv, argv + 1, envp);
-	if (!file)
+	if (!filename)
 		return (NULL);
 	fd = openFile(filename);
 	if (fd < 0)
 		return (NULL);
 	return (readFileContentAndCreateScene(fd));
-}
+}*/

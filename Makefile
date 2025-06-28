@@ -32,7 +32,7 @@ $(LIBFT_LIB):
 	@$(MAKE) -C $(LIBFT_DIR) > /dev/null
 
 $(NAME): $(MLX_LIB) $(LIBFT_LIB) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -L$(MLX_DIR) -lmlx -L$(LIBFT_DIR) -lft -lX11 -lXext -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -L$(MLX_DIR) -lmlx -L$(LIBFT_DIR) -lft -lX11 -lXext -lm -o $(NAME)
 	@echo "L3t'5 g3T th15 p@rTy 5T@rt!ng R1gHT"
 
 clean:

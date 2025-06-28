@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-static char	findType(char *ptr)
+/* static char	findType(char *ptr)
 {
 	if (!strcmp(ptr, AMBIENT_LIGHTNING))
 		return (65);
@@ -14,10 +14,10 @@ static char	findType(char *ptr)
 		return (69);
 	if (!strcmp(ptr, CYLINDER))
 		return (70);
-}
+} */
 
 //
-static t_object	parseLine(char *line)
+/* static t_object	parseLine(char *line)
 {
 	t_object	*new;
 	char		*src;
@@ -30,7 +30,7 @@ static t_object	parseLine(char *line)
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
 	new->type = findType(ptr);
 	fillObject(&new, line);
-	new->color = findColor(line);
+	new->color = findColor(line); */
 /*
 	int			len;
 	char		**split;
@@ -41,12 +41,12 @@ static t_object	parseLine(char *line)
 		return (freeObject(new));
 	fillObject(&new, split, len);/
 	return (freeArr(split, len), new);
-*/
+
 	return (free(src), src = NULL, new);
-}
+}*/
 
 //
-t_minirt	*readFileContentAndCreateScene(t_scene *scene, int fd)
+/* t_minirt	*readFileContentAndCreateScene(t_scene *scene, int fd)
 {
 	t_object	*new;
 	t_object	*head;
@@ -70,5 +70,5 @@ t_minirt	*readFileContentAndCreateScene(t_scene *scene, int fd)
 		element = get_next_line(fd);
 	}
 	return (close(fd), scene);
-}
+} */
 
