@@ -11,7 +11,6 @@ void	*freeScene(t_scene *ptr);
 void	*freeMinirt(t_minirt *ptr);
 
 //sources/utilities/createNodes.c
-//void	insertNewObject(t_object **head, t_object **tail, t_object *new);
 t_object    *createObjectNode(void);
 t_scene     *createSceneNode(void);
 
@@ -20,5 +19,8 @@ double  ft_atof(const char *str, bool *error);
 
 //sources/utilities/rgbConvert.c
 bool    getColours(t_object *object, char **str);
+
+//sources/utilities/init_window.c
+void init_window(t_minirt *scene);
 
 #endif

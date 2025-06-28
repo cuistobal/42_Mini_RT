@@ -48,5 +48,7 @@ int	main(int argc, char **argv, char **envp)
 	if (!parsing(argc, argv, envp, &minirt))
 		return (1); 
 	printMinirt(minirt);
+    init_window(&scene);
+	openWIndow(*argv);
 	return (freeMinirt(&minirt), 0);
 }
