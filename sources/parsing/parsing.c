@@ -9,7 +9,7 @@ static int	openFile(const char *file)
 	if (fd < 0)
 		write(2, PERMISSIONS, strlen(PERMISSIONS));
 	return (fd);
-}*/
+}
 
 //
 static const char	*initParsing(int argc, char **argv, char **envp)

@@ -19,7 +19,7 @@ static char	findType(char *ptr)
 }
 
 //
-static t_object	parseLine(char *line)
+static t_object	*parseLine(char *line)
 {
 	t_object	*new;
 	char		*ptr;

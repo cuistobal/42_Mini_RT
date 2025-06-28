@@ -7,9 +7,6 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd);
 bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt);
 
 //sources/parsing/fillObjectHelpers.c
-//bool	convertToFloatLimitless(float *coordinates, char *str);
-//bool	convertToFloatEnforceLimits(float *ratio, char *str, float min, float max);
-//bool    getCoordinates(float **coordinates, char *str);
 bool    convert(float *coordinates, char *str);
 bool    checkLimits(bool status, float ratio, float min, float max);
 bool    getCoordinates(t_object *obj, char **str, bool (*convert)(float *dst, \
