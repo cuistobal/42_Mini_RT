@@ -43,38 +43,39 @@ static void	minHeapify(int *arr, int size, int i)
     {
 		temp = arr[i];
 		arr[i] = arr[smallest];
-		arr[largest] = temp;
+		arr[smallest] = temp;
         minHeapify(arr, size, smallest);
     }
 }
 
 
 //
-static void	buildMinHeap(int *arr, int size)
+static void	buildMinHeap(int *arr, int size, void (*sorter)(int *, int, int))
 {
 	int i;
 
-	i = size << 1 - 1;
+	i = (size << 1) - 1;
 	while (i--)
-		minHeapify(arr, size, i);
+		sorter(arr, size, i);
 }
 
 //
-static void	buildMaxHeap(int *arr, int size)
+static void	buildMaxHeap(int *arr, int size, void (*sorter)(int *, int, int))
 {
 	int i;
 
-	i = size << 1 - 1;
+	i = (size << 1) - 1;
 	while (i--)
-		maxHeapify(arr, size, i);
+		sorter(arr, size, i);
 }
 
 //Applies heap sort on the array based on the boolean scenario
 int	*heapSort(int *arr, int size, bool type)
 {
 	int		i;
-	void	(*builder)(int *, int);
+	int		temp;
 	void	(*sorter)(int *, int, int);
+	void	(*builder)(int *, int, void (*)(int *, int, int));
 
 	i = size - 1;
 	if (type)
@@ -87,10 +88,12 @@ int	*heapSort(int *arr, int size, bool type)
 		builder = buildMinHeap;
 		sorter = minHeapify;
 	}
-	builder(arr, size);
+	builder(arr, size, sorter);
 	while (i > 0)
 	{
-       	swap(&arr[0], &arr[i]);
+		temp = arr[0];
+		arr[0] = arr[i];
+		arr[i] = temp;
 		sorter(arr, i, 0);
 		i--;
 	}
