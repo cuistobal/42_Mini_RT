@@ -78,12 +78,9 @@ int	*heapSort(int *arr, int size, bool type)
 	void	(*builder)(int *, int, void (*)(int *, int, int));
 
 	i = size - 1;
-	if (type)
-	{
-		builder = buildMaxHeap;
-		sorter = maxHeapify;
-	}
-	else
+	builder = buildMaxHeap;
+	sorter = maxHeapify;
+	if (!type)
 	{
 		builder = buildMinHeap;
 		sorter = minHeapify;
@@ -95,7 +92,7 @@ int	*heapSort(int *arr, int size, bool type)
 		arr[0] = arr[i];
 		arr[i] = temp;
 		sorter(arr, i, 0);
-		i--;
+		i--
 	}
 	return (arr);
 }
