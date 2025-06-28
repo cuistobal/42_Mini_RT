@@ -12,7 +12,7 @@ t_object    *createObjectNode(void)
     ft_bzero(new->ratio, sizeof(float) * 2);
     ft_bzero(new->coordinates, sizeof(float) * 3);
     ft_bzero(new->normVector, sizeof(float) * 3);
-    ft_bzero(new->colours, sizeof(float) * 4);
+    ft_bzero(new->colours, sizeof(long) * 4);
 	new->next = NULL;
 	return (new);
 }
