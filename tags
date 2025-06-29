@@ -199,6 +199,7 @@ WARN_SHM_ATTACH	includes/minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"
 WHITESPACES	includes/globalVariables.h	/^# define WHITESPACES /;"	d
 WIN1_SX	includes/minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
 WIN1_SY	includes/minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
+X	includes/globalVariables.h	/^# define X /;"	d
 X-WINDOW	includes/minilibx-linux/man/man1/mlx.1	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
 X-WINDOW	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
 X-WINDOW	includes/minilibx-linux/man/man3/mlx.3	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
@@ -206,6 +207,9 @@ X-WINDOW	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH X-WINDOW EVENTS$/;"	s
 XPM	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
 XPM	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
 X_ShmAttach	includes/minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
+Y	includes/globalVariables.h	/^# define Y /;"	d
+Z	includes/globalVariables.h	/^# define Z /;"	d
+aabb	includes/structures.h	/^typedef struct aabb$/;"	s
 all	Makefile	/^all: $(NAME)$/;"	t
 all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
@@ -214,6 +218,7 @@ all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
 ambiantLightning	includes/structures.h	/^    struct objects  *ambiantLightning;$/;"	m	struct:scene	typeref:struct:objects *
 appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign, bool *error)$/;"	f	typeref:typename:double	file:
 at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
+bounds	includes/structures.h	/^    struct aabb		bounds;$/;"	m	struct:bvh	typeref:struct:aabb
 bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
 bpp1	includes/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
 bpp2	includes/minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
@@ -221,6 +226,7 @@ bpp3	includes/minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
 bpp4	includes/minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
 buildMaxHeap	sources/utilities/sorting.c	/^static void	buildMaxHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
 buildMinHeap	sources/utilities/sorting.c	/^static void	buildMinHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
+bvh	includes/structures.h	/^typedef struct bvh$/;"	s
 camera	includes/structures.h	/^    struct objects  *camera;$/;"	m	struct:scene	typeref:struct:objects *
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
 checkLimits	sources/parsing/fillObjectHelpers.c	/^bool	checkLimits(bool status, float value, float min, float max)$/;"	f	typeref:typename:bool
@@ -237,10 +243,12 @@ color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	t
 color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
 color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
 colours	includes/structures.h	/^    long            colours[4];$/;"	m	struct:objects	typeref:typename:long[4]
+computeScalarProduct	sources/utilities/computing.c	/^inline float	computeScalarProduct(int *obj1, int *obj2)$/;"	f	typeref:typename:float
 content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
 convert	sources/parsing/fillObjectHelpers.c	/^bool	convert(float *coordinates, char *str)$/;"	f	typeref:typename:bool
 convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
 coordinates	includes/structures.h	/^    float           coordinates[3];$/;"	m	struct:objects	typeref:typename:float[3]
+cramersRule	sources/execution/cramersRule.c	/^static float	cramersRule(int	matrix[3][3], int solution[3])$/;"	f	typeref:typename:float	file:
 createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
 createSceneNode	sources/utilities/createNodes.c	/^t_scene *createSceneNode(void)$/;"	f	typeref:typename:t_scene *
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
@@ -272,6 +280,7 @@ fillScenarioOne	sources/parsing/fillObject.c	/^static bool fillScenarioOne(t_obj
 fillScenarioThree	sources/parsing/fillObject.c	/^static bool fillScenarioThree(t_object *object, char **str, char type)$/;"	f	typeref:typename:bool	file:
 fillScenarioTwo	sources/parsing/fillObject.c	/^static bool fillScenarioTwo(t_object *object, char **str, char type)$/;"	f	typeref:typename:bool	file:
 fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
+findDistance	sources/utilities/computing.c	/^inline float	findDistance(int *arr)$/;"	f	typeref:typename:float
 findType	sources/parsing/readFileContentAndCreateScene.c	/^static char	findType(char *ptr)$/;"	f	typeref:typename:char	file:
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 freeArr	sources/utilities/freeUtils.c	/^void	*freeArr(char **arr, int len)$/;"	f	typeref:typename:void *
@@ -374,6 +383,7 @@ key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:
 key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
 key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
+left	includes/structures.h	/^    struct bvh		*left;$/;"	m	struct:bvh	typeref:struct:bvh *
 light	includes/structures.h	/^    struct objects  *light;$/;"	m	struct:scene	typeref:struct:objects *
 local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
 log_error	includes/minilibx-linux/configure	/^log_error(){$/;"	f
@@ -392,9 +402,11 @@ main	sources/main.c	/^int	main(int argc, char **argv, char **envp)$/;"	f	typeref
 mask	includes/minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
 math.h	.vscode/settings.json	/^        "math.h": "c"$/;"	s	object:files.associations
 maxHeapify	sources/utilities/sorting.c	/^static void	maxHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
+maxvec	includes/structures.h	/^	int	maxvec[3];$/;"	m	struct:aabb	typeref:typename:int[3]
 minHeapify	sources/utilities/sorting.c	/^static void	minHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
 minirt	includes/structures.h	/^typedef	struct	minirt$/;"	s
 minirt.h	.vscode/settings.json	/^        "minirt.h": "c",$/;"	s	object:files.associations
+minvec	includes/structures.h	/^	int	minvec[3];$/;"	m	struct:aabb	typeref:typename:int[3]
 mlx	includes/minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
 mlx	includes/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
 mlx_X_error	includes/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
@@ -479,6 +491,8 @@ next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:
 next	includes/structures.h	/^    struct objects  *next;$/;"	m	struct:objects	typeref:struct:objects *
 next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 normVector	includes/structures.h	/^    float           normVector[3];$/;"	m	struct:objects	typeref:typename:float[3]
+objCount	includes/structures.h	/^	int				objCount;$/;"	m	struct:bvh	typeref:typename:int
+objects	includes/structures.h	/^	struct objects	*objects;$/;"	m	struct:bvh	typeref:struct:objects *
 objects	includes/structures.h	/^    struct objects  *objects;$/;"	m	struct:scene	typeref:struct:objects *
 objects	includes/structures.h	/^typedef struct	objects$/;"	s
 openFile	sources/parsing/parsing.c	/^static int	openFile(const char *file)$/;"	f	typeref:typename:int	file:
@@ -498,6 +512,7 @@ re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
 re	sources/utilities/Libft/Makefile	/^re: fclean all$/;"	t
 readFileContentAndCreateScene	sources/parsing/readFileContentAndCreateScene.c	/^bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)$/;"	f	typeref:typename:bool
+right	includes/structures.h	/^    struct bvh		*right;$/;"	m	struct:bvh	typeref:struct:bvh *
 root	includes/minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 s_col_name	includes/minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
 s_event_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_event_list$/;"	s
@@ -522,7 +537,10 @@ sl1	includes/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
 sl2	includes/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
 sl3	includes/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
 sl4	includes/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
+solve	sources/execution/cramersRule.c	/^static float	solve()$/;"	f	typeref:typename:float	file:
 strlcpy_is_not_posix	includes/minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
+t_aabb	includes/structures.h	/^}	t_aabb;$/;"	t	typeref:struct:aabb
+t_bvh	includes/structures.h	/^}	t_bvh;$/;"	t	typeref:struct:bvh
 t_event_list	includes/minilibx-linux/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
 t_img	includes/minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
 t_list	sources/utilities/Libft/includes/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
