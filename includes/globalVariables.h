@@ -39,4 +39,9 @@
 # define RATIOLIMAX 1.0
 # define FOVCOEF 180.0
 
+//Shortcuts for x, y, and z's indexes in their int *arr representation
+# define X 0
+# define Y 1
+# define Z 2
+
 #endif
