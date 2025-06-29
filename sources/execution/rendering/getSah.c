@@ -3,10 +3,10 @@
 static inline float	getCenter(t_object *current)
 {
 	if (axis == 0)
-		return (current.x);
+		return (current->coordinates[X]);
 	else if (axis == 1)
-		return (current.y);
-	return (current.z);
+		return (current->coordinates[Y]);
+	return (current->coordinates[Z]);
 }
 
 
@@ -64,9 +64,21 @@ static float	evaluateSah(t_object *objects, int count, int axis, float split)
 	return (surfaceAreaDifference(lBounds, rBounds, count - diff, diff))	
 }
 
+//
+static float	computeSplit(t_bvh *node, int axis, int i)
+{
+	if (axis == 0)
+    	return (node->bounds->minVec[X] + (i / 8.0f) * \
+				(node->bounds->max[X] - node->bounds->minVec[X]);
+	else if (axis == 1)
+    	return (node->bounds->minVec[Y] + (i / 8.0f) * 
+			\(node->bounds->max[Y] - node->bounds->minVec[Y]);
+   	return (node->bounds->minVec[Z] + (i / 8.0f) * \
+		(node->bounds->max[Z] - node->bounds->minVec[Z]);
+}
 
 //Returns the best axis
-static int	getSahHelper(t_bvh *node, int *bestCost, int *bestSplit, int axis)
+static int	getBestAxis(t_bvh *node, int *bestCost, int *bestSplit, int axis)
 {
 	int		i;
 	int		ret;
@@ -78,13 +90,7 @@ static int	getSahHelper(t_bvh *node, int *bestCost, int *bestSplit, int axis)
 	cost = 0;
 	while (i < 8)
 	{
-		if (axis == 0)
-            split = node->bounds.min.x + (i / 8.0f) * (node->bounds.max.x - node->bounds.min.x);
-        else if (axis == 1)
-            split = node->bounds.min.y + (i / 8.0f) * (node->bounds.max.y - node->bounds.min.y);
-        else
-            split = node->bounds.min.z + (i / 8.0f) * (node->bounds.max.z - node->bounds.min.z);
-		i++;
+		computeSplit(node, axis, i);
 		cost = evaluateSah();
 		if (cost < *bestCost)
 		{
@@ -92,12 +98,13 @@ static int	getSahHelper(t_bvh *node, int *bestCost, int *bestSplit, int axis)
             ret = axis;
             *best_split = split;
 		}
+		i++;
 	}
 	return (ret);
 }
 
 //
-float	getSah(t_bvh *node)
+void	getSah(t_bvh *node, int *bestAxis, int *bestSplit)
 {
 	int		axis;
     int		bestAxis;
@@ -106,11 +113,11 @@ float	getSah(t_bvh *node)
 
 	axis = 0;
 	bestAxis = 0;
-	bestCost = 0;
+	bestCost = INFINITY; // Find the value of this preset float
 	bestSplit = 0;
 	while (axis < 3)
 	{
-		bestAxis = getSahHelper(node, &bestCost, &bestSplit, axis);
+		bestAxis = getBestAxis(node, &bestCost, &bestSplit, axis);
 		axis++;
 	}
 }

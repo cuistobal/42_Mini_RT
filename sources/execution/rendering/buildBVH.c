@@ -27,44 +27,42 @@ static t_object	getMiddleNode(t_object *list, int *midCount)
 	return (slow);
 }
 
-static inline void	appendPointers(t_object **list)
+static float	getCenter(t_object *current, int axis)
 {
-	t_object	*temp;
-
-	temp = *list;
-	if (!temp)
-		return ;
-	*list = temp->next;
-	temp->next = NULL;
+	if (axis == 0)
+		return (current->coordinates[X]);
+	else if (axis == 1)
+		return (current->coordinates[Y]);
+	return (current->coordinates[Z]);
 }
 
 //
-static void splitObjectList(t_object *list, t_object **mid, int *midCount)
+static void splitObjectList(t_object *list, t_object **mid, int *midCount, float bestSplit)
 {
 	t_object	*mid;
 	t_object	*temp;
+	t_object	*prev;
 	t_object	*curr;	
 	int			center;
 
 	curr = list;
-	*mid = getMiddleNode(objects, &midCount);	
+	*mid = list;
+	prev = NULL;
 	while (curr)
 	{
-		if (bestAzis == 0)
-            center = curr.center.x;
-		else if (bestAzis == 1)
-            center = curr.center.y;
-		else
-            center = curr.center.z;
-        if (center < best_split)
-        {
-            temp = curr;
-            curr = mid;
-			mid = temp->next;
-        }
-		current = current->next;
+		center = getCenter(curr, bestAxis)
+        if (center < bestSplit)
+		{
+			prev = *mid;
+			*mid = (*mid)->next;
+		}
+		curr = curr->next;
 	}
-	appendPointers(&mid);
+	//Splitting the list arounf the middle node. headd ans mid will be 
+	//different since we don't reach this aprt of the program if the list size
+	//is not greater than 1,
+	if (prev)
+		prev->next = NULL;
 }
 
 static bool	createBvhNode(t_bvh **node, t_object *objects, int count)
@@ -85,28 +83,30 @@ static bool	createBvhNode(t_bvh **node, t_object *objects, int count)
 //
 bool	buildBvh(t_bvh **root, t_object *objects, int count, int depth)
 {
-	float		sah;
 	t_object	*mid;
 	t_object	*current;
 	int			midcount;
+	int			bestAxis;
+	float		bestSplit;
 
 	mid = NULL;
+	bestAxis = 0;
+	bestSplit = 0;
 	current = objects;
 	if (!createBvhNode(root, objects, count))
-		return (leafScenario(root, objects, count));
+		return (false);
     node->bounds = create_empty_aabb();
 	while (current)
 	{
 		node->bounds = combineAabb(node->bounds, createAabbFromObject(current));
 		current = current->next;
 	}	
-	if (leafScenario(&node))
-		return (node);
-	sah = getSah(node);
+	if (count > 1 && depth < 40) 
+		return ((*root)->objects = objects, (*root)->count = count, true);
+	getSah(node, &bestAxis, &bestSplit);
 	midCount = count;
-	current = objects;
-	splitObjectList(current, &mid, &midCount);
-    node->left = build_bvh_node(spheres, current, count - midCount , depth + 1);
+	splitObjectList(objects, &mid, &midCount, bestAxis);
+    node->left = build_bvh_node(spheres, objects, count - midCount , depth + 1);
     node->right = build_bvh_node(spheres, mid, midCount, depth + 1);
-    return (node);
+	return (true);
 }
