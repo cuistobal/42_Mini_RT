@@ -2,13 +2,15 @@
 
 t_aabb	*combineAabbNodes(t_aabb *node1, t_aabb *node2)
 {
-	
+	return NULL;
+/*	
         fmin(a.min.x, b.min.x),
          fmin(a.min.y, b.min.y),
          fmin(a.min.z, b.min.z)},
         {fmax(a.max.x, b.max.x),
          fmax(a.max.y, b.max.y),
          fmax(a.max.z, b.max.z)}};
+*/
 }
 
 t_aabb	*createAabbNode(t_object *object)
