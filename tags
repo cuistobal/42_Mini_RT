@@ -277,7 +277,7 @@ endian1	includes/minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typenam
 endian2	includes/minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
 endian3	includes/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
 endian4	includes/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
-evaluateSah	sources/execution/rendering/getSah.c	/^static float	evaluateSah(t_object *objects, int count, int axis, float split)$/;"	f	typeref:typename:float	file:
+evaluateSah	sources/execution/rendering/getSah.c	/^static float	evaluateSah(t_bvh *node, int axis, float split)$/;"	f	typeref:typename:float	file:
 expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
@@ -366,15 +366,14 @@ gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typer
 gc	includes/minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
 getAabbSurfaceArea	sources/execution/rendering/aabbNodeHandler.c	/^float	getAabbSurfaceArea(t_aabb *boundaries)$/;"	f	typeref:typename:float
-getBestAxis	sources/execution/rendering/getSah.c	/^static int	getBestAxis(t_bvh *node, int *bestCost, int *bestSplit, int axis)$/;"	f	typeref:typename:int	file:
+getBestAxis	sources/execution/rendering/getSah.c	/^static int	getBestAxis(t_bvh *node, float *bestCost, float *bestSplit, int axis)$/;"	f	typeref:typename:int	file:
 getCenter	sources/execution/rendering/buildBVH.c	/^static float	getCenter(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 getCenter	sources/execution/rendering/getSah.c	/^static inline float	getCenter(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object *object, char **str)$/;"	f	typeref:typename:bool
 getCoordinates	sources/parsing/fillObjectHelpers.c	/^bool    getCoordinates(t_object *obj, char **str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
-getMiddleNode	sources/execution/rendering/buildBVH.c	/^static t_object	*getMiddleNode(t_object *list, int *midCount)$/;"	f	typeref:typename:t_object *	file:
 getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 getRatio	sources/parsing/fillObjectHelpers.c	/^bool    getRatio(float *value, char **str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
-getSah	sources/execution/rendering/getSah.c	/^void	getSah(t_bvh *node, int *bestAxis, int *bestSplit)$/;"	f	typeref:typename:void
+getSah	sources/execution/rendering/getSah.c	/^void	getSah(t_bvh *node, int *bestAxis, float *bestSplit)$/;"	f	typeref:typename:void
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void

@@ -77,7 +77,7 @@ bool	buildBvh(t_bvh **root, t_object *objects, int count, int depth)
 		combineAabbNodes((*root)->bounds, createAabbNode(current));
 		current = current->next;
 	}	
-	if (count > 1 && depth < 40) 
+	if (count <= 1 || depth >= 40) 
 		return ((*root)->objects = objects, (*root)->objCount = count, true);
 	getSah(*root, &bestAxis, &bestSplit);
 	midCount = splitObjectList(objects, &mid, bestAxis, bestSplit);
