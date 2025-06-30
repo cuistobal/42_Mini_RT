@@ -92,6 +92,7 @@ INCLUDE	includes/minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:Mi
 INCLUDE	includes/minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
 INC_DIR	Makefile	/^INC_DIR	= includes$/;"	m
 INC_DIR	sources/utilities/Libft/Makefile	/^INC_DIR	= includes$/;"	m
+INVADRR	includes/errors.h	/^# define INVADRR /;"	d
 LFLAGS	includes/minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
 LIBFT_DIR	Makefile	/^LIBFT_DIR = $(SRC_DIR)\/utilities\/Libft$/;"	m
 LIBFT_H	sources/utilities/Libft/includes/libft.h	/^# define LIBFT_H$/;"	d
@@ -102,6 +103,8 @@ LIGHT	includes/globalVariables.h	/^# define LIGHT /;"	d
 LINKING	includes/minilibx-linux/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
 LINKING	includes/minilibx-linux/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
 LOCALHOST	includes/minilibx-linux/mlx_int.h	/^# define LOCALHOST /;"	d
+MAXBVHDEPTH	includes/globalVariables.h	/^# define MAXBVHDEPTH /;"	d
+MEMALLOC	includes/errors.h	/^# define MEMALLOC /;"	d
 MINIRT_H	includes/minirt.h	/^# define MINIRT_H$/;"	d
 MLX_DIR	Makefile	/^MLX_DIR = $(INC_DIR)\/minilibx-linux$/;"	m
 MLX_H	includes/minilibx-linux/mlx.h	/^#define	MLX_H$/;"	d
@@ -178,6 +181,7 @@ SRC_DIR	sources/utilities/Libft/Makefile	/^SRC_DIR	= sources$/;"	m
 STORING	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
 STORING	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
 STRUCTURES_H	includes/structures.h	/^# define STRUCTURES_H$/;"	d
+SURFACECOEFFICIENT	includes/globalVariables.h	/^# define SURFACECOEFFICIENT /;"	d
 SYNOPSYS	includes/minilibx-linux/man/man1/mlx.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
@@ -188,8 +192,6 @@ SYNOPSYS	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:
 SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SphereNode	sources/execution/claudesTranslation.c	/^typedef struct SphereNode {$/;"	s	file:
-SphereNode	sources/execution/claudesTranslation.c	/^} SphereNode;$/;"	t	typeref:struct:SphereNode	file:
 TEMP_H	includes/temp.h	/^# define TEMP_H$/;"	d
 UNAME	includes/minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	includes/minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
@@ -219,9 +221,8 @@ all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
 all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
 ambiantLightning	includes/structures.h	/^    struct objects  *ambiantLightning;$/;"	m	struct:scene	typeref:struct:objects *
 appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign, bool *error)$/;"	f	typeref:typename:double	file:
-array_to_sphere_list	sources/execution/claudesTranslation.c	/^SphereNode *array_to_sphere_list(Sphere *spheres, int count) {$/;"	f	typeref:typename:SphereNode *
 at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
-bounds	includes/structures.h	/^    struct aabb		bounds;$/;"	m	struct:bvh	typeref:struct:aabb
+bounds	includes/structures.h	/^    struct aabb		*bounds;$/;"	m	struct:bvh	typeref:struct:aabb *
 bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
 bpp1	includes/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
 bpp2	includes/minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
@@ -230,7 +231,6 @@ bpp4	includes/minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
 buildBvh	sources/execution/rendering/buildBVH.c	/^bool	buildBvh(t_bvh **root, t_object *objects, int count, int depth)$/;"	f	typeref:typename:bool
 buildMaxHeap	sources/utilities/sorting.c	/^static void	buildMaxHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
 buildMinHeap	sources/utilities/sorting.c	/^static void	buildMinHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
-build_bvh_node_list	sources/execution/claudesTranslation.c	/^BVHNode *build_bvh_node_list(SphereNode *sphere_list, int depth) {$/;"	f	typeref:typename:BVHNode *
 bvh	includes/structures.h	/^typedef struct bvh$/;"	s
 camera	includes/structures.h	/^    struct objects  *camera;$/;"	m	struct:scene	typeref:struct:objects *
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
@@ -248,20 +248,18 @@ color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	t
 color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
 color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
 colours	includes/structures.h	/^    long            colours[4];$/;"	m	struct:objects	typeref:typename:long[4]
-combineAabbNodes	sources/execution/rendering/aabbNodeHandler.c	/^t_aabb	*combineAabbNodes(t_aabb *node1, t_aabb *node2)$/;"	f	typeref:typename:t_aabb *
+combineAabbNodes	sources/execution/rendering/aabbNodeHandler.c	/^void	combineAabbNodes(t_aabb *dest, t_aabb *src)$/;"	f	typeref:typename:void
 computeScalarProduct	sources/utilities/computing.c	/^inline float	computeScalarProduct(int *obj1, int *obj2)$/;"	f	typeref:typename:float
+computeSplit	sources/execution/rendering/getSah.c	/^static float	computeSplit(t_bvh *node, int axis, int i)$/;"	f	typeref:typename:float	file:
 content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
 convert	sources/parsing/fillObjectHelpers.c	/^bool	convert(float *coordinates, char *str)$/;"	f	typeref:typename:bool
 convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
 coordinates	includes/structures.h	/^    float           coordinates[3];$/;"	m	struct:objects	typeref:typename:float[3]
 countObjectsAndAppendAabb	sources/execution/rendering/startRendering.c	/^static int	countObjectsAndAppendAabb(t_object *objects)$/;"	f	typeref:typename:int	file:
-count_spheres	sources/execution/claudesTranslation.c	/^int count_spheres(SphereNode *head) {$/;"	f	typeref:typename:int
-cramersRule	sources/execution/cramersRule.c	/^static float	cramersRule(int	matrix[3][3], int solution[3])$/;"	f	typeref:typename:float	file:
 createAabbNode	sources/execution/rendering/aabbNodeHandler.c	/^t_aabb	*createAabbNode(t_object *object)$/;"	f	typeref:typename:t_aabb *
-createBvhNode	sources/execution/rendering/buildBVH.c	/^static bool	createBvhNode(t_bvh **node, t_object *objects, int count)$/;"	f	typeref:typename:bool	file:
+createBvhNode	sources/execution/rendering/buildBVH.c	/^static bool	createBvhNode(t_bvh **node)$/;"	f	typeref:typename:bool	file:
 createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
 createSceneNode	sources/utilities/createNodes.c	/^t_scene *createSceneNode(void)$/;"	f	typeref:typename:t_scene *
-create_aabb_from_sphere_list	sources/execution/claudesTranslation.c	/^AABB create_aabb_from_sphere_list(SphereNode *head) {$/;"	f	typeref:typename:AABB
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
 data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
@@ -280,7 +278,6 @@ endian2	includes/minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typenam
 endian3	includes/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
 endian4	includes/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
 evaluateSah	sources/execution/rendering/getSah.c	/^static float	evaluateSah(t_object *objects, int count, int axis, float split)$/;"	f	typeref:typename:float	file:
-evaluate_sah_list	sources/execution/claudesTranslation.c	/^float evaluate_sah_list(SphereNode *head, int axis, float split) {$/;"	f	typeref:typename:float
 expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
@@ -301,7 +298,6 @@ freeGenericPointer	sources/utilities/freeUtils.c	/^void    *freeGenericPointer(v
 freeMinirt	sources/utilities/freeUtils.c	/^void	*freeMinirt(t_minirt *ptr)$/;"	f	typeref:typename:void *
 freeObject	sources/utilities/freeUtils.c	/^void	*freeObject(t_object *ptr)$/;"	f	typeref:typename:void *
 freeScene	sources/utilities/freeUtils.c	/^void	*freeScene(t_scene *ptr)$/;"	f	typeref:typename:void *
-free_sphere_list	sources/execution/claudesTranslation.c	/^void free_sphere_list(SphereNode *head) {$/;"	f	typeref:typename:void
 ft_atof	sources/utilities/my_atof.c	/^double ft_atof(const char *str, bool *error)$/;"	f	typeref:typename:double
 ft_atoi	sources/utilities/Libft/sources/mandatory/ft_convert/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
 ft_base_attribution	sources/utilities/Libft/sources/printf_fd/utilities/ft_base_attribution.c	/^char	*ft_base_attribution(char format)$/;"	f	typeref:typename:char *
@@ -369,13 +365,16 @@ ft_trim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^int	ft_
 gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
 gc	includes/minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+getAabbSurfaceArea	sources/execution/rendering/aabbNodeHandler.c	/^float	getAabbSurfaceArea(t_aabb *boundaries)$/;"	f	typeref:typename:float
+getBestAxis	sources/execution/rendering/getSah.c	/^static int	getBestAxis(t_bvh *node, int *bestCost, int *bestSplit, int axis)$/;"	f	typeref:typename:int	file:
 getCenter	sources/execution/rendering/buildBVH.c	/^static float	getCenter(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
-getCenter	sources/execution/rendering/getSah.c	/^static inline float	getCenter(t_object *current)$/;"	f	typeref:typename:float	file:
+getCenter	sources/execution/rendering/getSah.c	/^static inline float	getCenter(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 getColours	sources/utilities/rgbConvert.c	/^bool    getColours(t_object *object, char **str)$/;"	f	typeref:typename:bool
 getCoordinates	sources/parsing/fillObjectHelpers.c	/^bool    getCoordinates(t_object *obj, char **str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
-getMiddleNode	sources/execution/rendering/buildBVH.c	/^static t_object	getMiddleNode(t_object *list, int *midCount)$/;"	f	typeref:typename:t_object	file:
+getMiddleNode	sources/execution/rendering/buildBVH.c	/^static t_object	*getMiddleNode(t_object *list, int *midCount)$/;"	f	typeref:typename:t_object *	file:
 getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 getRatio	sources/parsing/fillObjectHelpers.c	/^bool    getRatio(float *value, char **str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
+getSah	sources/execution/rendering/getSah.c	/^void	getSah(t_bvh *node, int *bestAxis, int *bestSplit)$/;"	f	typeref:typename:void
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void
@@ -400,7 +399,6 @@ key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:
 key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
 key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
-leafScenario	sources/execution/rendering/buildBVH.c	/^static bool	leafScenario(t_bvh **node, t_object *objects, int count)$/;"	f	typeref:typename:bool	file:
 left	includes/structures.h	/^    struct bvh		*left;$/;"	m	struct:bvh	typeref:struct:bvh *
 light	includes/structures.h	/^    struct objects  *light;$/;"	m	struct:scene	typeref:struct:objects *
 local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
@@ -507,7 +505,6 @@ name	includes/minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	ty
 name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
 next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 next	includes/structures.h	/^    struct objects  *next;$/;"	m	struct:objects	typeref:struct:objects *
-next	sources/execution/claudesTranslation.c	/^    struct SphereNode *next;$/;"	m	struct:SphereNode	typeref:struct:SphereNode *	file:
 next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 normVector	includes/structures.h	/^    float           normVector[3];$/;"	m	struct:objects	typeref:typename:float[3]
 objCount	includes/structures.h	/^	int				objCount;$/;"	m	struct:bvh	typeref:typename:int
@@ -519,10 +516,11 @@ param	includes/minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_lis
 parseLine	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parseLine(char *line)$/;"	f	typeref:typename:t_object *	file:
 parse_args	includes/minilibx-linux/configure	/^parse_args(){$/;"	f
 parsing	sources/parsing/parsing.c	/^bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)$/;"	f	typeref:typename:bool
-partition_sphere_list	sources/execution/claudesTranslation.c	/^void partition_sphere_list(SphereNode *head, int axis, float split, $/;"	f	typeref:typename:void
 pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
-printMinirt	sources/main.c	/^void    printMinirt(t_minirt minirt)$/;"	f	typeref:typename:void
-printObject	sources/main.c	/^void    printObject(t_object *obj)$/;"	f	typeref:typename:void
+printErrorMessage	sources/utilities/errorMessages.c	/^bool	printErrorMessage(char *msg)$/;"	f	typeref:typename:bool
+printMinirt	sources/tobeDeletedWhenProjectIsOver.c	/^void    printMinirt(t_minirt minirt)$/;"	f	typeref:typename:void
+printObject	sources/tobeDeletedWhenProjectIsOver.c	/^void    printObject(t_object *obj)$/;"	f	typeref:typename:void
+printTreeBFS	sources/tobeDeletedWhenProjectIsOver.c	/^void	printTreeBFS(t_bvh *root)$/;"	f	typeref:typename:void
 private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
@@ -557,9 +555,7 @@ sl1	includes/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
 sl2	includes/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
 sl3	includes/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
 sl4	includes/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
-solve	sources/execution/cramersRule.c	/^static float	solve()$/;"	f	typeref:typename:float	file:
-sphere	sources/execution/claudesTranslation.c	/^    Sphere sphere;$/;"	m	struct:SphereNode	typeref:typename:Sphere	file:
-splitObjectList	sources/execution/rendering/buildBVH.c	/^static void splitObjectList(t_object *list, t_object **mid, int *midCount, float bestSplit)$/;"	f	typeref:typename:void	file:
+splitObjectList	sources/execution/rendering/buildBVH.c	/^static int	splitObjectList(t_object *list, t_object **mid, int bestAxis, float bestSplit)$/;"	f	typeref:typename:int	file:
 startRendering	sources/execution/rendering/startRendering.c	/^bool	startRendering(t_minirt *minirt)$/;"	f	typeref:typename:bool
 strlcpy_is_not_posix	includes/minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
 surfaceAreaDifference	sources/execution/rendering/getSah.c	/^static float	surfaceAreaDifference(t_aabb *lBounds, t_aabb *rBounds, int lCOunt, int rCOunt)$/;"	f	typeref:typename:float	file:

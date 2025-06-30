@@ -1,23 +1,38 @@
 #include "minirt.h"
 
-t_aabb	*combineAabbNodes(t_aabb *node1, t_aabb *node2)
+//
+float	getAabbSurfaceArea(t_aabb *boundaries)
 {
-	return NULL;
-/*	
-        fmin(a.min.x, b.min.x),
-         fmin(a.min.y, b.min.y),
-         fmin(a.min.z, b.min.z)},
-        {fmax(a.max.x, b.max.x),
-         fmax(a.max.y, b.max.y),
-         fmax(a.max.z, b.max.z)}};
-*/
+	float	surface;
+	float	dimensions[3];
+
+	surface = 0;
+	dimensions[X] = boundaries->maxVec[X] - boundaries->minVec[X];
+	dimensions[Y] = boundaries->maxVec[Y] - boundaries->minVec[Y];
+	dimensions[Z] = boundaries->maxVec[Z] - boundaries->minVec[Z];
+	surface += dimensions[X] * dimensions[Y]; 
+	surface += dimensions[Y] * dimensions[Z]; 
+	surface += dimensions[Z] * dimensions[X]; 
+	return (surface * SURFACECOEFFICIENT);	
 }
 
+//
+void	combineAabbNodes(t_aabb *dest, t_aabb *src)
+{
+    dest->minVec[X] = fmin(dest->minVec[X], src->minVec[X]);
+    dest->minVec[Y] = fmin(dest->minVec[Y], src->minVec[Y]);
+    dest->minVec[Z] = fmin(dest->minVec[Z], src->minVec[Z]);
+    dest->maxVec[Z] = fmax(dest->maxVec[Z], src->maxVec[Z]);
+    dest->maxVec[Z] = fmin(dest->maxVec[Z], src->maxVec[Z]);
+    dest->maxVec[Z] = fmax(dest->maxVec[Z], src->maxVec[Z]);
+}
+
+//
 t_aabb	*createAabbNode(t_object *object)
 {
 	t_aabb	*new;
 
-	new = malloc(sizeof(t_aab));
+	new = malloc(sizeof(t_aabb));
 	if (!new)
 		return (NULL);
 	if (!object)

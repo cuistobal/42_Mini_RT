@@ -49,17 +49,9 @@ typedef struct bvh
 {
 	int				objCount;
 	struct objects	*objects;
-    struct aabb		bounds;
+    struct aabb		*bounds;
     struct bvh		*left;
     struct bvh		*right;
 }	t_bvh;
-
-t_aabb	*createEmptyAabb();
-t_aabb	*createAabbFromObject(t_object *objects);
-t_aabb	*combineAabb(t_aabb a, t_aabb b);
-float	getAabbSurfaceArea(t_aabb box);
-float	evaluateSah(t_object *objects, int start, int end, int axis, float split);
-t_bvh	*buildBvhNode(t_object *objects, int start, int end, int depth);
-
 
 #endif

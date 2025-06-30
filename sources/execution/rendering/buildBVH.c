@@ -1,32 +1,6 @@
 #include "minirt.h"
 
 //
-static bool	leafScenario(t_bvh **node, t_object *objects, int count)
-{
-	if (count > 1 && depth < 40)  //fix Magic number
-		return (false);
-	(*node)->objects = objects;
-	(*node)->count = count;
-	return (true);
-}
-
-static t_object	getMiddleNode(t_object *list, int *midCount)
-{
-	t_object	*slow;
-	t_object	*fast;
-
-	slow = list;
-	fast = slow->next;	
-	(*midCount)--;
-	while (fast && fast->next)
-	{
-		(*midCount)--;
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-	return (slow);
-}
-
 static float	getCenter(t_object *current, int axis)
 {
 	if (axis == 0)
@@ -37,24 +11,25 @@ static float	getCenter(t_object *current, int axis)
 }
 
 //
-static void splitObjectList(t_object *list, t_object **mid, int *midCount, float bestSplit)
+static int	splitObjectList(t_object *list, t_object **mid, int bestAxis, float bestSplit)
 {
-	t_object	*mid;
-	t_object	*temp;
 	t_object	*prev;
 	t_object	*curr;	
 	int			center;
+	int			midCount;
 
 	curr = list;
 	*mid = list;
 	prev = NULL;
+	midCount = 0;
 	while (curr)
 	{
-		center = getCenter(curr, bestAxis)
+		center = getCenter(curr, bestAxis);
         if (center < bestSplit)
 		{
 			prev = *mid;
 			*mid = (*mid)->next;
+			midCount++;
 		}
 		curr = curr->next;
 	}
@@ -63,16 +38,18 @@ static void splitObjectList(t_object *list, t_object **mid, int *midCount, float
 	//is not greater than 1,
 	if (prev)
 		prev->next = NULL;
+	return (midCount);
 }
 
-static bool	createBvhNode(t_bvh **node, t_object *objects, int count)
+//
+static bool	createBvhNode(t_bvh **node)
 {
 	if (*node)
-		return (printf("Node is already allocated\n"), false);
+		return (printErrorMessage(INVADRR));
 	*node = malloc(sizeof(t_bvh));
 	if (!node)
-		return (false);
-    node->bounds = create_empty_aabb();
+		return (printErrorMessage(MEMALLOC));
+    (*node)->bounds = createAabbNode(NULL);
     (*node)->left = NULL; 
 	(*node)->right = NULL;
     (*node)->objects = NULL;
@@ -85,7 +62,7 @@ bool	buildBvh(t_bvh **root, t_object *objects, int count, int depth)
 {
 	t_object	*mid;
 	t_object	*current;
-	int			midcount;
+	int			midCount;
 	int			bestAxis;
 	float		bestSplit;
 
@@ -93,20 +70,18 @@ bool	buildBvh(t_bvh **root, t_object *objects, int count, int depth)
 	bestAxis = 0;
 	bestSplit = 0;
 	current = objects;
-	if (!createBvhNode(root, objects, count))
+	if (!createBvhNode(root))
 		return (false);
-    node->bounds = create_empty_aabb();
 	while (current)
 	{
-		node->bounds = combineAabb(node->bounds, createAabbFromObject(current));
+		combineAabbNodes((*root)->bounds, createAabbNode(current));
 		current = current->next;
 	}	
 	if (count > 1 && depth < 40) 
-		return ((*root)->objects = objects, (*root)->count = count, true);
-	getSah(node, &bestAxis, &bestSplit);
-	midCount = count;
-	splitObjectList(objects, &mid, &midCount, bestAxis);
-    node->left = build_bvh_node(spheres, objects, count - midCount , depth + 1);
-    node->right = build_bvh_node(spheres, mid, midCount, depth + 1);
-	return (true);
+		return ((*root)->objects = objects, (*root)->objCount = count, true);
+	getSah(*root, &bestAxis, &bestSplit);
+	midCount = splitObjectList(objects, &mid, bestAxis, bestSplit);
+    if (!buildBvh(&(*root)->left, objects, count - midCount , depth + 1))
+		return (false);
+	return (buildBvh(&(*root)->right, mid, midCount, depth + 1));
 }

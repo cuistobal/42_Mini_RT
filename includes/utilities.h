@@ -3,6 +3,9 @@
 
 # include "libft.h"
 
+//sources/utilities/errorMessages.c
+bool	printErrorMessage(char *msg);
+
 //sources/utilities/freeUtils.c
 void    		*freeGenericPointer(void *ptr);
 void			*freeArr(char **arr, int len);

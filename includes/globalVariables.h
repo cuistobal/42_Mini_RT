@@ -44,4 +44,8 @@
 # define Y 1
 # define Z 2
 
+//bvh
+# define MAXBVHDEPTH 40
+# define SURFACECOEFFICIENT 2.0f
+
 #endif

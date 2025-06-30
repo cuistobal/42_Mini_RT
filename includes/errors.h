@@ -7,11 +7,12 @@
 # define ENVIRON "Error\nInvalid environement\n"
 
 //Parsing error code
-
 # define E_ENVIRON 1
 # define E_USAGE 2
 # define E_FILE 3
 
 //Execution error code
+# define INVADRR "Error\nAdress already allocated.\n"
+# define MEMALLOC "Error\nMemory allocation failed.\n"
 
 #endif
