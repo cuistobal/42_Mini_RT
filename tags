@@ -154,7 +154,11 @@ PLANE	includes/globalVariables.h	/^# define PLANE /;"	d
 PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
 RATIOLIMAX	includes/globalVariables.h	/^# define RATIOLIMAX /;"	d
 RATIOLIMIN	includes/globalVariables.h	/^# define RATIOLIMIN /;"	d
+REFLECTCOLOR	includes/globalVariables.h	/^# define REFLECTCOLOR /;"	d
+REFLECTDIR	includes/globalVariables.h	/^# define REFLECTDIR /;"	d
 REFLECTION	includes/globalVariables.h	/^# define REFLECTION /;"	d
+REFRACTCOLOR	includes/globalVariables.h	/^# define REFRACTCOLOR /;"	d
+REFRACTDIR	includes/globalVariables.h	/^# define REFRACTDIR /;"	d
 REFRACTION	includes/globalVariables.h	/^# define REFRACTION /;"	d
 RETURN	includes/minilibx-linux/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
@@ -218,12 +222,12 @@ XPM	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	titl
 X_ShmAttach	includes/minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
 Y	includes/globalVariables.h	/^# define Y /;"	d
 Z	includes/globalVariables.h	/^# define Z /;"	d
-__anon60840de90108	myRayTracer.c	/^typedef struct {$/;"	s	file:
-__anon60840de90208	myRayTracer.c	/^typedef struct {$/;"	s	file:
-__anon60840de90308	myRayTracer.c	/^typedef struct {$/;"	s	file:
+__anond5c1309d0108	aicode/myRaytracer.c	/^typedef struct {$/;"	s	file:
+__anond5c1309d0208	aicode/myRaytracer.c	/^typedef struct {$/;"	s	file:
+__anond5c1309d0308	aicode/myRaytracer.c	/^typedef struct {$/;"	s	file:
 aabb	includes/structures.h	/^typedef struct aabb$/;"	s
 add_mesh_to_scene	aicode/tesselationFromClaude.c	/^void add_mesh_to_scene(t_mesh_scene *scene, t_mesh *mesh) {$/;"	f	typeref:typename:void
-albedo	myRayTracer.c	/^    float albedo[4];$/;"	m	struct:__anon60840de90108	typeref:typename:float[4]	file:
+albedo	aicode/myRaytracer.c	/^    float albedo[4];$/;"	m	struct:__anond5c1309d0108	typeref:typename:float[4]	file:
 all	Makefile	/^all: $(NAME)$/;"	t
 all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
@@ -247,12 +251,12 @@ buildMinHeap	sources/utilities/sorting.c	/^static void	buildMinHeap(int *arr, in
 bvh	includes/structures.h	/^typedef struct bvh$/;"	s
 camera	includes/structures.h	/^    struct objects  *camera;$/;"	m	struct:scene	typeref:struct:objects *
 castRay	sources/execution/traceRays.c	/^void	castRay(t_scene *scene, t_vec orig, t_vec dir, int depth)$/;"	f	typeref:typename:void
-cast_ray	myRayTracer.c	/^t_vec cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)$/;"	f	typeref:typename:t_vec
+cast_ray	aicode/myRaytracer.c	/^t_vec cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth) {$/;"	f	typeref:typename:t_vec
 cast_ray_return	sources/execution/castRay.c	/^static inline t_vec	cast_ray_return(t_vec buffer[])$/;"	f	typeref:typename:t_vec	file:
+center	aicode/myRaytracer.c	/^    t_vec center;$/;"	m	struct:s_sphere	typeref:typename:t_vec	file:
 center	aicode/tesselationFromClaude.c	/^    t_vec3 center;$/;"	m	struct:s_cylinder_data	typeref:typename:t_vec3	file:
 center	aicode/tesselationFromClaude.c	/^    t_vec3 center;$/;"	m	struct:s_mesh	typeref:typename:t_vec3	file:
 center	aicode/tesselationFromClaude.c	/^    t_vec3 center;$/;"	m	struct:s_sphere_data	typeref:typename:t_vec3	file:
-center	myRayTracer.c	/^    t_vec center;$/;"	m	struct:s_sphere	typeref:typename:t_vec	file:
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
 checkLimits	sources/parsing/fillObjectHelpers.c	/^bool	checkLimits(bool status, float value, float min, float max)$/;"	f	typeref:typename:bool
 check_format	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^static int	check_format( int fd, char format, va_list arg)$/;"	f	typeref:typename:int	file:
@@ -291,10 +295,11 @@ createBvhNode	sources/execution/rendering/buildBVH.c	/^static bool	createBvhNode
 createFrameBuffer	sources/execution/traceRays.c	/^static t_vec	*createFrameBuffer(t_minirt *minirt, int size)$/;"	f	typeref:typename:t_vec *	file:
 createObjectNode	sources/utilities/createNodes.c	/^t_object    *createObjectNode(void)$/;"	f	typeref:typename:t_object *
 createSceneNode	sources/utilities/createNodes.c	/^t_scene *createSceneNode(void)$/;"	f	typeref:typename:t_scene *
+create_sphere	aicode/myRaytracer.c	/^t_obj *create_sphere(t_vec center, float radius, t_material mat) {$/;"	f	typeref:typename:t_obj *
 create_vertex_with_normal	aicode/tesselationFromClaude.c	/^t_vertex create_vertex_with_normal(t_vec3 pos, t_vec3 normal, double u, double v) {$/;"	f	typeref:typename:t_vertex
 cylinder_to_mesh	aicode/tesselationFromClaude.c	/^t_mesh *cylinder_to_mesh(t_cylinder_data cylinder_data, int radial_segments) {$/;"	f	typeref:typename:t_mesh *
+data	aicode/myRaytracer.c	/^    void *data;$/;"	m	struct:s_obj	typeref:typename:void *	file:
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
-data	myRayTracer.c	/^    void *data;$/;"	m	struct:s_obj	typeref:typename:void *	file:
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
 data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
 data3	includes/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
@@ -303,9 +308,9 @@ decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
 depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
 diameter	aicode/tesselationFromClaude.c	/^    double diameter;$/;"	m	struct:s_cylinder_data	typeref:typename:double	file:
 diameter	aicode/tesselationFromClaude.c	/^    double diameter;$/;"	m	struct:s_sphere_data	typeref:typename:double	file:
-diffuse_color	myRayTracer.c	/^    t_vec diffuse_color;$/;"	m	struct:__anon60840de90108	typeref:typename:t_vec	file:
+diffuse_color	aicode/myRaytracer.c	/^    t_vec diffuse_color;$/;"	m	struct:__anond5c1309d0108	typeref:typename:t_vec	file:
 display	includes/minilibx-linux/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
-distance	myRayTracer.c	/^    float distance;$/;"	m	struct:__anon60840de90208	typeref:typename:float	file:
+distance	aicode/myRaytracer.c	/^    float distance;$/;"	m	struct:__anond5c1309d0208	typeref:typename:float	file:
 do_configure	includes/minilibx-linux/Makefile	/^do_configure	:$/;"	t
 do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
 endOfParsing	sources/parsing/readFileContentAndCreateScene.c	/^static bool endOfParsing(t_minirt *minirt, char **saveptr)$/;"	f	typeref:typename:bool	file:
@@ -412,13 +417,14 @@ getCoordinates	sources/parsing/fillObjectHelpers.c	/^bool    getCoordinates(t_ob
 getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 getRatio	sources/parsing/fillObjectHelpers.c	/^bool    getRatio(float *value, char **str, bool (*convert)(float *dst, \\$/;"	f	typeref:typename:bool
 getSah	sources/execution/rendering/getSah.c	/^void	getSah(t_bvh *node, int *bestAxis, float *bestSplit)$/;"	f	typeref:typename:void
+get_cosinus	sources/execution/reflexion_and_refraction.c	/^static inline float	get_cosinus(t_vec v1, t_vec v2)$/;"	f	typeref:typename:float	file:
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void
 heapSort	sources/utilities/sorting.c	/^int	*heapSort(int *arr, int size, bool type)$/;"	f	typeref:typename:int *
 height	aicode/tesselationFromClaude.c	/^    double height;$/;"	m	struct:s_cylinder_data	typeref:typename:double	file:
 height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
-hit	myRayTracer.c	/^    bool hit;$/;"	m	struct:__anon60840de90208	typeref:typename:bool	file:
+hit	aicode/myRaytracer.c	/^    bool hit;$/;"	m	struct:__anond5c1309d0208	typeref:typename:bool	file:
 hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
 im1	includes/minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
@@ -432,7 +438,7 @@ init_window	sources/utilities/init_window.c	/^void init_window(t_minirt *scene)$
 insertNewObject	sources/parsing/insertNewObjectInMinirt.c	/^static void	insertNewObject(t_object **head, t_object **tail, t_object *new)$/;"	f	typeref:typename:void	file:
 insertNewObjectInMinirt	sources/parsing/insertNewObjectInMinirt.c	/^bool    insertNewObjectInMinirt(t_minirt *minirt, t_object *new, t_object **tail)$/;"	f	typeref:typename:bool
 insertSceneParameter	sources/parsing/insertNewObjectInMinirt.c	/^static bool insertSceneParameter(t_scene **scene, t_object *new, char type)$/;"	f	typeref:typename:bool	file:
-intersect	myRayTracer.c	/^    t_intersect_fn intersect;$/;"	m	struct:s_obj	typeref:typename:t_intersect_fn	file:
+intersect	aicode/myRaytracer.c	/^    t_intersect_fn intersect;$/;"	m	struct:s_obj	typeref:typename:t_intersect_fn	file:
 join_s1	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s1(const char *s1, char *joined)$/;"	f	typeref:typename:char *
 join_s2	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s2(const char *s2, char *joined)$/;"	f	typeref:typename:char *
 key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
@@ -442,8 +448,8 @@ key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
 left	includes/structures.h	/^    struct bvh		*left;$/;"	m	struct:bvh	typeref:struct:bvh *
 light	includes/structures.h	/^    struct objects  *light;$/;"	m	struct:scene	typeref:struct:objects *
-light_count	myRayTracer.c	/^    size_t light_count;$/;"	m	struct:__anon60840de90308	typeref:typename:size_t	file:
-lights	myRayTracer.c	/^    t_vec *lights;$/;"	m	struct:__anon60840de90308	typeref:typename:t_vec *	file:
+light_count	aicode/myRaytracer.c	/^    size_t light_count;$/;"	m	struct:__anond5c1309d0308	typeref:typename:size_t	file:
+lights	aicode/myRaytracer.c	/^    t_vec *lights;$/;"	m	struct:__anond5c1309d0308	typeref:typename:t_vec *	file:
 local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
 log_error	includes/minilibx-linux/configure	/^log_error(){$/;"	f
 log_error	includes/minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f
@@ -453,15 +459,15 @@ logging	includes/minilibx-linux/configure	/^logging(){$/;"	f
 logging	includes/minilibx-linux/test/run_tests.sh	/^logging(){$/;"	f
 loop_hook	includes/minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
 loop_param	includes/minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
+main	aicode/myRaytracer.c	/^int main() {$/;"	f	typeref:typename:int
 main	includes/minilibx-linux/configure	/^main(){$/;"	f
 main	includes/minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
 main	includes/minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
 main	includes/minilibx-linux/test/run_tests.sh	/^main(){$/;"	f
-main	myRayTracer.c	/^int main()$/;"	f	typeref:typename:int
 main	sources/main.c	/^int	main(int argc, char **argv, char **envp)$/;"	f	typeref:typename:int
 mask	includes/minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
-material	myRayTracer.c	/^    t_material material;$/;"	m	struct:__anon60840de90208	typeref:typename:t_material	file:
-material	myRayTracer.c	/^    t_material material;$/;"	m	struct:s_sphere	typeref:typename:t_material	file:
+material	aicode/myRaytracer.c	/^    t_material material;$/;"	m	struct:__anond5c1309d0208	typeref:typename:t_material	file:
+material	aicode/myRaytracer.c	/^    t_material material;$/;"	m	struct:s_sphere	typeref:typename:t_material	file:
 material_id	aicode/tesselationFromClaude.c	/^    int material_id;$/;"	m	struct:s_triangle	typeref:typename:int	file:
 math.h	.vscode/settings.json	/^        "math.h": "c"$/;"	s	object:files.associations
 maxHeapify	sources/utilities/sorting.c	/^static void	maxHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
@@ -556,22 +562,22 @@ mouse_win3	includes/minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, voi
 name	aicode/tesselationFromClaude.c	/^    char *name;$/;"	m	struct:s_mesh	typeref:typename:char *	file:
 name	includes/minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
 name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
+next	aicode/myRaytracer.c	/^    t_obj *next;$/;"	m	struct:s_obj	typeref:typename:t_obj *	file:
 next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 next	includes/structures.h	/^	struct meshes	*next;$/;"	m	struct:meshes	typeref:struct:meshes *
 next	includes/structures.h	/^	struct triangle	*next;$/;"	m	struct:triangle	typeref:struct:triangle *
 next	includes/structures.h	/^    struct objects  *next;$/;"	m	struct:objects	typeref:struct:objects *
-next	myRayTracer.c	/^    t_obj *next;$/;"	m	struct:s_obj	typeref:typename:t_obj *	file:
 next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 normVector	includes/structures.h	/^    float           normVector[3];$/;"	m	struct:objects	typeref:typename:float[3]
+normal	aicode/myRaytracer.c	/^    t_vec normal;$/;"	m	struct:__anond5c1309d0208	typeref:typename:t_vec	file:
 normal	aicode/tesselationFromClaude.c	/^    t_vec3 normal;$/;"	m	struct:s_plane_data	typeref:typename:t_vec3	file:
 normal	aicode/tesselationFromClaude.c	/^    t_vec3 normal;$/;"	m	struct:s_triangle	typeref:typename:t_vec3	file:
 normal	aicode/tesselationFromClaude.c	/^    t_vec3 normal;$/;"	m	struct:s_vertex	typeref:typename:t_vec3	file:
-normal	myRayTracer.c	/^    t_vec normal;$/;"	m	struct:__anon60840de90208	typeref:typename:t_vec	file:
 objCount	includes/structures.h	/^	int				objCount;$/;"	m	struct:bvh	typeref:typename:int
+objects	aicode/myRaytracer.c	/^    t_obj *objects;$/;"	m	struct:__anond5c1309d0308	typeref:typename:t_obj *	file:
 objects	includes/structures.h	/^	struct objects	*objects;$/;"	m	struct:bvh	typeref:struct:objects *
 objects	includes/structures.h	/^    struct objects  *objects;$/;"	m	struct:scene	typeref:struct:objects *
 objects	includes/structures.h	/^typedef struct	objects$/;"	s
-objects	myRayTracer.c	/^    t_obj *objects;$/;"	m	struct:__anon60840de90308	typeref:typename:t_obj *	file:
 openFile	sources/parsing/parsing.c	/^static int	openFile(const char *file)$/;"	f	typeref:typename:int	file:
 param	includes/minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
 parseLine	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parseLine(char *line)$/;"	f	typeref:typename:t_object *	file:
@@ -579,8 +585,8 @@ parse_args	includes/minilibx-linux/configure	/^parse_args(){$/;"	f
 parsing	sources/parsing/parsing.c	/^bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)$/;"	f	typeref:typename:bool
 pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
 plane_to_mesh	aicode/tesselationFromClaude.c	/^t_mesh *plane_to_mesh(t_plane_data plane_data, double size) {$/;"	f	typeref:typename:t_mesh *
+point	aicode/myRaytracer.c	/^    t_vec point;$/;"	m	struct:__anond5c1309d0208	typeref:typename:t_vec	file:
 point	aicode/tesselationFromClaude.c	/^    t_vec3 point;$/;"	m	struct:s_plane_data	typeref:typename:t_vec3	file:
-point	myRayTracer.c	/^    t_vec point;$/;"	m	struct:__anon60840de90208	typeref:typename:t_vec	file:
 position	aicode/tesselationFromClaude.c	/^    t_vec3 position;$/;"	m	struct:s_vertex	typeref:typename:t_vec3	file:
 printErrorMessage	sources/utilities/errorMessages.c	/^bool	printErrorMessage(char *msg)$/;"	f	typeref:typename:bool
 printMinirt	sources/tobeDeletedWhenProjectIsOver.c	/^void    printMinirt(t_minirt minirt)$/;"	f	typeref:typename:void
@@ -589,17 +595,19 @@ printTreeBFS	sources/tobeDeletedWhenProjectIsOver.c	/^void	printTreeBFS(t_bvh *r
 private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
+radius	aicode/myRaytracer.c	/^    float radius;$/;"	m	struct:s_sphere	typeref:typename:float	file:
 radius	aicode/tesselationFromClaude.c	/^    double radius;$/;"	m	struct:s_mesh	typeref:typename:double	file:
-radius	myRayTracer.c	/^    float radius;$/;"	m	struct:s_sphere	typeref:typename:float	file:
 ratio	includes/structures.h	/^    float           ratio[2];$/;"	m	struct:objects	typeref:typename:float[2]
 re	Makefile	/^re: fclean all$/;"	t
 re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
 re	sources/utilities/Libft/Makefile	/^re: fclean all$/;"	t
 readFileContentAndCreateScene	sources/parsing/readFileContentAndCreateScene.c	/^bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)$/;"	f	typeref:typename:bool
-reflect	myRayTracer.c	/^t_vec reflect(t_vec I, t_vec N) { return vec3_sub(I, vec3_scale(N, 2.0f * vec3_dot(I, N))); }$/;"	f	typeref:typename:t_vec
-refract	myRayTracer.c	/^t_vec refract(t_vec I, t_vec N, float eta_t, float eta_i) {$/;"	f	typeref:typename:t_vec
-refractive_index	myRayTracer.c	/^    float refractive_index;$/;"	m	struct:__anon60840de90108	typeref:typename:float	file:
+reflect	aicode/myRaytracer.c	/^t_vec reflect(t_vec I, t_vec N) { return vec3_sub(I, vec3_scale(N, 2.0f * vec3_dot(I, N))); }$/;"	f	typeref:typename:t_vec
+reflect	sources/execution/reflexion_and_refraction.c	/^t_vec	reflect(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
+refract	aicode/myRaytracer.c	/^t_vec refract(t_vec I, t_vec N, float eta_t, float eta_i) {$/;"	f	typeref:typename:t_vec
+refract	sources/execution/reflexion_and_refraction.c	/^t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta)$/;"	f	typeref:typename:t_vec
+refractive_index	aicode/myRaytracer.c	/^    float refractive_index;$/;"	m	struct:__anond5c1309d0108	typeref:typename:float	file:
 right	includes/structures.h	/^    struct bvh		*right;$/;"	m	struct:bvh	typeref:struct:bvh *
 root	includes/minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 s_col_name	includes/minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
@@ -609,9 +617,9 @@ s_img	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_img$/;"	s
 s_list	sources/utilities/Libft/includes/libft.h	/^typedef struct s_list$/;"	s
 s_mesh	aicode/tesselationFromClaude.c	/^typedef struct s_mesh {$/;"	s	file:
 s_mesh_scene	aicode/tesselationFromClaude.c	/^typedef struct s_mesh_scene {$/;"	s	file:
-s_obj	myRayTracer.c	/^struct s_obj {$/;"	s	file:
+s_obj	aicode/myRaytracer.c	/^struct s_obj {$/;"	s	file:
 s_plane_data	aicode/tesselationFromClaude.c	/^typedef struct s_plane_data {$/;"	s	file:
-s_sphere	myRayTracer.c	/^typedef struct s_sphere {$/;"	s	file:
+s_sphere	aicode/myRaytracer.c	/^typedef struct s_sphere {$/;"	s	file:
 s_sphere_data	aicode/tesselationFromClaude.c	/^typedef struct s_sphere_data {$/;"	s	file:
 s_triangle	aicode/tesselationFromClaude.c	/^typedef struct s_triangle {$/;"	s	file:
 s_vec3	aicode/tesselationFromClaude.c	/^typedef struct s_vec3 {$/;"	s	file:
@@ -623,8 +631,9 @@ saved_mode	includes/minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	
 scene	includes/structures.h	/^    struct scene    *scene;$/;"	m	struct:minirt	typeref:struct:scene *
 scene	includes/structures.h	/^typedef struct	scene$/;"	s
 sceneIntersect	sources/execution/intersections.c	/^bool	sceneIntersect(t_scene *scene, t_vec orig, t_vec dir, t_hit *closestHit)$/;"	f	typeref:typename:bool
+scene_intersect	aicode/myRaytracer.c	/^bool scene_intersect(t_scene *scene, t_vec orig, t_vec dir, t_hit *closest_hit) {$/;"	f	typeref:typename:bool
 screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
-setEmptyVec	sources/utilities/vectorOperations.c	/^inline void	setEmptyVec(t_vec *v)$/;"	f	typeref:typename:void
+setVecValues	sources/utilities/vectorOperations1.c	/^inline t_vec	setVecValues(float x, float y, float z)$/;"	f	typeref:typename:t_vec
 set_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*set_line(char *line)$/;"	f	typeref:typename:char *
 shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
@@ -637,7 +646,8 @@ sl1	includes/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
 sl2	includes/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
 sl3	includes/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
 sl4	includes/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
-specular_exponent	myRayTracer.c	/^    float specular_exponent;$/;"	m	struct:__anon60840de90108	typeref:typename:float	file:
+specular_exponent	aicode/myRaytracer.c	/^    float specular_exponent;$/;"	m	struct:__anond5c1309d0108	typeref:typename:float	file:
+sphere_intersect	aicode/myRaytracer.c	/^bool sphere_intersect(t_obj *self, t_vec orig, t_vec dir, t_hit *hit) {$/;"	f	typeref:typename:bool
 sphere_intersect	sources/execution/intersections.c	/^bool sphere_intersect(t_sphere *s, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
 sphere_to_mesh	aicode/tesselationFromClaude.c	/^t_mesh *sphere_to_mesh(t_sphere_data sphere_data, int u_segments, int v_segments) {$/;"	f	typeref:typename:t_mesh *
 splitObjectList	sources/execution/rendering/buildBVH.c	/^static int	splitObjectList(t_object *list, t_object **mid, int bestAxis, float bestSplit)$/;"	f	typeref:typename:int	file:
@@ -648,24 +658,25 @@ t_aabb	includes/structures.h	/^}	t_aabb;$/;"	t	typeref:struct:aabb
 t_bvh	includes/structures.h	/^}	t_bvh;$/;"	t	typeref:struct:bvh
 t_cylinder_data	aicode/tesselationFromClaude.c	/^} t_cylinder_data;$/;"	t	typeref:struct:s_cylinder_data	file:
 t_event_list	includes/minilibx-linux/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
-t_hit	myRayTracer.c	/^} t_hit;$/;"	t	typeref:struct:__anon60840de90208	file:
+t_hit	aicode/myRaytracer.c	/^} t_hit;$/;"	t	typeref:struct:__anond5c1309d0208	file:
 t_img	includes/minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
-t_intersect_fn	myRayTracer.c	/^typedef bool (*t_intersect_fn)(t_obj *self, t_vec orig, t_vec dir, t_hit *hit);$/;"	t	typeref:typename:bool (*)(t_obj * self,t_vec orig,t_vec dir,t_hit * hit)	file:
+t_intersect_fn	aicode/myRaytracer.c	/^typedef bool (*t_intersect_fn)(t_obj *self, t_vec orig, t_vec dir, t_hit *hit);$/;"	t	typeref:typename:bool (*)(t_obj * self,t_vec orig,t_vec dir,t_hit * hit)	file:
 t_list	sources/utilities/Libft/includes/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
-t_material	myRayTracer.c	/^} t_material;$/;"	t	typeref:struct:__anon60840de90108	file:
+t_material	aicode/myRaytracer.c	/^} t_material;$/;"	t	typeref:struct:__anond5c1309d0108	file:
 t_mesh	aicode/tesselationFromClaude.c	/^} t_mesh;$/;"	t	typeref:struct:s_mesh	file:
 t_mesh	includes/structures.h	/^}	t_mesh;$/;"	t	typeref:struct:meshes
 t_mesh_scene	aicode/tesselationFromClaude.c	/^} t_mesh_scene;$/;"	t	typeref:struct:s_mesh_scene	file:
 t_minirt	includes/structures.h	/^}	t_minirt;$/;"	t	typeref:struct:minirt
-t_obj	myRayTracer.c	/^typedef struct s_obj t_obj;$/;"	t	typeref:struct:s_obj	file:
+t_obj	aicode/myRaytracer.c	/^typedef struct s_obj t_obj;$/;"	t	typeref:struct:s_obj	file:
 t_object	includes/structures.h	/^}	t_object;$/;"	t	typeref:struct:objects
 t_plane_data	aicode/tesselationFromClaude.c	/^} t_plane_data;$/;"	t	typeref:struct:s_plane_data	file:
+t_scene	aicode/myRaytracer.c	/^} t_scene;$/;"	t	typeref:struct:__anond5c1309d0308	file:
 t_scene	includes/structures.h	/^}	t_scene;$/;"	t	typeref:struct:scene
-t_scene	myRayTracer.c	/^} t_scene;$/;"	t	typeref:struct:__anon60840de90308	file:
-t_sphere	myRayTracer.c	/^} t_sphere;$/;"	t	typeref:struct:s_sphere	file:
+t_sphere	aicode/myRaytracer.c	/^} t_sphere;$/;"	t	typeref:struct:s_sphere	file:
 t_sphere_data	aicode/tesselationFromClaude.c	/^} t_sphere_data;$/;"	t	typeref:struct:s_sphere_data	file:
 t_triangle	aicode/tesselationFromClaude.c	/^} t_triangle;$/;"	t	typeref:struct:s_triangle	file:
 t_triangle	includes/structures.h	/^}	t_triangle;$/;"	t	typeref:struct:triangle
+t_vec	aicode/myRaytracer.c	/^} t_vec;$/;"	t	typeref:struct:vector	file:
 t_vec	includes/structures.h	/^}	t_vec;$/;"	t	typeref:struct:vector
 t_vec3	aicode/tesselationFromClaude.c	/^} t_vec3;$/;"	t	typeref:struct:s_vec3	file:
 t_vertex	aicode/tesselationFromClaude.c	/^} t_vertex;$/;"	t	typeref:struct:s_vertex	file:
@@ -677,9 +688,9 @@ traceRays	sources/execution/traceRays.c	/^void	traceRays(t_minirt *minirt)$/;"	f
 triangle	includes/structures.h	/^typedef struct	triangle$/;"	s
 triangle_count	aicode/tesselationFromClaude.c	/^    int triangle_count;$/;"	m	struct:s_mesh	typeref:typename:int	file:
 triangles	aicode/tesselationFromClaude.c	/^    t_triangle *triangles;$/;"	m	struct:s_mesh	typeref:typename:t_triangle *	file:
+type	aicode/myRaytracer.c	/^    char type;$/;"	m	struct:s_obj	typeref:typename:char	file:
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
 type	includes/structures.h	/^	char	        type;$/;"	m	struct:objects	typeref:typename:char
-type	myRayTracer.c	/^    char type;$/;"	m	struct:s_obj	typeref:typename:char	file:
 u	aicode/tesselationFromClaude.c	/^    double u, v;  \/\/ texture coordinates$/;"	m	struct:s_vertex	typeref:typename:double	file:
 use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 utilities.h	.vscode/settings.json	/^        "utilities.h": "c",$/;"	s	object:files.associations
@@ -690,18 +701,27 @@ v2	aicode/tesselationFromClaude.c	/^    int v1, v2, v3;  \/\/ indices to vertice
 v2	includes/structures.h	/^	struct vector	v2;$/;"	m	struct:triangle	typeref:struct:vector
 v3	aicode/tesselationFromClaude.c	/^    int v1, v2, v3;  \/\/ indices to vertices$/;"	m	struct:s_triangle	typeref:typename:int	file:
 v3	includes/structures.h	/^	struct vector	v3;$/;"	m	struct:triangle	typeref:struct:vector
+vec3_add	aicode/myRaytracer.c	/^t_vec vec3_add(t_vec a, t_vec b) { return (t_vec){a.x + b.x, a.y + b.y, a.z + b.z}; }$/;"	f	typeref:typename:t_vec
 vec3_add	aicode/tesselationFromClaude.c	/^t_vec3 vec3_add(t_vec3 a, t_vec3 b) {$/;"	f	typeref:typename:t_vec3
+vec3_cross	aicode/myRaytracer.c	/^t_vec vec3_cross(t_vec a, t_vec b) {$/;"	f	typeref:typename:t_vec
 vec3_cross	aicode/tesselationFromClaude.c	/^t_vec3 vec3_cross(t_vec3 a, t_vec3 b) {$/;"	f	typeref:typename:t_vec3
+vec3_dot	aicode/myRaytracer.c	/^float vec3_dot(t_vec a, t_vec b) { return a.x * b.x + a.y * b.y + a.z * b.z; }$/;"	f	typeref:typename:float
+vec3_negate	aicode/myRaytracer.c	/^t_vec vec3_negate(t_vec v) { return (t_vec){-v.x, -v.y, -v.z}; }$/;"	f	typeref:typename:t_vec
+vec3_norm	aicode/myRaytracer.c	/^float vec3_norm(t_vec v) { return sqrtf(vec3_dot(v, v)); }$/;"	f	typeref:typename:float
 vec3_normalize	aicode/tesselationFromClaude.c	/^t_vec3 vec3_normalize(t_vec3 v) {$/;"	f	typeref:typename:t_vec3
+vec3_normalized	aicode/myRaytracer.c	/^t_vec vec3_normalized(t_vec v) { float n = vec3_norm(v); return vec3_scale(v, 1.0f \/ n); }$/;"	f	typeref:typename:t_vec
+vec3_scale	aicode/myRaytracer.c	/^t_vec vec3_scale(t_vec v, float s) { return (t_vec){v.x * s, v.y * s, v.z * s}; }$/;"	f	typeref:typename:t_vec
 vec3_scale	aicode/tesselationFromClaude.c	/^t_vec3 vec3_scale(t_vec3 v, double s) {$/;"	f	typeref:typename:t_vec3
+vec3_sub	aicode/myRaytracer.c	/^t_vec vec3_sub(t_vec a, t_vec b) { return (t_vec){a.x - b.x, a.y - b.y, a.z - b.z}; }$/;"	f	typeref:typename:t_vec
 vecAdd	sources/utilities/vectorOperations.c	/^inline t_vec	vecAdd(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
-vecCross	sources/utilities/vectorOperations.c	/^t_vec vecCross(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
+vecCross	sources/utilities/vectorOperations1.c	/^inline t_vec	vecCross(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
 vecDot	sources/utilities/vectorOperations.c	/^inline float	vecDot(t_vec a, t_vec b)$/;"	f	typeref:typename:float
-vecNegate	sources/utilities/vectorOperations.c	/^inline void	vecNegate(t_vec *v)$/;"	f	typeref:typename:void
+vecNegate	sources/utilities/vectorOperations1.c	/^inline t_vec	vecNegate(t_vec v)$/;"	f	typeref:typename:t_vec
 vecNorm	sources/utilities/vectorOperations.c	/^inline float	vecNorm(t_vec v)$/;"	f	typeref:typename:float
-vecNormalized	sources/utilities/vectorOperations.c	/^inline void	vecNormalized(t_vec *v)$/;"	f	typeref:typename:void
+vecNormalized	sources/utilities/vectorOperations1.c	/^inline t_vec	vecNormalized(t_vec *v)$/;"	f	typeref:typename:t_vec
 vecScale	sources/utilities/vectorOperations.c	/^inline void	vecScale(t_vec *vector, float s)$/;"	f	typeref:typename:void
 vecSub	sources/utilities/vectorOperations.c	/^inline t_vec	vecSub(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
+vector	aicode/myRaytracer.c	/^typedef struct vector {$/;"	s	file:
 vector	includes/structures.h	/^typedef struct vector$/;"	s
 vertex_count	aicode/tesselationFromClaude.c	/^    int vertex_count;$/;"	m	struct:s_mesh	typeref:typename:int	file:
 vertices	aicode/tesselationFromClaude.c	/^    t_vertex *vertices;$/;"	m	struct:s_mesh	typeref:typename:t_vertex *	file:
@@ -718,13 +738,16 @@ window	includes/minilibx-linux/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win
 wm_delete_window	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar	typeref:typename:Atom
 wm_protocols	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
 x	aicode/meshingFromCLaude.c	/^    double x;$/;"	v	typeref:typename:double
+x	aicode/myRaytracer.c	/^    float x, y, z;$/;"	m	struct:vector	typeref:typename:float	file:
 x	aicode/tesselationFromClaude.c	/^    double x, y, z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 x	includes/structures.h	/^	float	x;$/;"	m	struct:vector	typeref:typename:float
 xpm1_x	includes/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
 xpm1_y	includes/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
 y	aicode/meshingFromCLaude.c	/^    double y;$/;"	v	typeref:typename:double
+y	aicode/myRaytracer.c	/^    float x, y, z;$/;"	m	struct:vector	typeref:typename:float	file:
 y	aicode/tesselationFromClaude.c	/^    double x, y, z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 y	includes/structures.h	/^	float	y;$/;"	m	struct:vector	typeref:typename:float
 z	aicode/meshingFromCLaude.c	/^    double z;$/;"	v	typeref:typename:double
+z	aicode/myRaytracer.c	/^    float x, y, z;$/;"	m	struct:vector	typeref:typename:float	file:
 z	aicode/tesselationFromClaude.c	/^    double x, y, z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 z	includes/structures.h	/^	float	z;$/;"	m	struct:vector	typeref:typename:float

@@ -1,7 +1,8 @@
 #include "minirt.h"
 
 //1e30	==	1,000,000,000,000,000,000,000,000,000,00
-bool	sceneIntersect(t_scene *scene, t_vec orig, t_vec dir, t_hit *closestHit)
+bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
+		t_hit *closestHit)
 {
     bool		found;
     float 		minDist;

@@ -9,7 +9,7 @@ static void	appendDirValue(t_minirt *minirt, t_vec *dir, int i, int j)
 	vecNormalized(dir);	
 }
 
-//
+/*
 static t_vec	*createFrameBuffer(t_minirt *minirt, int size)
 {
 	t_vec		*buffer;
@@ -17,23 +17,10 @@ static t_vec	*createFrameBuffer(t_minirt *minirt, int size)
 	buffer = malloc(sizeof(t_vec) * size);
 	if (buffer)
 		return (NULL);
-	while (size--)
-	{
-		buffer[size].x = 0;
-		buffer[size].y = 0;
-		buffer[size].z = 0;
-	}
 	return (buffer);
 }
+*/
 
-void	castRay(t_scene *scene, t_vec orig, t_vec dir, int depth)
-{
-	if (depth > 4)
-	{
-		
-	}
-
-}
 //
 void	traceRays(t_minirt *minirt)
 {
@@ -45,12 +32,14 @@ void	traceRays(t_minirt *minirt)
 	t_vec	*frameBuffer;
 
 	max = minirt->width * minirt->height;
-	frameBuffer = createFrameBuffer(minirt, max);
+	framebuffer = malloc(sizeof(t_vec) * size);
+	if (!framebuffer)
+		return ;
 	while (i < minirt->height)
 	{
 		while (j < minirt->width)
 		{
-			setEmptyVec(&ray);	
+			ray = setVecValues(0.0f, 0.0f, 0.0f);	
 			dir = appendDirValue(minirt, &dir, i, j);
 			frameBuffer[j * minirt->width + i] = castRay(scene, ray, dir, 0);	
 			j++;

@@ -78,6 +78,24 @@ typedef struct bvh
 }	t_bvh;
 
 
+typedef struct material
+{
+    float	albedo[4];
+    float	refractive_index;
+    float	specular_exponent;
+    t_vec	diffuse_color;
+}	t_material;
+
+typedef struct hit
+{
+    bool		hit;
+    float		distance;
+    t_vec		point;
+    t_vec		normal;
+    t_material	material;
+}	t_hit;
+
+
 /*refactored structures
 
 typedef	struct	object

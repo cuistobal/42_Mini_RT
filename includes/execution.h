@@ -20,4 +20,19 @@ t_aabb  *createAabbNode(t_object *object);
 //
 t_bvh	*buildBvhNode(t_object *objects, int start, int end, int depth);
 
+//sources/execution/castRay.c
+t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth);
+
+//sources/execution/reflexion_and_refraction.c
+t_vec	reflect(t_vec a, t_vec b);
+t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta);
+
+//sources/execution/traceRays.c 
+void	traceRays(t_minirt *minirt);
+
+//sources/execution/intersections.c
+bool	sphere_intersect(t_sphere *s, t_vec orig, t_vec dir, t_hit *hit);
+bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
+		t_hit *closestHit);
+
 #endif
