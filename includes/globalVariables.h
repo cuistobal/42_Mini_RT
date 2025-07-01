@@ -48,4 +48,18 @@
 # define MAXBVHDEPTH 40
 # define SURFACECOEFFICIENT 2.0f
 
+//ray casting
+# define DIFFUSE 0
+# define SPECULAR 1
+# define REFLECTION 2
+# define REFRACTION 3
+
+# define MAXRAYDEPTH 4
+
+# define REFRACTDIR 0
+# define REFLECTDIR 1
+# define REFRACTCOLOR 2
+# define REFLECTCOLOR 3
+
+
 #endif

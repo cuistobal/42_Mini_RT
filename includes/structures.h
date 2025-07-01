@@ -85,6 +85,7 @@ typedef	struct	object
 	char	type;
 	void	*data;
 	void	(*initialiser)(char *);
+	float   (*intersect)(struct object *, t_ray *ray, t_hit *hit);
 	t_aabb	(computeBounds)(t_vec, t_vec);	
 }	t_obj;
 
