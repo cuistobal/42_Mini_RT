@@ -35,7 +35,9 @@ t_aabb	*createAabbNode(t_object *object)
 	new = malloc(sizeof(t_aabb));
 	if (!new)
 		return (NULL);
-	if (!object)
+	if (object)
+		object->computeBounds;
+	else
 	{
 		ft_bzero(new->minVec, sizeof(int) * 3);
 		ft_bzero(new->maxVec, sizeof(int) * 3);

@@ -36,9 +36,9 @@ typedef struct	objects
 
 typedef struct vector
 {
-	int	x;
-	int	y;
-	int	z;
+	float	x;
+	float	y;
+	float	z;
 }	t_vec;
 
 typedef struct	triangle
@@ -64,6 +64,9 @@ typedef struct aabb
 	int	maxVec[3];
 }	t_aabb;
 
+//	t_vec	minVec;
+//	t_vec	maxVec;
+
 //BVH tree structure
 typedef struct bvh
 {
@@ -74,4 +77,56 @@ typedef struct bvh
     struct bvh		*right;
 }	t_bvh;
 
+
+/*refactored structures
+
+typedef	struct	object
+{
+	char	type;
+	void	*data;
+	void	(*initialiser)(char *);
+	t_aabb	(computeBounds)(t_vec, t_vec);	
+}	t_obj;
+
+typedef struct	camera
+{
+	float	FOV;	
+	t_vec	viewPoint;
+	t_vec	normalizedOrientation;
+}	t_cam;
+
+typedef struct	ambient
+{
+	float	lightRatio;
+	t_vec	colours;
+}	t_ambient;
+
+typedef struct	light
+{
+	float	brightness;
+	t_vec	lightPosition;
+	t_vec	colours;
+}	t_light;
+
+typedef struct	sphere
+{
+	float	diameter;
+	t_vec	center;	
+	t_vec	colours;
+}	t_sphere;
+
+typedef struct	cylinder
+{
+	t_vec	center;	
+	t_vec	normalizedAxis;	
+	t_vec	colours;
+}	t_cylinder;
+
+typedef struct	plane
+{
+	t_vec	point;	
+	t_vec	normalizedAxis;	
+	t_vec	colours;
+}	t_plane;
+*/
 #endif
