@@ -35,6 +35,29 @@ typedef struct	objects
 }	t_object;
 
 
+typedef struct	triangle
+{
+	struct vector	v1;
+	struct vector	v2;
+	struct vector	v3;
+	struct triangle	*next;
+}	t_tri;
+
+
+typedef struct meshes
+{
+
+	struct meshes	*next;
+}	t_mesh;
+
+
+typedef struct vector;
+{
+	int	x;
+	int	y;
+	int	z;
+}	t_vec;
+
 //BVH defitions
 
 //Volume boundaries node
