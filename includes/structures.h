@@ -34,6 +34,12 @@ typedef struct	objects
     struct objects  *next;
 }	t_object;
 
+typedef struct vector
+{
+	int	x;
+	int	y;
+	int	z;
+}	t_vec;
 
 typedef struct	triangle
 {
@@ -41,22 +47,13 @@ typedef struct	triangle
 	struct vector	v2;
 	struct vector	v3;
 	struct triangle	*next;
-}	t_tri;
+}	t_triangle;
 
 
 typedef struct meshes
 {
-
 	struct meshes	*next;
 }	t_mesh;
-
-
-typedef struct vector;
-{
-	int	x;
-	int	y;
-	int	z;
-}	t_vec;
 
 //BVH defitions
 
