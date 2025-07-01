@@ -23,32 +23,31 @@ static inline t_vec	cast_ray_return(t_vec buffer[])
 }
 
 /*	We need multithreading here :)	
-void handle_multiple_lights()
+void	handle_multiple_lights(t_scene *scene, t_hit *hit, float *dli, float *sli)
 {
-    float diffuse_light_intensity = 0, specular_light_intensity = 0;
-    for (size_t i = 0; i < scene->light_count; i++) {
-        t_vec light_dir = vec3_normalized(vec3_sub(scene->lights[i], hit.point));
-        t_hit shadow_hit = {0};
+	t_object	*lights;
+    t_vec		light_dir;
+    t_hit		shadow_hit;
+
+	lights = scene->lights;
+	while (lights)
+	{
+		init_hit_values(&shadow_hit);
+        light_dir = vec_normalized(vec_sub(scene->lights[i], hit.point));
         if (scene_intersect(scene, hit.point, light_dir, &shadow_hit) &&
-            vec3_norm(vec3_sub(shadow_hit.point, hit.point)) < vec3_norm(vec3_sub(scene->lights[i], hit.point)))
+            vec_norm(vec_sub(shadow_hit.point, hit.point)) < vec_norm(vec_sub(scene->lights[i], hit.point)))
             continue;
-        diffuse_light_intensity += fmaxf(0.0f, vec3_dot(light_dir, hit.normal));
-        specular_light_intensity += powf(fmaxf(0.0f, -vec3_dot(reflect(vec3_negate(light_dir), hit.normal), dir)), hit.material.specular_exponent);
+        *dli += fmaxf(0.0f, vec_dot(light_dir, hit.normal));
+        *sli += powf(fmaxf(0.0f, -vec_dot(reflect(vec_negate(light_dir), hit.normal), dir)), hit.material.specular_exponent);
+		lights = lights->next;
     }
-
-    t_vec diffuse = vec3_scale(hit.material.diffuse_color, diffuse_light_intensity * hit.material.albedo[0]);
-    t_vec specular = vec3_scale((t_vec){1.0, 1.0, 1.0}, specular_light_intensity * hit.material.albedo[1]);
-    t_vec reflection = vec3_scale(reflect_color, hit.material.albedo[2]);
-    t_vec refraction = vec3_scale(refract_color, hit.material.albedo[3]);
-
-    return vec3_add(vec3_add(diffuse, specular), vec3_add(reflection, refraction));
 }
 */
 
 //dli -> diffuse light intensity
 //sli -> specular light intensity
 //
-void	handle_impact(t_scene *scene, t_vec buffer[])
+static void	handle_impact(t_scene *scene, t_vec buffer[])
 {
 	float	dli;
 	float	sli;
@@ -69,14 +68,13 @@ void	handle_impact(t_scene *scene, t_vec buffer[])
 
 	if (hit.material)
 	{
-    	buffer[DIFFUS] = vec_scale(hit.material.diffuse_color, \
+    	buffer[DIFFUSE] = vec_scale(hit.material.diffuse_color, \
 				dli * hit.material.albedo[0]);
-    	buffer[SPECULAR] = vec3_scale({1.0, 1.0, 1.0}, \
+    	buffer[SPECULAR] = vec_scale(setVecValues(1.0, 1.0, 1.0), \
 				sli * hit.material.albedo[1]);
     	buffer[REFLECTION] = vec3_scale(reflect_color, hit.material.albedo[2]);
     	buffer[REFRACTION] = vec3_scale(refract_color, hit.material.albedo[3]);
 	}
-    return (cast_ray_return(buffer));
 }
 
 //
