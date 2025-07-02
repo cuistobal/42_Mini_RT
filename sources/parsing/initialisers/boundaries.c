@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //
-t_aabb	populate_sphere_aabb(t_object *obj)
+t_aabb	sphere_bounds(t_object *obj)
 {
     t_vec		axis1;
 	t_vec		axis2;
@@ -20,15 +20,8 @@ t_aabb	populate_sphere_aabb(t_object *obj)
 	return (obj->pdata.boundaries); 
 }
 
-/*
-void	populate_plan_aabb(t_object *obj)
-{
-
-}
-*/
-
 //
-t_aabb	no_aabb_scenario(t_object *obj)
+t_aabb	no_bounds(t_object *obj)
 {
 	t_vec	axis1;
 	t_vec	axis2;
@@ -40,7 +33,7 @@ t_aabb	no_aabb_scenario(t_object *obj)
 }
 
 //
-t_aabb	populate_cylinder_aabb(t_object *obj)
+t_aabb	cylinder_bounds(t_object *obj)
 {
     t_vec		axis1;
 	t_vec		axis2;
@@ -57,14 +50,4 @@ t_aabb	populate_cylinder_aabb(t_object *obj)
     axis2.z = obj->pdata.center.z - obj->pdata.normalized_axis.z * cylinder.height / 2.0f;
 	turn_vectors_to_aabb(&obj->pdata.boundaries, axis1, axis2);
 	return (obj->pdata.boundaries); 
-}
-
-//
-t_aabb	(*get_bounds(int type))(t_object *object)
-{
-	if (type == ESPHERE)
-		return (populate_sphere_aabb);
-	if (type == ECYLINDER)
-		return (populate_cylinder_aabb);
-	return (no_aabb_scenario);
 }

@@ -1,6 +1,5 @@
 #include "minirt.h"
 
-
 //
 void	*camera_initialiser(char **str, void *data, t_prim *pdata)
 {
@@ -20,15 +19,14 @@ void	*camera_initialiser(char **str, void *data, t_prim *pdata)
     if (!extract_float_from_string(&this->fov, &temp, convert, limits))
         return (NULL);
 	else
-		return (endOfScenario(*str, this));
+		return (endOfScenario(*str, &this));
 }
 
 //
 void	*ambient_lighting_initialiser(char **str, void *data, t_prim *pdata)
 {
-
-	char		*temp;
 	t_ambient	*this;
+	char		*temp;
 	float		limits[2];
 
 	pdata = NULL;
@@ -36,12 +34,12 @@ void	*ambient_lighting_initialiser(char **str, void *data, t_prim *pdata)
 	limits[1] = RATIOLIMAX;
 	this = (t_ambient *)data;
     temp = ft_strtok_r(*str, WHITESPACES, str);
-    if (!extract_float_from_string(&this->light_ratio, &temp, convert, limits))
+    if (!extract_float_from_string(&data->light_ratio, &temp, convert, limits))
         return (NULL);
     temp = ft_strtok_r(*str, WHITESPACES, str);
-    if (!get_colors(&this->color, &temp))
+    if (!get_colors(&pdata->color, &temp))
 		return (NULL);
-	return (endOfScenario(*str, this));
+	return (endOfScenario(*str, &this));
 }
 
 //
@@ -58,7 +56,7 @@ void	*light_initialiser(char **str, void *data, t_prim *pdata)
 	limits[1] = RATIOLIMAX;
     if (!extract_float_from_string(&this->brightness, str, convert, limits))
 		return (NULL);
-    if (!get_colors(&this->color, str))
+    if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, this));
+	return (endOfScenario(*str, &this));
 }

@@ -5,14 +5,14 @@ void	*sphere_initialiser(char **str, void *data, t_prim *pdata)
 {
 	t_sphere	*this;
 
-	this = (t_sphere *)data;	
+	this = (t_sphere *)data;
     if (!extract_vector_from_string(&pdata->center, str, convert, NULL))
         return (NULL);
     if (!extract_float_from_string(&this->diameter, str, convert, NULL))
         return (NULL);
     if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, this));
+	return (endOfScenario(*str, &this));
 }
 
 //
@@ -30,11 +30,11 @@ void	*plane_initialiser(char **str, void *data, t_prim *pdata)
 		return (NULL);
     if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, this));
+	return (endOfScenario(*str, &this));
 }
 
 //
-void	*cylinder_initialiser(char **str, void *data, t_prim *pdata)
+void	*cylinder_init(char **str, void *data, t_prim *pdata)
 {
 	t_cylinder	*this;
 	float		lim[3];
@@ -52,5 +52,5 @@ void	*cylinder_initialiser(char **str, void *data, t_prim *pdata)
 		return (NULL);
 	else if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, this));
+	return (endOfScenario(*str, &this));
 }

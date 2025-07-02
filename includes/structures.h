@@ -73,11 +73,8 @@ typedef struct aabb
 typedef struct bvh
 {
 	int				objCount;
-
-
 	struct object	*objects;
     struct aabb		*bounds;
-
     struct bvh		*left;
     struct bvh		*right;
 }	t_bvh;
@@ -111,16 +108,33 @@ typedef struct	primitives
 	t_aabb	boundaries;
 }	t_prim;
 
+typedef struct methods
+{
+    void	*(*initializer)(char **, void *, t_prim *);
+    bool	(*intersect)(struct object *, t_vec, t_vec, t_hit *);
+    t_aabb	(*bounds)(struct object *);
+    void 	(*destroy)(struct object *);
+}	t_methods;
+
+/*
 typedef	struct	object
 {
 	char			type;
+	union objtype
+	{
+        struct	sphere		sphere;
+        struct	plane		plane;
+        struct	cylinder	cylinder;
+        struct	camera		camera;
+        struct	light		light;
+        struct	ambient		ambient;
+    }	u_type;
 	void			*data;
 	t_prim			pdata;
-	void			*(*initialiser)(char **, void *, t_prim *);
-	float   		(*intersect)(struct object *, t_vec o, t_vec d, t_hit *h);
-	t_aabb			(*bounds)(struct object *);	
+	const t_methods	*methods;
 	struct	object	*next;
 }	t_object;
+*/
 
 typedef struct	camera
 {
@@ -165,5 +179,24 @@ typedef struct	plane
 	t_vec	center;
 	t_vec	normalized_axis;
 }	t_plane;
+
+
+typedef	struct	object
+{
+	char			type;
+	union objtype
+	{
+        struct	sphere		sphere;
+        struct	plane		plane;
+        struct	cylinder	cylinder;
+        struct	camera		camera;
+        struct	light		light;
+        struct	ambient		ambient;
+    }	u_type;
+	void			*data;
+	t_prim			pdata;
+	const t_methods	*methods;
+	struct	object	*next;
+}	t_object;
 
 #endif

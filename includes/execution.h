@@ -32,7 +32,6 @@ t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta);
 void	traceRays(t_minirt *minirt);
 
 //sources/execution/intersections.c
-bool	sphere_intersect(t_sphere *s, t_vec orig, t_vec dir, t_hit *hit);
 bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 		t_hit *closestHit);
 

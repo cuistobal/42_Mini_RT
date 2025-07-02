@@ -17,7 +17,7 @@ bool    	getRatio(float *value, char **str, bool (*convert)(float *dst, \
 //sources/parsing/primitive_objects_initialisers.c
 void		*sphere_initialiser(char **input, void *data, t_prim *pdata);
 void		*plane_initialiser(char **input, void *data, t_prim *pdata);
-void		*cylinder_initialiser(char **input, void *data, t_prim *pdata);
+void		*cylinder_init(char **input, void *data, t_prim *pdata);
 
 //sources/parsing/environement_objects_initialisers.c
 void		*camera_initialiser(char **input, void *data, t_prim *pdata);
@@ -35,8 +35,19 @@ void		*(*get_initializer(int type))(char **, void *, t_prim *);
 //sources/parsing/initialisers/boundaries.c
 t_aabb	populate_sphere_aabb(t_object *obj);
 t_aabb	populate_plan_aabb(t_object *obj);
-t_aabb	no_aabb_scenario(t_object *obj);
+t_aabb	no_bounds(t_object *obj);
+
 //void	populate_cylinder_aabb(t_object *obj)
-t_aabb	(*get_bounds(int type))(struct object *);
+t_aabb	sphere_bounds(t_object *obj);
+t_aabb	no_bounds(t_object *obj);
+t_aabb	cylinder_bounds(t_object *obj);
+
+//sources/parsing/initialisers/destroy.c 
+void	*destroy(t_object *self);
+
+//sources/parsing/initialisers/intersections.c
+bool	plane_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit);
+bool	sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit);
+bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit);
 
 #endif

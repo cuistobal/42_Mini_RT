@@ -42,10 +42,12 @@ bool    get_colors(int *color, char **str)
     i = 1;
     mask = 16;
 	status = !(!str || !*str);
-    while (status && i++ < 4)
+    while (status && i++ < 3)
     {
         status = isdigit(**str);
         param = ft_strtok_r(*str, ",", str);
+		if (!status || !param)
+			break ;
        	status = convertRGB(param, &temp[i]);
         *color |= temp[i] << mask;
         mask = mask - 8;

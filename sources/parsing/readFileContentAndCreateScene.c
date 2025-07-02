@@ -15,7 +15,33 @@ static char	findType(char *ptr)
 		return (EPLANE);
 	if (!strcmp(ptr, CYLINDER))
 		return (ECYLINDER);
-    return (0);
+	return (0);
+}
+
+//The shit we do to get OOP like behaviours when only pure C is allowed.
+//Populates the methods struct with the object's type matching methods.
+static void	get_methods(char type, t_methods *out)
+{
+	if (type == ESPHERE)
+		*out = (t_methods){.initializer = sphere_initialiser, .intersect = \
+			sphere_intersect, .bounds = sphere_bounds, .destroy = destroy};
+	else if (type == EPLANE)
+		*out = (t_methods){.initializer = plane_initialiser, .intersect = \
+			plane_intersect, .bounds = no_bounds, .destroy = destroy};
+	else if (type == ECYLINDER)
+		*out = (t_methods){.initializer = cylinder_init, .intersect = \
+			cylinder_intersect, .bounds = cylinder_bounds, .destroy = destroy};
+	else if (type == ECAMERA)
+		*out = (t_methods){.initializer = camera_initialiser, .intersect = \
+			NULL, .bounds = no_bounds, .destroy = destroy};
+	else if (type == ELIGHT)
+		*out = (t_methods){.initializer = light_initialiser, .intersect = \
+			NULL, .bounds = no_bounds, .destroy = destroy};
+	else if (type == EALIGHT)
+		*out = (t_methods){.initializer = ambient_initialiser, .intersect = \
+			NULL, .bounds = no_bounds, .destroy = destroy};
+	else
+		*out = (t_methods){0};
 }
 
 //
@@ -24,20 +50,18 @@ static t_object	*parseLine(char *line)
 	t_object	*new;
 	char		*ptr;
 
-//	new = createObjectNode();
 	new = malloc(sizeof(t_object));
 	if (!new)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
 	new->type = findType(ptr);
-   // if (!new->type || !fillObject(new, line))
 	if (!new->type)
-        new = freeObject(new);
-	new->initialiser = get_initializer(new->type);
-	new->bounds = get_bounds(new->type);
-	if (!new->initialiser || !new->bounds)
-		return (freeGenericPointer(new));	
-	new->initialiser(&line, &new->data, &new->pdata);
+		new = freeObject(new);
+	get_methods(new->type, new->methods);
+	if (!new->methods->initializer)
+		return (free_generic_pointer(new));
+	if (!call_object_initializer(new->type, &line, new))
+		return (free_generic_pointer(new));
 	return (new);
 }
 
@@ -45,29 +69,31 @@ static t_object	*parseLine(char *line)
 //content. Empty lines are skipped recursively.
 static char *getNextValidLine(int fd, char **saveptr)
 {
-    char    *line;
+	char    *line;
 
-    line = get_next_line(fd);
-    if (line && (!*line || *line == '\n' || !ft_strcmp(line, "")))
-    {
-        line = freeGenericPointer(line);
-        return (getNextValidLine(fd, saveptr));
-    }
-    *saveptr = line;
-    return (line);
+	line = get_next_line(fd);
+	if (line && (!*line || *line == '\n' || !ft_strcmp(line, "")))
+	{
+		line = free_generi_pointer(line);
+		return (getNextValidLine(fd, saveptr));
+	}
+	*saveptr = line;
+	return (line);
 }
 
+/*Can be removed
 //If the parsing was interrupted due to invalid, status, we return false.
 //Else, we return true if the scene as a light source, a camera && ambiaent
 //light settings.
 static bool endOfParsing(t_minirt *minirt, char **saveptr)
 {
-    t_scene *scene;
+	t_scene *scene;
 
-    scene = minirt->scene;
-    *saveptr = freeGenericPointer(*saveptr);
-    return (scene->light && scene->camera && scene->ambiantLightning);
+	scene = minirt->scene;
+	*saveptr = freeGenericPointer(*saveptr);
+	return (scene->light && scene->camera && scene->ambiantLightning);
 }
+*/
 
 //This function reads each line of the file and processes its content to turn
 //it into a scene parameter or an object to be displayed.
@@ -76,24 +102,28 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
 	t_object	*new;
 	t_object	*tail;
 	char		*line;
-    char        *saveptr;
+	t_scene		*scene;
+	char        *saveptr;
 
 	tail = NULL;
-    saveptr = NULL;
-	minirt->scene = createSceneNode();
-	if (!minirt->scene)
+	saveptr = NULL;
+	scene = create_scene_node();
+	if (!scene)
 		return (false);
+	minirt->scene = scene;
 	while (true)
 	{
-        line = getNextValidLine(fd, &saveptr);
-        if (!line)
-            break ;
+		line = getNextValidLine(fd, &saveptr);
+		if (!line)
+			break ;
 		new = parseLine(line);
 		if (!new)
-            break ;
-        if (!insertNewObjectInMinirt(minirt, new, &tail))
-            break ;
-		saveptr = freeGenericPointer(saveptr);
+			break ;
+		if (!insertNewObjectInMinirt(minirt, new, &tail))
+			break ;
+		saveptr = free_generic_pointer(saveptr);
 	}
-	return (close(fd), endOfParsing(minirt, &saveptr));
+//	return (close(fd), endOfParsing(minirt, &saveptr));
+	return (close(fd), saveptr = free_generic_pointer(saveptr), scene->light && \
+			scene->camera && scene->ambiant);
 }
