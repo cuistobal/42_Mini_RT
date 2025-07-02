@@ -32,4 +32,11 @@ bool		extract_vector_from_string(t_vec *v, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[]);
 void		*(*get_initializer(int type))(char **, void *, t_prim *);
 
+//sources/parsing/initialisers/boundaries.c
+t_aabb	populate_sphere_aabb(t_object *obj);
+t_aabb	populate_plan_aabb(t_object *obj);
+t_aabb	no_aabb_scenario(t_object *obj);
+//void	populate_cylinder_aabb(t_object *obj)
+t_aabb	(*get_bounds(int type))(struct object *);
+
 #endif

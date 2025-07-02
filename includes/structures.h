@@ -64,11 +64,8 @@ typedef struct meshes
 //Volume boundaries node
 typedef struct aabb
 {
-	int	minVec[3];
-	int	maxVec[3];
-//	Switch the curent prototype to t_vec
-//	t_vec	minVec;
-//	t_vec	maxVec;
+	t_vec	min_vec;
+	t_vec	max_vec;
 }	t_aabb;
 
 
@@ -121,7 +118,7 @@ typedef	struct	object
 	t_prim			pdata;
 	void			*(*initialiser)(char **, void *, t_prim *);
 	float   		(*intersect)(struct object *, t_vec o, t_vec d, t_hit *h);
-	t_aabb			(*bounds)(t_vec, t_vec);	
+	t_aabb			(*bounds)(struct object *);	
 	struct	object	*next;
 }	t_object;
 

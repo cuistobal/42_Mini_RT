@@ -14,6 +14,7 @@ bool    buildBvh(t_bvh **root, t_object *objects, int count, int depth);
 
 //sources/execution/rendering/aabbNodeHandler.c
 float	getAabbSurfaceArea(t_aabb *boundaries);
+void	turn_vectors_to_aabb(t_aabb *node, t_vec v1, t_vec v2);
 void	combineAabbNodes(t_aabb *node1, t_aabb *node2);
 t_aabb  *createAabbNode(t_object *object);
 

@@ -71,13 +71,13 @@ static float	evaluateSah(t_bvh *node, int axis, float split)
 static float	computeSplit(t_bvh *node, int axis, int i)
 {
 	if (axis == 0)
-    	return (node->bounds->minVec[X] + (i / 8.0f) * \
-				(node->bounds->maxVec[X] - node->bounds->minVec[X]));
+    	return (node->bounds->min_vec.x + (i / 8.0f) * \
+				(node->bounds->max_vec.x - node->bounds->min_vec.x));
 	else if (axis == 1)
-    	return (node->bounds->minVec[Y] + (i / 8.0f) * \
-				(node->bounds->maxVec[Y] - node->bounds->minVec[Y]));
-   	return (node->bounds->minVec[Z] + (i / 8.0f) * \
-		(node->bounds->maxVec[Z] - node->bounds->minVec[Z]));
+    	return (node->bounds->min_vec.y + (i / 8.0f) * \
+				(node->bounds->max_vec.y - node->bounds->min_vec.y));
+   	return (node->bounds->min_vec.z + (i / 8.0f) * \
+		(node->bounds->max_vec.z - node->bounds->min_vec.z));
 }
 
 //Returns the best axis

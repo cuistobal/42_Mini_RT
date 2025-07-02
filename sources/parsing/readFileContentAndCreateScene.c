@@ -34,8 +34,9 @@ static t_object	*parseLine(char *line)
 	if (!new->type)
         new = freeObject(new);
 	new->initialiser = get_initializer(new->type);
-	if (!new->initialiser)
-		return (freeGenericPointer(new));
+	new->bounds = get_bounds(new->type);
+	if (!new->initialiser || !new->bounds)
+		return (freeGenericPointer(new));	
 	new->initialiser(&line, &new->data, &new->pdata);
 	return (new);
 }
