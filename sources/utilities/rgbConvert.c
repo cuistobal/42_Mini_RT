@@ -47,7 +47,7 @@ bool    get_colors(int *color, char **str)
         status = isdigit(**str);
         param = ft_strtok_r(*str, ",", str);
        	status = convertRGB(param, &temp[i]);
-        *colors |= temp[i] << mask;
+        *color |= temp[i] << mask;
         mask = mask - 8;
     }
     return (status);

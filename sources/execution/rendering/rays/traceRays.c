@@ -1,12 +1,15 @@
 #include "minirt.h"
 
 //
-static void	appendDirValue(t_minirt *minirt, t_vec *dir, int i, int j)
+static void	append_dir_value(t_minirt *minirt, t_vec *dir, int i, int j)
 {
+	t_camera	*camera;
+
+	camera = (t_camera *)minirt->scene->camera->data;
 	dir->x = (i + 0.5f) - minirt->width / 2.0f;
 	dir->y = -(j + 0.5f) + minirt->height / 2.0f;
-	dir->z = -minirt->height / (2.0f * tanf(minirt->scene->camera->fov / 2.0f));
-	vecNormalized(dir);	
+	dir->z = -minirt->height / (2.0f * tanf(camera->fov / 2.0f));
+	*dir = vec_normalized(*dir);	
 }
 
 /*
@@ -26,22 +29,22 @@ void	traceRays(t_minirt *minirt)
 {
 	int		i;
 	int		j;
-	int		max;
 	t_vec	dir;
 	t_vec	ray;
-	t_vec	*frameBuffer;
+	t_vec	*frame_buffer;
 
-	max = minirt->width * minirt->height;
-	framebuffer = malloc(sizeof(t_vec) * size);
-	if (!framebuffer)
+	i = 0;
+	j = 0;
+	frame_buffer = malloc(sizeof(t_vec) * minirt->width * minirt->height);
+	if (!frame_buffer)
 		return ;
 	while (i < minirt->height)
 	{
 		while (j < minirt->width)
 		{
-			ray = setVecValues(0.0f, 0.0f, 0.0f);	
-			dir = appendDirValue(minirt, &dir, i, j);
-			frameBuffer[j * minirt->width + i] = castRay(scene, ray, dir, 0);	
+			ray = set_vec_value(0.0f, 0.0f, 0.0f);	
+			append_dir_value(minirt, &dir, i, j);
+			frame_buffer[j * minirt->width + i] = cast_ray(minirt->scene, ray, dir, 0);	
 			j++;
 		}
 		i++;

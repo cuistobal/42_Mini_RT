@@ -1,5 +1,6 @@
 #include "minirt.h"
 
+/*
 //
 void    printObject(t_object *obj)
 {
@@ -52,3 +53,4 @@ void	printTreeBFS(t_bvh *root)
 	printTreeBFS(root->right);
 	printObject(root->objects);
 }
+*/

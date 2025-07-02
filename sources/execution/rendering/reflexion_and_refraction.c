@@ -32,7 +32,7 @@ t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta)
     k = 1 - sqrtf(eta) * (1 - sqrtf(cosinus));
 	if (k < 0)
 //		return ({1, 0, 0});
-		return (set_vec_values(1, 0, 0));
+		return (set_vec_value(1, 0, 0));
 	scalev1 = vec_scale(v1, eta);
 	scalev2 = vec_scale(v2, eta * cosinus - sqrtf(k));
     return (vec_add(scalev1, scalev2));

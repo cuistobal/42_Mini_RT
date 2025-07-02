@@ -1,5 +1,6 @@
 #include "minirt.h"
 
+/*
 //
 t_object    *createObjectNode(void)
 {
@@ -16,6 +17,7 @@ t_object    *createObjectNode(void)
 	new->next = NULL;
 	return (new);
 }
+*/
 
 t_scene *createSceneNode(void)
 {

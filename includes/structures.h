@@ -6,6 +6,8 @@
 //Main structure holding all the program's informations
 typedef	struct	minirt
 {
+	int				width;
+	int				height;
 	void    	    *mlxptr;
 	void	        *mlxwin;
     struct scene    *scene;
@@ -74,8 +76,11 @@ typedef struct aabb
 typedef struct bvh
 {
 	int				objCount;
-	struct objects	*objects;
+
+
+	struct object	*objects;
     struct aabb		*bounds;
+
     struct bvh		*left;
     struct bvh		*right;
 }	t_bvh;
@@ -115,7 +120,7 @@ typedef	struct	object
 	void			*data;
 	t_prim			pdata;
 	void			*(*initialiser)(char **, void *, t_prim *);
-	float   		(*intersect)(struct object *, t_vec *ray, t_hit *hit);
+	float   		(*intersect)(struct object *, t_vec o, t_vec d, t_hit *h);
 	t_aabb			(*bounds)(t_vec, t_vec);	
 	struct	object	*next;
 }	t_object;

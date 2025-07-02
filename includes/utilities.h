@@ -40,9 +40,9 @@ float	vec_norm(t_vec v);
 
 
 //sources/utilities/vectorOperations1.c
-t_vec	vec_normalized(t_vec *v);
+t_vec	vec_normalized(t_vec v);
 t_vec	vec_negate(t_vec v);
 t_vec	vec_cross(t_vec a, t_vec b);
-t_vec	set_vec_values(float x, float y, float z);
+t_vec	set_vec_value(float x, float y, float z);
 
 #endif

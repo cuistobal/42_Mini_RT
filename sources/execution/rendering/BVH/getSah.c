@@ -3,14 +3,11 @@
 //
 static inline float	get_center(t_object *current, int axis)
 {
-	void	*data;
-
-	data = objects->data;
 	if (axis == 0)
-		return (data->center.x);
+		return (current->pdata.center.x);
 	else if (axis == 1)
-		return (data->center.y);
-	return (data->center.z);
+		return (current->pdata.center.y);
+	return (current->pdata.center.z);
 }
 
 //
@@ -56,7 +53,7 @@ static float	evaluateSah(t_bvh *node, int axis, float split)
     rBounds = createAabbNode(NULL);
 	while (current)
 	{
-		center = getCenter(current, axis);
+		center = get_center(current, axis);
 		if (center < split)
 			combineAabbNodes(lBounds, createAabbNode(current));
 		else

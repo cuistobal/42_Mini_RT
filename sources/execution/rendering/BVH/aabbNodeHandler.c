@@ -36,8 +36,8 @@ t_aabb	*createAabbNode(t_object *object)
 	if (!new)
 		return (NULL);
 	if (object)
-		object->boundaries = new; //For compilation -> need to work on 
-								   //implementing the boundaries calculator.
+		object->pdata.boundaries = *new;
+	//For compilation -> need to work on implementing the boundaries calculator.
 //		object->boundaries = object->bounds();
 	else
 	{

@@ -24,7 +24,8 @@ static t_object	*parseLine(char *line)
 	t_object	*new;
 	char		*ptr;
 
-	new = createObjectNode();
+//	new = createObjectNode();
+	new = malloc(sizeof(t_object));
 	if (!new)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
@@ -35,6 +36,7 @@ static t_object	*parseLine(char *line)
 	new->initialiser = get_initializer(new->type);
 	if (!new->initialiser)
 		return (freeGenericPointer(new));
+	new->initialiser(&line, &new->data, &new->pdata);
 	return (new);
 }
 
