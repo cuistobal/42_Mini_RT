@@ -62,10 +62,11 @@ typedef struct aabb
 {
 	int	minVec[3];
 	int	maxVec[3];
-}	t_aabb;
-
+//	Switch the curent prototype to t_vec
 //	t_vec	minVec;
 //	t_vec	maxVec;
+}	t_aabb;
+
 
 //BVH tree structure
 typedef struct bvh
@@ -102,50 +103,52 @@ typedef	struct	object
 {
 	char	type;
 	void	*data;
-	void	(*initialiser)(char *);
+	void	(*initialiser)(char *, void *);
 	float   (*intersect)(struct object *, t_ray *ray, t_hit *hit);
 	t_aabb	(computeBounds)(t_vec, t_vec);	
 }	t_obj;
 
 typedef struct	camera
 {
-	float	FOV;	
-	t_vec	viewPoint;
-	t_vec	normalizedOrientation;
+	float	fov;	
+	t_vec	view_point;
+	t_vec	normalized_orientation;
 }	t_cam;
 
 typedef struct	ambient
 {
+	int		color;
 	float	lightRatio;
-	t_vec	colours;
 }	t_ambient;
 
 typedef struct	light
 {
+	int		color;
 	float	brightness;
-	t_vec	lightPosition;
-	t_vec	colours;
+	t_vec	light_position;
 }	t_light;
 
 typedef struct	sphere
 {
+	int		color;
 	float	diameter;
-	t_vec	center;	
-	t_vec	colours;
+	t_vec	center;
 }	t_sphere;
 
 typedef struct	cylinder
 {
+	int		color;
+	float	height;
+	float	diameter;
 	t_vec	center;	
-	t_vec	normalizedAxis;	
-	t_vec	colours;
+	t_vec	normalized_axis;	
 }	t_cylinder;
 
 typedef struct	plane
 {
-	t_vec	point;	
-	t_vec	normalizedAxis;	
-	t_vec	colours;
+	int		color;
+	t_vec	point;
+	t_vec	normalized_axis;
 }	t_plane;
 */
 #endif

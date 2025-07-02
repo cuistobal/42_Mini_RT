@@ -75,7 +75,7 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
     saveptr = NULL;
 	minirt->scene = createSceneNode();
 	if (!minirt->scene)
-		return (NULL);
+		return (false);
 	while (true)
 	{
         line = getNextValidLine(fd, &saveptr);
