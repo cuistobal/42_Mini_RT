@@ -48,3 +48,21 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
     }
     return (status && i == 4);
 }
+
+//
+void	*(*getInitializer(int type))(char *, void *)
+{
+    if (type == EALIGHT)
+		return (ambient_lighting_initialiser);
+	else if (type == ECAMERA)
+        return (camera_initialiser);
+	else if (type == ELIGHT)
+		return (light_initialiser);
+	else if (type == ESPHERE)
+		return (sphere_initialiser);
+	else if (type == EPLANE)
+		return (plane_initialiser);
+	else if (type == ECYLINDER)
+		return (cylinder_initialiser);
+    return (NULL);
+}

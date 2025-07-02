@@ -29,9 +29,13 @@ static t_object	*parseLine(char *line)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
 	new->type = findType(ptr);
-    if (!new->type || !fillObject(new, line))
+   // if (!new->type || !fillObject(new, line))
+	if (!new->type)
         new = freeObject(new);
-    return (new);
+	new->initialiser = get_initializer(new->type);
+	if (!new->initialiser)
+		return (freeGenericPointer(new));
+	return (new);
 }
 
 //This helper returns the next line that is either NULL (EOF) or has some

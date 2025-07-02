@@ -21,6 +21,7 @@ typedef struct	scene
     struct objects  *ambiantLightning;
 }	t_scene;
 
+/* OLD DEFINTION
 //Object nodes, contaning the type and metrics of objects. Some parameter's
 //values stay set @ 0 if the object's type don't need them (ex -> We don't need
 //colours for the ECAMARA type).
@@ -33,6 +34,7 @@ typedef struct	objects
     float           normVector[3];
     struct objects  *next;
 }	t_object;
+*/
 
 typedef struct vector
 {
@@ -97,7 +99,7 @@ typedef struct hit
 }	t_hit;
 
 
-/*refactored structures
+/*refactored structures*/
 
 typedef	struct	object
 {
@@ -150,5 +152,5 @@ typedef struct	plane
 	t_vec	point;
 	t_vec	normalized_axis;
 }	t_plane;
-*/
+
 #endif
