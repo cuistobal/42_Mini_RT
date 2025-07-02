@@ -32,21 +32,17 @@ inline float	findDistance(int *arr);
 inline float	computeScalarProduct(int *obj1, int *obj2);
 
 //sources/utilities/vectorOperations.c
-inline t_vec	vecAdd(t_vec a, t_vec b);
-inline t_vec	vecSub(t_vec a, t_vec b);
-inline void		vecScale(t_vec *vector, float s);
-inline float	vecDot(t_vec a, t_vec b);
-inline float	vecNorm(t_vec v);
+t_vec	vec_add(t_vec a, t_vec b);
+t_vec	vec_sub(t_vec a, t_vec b);
+t_vec	vec_scale(t_vec vector, float s);
+float	vec_dot(t_vec a, t_vec b);
+float	vec_norm(t_vec v);
 
 
 //sources/utilities/vectorOperations1.c
-inline t_vec	vecNormalized(t_vec *v);
-inline t_vec	vecNegate(t_vec v);
-inline t_vec	vecCross(t_vec a, t_vec b);
-
-inline t_vec	setVecValues(float x, float y, float z)
-{
-	return ((t_vec){x, y, z});
-};
+t_vec	vec_normalized(t_vec *v);
+t_vec	vec_negate(t_vec v);
+t_vec	vec_cross(t_vec a, t_vec b);
+t_vec	set_vec_values(float x, float y, float z);
 
 #endif

@@ -18,11 +18,9 @@ inline t_vec	vecSub(t_vec a, t_vec b)
 
 //This function takes a vector v and a scalar s, and returns a new vector whose
 //components are the components of v multiplied by the scalar s.
-inline void	vecScale(t_vec *vector, float s)
+inline t_vec	vecScale(t_vec vector, float s)
 {
-	vector->x *= s;
-	vector->y *= s;
-	vector->z *= s;
+	return ((t_vec){vector.x * s, vector.y * s, vector.z * s});
 }
 
 //This function takes two vectors a and b and returns a scalar value which is 

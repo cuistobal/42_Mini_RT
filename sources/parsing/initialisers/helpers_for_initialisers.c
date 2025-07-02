@@ -51,7 +51,7 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
             status = check_limits(status, arr[i], limits[0], limits[1]);
     }
 	if (status && i == 4)
-		return (*v = setVecValues(arr[0], arr[1], arr[2]), true);
+		return (*v = set_vec_values(arr[0], arr[1], arr[2]), true);
 	return (false);
 }
 
