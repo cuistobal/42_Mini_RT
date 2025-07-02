@@ -1,13 +1,16 @@
 #include <minirt.h>
 
 //
-static inline float	getCenter(t_object *current, int axis)
+static inline float	get_center(t_object *current, int axis)
 {
+	void	*data;
+
+	data = objects->data;
 	if (axis == 0)
-		return (current->coordinates[X]);
+		return (data->center.x);
 	else if (axis == 1)
-		return (current->coordinates[Y]);
-	return (current->coordinates[Z]);
+		return (data->center.y);
+	return (data->center.z);
 }
 
 //

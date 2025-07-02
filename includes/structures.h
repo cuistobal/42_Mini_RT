@@ -80,7 +80,7 @@ typedef struct bvh
     struct bvh		*right;
 }	t_bvh;
 
-
+//Bonus
 typedef struct material
 {
     float	albedo[4];
@@ -101,13 +101,22 @@ typedef struct hit
 
 /*refactored structures*/
 
+typedef struct	primitives
+{
+	int		color;
+	t_vec	center;	
+	t_vec	normalized_axis;	
+	t_aabb	boundaries;
+}	t_prim;
+
 typedef	struct	object
 {
 	char			type;
 	void			*data;
-	void			*(*initialiser)(char **, void *);
+	t_prim			pdata;
+	void			*(*initialiser)(char **, void *, t_prim *);
 	float   		(*intersect)(struct object *, t_vec *ray, t_hit *hit);
-	t_aabb			(*computeBounds)(t_vec, t_vec);	
+	t_aabb			(*bounds)(t_vec, t_vec);	
 	struct	object	*next;
 }	t_object;
 
@@ -134,23 +143,24 @@ typedef struct	light
 typedef struct	sphere
 {
 	int		color;
-	float	diameter;
 	t_vec	center;
+	t_vec	normalized_axis;	
+	float	diameter;
 }	t_sphere;
 
 typedef struct	cylinder
 {
 	int		color;
-	float	height;
-	float	diameter;
 	t_vec	center;	
 	t_vec	normalized_axis;	
+	float	height;
+	float	diameter;
 }	t_cylinder;
 
 typedef struct	plane
 {
 	int		color;
-	t_vec	point;
+	t_vec	center;
 	t_vec	normalized_axis;
 }	t_plane;
 

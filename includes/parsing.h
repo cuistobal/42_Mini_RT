@@ -15,14 +15,14 @@ bool    	getRatio(float *value, char **str, bool (*convert)(float *dst, \
             char *src), bool limits);
 
 //sources/parsing/primitive_objects_initialisers.c
-void		*sphere_initialiser(char **input, void *data);
-void		*plane_initialiser(char **input, void *data);
-void		*cylinder_initialiser(char **input, void *data);
+void		*sphere_initialiser(char **input, void *data, t_prim *pdata);
+void		*plane_initialiser(char **input, void *data, t_prim *pdata);
+void		*cylinder_initialiser(char **input, void *data, t_prim *pdata);
 
 //sources/parsing/environement_objects_initialisers.c
-void		*camera_initialiser(char **input, void *data);
-void		*ambient_lighting_initialiser(char **str, void *data);
-void		*light_initialiser(char **input, void *data);
+void		*camera_initialiser(char **input, void *data, t_prim *pdata);
+void		*ambient_lighting_initialiser(char **str, void *data, t_prim *pdata);
+void		*light_initialiser(char **input, void *data, t_prim *pdata);
 
 //sources/parsing/helpers_for_initialisers.c
 void	*endOfScenario(char *str, void *object);
@@ -30,6 +30,6 @@ bool		extract_float_from_string(float *value, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[]);
 bool		extract_vector_from_string(t_vec *v, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[]);
-void		*(*get_initializer(int type))(char **, void *);
+void		*(*get_initializer(int type))(char **, void *, t_prim *);
 
 #endif

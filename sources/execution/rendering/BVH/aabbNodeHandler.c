@@ -36,7 +36,9 @@ t_aabb	*createAabbNode(t_object *object)
 	if (!new)
 		return (NULL);
 	if (object)
-		object->computeBounds;
+		object->boundaries = new; //For compilation -> need to work on 
+								   //implementing the boundaries calculator.
+//		object->boundaries = object->bounds();
 	else
 	{
 		ft_bzero(new->minVec, sizeof(int) * 3);

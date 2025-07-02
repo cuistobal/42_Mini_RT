@@ -56,7 +56,7 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 }
 
 //
-void	*(*get_initializer(int type))(char **, void *)
+void	*(*get_initializer(int type))(char **, void *, t_prim *pdata)
 {
     if (type == EALIGHT)
 		return (ambient_lighting_initialiser);

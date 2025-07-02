@@ -1,12 +1,14 @@
 #include "minirt.h"
 
+
 //
-void	*camera_initialiser(char **str, void *data)
+void	*camera_initialiser(char **str, void *data, t_prim *pdata)
 {
 	t_camera	*this;
 	char		*temp;
 	float		limits[2];
 
+	pdata = NULL;
 	this = (t_camera *)data;
     temp = ft_strtok_r(*str, WHITESPACES, str);
 	if (!extract_vector_from_string(&this->view_point, str, convert, NULL))
@@ -22,12 +24,14 @@ void	*camera_initialiser(char **str, void *data)
 }
 
 //
-void	*ambient_lighting_initialiser(char **str, void *data){
+void	*ambient_lighting_initialiser(char **str, void *data, t_prim *pdata)
+{
 
 	char		*temp;
 	t_ambient	*this;
 	float		limits[2];
 
+	pdata = NULL;
 	limits[0] = RATIOLIMIN;
 	limits[1] = RATIOLIMAX;
 	this = (t_ambient *)data;
@@ -41,11 +45,12 @@ void	*ambient_lighting_initialiser(char **str, void *data){
 }
 
 //
-void	*light_initialiser(char **str, void *data)
+void	*light_initialiser(char **str, void *data, t_prim *pdata)
 {
 	t_light	*this;
 	float	limits[2];
 
+	pdata = NULL;
 	this = (t_light *)data;
 	if (!extract_vector_from_string(&this->light_position, str, convert, NULL))
     	return (NULL);
