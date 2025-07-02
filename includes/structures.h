@@ -15,10 +15,10 @@ typedef	struct	minirt
 //ambiant lighting. Also holds a linked list of all objects present in the scen
 typedef struct	scene
 {
-    struct objects  *light;
-    struct objects  *camera;
-    struct objects  *objects;
-    struct objects  *ambiantLightning;
+    struct object	*light;
+    struct object	*camera;
+    struct object	*objects;
+    struct object	*ambiantLightning;
 }	t_scene;
 
 /* OLD DEFINTION
@@ -103,19 +103,20 @@ typedef struct hit
 
 typedef	struct	object
 {
-	char	type;
-	void	*data;
-	void	(*initialiser)(char *, void *);
-	float   (*intersect)(struct object *, t_ray *ray, t_hit *hit);
-	t_aabb	(computeBounds)(t_vec, t_vec);	
-}	t_obj;
+	char			type;
+	void			*data;
+	void			(*initialiser)(char *, void *);
+	float   		(*intersect)(struct object *, t_vec *ray, t_hit *hit);
+	t_aabb			(*computeBounds)(t_vec, t_vec);	
+	struct	object	*next;
+}	t_object;
 
 typedef struct	camera
 {
 	float	fov;	
 	t_vec	view_point;
 	t_vec	normalized_orientation;
-}	t_cam;
+}	t_camera;
 
 typedef struct	ambient
 {

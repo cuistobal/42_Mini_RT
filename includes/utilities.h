@@ -21,6 +21,7 @@ t_scene     	*createSceneNode(void);
 double  		ft_atof(const char *str, bool *error);
 
 //sources/utilities/rgbConvert.c
+bool    		get_colors(int *colot, char **str);
 bool    		getColours(t_object *object, char **str);
 
 //sources/utilities/init_window.c

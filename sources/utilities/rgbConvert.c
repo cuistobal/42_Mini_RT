@@ -31,7 +31,7 @@ bool    getColours(t_object *object, char **str)
 */
 
 //
-bool    get_colors(char **str, int *color)
+bool    get_colors(int *color, char **str)
 {
     int     i;
     int     mask;

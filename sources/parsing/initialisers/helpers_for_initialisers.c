@@ -4,7 +4,7 @@ inline void *endOfScenario(char *str, void *object)
 {
 	while (*str && isspace(*str))
 		str++;
-	if (!*str);
+	if (!*str)
 		return (object);
 	return (NULL);
 }
@@ -50,7 +50,7 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 }
 
 //
-void	*(*getInitializer(int type))(char *, void *)
+void	(*get_initializer(int type))(char *, void *)
 {
     if (type == EALIGHT)
 		return (ambient_lighting_initialiser);
