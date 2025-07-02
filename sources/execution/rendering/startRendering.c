@@ -28,7 +28,7 @@ bool	startRendering(t_minirt *minirt)
 		return (false);		//probbaly needs some free here
 
 	printf("isokemafriend\n");
-	printTreeBFS(root);
+	//printTreeBFS(root);
 
 	return (true);
 }

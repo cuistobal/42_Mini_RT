@@ -52,3 +52,12 @@ bool    get_colors(int *color, char **str)
     }
     return (status);
 }
+
+bool	convert(float *coordinates, char *str)
+{
+    bool    error;
+
+    error = true;
+    *coordinates = ft_atof(str, &error);
+    return (error);
+}
