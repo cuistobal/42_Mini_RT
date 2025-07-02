@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-inline void *endOfScenario(char *str, void *object)
+void	*endOfScenario(char *str, void *object)
 {
 	while (*str && isspace(*str))
 		str++;
@@ -35,22 +35,28 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[])
 {
 	int		i;
+	char	*temp;
+	char	*param;
 	bool	status;
+	float	arr[3];
 
 	i = 0;
+	temp = *str;
 	status = true;
     while (status && i++ < 3)
     {
         param = ft_strtok_r(temp, ",", &temp);
-        status = convert(&v[i], param);
+        status = convert(&arr[i], param);
         if (limits)
-            status = check_limits(status, v[i], limits[0], limits[1]);
+            status = check_limits(status, arr[i], limits[0], limits[1]);
     }
-    return (status && i == 4);
+	if (status && i == 4)
+		return (*v = setVecValues(arr[0], arr[1], arr[2]), true);
+	return (false);
 }
 
 //
-void	(*get_initializer(int type))(char *, void *)
+void	*(*get_initializer(int type))(char **, void *)
 {
     if (type == EALIGHT)
 		return (ambient_lighting_initialiser);

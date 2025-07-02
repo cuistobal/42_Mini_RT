@@ -25,11 +25,11 @@ void		*ambient_lighting_initialiser(char **str, void *data);
 void		*light_initialiser(char **input, void *data);
 
 //sources/parsing/helpers_for_initialisers.c
-inline void	*endOfScenario(char *str, void *object);
+void	*endOfScenario(char *str, void *object);
 bool		extract_float_from_string(float *value, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[]);
 bool		extract_vector_from_string(t_vec *v, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[]);
-void		(*get_initializer(int type))(char *, void *);
+void		*(*get_initializer(int type))(char **, void *);
 
 #endif

@@ -43,6 +43,10 @@ inline float	vecNorm(t_vec v);
 inline t_vec	vecNormalized(t_vec *v);
 inline t_vec	vecNegate(t_vec v);
 inline t_vec	vecCross(t_vec a, t_vec b);
-inline t_vec	setVecValues(float x, float y, float z);
+
+inline t_vec	setVecValues(float x, float y, float z)
+{
+	return ((t_vec){x, y, z});
+};
 
 #endif

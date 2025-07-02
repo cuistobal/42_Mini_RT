@@ -105,7 +105,7 @@ typedef	struct	object
 {
 	char			type;
 	void			*data;
-	void			(*initialiser)(char *, void *);
+	void			*(*initialiser)(char **, void *);
 	float   		(*intersect)(struct object *, t_vec *ray, t_hit *hit);
 	t_aabb			(*computeBounds)(t_vec, t_vec);	
 	struct	object	*next;
@@ -121,7 +121,7 @@ typedef struct	camera
 typedef struct	ambient
 {
 	int		color;
-	float	lightRatio;
+	float	light_ratio;
 }	t_ambient;
 
 typedef struct	light

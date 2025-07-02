@@ -24,9 +24,9 @@ void	*plane_initialiser(char **str, void *data)
 	this = (t_plane *)data;
 	limits[0] = VECLIMIN;
 	limits[1] = VECLIMAX;
-    if (!extract_vector_from_string(&plane->point, str, convert, NULL))
+    if (!extract_vector_from_string(&this->point, str, convert, NULL))
 		return (NULL);
-    if (!extract_vector_from_string(&plane->normalized_axis, str, convert, limits))
+    if (!extract_vector_from_string(&this->normalized_axis, str, convert, limits))
 		return (NULL);
     if (!get_colors(&this->color, str))
 		return (NULL);
@@ -46,7 +46,7 @@ void	*cylinder_initialiser(char **str, void *data)
         return (NULL); 
     if (!extract_vector_from_string(&this->normalized_axis, str, convert, lim))
         return (NULL);
-    if (!extract_float_from_string(&this->diameter, str, convert, NULL)	
+    if (!extract_float_from_string(&this->diameter, str, convert, NULL))	
 		return (NULL);
 	if (!extract_float_from_string(&this->height, str, convert, NULL))
 		return (NULL);
