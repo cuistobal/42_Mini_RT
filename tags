@@ -321,7 +321,6 @@ do_configure	includes/minilibx-linux/Makefile	/^do_configure	:$/;"	t
 do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
 endOfParsing	sources/parsing/readFileContentAndCreateScene.c	/^static bool endOfParsing(t_minirt *minirt, char **saveptr)$/;"	f	typeref:typename:bool	file:
 endOfScenario	sources/parsing/environement_objects_initialisers.c	/^inline void *endOfScenario(char *str, void *object)$/;"	f	typeref:typename:void *
-endOfScenario	sources/parsing/environement_objects_initialisers.c	/^static bool	endOfScenario(char *str)$/;"	f	typeref:typename:bool	file:
 endOfScenario	sources/parsing/fillObject.c	/^static bool	endOfScenario(char *str)$/;"	f	typeref:typename:bool	file:
 end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
 endian1	includes/minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
@@ -334,11 +333,11 @@ expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	s
 expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
 expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 extract_float_from_string	sources/parsing/helpers_for_initialisers.c	/^bool	extract_float_from_string(float *value, char **str, \\$/;"	f	typeref:typename:bool
+extract_vector_from_string	sources/parsing/helpers_for_initialisers.c	/^bool	extract_vector_from_string(t_vec *v, char **str, \\$/;"	f	typeref:typename:bool
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
 fillObject	sources/parsing/fillObject.c	/^bool	fillObject(t_object *object, char *str)$/;"	f	typeref:typename:bool
-fillScenarioOne	sources/parsing/environement_objects_initialisers.c	/^static bool fillScenarioOne(t_object *object, char **str)$/;"	f	typeref:typename:bool	file:
 fillScenarioOne	sources/parsing/fillObject.c	/^static bool fillScenarioOne(t_object *object, char **str)$/;"	f	typeref:typename:bool	file:
 fillScenarioThree	sources/parsing/fillObject.c	/^static bool fillScenarioThree(t_object *object, char **str, char type)$/;"	f	typeref:typename:bool	file:
 fillScenarioTwo	sources/parsing/fillObject.c	/^static bool fillScenarioTwo(t_object *object, char **str, char type)$/;"	f	typeref:typename:bool	file:

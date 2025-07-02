@@ -1,7 +1,16 @@
 #include "minirt.h"
 
+inline void *endOfScenario(char *str, void *object)
+{
+	while (*str && isspace(*str))
+		str++;
+	if (!*str);
+		return (object);
+	return (NULL);
+}
+
 //
-bool	check_limits(bool status, float value, float limin, float limax)
+inline static bool	check_limits(bool status, float value, float limin, float limax)
 {
 	return (status && value >= limin && value <= limax);
 }
@@ -21,6 +30,7 @@ bool	extract_float_from_string(float *value, char **str, \
 	return (status);
 }
 
+//
 bool	extract_vector_from_string(t_vec *v, char **str, \
 		bool (*convert)(float *dst, char *src), float limits[])
 {
