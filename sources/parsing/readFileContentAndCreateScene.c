@@ -57,9 +57,7 @@ static t_object	*parse_line(char *line)
 	new->type = find_type(ptr);
 	if (!new->type)
 		new = free_object(new);
-	get_methods(new->type, new->methods);
-	if (!new->methods->initializer)
-		return (free_generic_pointer(new));
+	get_methods(new->type, &new->methods);
 	if (!call_object_initializer(new->type, &line, new))
 		return (free_generic_pointer(new));
 	return (new);

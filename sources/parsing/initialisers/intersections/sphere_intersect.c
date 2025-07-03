@@ -11,11 +11,9 @@ bool	sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 	float		d2;
 	float		r2;
 	float		thc;
-	t_sphere	*s;
 
-	s = (t_sphere *)obj->data;
-    L = vec_sub(s->center, orig);
-	r2 = powf(s->diameter / 2, 2);
+    L = vec_sub(obj->pdata.center, orig);
+	r2 = powf(obj->u_type.sphere.diameter / 2, 2);
 	d2 = vec_dot(L, L) - sqrt(vec_dot(L, dir));
 	if (d2 > r2)
 		return (false);
@@ -26,7 +24,7 @@ bool	sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
     hit->hit = true;
     hit->distance = t;
     hit->point = vec_add(orig, vec_scale(dir, t));
-    hit->normal = vec_normalized(vec_sub(hit->point, s->center));
+    hit->normal = vec_normalized(vec_sub(hit->point, obj->pdata.center));
     hit->material = obj->pdata.material;
     return true;
 }

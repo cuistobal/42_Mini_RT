@@ -4,7 +4,7 @@ void	*end_of_scenario(char *str, void *object)
 {
 	while (*str && isspace(*str))
 		str++;
-	if (!*str)
+	if (!*str || !strcmp(str, ""))
 		return (object);
 	return (NULL);
 }
@@ -41,8 +41,8 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 	float	arr[3];
 
 	i = 0;
-	temp = *str;
 	status = true;
+    temp = ft_strtok_r(*str, WHITESPACES, str);
     while (status && i++ < 3)
     {
         param = ft_strtok_r(temp, ",", &temp);
@@ -58,16 +58,16 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 void	*call_object_initializer(char type, char **line, t_object *obj)
 {
     if (type == ESPHERE)
-        return (obj->methods->initializer(line, &obj->u_type.sphere, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.sphere, &obj->pdata));
     else if (type == EPLANE)
-        return (obj->methods->initializer(line, &obj->u_type.plane, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.plane, &obj->pdata));
     else if (type == ECYLINDER)
-        return (obj->methods->initializer(line, &obj->u_type.cylinder, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.cylinder, &obj->pdata));
     else if (type == ECAMERA)
-        return (obj->methods->initializer(line, &obj->u_type.camera, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.camera, &obj->pdata));
     else if (type == ELIGHT)
-        return (obj->methods->initializer(line, &obj->u_type.light, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.light, &obj->pdata));
     else if (type == EALIGHT)
-        return (obj->methods->initializer(line, &obj->u_type.ambient, &obj->pdata));
+        return (obj->methods.initializer(line, &obj->u_type.ambient, &obj->pdata));
     return (NULL);
 }

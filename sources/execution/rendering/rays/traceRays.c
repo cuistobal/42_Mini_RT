@@ -3,12 +3,12 @@
 //
 static void	append_dir_value(t_minirt *minirt, t_vec *dir, int i, int j)
 {
-	t_camera	*camera;
+	float	fov;
 
-	camera = (t_camera *)minirt->scene->camera->data;
+	fov = minirt->scene->camera->u_type.camera.fov;
 	dir->x = (i + 0.5f) - minirt->width / 2.0f;
 	dir->y = -(j + 0.5f) + minirt->height / 2.0f;
-	dir->z = -minirt->height / (2.0f * tanf(camera->fov / 2.0f));
+	dir->z = -minirt->height / (2.0f * tanf(fov / 2.0f));
 	*dir = vec_normalized(*dir);	
 }
 

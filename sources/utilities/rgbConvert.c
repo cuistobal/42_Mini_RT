@@ -39,7 +39,7 @@ bool    get_colors(int *color, char **str)
 	bool	status;
 	long	temp[3];
 
-    i = 1;
+    i = 0;
     mask = 16;
 	status = !(!str || !*str);
     while (status && i++ < 3)

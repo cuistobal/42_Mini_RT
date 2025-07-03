@@ -8,7 +8,7 @@ static int	countObjectsAndAppendAabb(t_object *objects)
 	i = 0;
 	while (objects)
 	{
-		objects->methods->bounds(objects);
+		objects->methods.bounds(objects);
 		objects = objects->next;
 		i++;
 	}

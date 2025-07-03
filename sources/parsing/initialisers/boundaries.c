@@ -6,10 +6,8 @@ t_aabb	sphere_bounds(t_object *obj)
     t_vec		axis1;
 	t_vec		axis2;
     float		radius;
-	t_sphere	sphere;
 
-	sphere = *(t_sphere *)obj->data;
-	radius = sphere.diameter / 2.0f;
+	radius = obj->u_type.sphere.diameter / 2.0f;
     axis1.x = obj->pdata.center.x - radius;
     axis1.y = obj->pdata.center.y - radius;
     axis1.z = obj->pdata.center.z - radius;
@@ -38,16 +36,16 @@ t_aabb	cylinder_bounds(t_object *obj)
     t_vec		axis1;
 	t_vec		axis2;
     float		radius;
-	t_cylinder	cylinder;
+	float		heightr;
 
-	cylinder = *(t_cylinder *)obj->data;
-	radius = cylinder.diameter / 2.0f;
-    axis1.x = obj->pdata.center.x + obj->pdata.normalized_axis.x * cylinder.height / 2.0f;
-    axis1.y = obj->pdata.center.y + obj->pdata.normalized_axis.y * cylinder.height / 2.0f;
-    axis1.z = obj->pdata.center.z + obj->pdata.normalized_axis.z * cylinder.height / 2.0f;
-    axis2.x = obj->pdata.center.x - obj->pdata.normalized_axis.x * cylinder.height / 2.0f;
-    axis2.y = obj->pdata.center.y - obj->pdata.normalized_axis.y * cylinder.height / 2.0f;
-    axis2.z = obj->pdata.center.z - obj->pdata.normalized_axis.z * cylinder.height / 2.0f;
+	heightr = obj->u_type.cylinder.height / 2.0f;
+	radius = obj->u_type.cylinder.diameter / 2.0f;
+    axis1.x = obj->pdata.center.x + obj->pdata.normalized_axis.x * heightr;
+    axis1.y = obj->pdata.center.y + obj->pdata.normalized_axis.y * heightr;
+    axis1.z = obj->pdata.center.z + obj->pdata.normalized_axis.z * heightr;
+    axis2.x = obj->pdata.center.x - obj->pdata.normalized_axis.x * heightr;
+    axis2.y = obj->pdata.center.y - obj->pdata.normalized_axis.y * heightr;
+    axis2.z = obj->pdata.center.z - obj->pdata.normalized_axis.z * heightr;
 	turn_vectors_to_aabb(&obj->pdata.boundaries, axis1, axis2);
 	return (obj->pdata.boundaries); 
 }

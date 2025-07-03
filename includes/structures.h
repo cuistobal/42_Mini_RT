@@ -174,9 +174,9 @@ typedef	struct	object
         struct	light		light;
         struct	ambient		ambient;
     }	u_type;
-	void			*data;
+	//void			*data;
 	t_prim			pdata;
-	t_methods		*methods;
+	t_methods		methods;
 	struct	object	*next;
 }	t_object;
 
