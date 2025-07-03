@@ -19,8 +19,8 @@ typedef struct	scene
 {
     struct object	*light;
     struct object	*camera;
+    struct object	*ambiant;
     struct object	*objects;
-    struct object	*ambiantLightning;
 }	t_scene;
 
 /* OLD DEFINTION
@@ -102,10 +102,11 @@ typedef struct hit
 
 typedef struct	primitives
 {
-	int		color;
-	t_vec	center;	
-	t_vec	normalized_axis;	
-	t_aabb	boundaries;
+	int			color;
+	t_vec		center;	
+	t_vec		normalized_axis;	
+	t_aabb		boundaries;
+	t_material	material;
 }	t_prim;
 
 typedef struct methods
@@ -113,28 +114,8 @@ typedef struct methods
     void	*(*initializer)(char **, void *, t_prim *);
     bool	(*intersect)(struct object *, t_vec, t_vec, t_hit *);
     t_aabb	(*bounds)(struct object *);
-    void 	(*destroy)(struct object *);
+    void 	*(*destroy)(struct object *);
 }	t_methods;
-
-/*
-typedef	struct	object
-{
-	char			type;
-	union objtype
-	{
-        struct	sphere		sphere;
-        struct	plane		plane;
-        struct	cylinder	cylinder;
-        struct	camera		camera;
-        struct	light		light;
-        struct	ambient		ambient;
-    }	u_type;
-	void			*data;
-	t_prim			pdata;
-	const t_methods	*methods;
-	struct	object	*next;
-}	t_object;
-*/
 
 typedef struct	camera
 {
@@ -195,7 +176,7 @@ typedef	struct	object
     }	u_type;
 	void			*data;
 	t_prim			pdata;
-	const t_methods	*methods;
+	t_methods		*methods;
 	struct	object	*next;
 }	t_object;
 

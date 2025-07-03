@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //Appends the new objet as the head or tail of the list.
-static void	insertNewObject(t_object **head, t_object **tail, t_object *new)
+static void	insert_new_object(t_object **head, t_object **tail, t_object *new)
 {
 	if (!*head)
 	{
@@ -16,10 +16,10 @@ static void	insertNewObject(t_object **head, t_object **tail, t_object *new)
 }
 
 //Ternaries and for loops rock
-static bool insertSceneParameter(t_scene **scene, t_object *new, char type)
+static bool insert_scene_parameter(t_scene **scene, t_object *new, char type)
 {
-    if (type == EALIGHT && !(*scene)->ambiantLightning)
-        return ((*scene)->ambiantLightning = new, true);
+    if (type == EALIGHT && !(*scene)->ambiant)
+        return ((*scene)->ambiant = new, true);
     else if (type == ECAMERA && !(*scene)->camera)
         return((*scene)->camera = new, true);
     if (type == ELIGHT && !(*scene)->light)
@@ -30,9 +30,9 @@ static bool insertSceneParameter(t_scene **scene, t_object *new, char type)
 //This helper plces the new object where it belongs. If the object is a scene
 //parameter, returns false if the parameter was already set (Subject imposes 
 //that the source.rt file contains only 1 occurence of scene paraemeters).
-bool    insertNewObjectInMinirt(t_minirt *minirt, t_object *new, t_object **tail)
+bool    insert_new_object_in_minirt(t_minirt *minirt, t_object *new, t_object **tail)
 {
     if (new->type > ELIGHT)
-        return (insertNewObject(&minirt->scene->objects, tail, new), true);
-    return (insertSceneParameter(&minirt->scene, new, new->type));
+        return (insert_new_object(&minirt->scene->objects, tail, new), true);
+    return (insert_scene_parameter(&minirt->scene, new, new->type));
 }

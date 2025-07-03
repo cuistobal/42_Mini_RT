@@ -11,5 +11,5 @@ int	main(int argc, char **argv, char **envp)
 	//printMinirt(minirt);
 //    init_window(&minirt);
 	startRendering(&minirt);
-	return (freeMinirt(&minirt), 0);
+	return (free_minirt(&minirt), 0);
 }

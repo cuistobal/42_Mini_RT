@@ -19,7 +19,7 @@ t_object    *createObjectNode(void)
 }
 */
 
-t_scene *createSceneNode(void)
+t_scene *create_scene_node(void)
 {
     t_scene *new;
 
@@ -28,7 +28,7 @@ t_scene *createSceneNode(void)
         return (NULL);
     new->light = NULL;
     new->camera = NULL;
+    new->ambiant = NULL;
     new->objects = NULL;
-    new->ambiantLightning = NULL;
     return (new);
 }

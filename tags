@@ -234,10 +234,10 @@ all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
 all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
 all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
-ambiantLightning	includes/structures.h	/^    struct object	*ambiantLightning;$/;"	m	struct:scene	typeref:struct:object *
+ambiant	includes/structures.h	/^    struct object	*ambiant;$/;"	m	struct:scene	typeref:struct:object *
 ambient	includes/structures.h	/^        struct	ambient		ambient;$/;"	m	union:object::objtype	typeref:struct:ambient
 ambient	includes/structures.h	/^typedef struct	ambient$/;"	s
-ambient_lighting_initialiser	sources/parsing/initialisers/environement_objects_initialisers.c	/^void	*ambient_lighting_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
+ambient_initialiser	sources/parsing/initialisers/environement_objects_initialisers.c	/^void	*ambient_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
 analyze_mesh_quality	aicode/tesselationFromClaude.c	/^void analyze_mesh_quality(t_mesh *mesh) {$/;"	f	typeref:typename:void
 appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign, bool *error)$/;"	f	typeref:typename:double	file:
 append_dir_value	sources/execution/rendering/rays/traceRays.c	/^static void	append_dir_value(t_minirt *minirt, t_vec *dir, int i, int j)$/;"	f	typeref:typename:void	file:
@@ -256,6 +256,7 @@ buildBvh	sources/execution/rendering/BVH/buildBVH.c	/^bool	buildBvh(t_bvh **root
 buildMaxHeap	sources/utilities/sorting.c	/^static void	buildMaxHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
 buildMinHeap	sources/utilities/sorting.c	/^static void	buildMinHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
 bvh	includes/structures.h	/^typedef struct bvh$/;"	s
+call_object_initializer	sources/parsing/initialisers/helpers_for_initialisers.c	/^void	*call_object_initializer(char type, char **line, t_object *obj)$/;"	f	typeref:typename:void *
 camera	includes/structures.h	/^        struct	camera		camera;$/;"	m	union:object::objtype	typeref:struct:camera
 camera	includes/structures.h	/^    struct object	*camera;$/;"	m	struct:scene	typeref:struct:object *
 camera	includes/structures.h	/^typedef struct	camera$/;"	s
@@ -316,7 +317,7 @@ create_vertex_with_normal	aicode/tesselationFromClaude.c	/^t_vertex create_verte
 cylinder	includes/structures.h	/^        struct	cylinder	cylinder;$/;"	m	union:object::objtype	typeref:struct:cylinder
 cylinder	includes/structures.h	/^typedef struct	cylinder$/;"	s
 cylinder_bounds	sources/parsing/initialisers/boundaries.c	/^t_aabb	cylinder_bounds(t_object *obj)$/;"	f	typeref:typename:t_aabb
-cylinder_initialiser	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*cylinder_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
+cylinder_init	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*cylinder_init(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
 cylinder_intersect	sources/parsing/initialisers/intersections.c	/^bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
 cylinder_to_mesh	aicode/tesselationFromClaude.c	/^t_mesh *cylinder_to_mesh(t_cylinder_data cylinder_data, int radial_segments) {$/;"	f	typeref:typename:t_mesh *
 data	aicode/myRaytracer.c	/^    void *data;$/;"	m	struct:s_obj	typeref:typename:void *	file:
@@ -328,7 +329,7 @@ data3	includes/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:
 data4	includes/minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
 decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
 depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
-destroy	includes/structures.h	/^    void 	(*destroy)(struct object *);$/;"	m	struct:methods	typeref:typename:void (*)(struct object *)
+destroy	includes/structures.h	/^    void 	*(*destroy)(struct object *);$/;"	m	struct:methods	typeref:typename:void * (*)(struct object *)
 destroy	sources/parsing/initialisers/destroy.c	/^void	*destroy(t_object *self)$/;"	f	typeref:typename:void *
 diameter	aicode/tesselationFromClaude.c	/^    double diameter;$/;"	m	struct:s_cylinder_data	typeref:typename:double	file:
 diameter	aicode/tesselationFromClaude.c	/^    double diameter;$/;"	m	struct:s_sphere_data	typeref:typename:double	file:
@@ -359,7 +360,7 @@ fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
 fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
 findDistance	sources/utilities/computing.c	/^inline float	findDistance(int *arr)$/;"	f	typeref:typename:float
-findType	sources/parsing/readFileContentAndCreateScene.c	/^static char	findType(char *ptr)$/;"	f	typeref:typename:char	file:
+find_type	sources/parsing/readFileContentAndCreateScene.c	/^static char	find_type(char *ptr)$/;"	f	typeref:typename:char	file:
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 fov	includes/structures.h	/^	float	fov;	$/;"	m	struct:camera	typeref:typename:float
 freeArr	sources/utilities/freeUtils.c	/^void	*freeArr(char **arr, int len)$/;"	f	typeref:typename:void *
@@ -437,14 +438,13 @@ gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,i
 getAabbSurfaceArea	sources/execution/rendering/BVH/aabbNodeHandler.c	/^float	getAabbSurfaceArea(t_aabb *boundaries)$/;"	f	typeref:typename:float
 getBestAxis	sources/execution/rendering/BVH/getSah.c	/^static int	getBestAxis(t_bvh *node, float *bestCost, float *bestSplit, int axis)$/;"	f	typeref:typename:int	file:
 getCenter	sources/execution/rendering/BVH/buildBVH.c	/^static float	getCenter(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
-getNextValidLine	sources/parsing/readFileContentAndCreateScene.c	/^static char *getNextValidLine(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 getSah	sources/execution/rendering/BVH/getSah.c	/^void	getSah(t_bvh *node, int *bestAxis, float *bestSplit)$/;"	f	typeref:typename:void
 get_center	sources/execution/rendering/BVH/getSah.c	/^static inline float	get_center(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 get_colors	sources/utilities/rgbConvert.c	/^bool    get_colors(int *color, char **str)$/;"	f	typeref:typename:bool
 get_cosinus	sources/execution/rendering/reflexion_and_refraction.c	/^static inline float	get_cosinus(t_vec v1, t_vec v2)$/;"	f	typeref:typename:float	file:
-get_initializer	sources/parsing/initialisers/helpers_for_initialisers.c	/^void	*(*get_initializer(int type))(char **, void *, t_prim *pdata)$/;"	f	typeref:typename:void * (*)(char **,void *,t_prim * pdata)
 get_methods	sources/parsing/readFileContentAndCreateScene.c	/^static void	get_methods(char type, t_methods *out)$/;"	f	typeref:typename:void	file:
 get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
+get_next_valid_line	sources/parsing/readFileContentAndCreateScene.c	/^static char *get_next_valid_line(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, int *sign, int *i)$/;"	f	typeref:typename:void
 heapSort	sources/utilities/sorting.c	/^int	*heapSort(int *arr, int size, bool type)$/;"	f	typeref:typename:int *
@@ -517,7 +517,7 @@ mesh_count	aicode/tesselationFromClaude.c	/^    int mesh_count;$/;"	m	struct:s_m
 meshes	aicode/tesselationFromClaude.c	/^    t_mesh **meshes;$/;"	m	struct:s_mesh_scene	typeref:typename:t_mesh **	file:
 meshes	includes/structures.h	/^typedef struct meshes$/;"	s
 meshing	sources/execution/meshing/meshing.c	/^void	meshing()$/;"	f	typeref:typename:void
-methods	includes/structures.h	/^	const t_methods	*methods;$/;"	m	struct:object	typeref:typename:const t_methods *
+methods	includes/structures.h	/^	t_methods		*methods;$/;"	m	struct:object	typeref:typename:t_methods *
 methods	includes/structures.h	/^typedef struct methods$/;"	s
 minHeapify	sources/utilities/sorting.c	/^static void	minHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
 min_vec	includes/structures.h	/^	t_vec	min_vec;$/;"	m	struct:aabb	typeref:typename:t_vec

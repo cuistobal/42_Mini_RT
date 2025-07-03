@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //
-static int	openFile(const char *file)
+static int	open_file(const char *file)
 {
 	int fd;
 
@@ -12,7 +12,7 @@ static int	openFile(const char *file)
 }
 
 //
-static const char	*initParsing(int argc, char **argv, char **envp)
+static const char	*init_parsing(int argc, char **argv, char **envp)
 {
 	int			len;
 
@@ -32,14 +32,14 @@ bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)
 	int			fd;
 	const char	*filename;
 	
-	filename = initParsing(argc, argv + 1, envp);
+	filename = init_parsing(argc, argv + 1, envp);
 	if (!filename)
 		return (false);
-	fd = openFile(filename);
+	fd = open_file(filename);
 	if (fd < 0)
 		return (false);
     minirt->scene = NULL;
     minirt->mlxptr = NULL;
     minirt->mlxwin = NULL;
-	return (readFileContentAndCreateScene(minirt, fd));
+	return (read_file_content_and_create_scene(minirt, fd));
 }

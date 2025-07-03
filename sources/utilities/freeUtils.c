@@ -1,29 +1,29 @@
 #include "minirt.h"
 
-void    *freeGenericPointer(void *ptr)
+void    *free_generic_pointer(void *ptr)
 {
     if (ptr)
         free(ptr);
     return (NULL);
 }
 
-void	*freeArr(char **arr, int len)
+void	*free_arr(char **arr, int len)
 {
 	while (--len)
-        arr[len] = freeGenericPointer(arr[len]);
-	arr = freeGenericPointer(arr);
+        arr[len] = free_generic_pointer(arr[len]);
+	arr = free_generic_pointer(arr);
 	return (arr);
 }
 
 //
-void	*freeObject(t_object *ptr)
+void	*free_object(t_object *ptr)
 {
 	if (ptr)
-		ptr = freeGenericPointer(ptr);
+		ptr = free_generic_pointer(ptr);
 	return (ptr);
 }
 
-void	*freeScene(t_scene *ptr)
+void	*free_scene(t_scene *ptr)
 {
 	t_object	*next;
 
@@ -34,24 +34,24 @@ void	*freeScene(t_scene *ptr)
 		while (ptr->objects)
 		{
         	next = ptr->objects->next;
-        	freeObject(ptr->objects);
+        	free_object(ptr->objects);
         	ptr->objects = next;
 		}
     }
-    ptr->light = freeObject(ptr->light);
-    ptr->camera = freeObject(ptr->camera);
-    ptr->ambiantLightning = freeObject(ptr->ambiantLightning);
-	ptr = freeGenericPointer(ptr);
+    ptr->light = free_object(ptr->light);
+    ptr->camera = free_object(ptr->camera);
+    ptr->ambiant= free_object(ptr->ambiant);
+	ptr = free_generic_pointer(ptr);
 	return (ptr);
 }
 
 //
-void	*freeMinirt(t_minirt *ptr)
+void	*free_minirt(t_minirt *ptr)
 {
 	if (!ptr)
 		return (NULL);
-    ptr->scene = freeScene(ptr->scene);
-	ptr->mlxptr = freeGenericPointer(ptr->mlxptr);  
-	ptr->mlxwin = freeGenericPointer(ptr->mlxwin);
+    ptr->scene = free_scene(ptr->scene);
+	ptr->mlxptr = free_generic_pointer(ptr->mlxptr);  
+	ptr->mlxwin = free_generic_pointer(ptr->mlxwin);
 	return (NULL);
 }

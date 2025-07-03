@@ -12,7 +12,8 @@ void	*sphere_initialiser(char **str, void *data, t_prim *pdata)
         return (NULL);
     if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, &this));
+	set_standard_material(&pdata->material);
+	return (end_of_scenario(*str, &this));
 }
 
 //
@@ -30,7 +31,8 @@ void	*plane_initialiser(char **str, void *data, t_prim *pdata)
 		return (NULL);
     if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, &this));
+	set_standard_material(&pdata->material);
+	return (end_of_scenario(*str, &this));
 }
 
 //
@@ -52,5 +54,6 @@ void	*cylinder_init(char **str, void *data, t_prim *pdata)
 		return (NULL);
 	else if (!get_colors(&pdata->color, str))
 		return (NULL);
-	return (endOfScenario(*str, &this));
+	set_standard_material(&pdata->material);
+	return (end_of_scenario(*str, &this));
 }

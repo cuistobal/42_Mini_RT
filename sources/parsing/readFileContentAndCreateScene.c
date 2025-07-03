@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //
-static char	findType(char *ptr)
+static char	find_type(char *ptr)
 {
 	if (!strcmp(ptr, AMBIENT_LIGHTNING))
 		return (EALIGHT);
@@ -45,7 +45,7 @@ static void	get_methods(char type, t_methods *out)
 }
 
 //
-static t_object	*parseLine(char *line)
+static t_object	*parse_line(char *line)
 {
 	t_object	*new;
 	char		*ptr;
@@ -54,9 +54,9 @@ static t_object	*parseLine(char *line)
 	if (!new)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
-	new->type = findType(ptr);
+	new->type = find_type(ptr);
 	if (!new->type)
-		new = freeObject(new);
+		new = free_object(new);
 	get_methods(new->type, new->methods);
 	if (!new->methods->initializer)
 		return (free_generic_pointer(new));
@@ -67,15 +67,15 @@ static t_object	*parseLine(char *line)
 
 //This helper returns the next line that is either NULL (EOF) or has some
 //content. Empty lines are skipped recursively.
-static char *getNextValidLine(int fd, char **saveptr)
+static char *get_next_valid_line(int fd, char **saveptr)
 {
 	char    *line;
 
 	line = get_next_line(fd);
 	if (line && (!*line || *line == '\n' || !ft_strcmp(line, "")))
 	{
-		line = free_generi_pointer(line);
-		return (getNextValidLine(fd, saveptr));
+		line = free_generic_pointer(line);
+		return (get_next_valid_line(fd, saveptr));
 	}
 	*saveptr = line;
 	return (line);
@@ -97,7 +97,7 @@ static bool endOfParsing(t_minirt *minirt, char **saveptr)
 
 //This function reads each line of the file and processes its content to turn
 //it into a scene parameter or an object to be displayed.
-bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
+bool    read_file_content_and_create_scene(t_minirt *minirt, int fd)
 {
 	t_object	*new;
 	t_object	*tail;
@@ -113,13 +113,13 @@ bool    readFileContentAndCreateScene(t_minirt *minirt, int fd)
 	minirt->scene = scene;
 	while (true)
 	{
-		line = getNextValidLine(fd, &saveptr);
+		line = get_next_valid_line(fd, &saveptr);
 		if (!line)
 			break ;
-		new = parseLine(line);
+		new = parse_line(line);
 		if (!new)
 			break ;
-		if (!insertNewObjectInMinirt(minirt, new, &tail))
+		if (!insert_new_object_in_minirt(minirt, new, &tail))
 			break ;
 		saveptr = free_generic_pointer(saveptr);
 	}

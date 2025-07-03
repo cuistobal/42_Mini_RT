@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-void	*endOfScenario(char *str, void *object)
+void	*end_of_scenario(char *str, void *object)
 {
 	while (*str && isspace(*str))
 		str++;
@@ -55,20 +55,19 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 	return (false);
 }
 
-//
-void	*(*get_initializer(int type))(char **, void *, t_prim *pdata)
+void	*call_object_initializer(char type, char **line, t_object *obj)
 {
-    if (type == EALIGHT)
-		return (ambient_lighting_initialiser);
-	else if (type == ECAMERA)
-        return (camera_initialiser);
-	else if (type == ELIGHT)
-		return (light_initialiser);
-	else if (type == ESPHERE)
-		return (sphere_initialiser);
-	else if (type == EPLANE)
-		return (plane_initialiser);
-	else if (type == ECYLINDER)
-		return (cylinder_initialiser);
+    if (type == ESPHERE)
+        return (obj->methods->initializer(line, &obj->u_type.sphere, &obj->pdata));
+    else if (type == EPLANE)
+        return (obj->methods->initializer(line, &obj->u_type.plane, &obj->pdata));
+    else if (type == ECYLINDER)
+        return (obj->methods->initializer(line, &obj->u_type.cylinder, &obj->pdata));
+    else if (type == ECAMERA)
+        return (obj->methods->initializer(line, &obj->u_type.camera, &obj->pdata));
+    else if (type == ELIGHT)
+        return (obj->methods->initializer(line, &obj->u_type.light, &obj->pdata));
+    else if (type == EALIGHT)
+        return (obj->methods->initializer(line, &obj->u_type.ambient, &obj->pdata));
     return (NULL);
 }

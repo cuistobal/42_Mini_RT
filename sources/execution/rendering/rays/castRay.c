@@ -100,7 +100,7 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 	while (current)
 	{
 		init_hit_values(&hit);
-        if (current->intersect(current, orig, dir, &hit) && hit.distance < min)
+        if (current->methods->intersect(current, orig, dir, &hit) && hit.distance < min)
 		{
             min = hit.distance;
             *closest_hit = hit;
