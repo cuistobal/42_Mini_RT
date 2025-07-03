@@ -1,7 +1,7 @@
 #include "minirt.h"
 
 //
-float	getAabbSurfaceArea(t_aabb *boundaries)
+float	get_aabb_surface_area(t_aabb *boundaries)
 {
 	float	surface;
 	float	dimensions[3];
@@ -27,7 +27,7 @@ void	turn_vectors_to_aabb(t_aabb *dest, t_vec v1, t_vec v2)
 }
 
 //
-void	combineAabbNodes(t_aabb *dest, t_aabb *src)
+void	combine_aabb_nodes(t_aabb *dest, t_aabb *src)
 {
     dest->min_vec.x = fmin(dest->min_vec.x, src->min_vec.x);
     dest->min_vec.y = fmin(dest->min_vec.y, src->min_vec.y);
@@ -55,18 +55,13 @@ t_aabb	combineAabbNodes(t_aabb *dest, t_aabb *src)
 */
 
 //
-t_aabb	*createAabbNode(t_object *object)
+t_aabb	*create_aabb_node(t_object *object)
 {
 	t_aabb	*new;
 
 	new = malloc(sizeof(t_aabb));
 	if (!new)
 		return (NULL);
-	if (object)
-		object->pdata.boundaries = *new;
-	//For compilation -> need to work on implementing the boundaries calculator.
-//		object->boundaries = object->bounds();
-	
 	new->min_vec = set_vec_value(0, 0, 0);
 	new->max_vec = set_vec_value(0, 0, 0);
 	if (object)

@@ -11,12 +11,12 @@ static inline float	get_center(t_object *current, int axis)
 }
 
 //
-static float	surfaceAreaDifference(t_aabb *lBounds, t_aabb *rBounds, int lCOunt, int rCOunt)
+static float	surface_area_difference(t_aabb *l, t_aabb *r, int lc, int rc)
 {
 	float	lsa;
 	float	rsa;
 
-	lsa = getAabbSurfaceArea(lBounds);
+	lsa = get_aabb_surface_area(l);
 	//
 /*float get_aabb_surface_area(AABB box)
 {
@@ -31,44 +31,44 @@ static float	surfaceAreaDifference(t_aabb *lBounds, t_aabb *rBounds, int lCOunt,
 
 	//I think it's the vec product of the max and mion value within the box
 
-	rsa = getAabbSurfaceArea(rBounds);
-    return (0.125f + (lCOunt * lsa + rCOunt * rsa));
+	rsa = get_aabb_surface_area(r);
+    return (0.125f + (lc * lsa + rc * rsa));
 	//Change magic number. We could compute it but 0.125 is an accurate 
 	//approximation and I'm too lazy to implement the formula :)
 }
 
 //
-static float	evaluateSah(t_bvh *node, int axis, float split)
+static float	evaluate_sah(t_bvh *node, int axis, float split)
 {
 	int 		diff;
 	int			center;
-	t_aabb		*lBounds;
-	t_aabb		*rBounds;
+	t_aabb		*lbounds;
+	t_aabb		*rbounds;
 	t_object	*current;
     
 	diff = 0;
 	center = 0;
 	current = node->objects;
-    lBounds = createAabbNode(NULL);
-    rBounds = createAabbNode(NULL);
+    lbounds = create_aabb_node(NULL);
+    rbounds = create_aabb_node(NULL);
 	while (current)
 	{
 		center = get_center(current, axis);
 		if (center < split)
-			combineAabbNodes(lBounds, createAabbNode(current));
+			combine_aabb_nodes(lbounds, create_aabb_node(current));
 		else
 		{
 			diff++;
-			combineAabbNodes(rBounds, createAabbNode(current));
+			combine_aabb_nodes(rbounds, create_aabb_node(current));
 		}
 		current = current->next;
 	}
-	return (surfaceAreaDifference(lBounds, rBounds, \
-				node->objCount - diff, diff));
+	return (surface_area_difference(lbounds, rbounds, \
+				node->objcount - diff, diff));
 }
 
 //
-static float	computeSplit(t_bvh *node, int axis, int i)
+static float	compute_split(t_bvh *node, int axis, int i)
 {
 	if (axis == 0)
     	return (node->bounds->min_vec.x + (i / 8.0f) * \
@@ -81,7 +81,7 @@ static float	computeSplit(t_bvh *node, int axis, int i)
 }
 
 //Returns the best axis
-static int	getBestAxis(t_bvh *node, float *bestCost, float *bestSplit, int axis)
+static int	get_best_axis(t_bvh *node, float *bcost, float *bsplit, int axis)
 {
 	int		i;
 	int		ret;
@@ -93,13 +93,13 @@ static int	getBestAxis(t_bvh *node, float *bestCost, float *bestSplit, int axis)
 	cost = 0;
 	while (i < 8)
 	{
-		split =	computeSplit(node, axis, i);
-		cost = evaluateSah(node, axis, split);
-		if (cost < *bestCost)
+		split =	compute_split(node, axis, i);
+		cost = evaluate_sah(node, axis, split);
+		if (cost < *bcost)
 		{
-			*bestCost = cost;
+			*bcost = cost;
             ret = axis;
-            *bestSplit = split;
+            *bsplit = split;
 		}
 		i++;
 	}
@@ -107,16 +107,16 @@ static int	getBestAxis(t_bvh *node, float *bestCost, float *bestSplit, int axis)
 }
 
 //
-void	getSah(t_bvh *node, int *bestAxis, float *bestSplit)
+void	get_sah(t_bvh *node, int *best_axis, float *best_split)
 {
 	int		axis;
-    float 	bestCost;
+    float 	best_cost;
 
 	axis = 0;
-	bestCost = INFINITY; // Find the value of this preset float
+	best_cost = INFINITY; // Find the value of this preset float
 	while (axis < 3)
 	{
-		*bestAxis = getBestAxis(node, &bestCost, bestSplit, axis);
+		*best_axis = get_best_axis(node, &best_cost, best_split, axis);
 		axis++;
 	}
 }

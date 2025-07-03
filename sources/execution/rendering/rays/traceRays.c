@@ -25,7 +25,7 @@ static t_vec	*createFrameBuffer(t_minirt *minirt, int size)
 */
 
 //
-void	traceRays(t_minirt *minirt)
+void	trace_rays(t_minirt *minirt)
 {
 	int		i;
 	int		j;

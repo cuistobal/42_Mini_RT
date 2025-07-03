@@ -322,7 +322,6 @@ cylinder_intersect	sources/parsing/initialisers/intersections/cylinder_intersect
 cylinder_to_mesh	aicode/tesselationFromClaude.c	/^t_mesh *cylinder_to_mesh(t_cylinder_data cylinder_data, int radial_segments) {$/;"	f	typeref:typename:t_mesh *
 data	aicode/myRaytracer.c	/^    void *data;$/;"	m	struct:s_obj	typeref:typename:void *	file:
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
-data	includes/structures.h	/^	void			*data;$/;"	m	struct:object	typeref:typename:void *
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
 data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
 data3	includes/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *

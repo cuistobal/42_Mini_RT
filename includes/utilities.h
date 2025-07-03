@@ -4,7 +4,7 @@
 # include "libft.h"
 
 //sources/utilities/errorMessages.c
-bool	printErrorMessage(char *msg);
+bool		print_error_message(char *msg);
 
 //sources/utilities/freeUtils.c
 void    	*free_generic_pointer(void *ptr);

@@ -72,7 +72,7 @@ typedef struct aabb
 //BVH tree structure
 typedef struct bvh
 {
-	int				objCount;
+	int				objcount;
 	struct object	*objects;
     struct aabb		*bounds;
     struct bvh		*left;

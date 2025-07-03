@@ -10,6 +10,6 @@ int	main(int argc, char **argv, char **envp)
 //		return (printMinirt(minirt), 1);
 	//printMinirt(minirt);
 //    init_window(&minirt);
-	startRendering(&minirt);
+	start_rendering(&minirt);
 	return (free_minirt(&minirt), 0);
 }
