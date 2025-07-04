@@ -2,14 +2,14 @@
 
 static bool	get_plane_intersection(t_plane *p, t_vec orig, t_vec dir, float *t)
 {
-    float	denom;
+    float	d;
     t_vec	diff;
 
-    denom = vec_dot(p->normalized_axis, dir);
-    if (fabsf(denom) < 1e-6)
+    d = vec_dot(p->normalized_axis, dir);
+    if (fabsf(d) < 1e-6)
         return (false);
     diff = vec_sub(p->center, orig);
-    *t = vec_dot(diff, p->normalized_axis) / denom;
+    *t = vec_dot(diff, p->normalized_axis) / d;
     return (*t >= 0);
 }
 
@@ -23,8 +23,8 @@ static void	fill_plane_hit(t_plane *p, t_vec orig, t_vec dir, float t, t_hit *hi
 
 bool	plane_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
-    t_plane	*p;
     float	t;
+    t_plane	*p;
 
     p = &obj->u_type.plane;
     if (!get_plane_intersection(p, orig, dir, &t))

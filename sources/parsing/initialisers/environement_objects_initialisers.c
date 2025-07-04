@@ -17,6 +17,9 @@ void	*camera_initialiser(char **str, void *data, t_prim *pdata)
         return (NULL);
 	else
 		set_standard_material(&pdata->material);
+	pdata->normalized_axis = set_vec_value(0, 0, 0);
+	pdata->boundaries = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
+	pdata->color = 0xFFFFFF;
 	return (end_of_scenario(*str, &this));
 }
 
@@ -34,6 +37,8 @@ void	*ambient_initialiser(char **str, void *data, t_prim *pdata)
     if (!get_colors(&pdata->color, str))
 		return (NULL);
 	set_standard_material(&pdata->material);
+	pdata->normalized_axis = set_vec_value(0, 0, 0);
+	pdata->boundaries = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
 	return (end_of_scenario(*str, &this));
 }
 
@@ -54,5 +59,7 @@ void	*light_initialiser(char **str, void *data, t_prim *pdata)
 		return (NULL);
 	else
 		set_standard_material(&pdata->material);
+	pdata->normalized_axis = set_vec_value(0, 0, 0);
+	pdata->boundaries = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
 	return (end_of_scenario(*str, &this));
 }

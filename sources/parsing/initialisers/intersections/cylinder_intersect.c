@@ -1,23 +1,29 @@
 #include "minirt.h"
 
+static float	get_c_c(t_vec ax, t_vec oc, float d)	
+{
+    return (vec_dot(oc, oc) - powf(vec_dot(oc, ax), 2) - powf(d, 2) / 4.0f);
+}
+
 static bool	get_cylinder_intersection(t_cylinder *c, t_vec orig, t_vec dir, float *t)
 {
-    t_vec	oc;
-    t_vec	ax;
-    float	a, b, cc, disc;
-    float	t0, t1;
+	float	a;
+	float	b;
+	float	cc;
+    float	disc;
+	t_vec	oc;
 
-    ax = c->normalized_axis;
-    oc = vec_sub(orig, c->center);
-    a = vec_dot(dir, dir) - powf(vec_dot(dir, ax), 2);
-    b = 2 * (vec_dot(dir, oc) - vec_dot(dir, ax) * vec_dot(oc, ax));
-    cc = vec_dot(oc, oc) - powf(vec_dot(oc, ax), 2) - (c->diameter * c->diameter) / 4.0f;
-    disc = b * b - 4 * a * cc;
+	oc = vec_sub(orig, c->center);
+    a = vec_dot(dir, dir) - powf(vec_dot(dir, c->normalized_axis), 2);
+    b = 2 * (vec_dot(dir, oc) - vec_dot(dir, c->normalized_axis) * \
+			vec_dot(oc, c->normalized_axis));
+	cc = get_c_c(c->normalized_axis, oc, c->diameter);
+	disc = b * b - 4 * a *cc; 
     if (disc < 0)
         return (false);
-    t0 = (-b - sqrtf(disc)) / (2 * a);
-    t1 = (-b + sqrtf(disc)) / (2 * a);
-    *t = (t0 > 0) ? t0 : t1;
+    *t = (-b - sqrtf(disc)) / (2 * a);
+	if (*t <= 0)
+		*t = (-b + sqrtf(disc)) / (2 * a);
     return (*t >= 0);
 }
 

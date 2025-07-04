@@ -32,7 +32,8 @@ typedef struct	screen
 	int		height;
 	void	*mlxptr;
 	void	*mlxwin;
-
+	void	*tmp_img;
+	void	*img_add;
 }	t_screen;
 
 typedef	struct	minirt

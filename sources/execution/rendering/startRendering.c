@@ -25,11 +25,8 @@ bool	start_rendering(t_minirt *minirt)
 	root = NULL;
 	current = minirt->scene->objects;
 	count = count_objects_and_populate_aabb(minirt->scene->objects);
-	if (!build_bvh(&root, current, count, 0))
-		return (false);		//probbaly needs some free here
-
-//	printf("isokemafriend\n");
-//	print_tree_bfs(root);
+//	if (!build_bvh(&root, current, count, 0))
+//		return (false);		//probbaly needs some free here
 
 	trace_rays(minirt, minirt->screen.width, minirt->screen.height);
 

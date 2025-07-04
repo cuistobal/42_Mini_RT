@@ -39,10 +39,12 @@ bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)
 	if (fd < 0)
 		return (false);
     minirt->scene = NULL;
-	minirt->screen.mlxptr = NULL;
-    minirt->screen.mlxwin = NULL;
 	minirt->screen.height = 800;
 	minirt->screen.width = 1200;
+	minirt->screen.mlxptr = NULL;
+    minirt->screen.mlxwin = NULL;
+	minirt->screen.tmp_img = NULL;
+	minirt->screen.img_add = NULL;
 	minirt->rendering.lru = NULL;
 	minirt->rendering.root = NULL;
 	return (read_file_content_and_create_scene(minirt, fd));

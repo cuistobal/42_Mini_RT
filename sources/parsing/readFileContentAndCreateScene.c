@@ -54,6 +54,7 @@ static t_object	*parse_line(char *line)
 	if (!new)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
+	new->next = NULL;
 	new->type = find_type(ptr);
 	if (!new->type)
 		new = free_object(new);

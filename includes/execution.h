@@ -37,4 +37,7 @@ void	trace_rays(t_minirt *minirt, int width, int height);
 bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 		t_hit *closestHit);
 
+//sources/execution/rendering/init_window.c
+bool	init_window(t_screen *screen);
+
 #endif
