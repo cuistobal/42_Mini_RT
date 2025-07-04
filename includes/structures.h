@@ -4,20 +4,16 @@
 //General defintions
 
 //Main structure holding all the program's informations
-typedef	struct	minirt
-{
-	struct	screen	screen;
-    struct	scene	*scene;
-	struct	render	rendering;
-}	t_minirt;
 
 typedef struct	cache
 {
 	char	type;
+/*
 	union	cdt
 	{
 
 	}	u_cdt;
+*/
 	struct	cache	*next;
 	struct	cache	*prev;
 }	t_cache;
@@ -38,6 +34,13 @@ typedef struct	screen
 	void	*mlxwin;
 
 }	t_screen;
+
+typedef	struct	minirt
+{
+	struct	screen	screen;
+    struct	scene	*scene;
+	struct	render	rendering;
+}	t_minirt;
 
 //Object specific structure holding a pointer to unique objects light, camera and
 //ambiant lighting. Also holds a linked list of all objects present in the scen
@@ -100,7 +103,7 @@ typedef struct bvh
 {
 	int				objcount;
 	struct object	*objects;
-    struct aabb		*bounds;
+    struct aabb		bounds;
     struct bvh		*left;
     struct bvh		*right;
 }	t_bvh;

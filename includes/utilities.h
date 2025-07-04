@@ -24,7 +24,7 @@ double  	ft_atof(const char *str, bool *error);
 bool    	get_colors(int *colot, char **str);
 
 //sources/utilities/init_window.c
-void 		init_window(t_minirt *scene);
+bool	init_window(t_screen *screen);
 
 //sources/utilities/vectorOperations.c
 t_vec		vec_add(t_vec a, t_vec b);

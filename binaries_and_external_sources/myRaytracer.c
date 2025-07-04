@@ -35,6 +35,11 @@ typedef struct s_sphere {
     t_material material;
 } t_sphere;
 
+typedef struct plan {
+    t_vec point;
+	t_vec normalized;
+    t_material material;
+}	t_plan;
 // Résultat d'intersection générique
 typedef struct {
     bool hit;

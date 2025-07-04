@@ -46,12 +46,49 @@ void	*free_scene(t_scene *ptr)
 }
 
 //
+void	*free_bvh(t_bvh *root)
+{
+	if (!root)
+		return (NULL);
+	root->left = free_bvh(root->left);
+	root->right = free_bvh(root->left);
+	free(root);
+	root = NULL;
+	return (NULL);
+}
+
+//
+void	*free_cache(t_cache *cache)
+{	
+	t_cache	*head;
+	t_cache	*current;
+
+	head = cache;
+	current = cache;
+	while (current->next && current->next != head)
+	{
+		free(current->prev);
+		current->prev = NULL;
+		current = current->next;
+	}
+	return (NULL);
+}
+
+//
+void	free_rendering(t_render *ptr)
+{
+	ptr->lru = free_cache(ptr->lru);
+	ptr->root = free_bvh(ptr->root);
+}
+
+//
 void	*free_minirt(t_minirt *ptr)
 {
 	if (!ptr)
 		return (NULL);
     ptr->scene = free_scene(ptr->scene);
-	ptr->mlxptr = free_generic_pointer(ptr->mlxptr);  
-	ptr->mlxwin = free_generic_pointer(ptr->mlxwin);
+	free_rendering(&ptr->rendering);
+	ptr->screen.mlxptr = free_generic_pointer(&ptr->screen.mlxptr);  
+	ptr->screen.mlxwin = free_generic_pointer(&ptr->screen.mlxwin);
 	return (NULL);
 }

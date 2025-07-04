@@ -49,7 +49,8 @@ static bool	create_bvh_node(t_bvh **node)
 	*node = malloc(sizeof(t_bvh));
 	if (!node)
 		return (print_error_message(MEMALLOC));
-    (*node)->bounds = create_aabb_node(NULL);
+	
+    (*node)->bounds = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
     (*node)->left = NULL; 
 	(*node)->right = NULL;
     (*node)->objects = NULL;
@@ -74,10 +75,10 @@ bool	build_bvh(t_bvh **root, t_object *objects, int count, int depth)
 		return (false);
 	while (current)
 	{
-		combine_aabb_nodes((*root)->bounds, create_aabb_node(current));
+		(*root)->bounds = combine_aabb_nodes((*root)->bounds, current->pdata.boundaries);
 		current = current->next;
 	}	
-	if (count <= 1 || depth >= 40) 
+	if (count <= 1 || depth >= MAX_BVH_DEPTH) 
 		return ((*root)->objects = objects, (*root)->objcount = count, true);
 	get_sah(*root, &best_axis, &best_split);
 	mid_count = split_object_list(objects, &mid, best_axis, best_split);

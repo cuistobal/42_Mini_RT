@@ -31,7 +31,7 @@ bool	start_rendering(t_minirt *minirt)
 //	printf("isokemafriend\n");
 //	print_tree_bfs(root);
 
-	trace_rays(minirt);
+	trace_rays(minirt, minirt->screen.width, minirt->screen.height);
 
 	return (true);
 }

@@ -11,7 +11,7 @@ static inline float	get_center(t_object *current, int axis)
 }
 
 //
-static float	surface_area_difference(t_aabb *l, t_aabb *r, int lc, int rc)
+static float	surface_area_difference(t_aabb l, t_aabb r, int lc, int rc)
 {
 	float	lsa;
 	float	rsa;
@@ -42,24 +42,24 @@ static float	evaluate_sah(t_bvh *node, int axis, float split)
 {
 	int 		diff;
 	int			center;
-	t_aabb		*lbounds;
-	t_aabb		*rbounds;
+	t_aabb		lbounds;
+	t_aabb		rbounds;
 	t_object	*current;
     
 	diff = 0;
 	center = 0;
 	current = node->objects;
-    lbounds = create_aabb_node(NULL);
-    rbounds = create_aabb_node(NULL);
+	lbounds = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
+	rbounds = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
 	while (current)
 	{
 		center = get_center(current, axis);
 		if (center < split)
-			combine_aabb_nodes(lbounds, create_aabb_node(current));
+			combine_aabb_nodes(lbounds, current->pdata.boundaries);
 		else
 		{
 			diff++;
-			combine_aabb_nodes(rbounds, create_aabb_node(current));
+			combine_aabb_nodes(rbounds, current->pdata.boundaries);
 		}
 		current = current->next;
 	}
@@ -71,13 +71,13 @@ static float	evaluate_sah(t_bvh *node, int axis, float split)
 static float	compute_split(t_bvh *node, int axis, int i)
 {
 	if (axis == 0)
-    	return (node->bounds->min_vec.x + (i / 8.0f) * \
-				(node->bounds->max_vec.x - node->bounds->min_vec.x));
+    	return (node->bounds.min_vec.x + (i / 8.0f) * \
+				(node->bounds.max_vec.x - node->bounds.min_vec.x));
 	else if (axis == 1)
-    	return (node->bounds->min_vec.y + (i / 8.0f) * \
-				(node->bounds->max_vec.y - node->bounds->min_vec.y));
-   	return (node->bounds->min_vec.z + (i / 8.0f) * \
-		(node->bounds->max_vec.z - node->bounds->min_vec.z));
+    	return (node->bounds.min_vec.y + (i / 8.0f) * \
+				(node->bounds.max_vec.y - node->bounds.min_vec.y));
+   	return (node->bounds.min_vec.z + (i / 8.0f) * \
+		(node->bounds.max_vec.z - node->bounds.min_vec.z));
 }
 
 //Returns the best axis
