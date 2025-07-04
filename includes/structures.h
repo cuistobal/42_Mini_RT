@@ -11,11 +11,25 @@ typedef	struct	minirt
 	struct	render	rendering;
 }	t_minirt;
 
+typedef struct	cache
+{
+	char	type;
+	union	cdt
+	{
+
+	}	u_cdt;
+	struct	cache	*next;
+	struct	cache	*prev;
+}	t_cache;
+
+//Sub struct holding rendering cache && infos;
 typedef	struct	render
 {
-	struct	bvh	*root;
+	struct	cache	*lru;
+	struct	bvh		*root;
 }	t_render;
 
+//SUb structure holding mlx pointers && screen informations
 typedef struct	screen
 {
 	int		width;
