@@ -6,12 +6,24 @@
 //Main structure holding all the program's informations
 typedef	struct	minirt
 {
-	int				width;
-	int				height;
-	void    	    *mlxptr;
-	void	        *mlxwin;
-    struct scene    *scene;
+	struct	screen	screen;
+    struct	scene	*scene;
+	struct	render	rendering;
 }	t_minirt;
+
+typedef	struct	render
+{
+	struct	bvh	*root;
+}	t_render;
+
+typedef struct	screen
+{
+	int		width;
+	int		height;
+	void	*mlxptr;
+	void	*mlxwin;
+
+}	t_screen;
 
 //Object specific structure holding a pointer to unique objects light, camera and
 //ambiant lighting. Also holds a linked list of all objects present in the scen
