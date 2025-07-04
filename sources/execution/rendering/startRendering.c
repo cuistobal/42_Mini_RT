@@ -28,8 +28,10 @@ bool	start_rendering(t_minirt *minirt)
 	if (!build_bvh(&root, current, count, 0))
 		return (false);		//probbaly needs some free here
 
-	printf("isokemafriend\n");
-	print_tree_bfs(root);
+//	printf("isokemafriend\n");
+//	print_tree_bfs(root);
+
+	trace_rays(minirt);
 
 	return (true);
 }

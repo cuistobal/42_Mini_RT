@@ -1,10 +1,8 @@
-
 #include "minirt.h"
-#include <stdio.h>
 
 //Contains all the debug functions
 
-static void print_vec(const char *label, t_vec v)
+void	print_vec(const char *label, t_vec v)
 {
 	printf("%s:	(%.2f, %.2f, %.2f)\n", label, v.x, v.y, v.z);
 }

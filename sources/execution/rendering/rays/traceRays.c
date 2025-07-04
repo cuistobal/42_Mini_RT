@@ -49,4 +49,6 @@ void	trace_rays(t_minirt *minirt)
 		}
 		i++;
 	}
+	for (int i = 0; i < minirt->width * minirt->height; i++)
+		print_vec(ft_itoa(i), frame_buffer[i]);
 }
