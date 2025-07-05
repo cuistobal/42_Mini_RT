@@ -162,33 +162,24 @@ typedef struct	ambient
 
 typedef struct	light
 {
-	int		color;
 	float	brightness;
 	t_vec	light_position;
 }	t_light;
 
 typedef struct	sphere
 {
-	int		color;
-	t_vec	center;
-	t_vec	normalized_axis;	
 	float	diameter;
 }	t_sphere;
 
 typedef struct	cylinder
-{
-	int		color;
-	t_vec	center;	
-	t_vec	normalized_axis;	
+{	
 	float	height;
 	float	diameter;
 }	t_cylinder;
 
 typedef struct	plane
 {
-	int		color;
-	t_vec	center;
-	t_vec	normalized_axis;
+	void	*v;
 }	t_plane;
 
 
@@ -204,7 +195,6 @@ typedef	struct	object
         struct	light		light;
         struct	ambient		ambient;
     }	u_type;
-	//void			*data;
 	t_prim			pdata;
 	t_methods		methods;
 	struct	object	*next;

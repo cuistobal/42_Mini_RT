@@ -438,6 +438,7 @@ get_c_c	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static
 get_center	sources/execution/rendering/BVH/buildBVH.c	/^static float	get_center(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 get_center	sources/execution/rendering/BVH/getSah.c	/^static inline float	get_center(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 get_color_and_append_img	sources/execution/rendering/rays/traceRays.c	/^static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)$/;"	f	typeref:typename:void	file:
+get_color_from_returned_vector	sources/execution/rendering/rays/traceRays.c	/^static float	get_color_from_returned_vector(t_vec ret)$/;"	f	typeref:typename:float	file:
 get_colors	sources/utilities/rgbConvert.c	/^bool    get_colors(int *color, char **str)$/;"	f	typeref:typename:bool
 get_cosinus	sources/execution/rendering/reflexion_and_refraction.c	/^static inline float	get_cosinus(t_vec v1, t_vec v2)$/;"	f	typeref:typename:float	file:
 get_cylinder_intersection	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static bool	get_cylinder_intersection(t_cylinder *c, t_vec orig, t_vec dir, float *t)$/;"	f	typeref:typename:bool	file:
