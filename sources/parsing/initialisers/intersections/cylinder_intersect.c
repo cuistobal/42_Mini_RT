@@ -63,9 +63,7 @@ bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
     t_vec	cp;
     t_vec	axis;
-	t_vec	point;
     float	distance;
-
 		
 	axis = obj->pdata.normalized_axis;
     if (!get_cylinder_intersection(obj, orig, dir, &distance))
@@ -73,7 +71,7 @@ bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
     cp = compute_cp(orig, dir, obj->pdata.center, distance);
     hit->hit = true;
     hit->distance = distance;
-    hit->point = point;
+    hit->point = vec_add(orig, vec_scale(dir, distance));
     hit->normal = vec_normalized(vec_sub(cp, vec_scale(axis, vec_dot(cp, axis))));
 	hit->material = obj->pdata.material;	
     return (true);

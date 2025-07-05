@@ -127,6 +127,8 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
 	if (!scene_intersect(scene, orig, dir, &hit))
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
+	else
+		print_vec("hit.normal", hit.normal);
 	return ((t_vec)hit.normal);
 //Bonus version tbh
 //	handle_impact(scene, buffer);

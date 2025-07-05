@@ -152,6 +152,7 @@ PARSING_H	includes/parsing.h	/^# define PARSING_H$/;"	d
 PERMISSIONS	includes/errors.h	/^# define PERMISSIONS /;"	d
 PLANE	includes/globalVariables.h	/^# define PLANE /;"	d
 PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
+PROGRAM_NAME	includes/globalVariables.h	/^# define PROGRAM_NAME /;"	d
 RATIOLIMAX	includes/globalVariables.h	/^# define RATIOLIMAX /;"	d
 RATIOLIMIN	includes/globalVariables.h	/^# define RATIOLIMIN /;"	d
 REFLECTCOLOR	includes/globalVariables.h	/^# define REFLECTCOLOR /;"	d
@@ -286,6 +287,7 @@ computeCylinderBounds	sources/utilities/objects_utils/computeBounds.c	/^void	com
 computePlaneBounds	sources/utilities/objects_utils/computeBounds.c	/^void	computePlaneBounds()$/;"	f	typeref:typename:void
 computeScalarProduct	sources/utilities/computing.c	/^inline float	computeScalarProduct(int *obj1, int *obj2)$/;"	f	typeref:typename:float
 computeSphereBounds	sources/utilities/objects_utils/computeBounds.c	/^void	computeSphereBounds()$/;"	f	typeref:typename:void
+compute_cp	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static t_vec	compute_cp(t_vec orig, t_vec dir, t_vec center, float t)$/;"	f	typeref:typename:t_vec	file:
 compute_split	sources/execution/rendering/BVH/getSah.c	/^static float	compute_split(t_bvh *node, int axis, int i)$/;"	f	typeref:typename:float	file:
 content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
 convert	sources/utilities/rgbConvert.c	/^bool	convert(float *coordinates, char *str)$/;"	f	typeref:typename:bool
@@ -340,7 +342,6 @@ extract_vector_from_string	sources/parsing/initialisers/helpers_for_initialisers
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
-fill_cylinder_hit	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static t_hit    fill_cylinder_hit(t_object *obj, t_vec orig, t_vec dir, float t)$/;"	f	typeref:typename:t_hit	file:
 fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
 findDistance	sources/utilities/computing.c	/^inline float	findDistance(int *arr)$/;"	f	typeref:typename:float
 find_type	sources/parsing/readFileContentAndCreateScene.c	/^static char	find_type(char *ptr)$/;"	f	typeref:typename:char	file:
@@ -435,6 +436,7 @@ get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_ne
 get_next_valid_line	sources/parsing/readFileContentAndCreateScene.c	/^static char *get_next_valid_line(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
 get_plane_intersection	sources/parsing/initialisers/intersections/plane_intersect.c	/^static float	get_plane_intersection(t_object *obj, t_vec orig, t_vec dir)$/;"	f	typeref:typename:float	file:
 get_sah	sources/execution/rendering/BVH/getSah.c	/^void	get_sah(t_bvh *node, int *best_axis, float *best_split)$/;"	f	typeref:typename:void
+get_squared_radius	sources/parsing/initialisers/intersections/sphere_intersect.c	/^static float get_squared_radius(const t_object *obj)$/;"	f	typeref:typename:float	file:
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, float *sign, int *i)$/;"	f	typeref:typename:void
 heapSort	sources/utilities/sorting.c	/^int	*heapSort(int *arr, int size, bool type)$/;"	f	typeref:typename:int *
@@ -453,7 +455,7 @@ im4	includes/minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void
 image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
 init_hit_values	sources/execution/rendering/rays/castRay.c	/^void	init_hit_values(t_hit *hit)$/;"	f	typeref:typename:void
 init_parsing	sources/parsing/parsing.c	/^static const char	*init_parsing(int argc, char **argv, char **envp)$/;"	f	typeref:typename:const char *	file:
-init_window	sources/execution/rendering/init_window.c	/^bool	init_window(t_screen *screen)$/;"	f	typeref:typename:bool
+init_window	sources/execution/init_window.c	/^bool	init_window(t_screen *screen)$/;"	f	typeref:typename:bool
 initializer	includes/structures.h	/^    void	*(*initializer)(char **, void *, t_prim *);$/;"	m	struct:methods	typeref:typename:void * (*)(char **,void *,t_prim *)
 insert_new_object	sources/parsing/insertNewObjectInMinirt.c	/^static void	insert_new_object(t_object **head, t_object **tail, t_object *new)$/;"	f	typeref:typename:void	file:
 insert_new_object_in_minirt	sources/parsing/insertNewObjectInMinirt.c	/^bool    insert_new_object_in_minirt(t_minirt *minirt, t_object *new, t_object **tail)$/;"	f	typeref:typename:bool
@@ -693,8 +695,11 @@ specular_exponent	includes/structures.h	/^    float	specular_exponent;$/;"	m	str
 sphere	includes/structures.h	/^        struct	sphere		sphere;$/;"	m	union:object::objtype	typeref:struct:sphere
 sphere	includes/structures.h	/^typedef struct	sphere$/;"	s
 sphere_bounds	sources/parsing/initialisers/boundaries.c	/^t_aabb	sphere_bounds(t_object *obj)$/;"	f	typeref:typename:t_aabb
+sphere_get_d2	sources/parsing/initialisers/intersections/sphere_intersect.c	/^static float sphere_get_d2(t_vec L, float tca)$/;"	f	typeref:typename:float	file:
+sphere_get_t	sources/parsing/initialisers/intersections/sphere_intersect.c	/^static float sphere_get_t(float tca, float r2, float d2)$/;"	f	typeref:typename:float	file:
+sphere_get_tca	sources/parsing/initialisers/intersections/sphere_intersect.c	/^static float sphere_get_tca(t_vec L, t_vec dir)$/;"	f	typeref:typename:float	file:
 sphere_initialiser	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*sphere_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-sphere_intersect	sources/parsing/initialisers/intersections/sphere_intersect.c	/^bool	sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
+sphere_intersect	sources/parsing/initialisers/intersections/sphere_intersect.c	/^bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
 sphere_to_mesh	binaries_and_external_sources/tesselationFromClaude.c	/^t_mesh *sphere_to_mesh(t_sphere_data sphere_data, int u_segments, int v_segments) {$/;"	f	typeref:typename:t_mesh *
 split_object_list	sources/execution/rendering/BVH/buildBVH.c	/^static int	split_object_list(t_object *list, t_object **mid, int baxis, float bsplit)$/;"	f	typeref:typename:int	file:
 start_rendering	sources/execution/rendering/startRendering.c	/^bool	start_rendering(t_minirt *minirt)$/;"	f	typeref:typename:bool
