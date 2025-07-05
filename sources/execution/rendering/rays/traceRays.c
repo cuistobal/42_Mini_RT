@@ -35,13 +35,12 @@ static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 	//int		offset;	
 
 	(void)img;
+	color = 0X000000;
 	dir = append_dir_value(minirt, x, y);
 	ray = minirt->scene->camera->u_type.camera.view_point;
 	ret = cast_ray(minirt->scene, ray, dir, 0);
 	if (ret.x == 0.2 && ret.y == 0.7 && ret.z == 0.8)	
 		color = 0Xffffff;
-	else
-		color = 0X000000;
 /*
 	offset = y * img->size_line + x * (img->bpp / 8);
 	printf("%d\n", offset);	

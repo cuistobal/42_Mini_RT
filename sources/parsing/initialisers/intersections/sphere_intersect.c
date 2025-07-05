@@ -12,9 +12,7 @@ bool	sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 	float		r2;
 	float		thc;
 
-//	print_vec("center", obj->pdata.center);
     L = vec_sub(obj->pdata.center, orig);
-//	print_vec("L", L);
 	r2 = powf(obj->u_type.sphere.diameter / 2, 2);
 	d2 = vec_dot(L, L) - sqrt(vec_dot(L, dir));
 	if (d2 > r2)
