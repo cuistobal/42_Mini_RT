@@ -65,12 +65,12 @@ void	*free_cache(t_cache *cache)
 
 	head = cache;
 	current = cache;
-	while (current->next && current->next != head)
+	while (current && current->next != head)
 	{
-		free(current->prev);
-		current->prev = NULL;
+		current->prev = free_generic_pointer(current->prev);
 		current = current->next;
 	}
+	free_generic_pointer(current);
 	return (NULL);
 }
 

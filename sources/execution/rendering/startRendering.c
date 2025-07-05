@@ -28,7 +28,8 @@ bool	start_rendering(t_minirt *minirt)
 //	if (!build_bvh(&root, current, count, 0))
 //		return (false);		//probbaly needs some free here
 
+		
 	trace_rays(minirt, minirt->screen.width, minirt->screen.height);
-
+		
 	return (true);
 }

@@ -1,6 +1,7 @@
 #ifndef TEMP_H
 # define TEMP_H
 
+# include <assert.h>
 # include <string.h>
 # include <ctype.h>
 

@@ -1,10 +1,5 @@
 #include "minirt.h"
 
-void	init_material_values(t_material *material)
-{
-	material = NULL;
-}
-
 //
 void	init_hit_values(t_hit *hit)
 {
@@ -12,9 +7,10 @@ void	init_hit_values(t_hit *hit)
 	hit->distance = 1e30;
 	hit->point = set_vec_value(0, 0, 0);
 	hit->normal = set_vec_value(0, 0, 0);
-	init_material_values(&hit->material);
+	set_standard_material(&hit->material);
 }
 
+/*
 //Returns the sum of all the vectors contained in our computed buffer. Hence,
 //we get a vector that represents the light status of our ray;
 static t_vec	cast_ray_return(t_vec buffer[])
@@ -27,7 +23,7 @@ static t_vec	cast_ray_return(t_vec buffer[])
 	return (vec_add(sumof1, sumof2));
 }
 
-/*	We need multithreading here :)	
+We need multithreading here :)	
 void	handle_multiple_lights(t_scene *scene, t_hit *hit, float *dli, float *sli)
 {
 	t_object	*lights;
@@ -100,12 +96,15 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 	while (current)
 	{
 		init_hit_values(&hit);
-        if (current->methods.intersect(current, orig, dir, &hit) && hit.distance < min)
+		if (current->methods.intersect(current, orig, dir, &hit))
 		{
-            min = hit.distance;
-            *closest_hit = hit;
-            found = true;
-        }
+			if (hit.distance < min)
+			{
+            	min = hit.distance;
+            	*closest_hit = hit;
+            	found = true;
+        	}
+		}
 		current = current->next;
     }
     return (found);
@@ -121,17 +120,16 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 {
 	t_hit	hit;
-	t_vec	buffer[4];
+//	t_vec	buffer[4];
 
-	init_hit_values(&hit);
 	if (depth > MAX_RAY_DEPTH)
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
 	init_hit_values(&hit);
 	if (!scene_intersect(scene, orig, dir, &hit))
-		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
-
+		return ((t_vec)set_vec_value(0, 0, 0));	
+	return ((t_vec)hit.normal);
 //Bonus version tbh
 //	handle_impact(scene, buffer);
 //
-	return (cast_ray_return(buffer));
+//	return (cast_ray_return(buffer));
 }

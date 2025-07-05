@@ -45,12 +45,7 @@ static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 	int		offset;	
 
 	dir = append_dir_value(minirt, x, y);
-/*
-	printf("for x = %d && y = %d	->	", x, y);
-	print_vec("dir", dir);
-	printf("\n");
-*/
-	ray = set_vec_value(0.0f, 0.0f, 0.0f);
+	ray = minirt->scene->camera->u_type.camera.view_point;
 	ret = cast_ray(minirt->scene, ray, dir, 0);
 	color = get_color_from_returned_vector(ret);
 	offset = y * img->size_line + x * (img->bpp / 8);

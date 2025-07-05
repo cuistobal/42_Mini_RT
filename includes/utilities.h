@@ -18,7 +18,8 @@ t_object	*create_object_node(void);
 t_scene     *create_scene_node(void);
 
 //sources/utilities/my_atof.c
-double  	ft_atof(const char *str, bool *error);
+//double  	ft_atof(const char *str, bool *error);
+float	ft_atof(const char *str, bool *error);
 
 //sources/utilities/rgbConvert.c
 bool    	get_colors(int *colot, char **str);

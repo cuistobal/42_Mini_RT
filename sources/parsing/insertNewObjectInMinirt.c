@@ -11,7 +11,7 @@ static void	insert_new_object(t_object **head, t_object **tail, t_object *new)
 	else
 	{
 		(*tail)->next = new;
-		*tail = (*tail)->next;
+		*tail = new;
 	}
 }
 
