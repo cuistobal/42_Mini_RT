@@ -43,14 +43,15 @@ bool	extract_vector_from_string(t_vec *v, char **str, \
 	i = 0;
 	status = true;
     temp = ft_strtok_r(*str, WHITESPACES, str);
-    while (status && i++ < 3)
+    while (status && i < 3)
     {
         param = ft_strtok_r(temp, ",", &temp);
         status = convert(&arr[i], param);
         if (limits)
             status = check_limits(status, arr[i], limits[0], limits[1]);
+		i++;
     }
-	if (status && i == 4)
+	if (status && i == 3)
 		return (*v = set_vec_value(arr[0], arr[1], arr[2]), true);
 	return (false);
 }

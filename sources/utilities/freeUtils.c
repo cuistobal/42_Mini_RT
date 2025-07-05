@@ -88,7 +88,5 @@ void	*free_minirt(t_minirt *ptr)
 		return (NULL);
     ptr->scene = free_scene(ptr->scene);
 	free_rendering(&ptr->rendering);
-	ptr->screen.mlxptr = free_generic_pointer(&ptr->screen.mlxptr);  
-	ptr->screen.mlxwin = free_generic_pointer(&ptr->screen.mlxwin);
 	return (NULL);
 }

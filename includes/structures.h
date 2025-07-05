@@ -156,7 +156,6 @@ typedef struct	camera
 
 typedef struct	ambient
 {
-	int		color;
 	float	light_ratio;
 }	t_ambient;
 

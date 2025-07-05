@@ -4,7 +4,10 @@
 
 void	print_vec(const char *label, t_vec v)
 {
-	printf("%s:	(%.2f, %.2f, %.2f)\n", label, v.x, v.y, v.z);
+	printf("%s:	", label);
+	printf("%.2f, ", v.x);
+	printf("%.2f, ", v.y);
+	printf("%.2f)\n", v.z);
 }
 /*
 static void	print_pdata(const t_prim pdata)
@@ -50,7 +53,6 @@ static void print_light(const t_light *l)
 static void print_ambient(const t_ambient *a)
 {
 	printf("[AMBIENT]:\n");
-	printf("color:       %d\n", a->color);
 	printf("light_ratio: %.2f\n", a->light_ratio);
 }
 
