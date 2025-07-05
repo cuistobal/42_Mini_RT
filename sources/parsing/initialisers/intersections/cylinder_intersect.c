@@ -47,6 +47,18 @@ static bool	get_cylinder_intersection(t_object *cyl, t_vec orig, t_vec dir, floa
     return (solve_cylinder_quadratic(a, b, cc, t));
 }
 
+static t_vec	compute_cp(t_vec orig, t_vec dir, t_vec center, float t)
+{
+	t_vec	scaling;
+	t_vec	addition;
+	t_vec	substracted;
+
+	scaling = vec_scale(dir, t);
+	addition = vec_add(orig, scaling);
+	substracted = vec_sub(addition, center);
+	return ((t_vec){substracted.x, substracted.y, substracted.z});
+}
+
 bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
     t_vec	cp;
@@ -54,10 +66,11 @@ bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 	t_vec	point;
     float	distance;
 
-	cp = 
+		
 	axis = obj->pdata.normalized_axis;
     if (!get_cylinder_intersection(obj, orig, dir, &distance))
         return (false);
+    cp = compute_cp(orig, dir, obj->pdata.center, distance);
     hit->hit = true;
     hit->distance = distance;
     hit->point = point;
