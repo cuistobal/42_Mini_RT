@@ -30,6 +30,12 @@ bool	start_rendering(t_minirt *minirt)
 
 		
 	trace_rays(minirt, minirt->screen.width, minirt->screen.height);
+
+/*
+	t_img	*img = (t_img *)minirt->screen.tmp_img;
+
+	printf("data	->	%s\n", (char *)img->data);
+*/
 		
 	return (true);
 }
