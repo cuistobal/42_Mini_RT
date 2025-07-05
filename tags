@@ -297,9 +297,8 @@ convert_scene_to_meshes	binaries_and_external_sources/tesselationFromClaude.c	/^
 count_objects_and_populate_aabb	sources/execution/rendering/startRendering.c	/^static int	count_objects_and_populate_aabb(t_object *objects)$/;"	f	typeref:typename:int	file:
 create_aabb_node	sources/execution/rendering/BVH/aabbNodeHandler.c	/^t_aabb	*create_aabb_node(t_object *object)$/;"	f	typeref:typename:t_aabb *
 create_bvh_node	sources/execution/rendering/BVH/buildBVH.c	/^static bool	create_bvh_node(t_bvh **node)$/;"	f	typeref:typename:bool	file:
-create_mlx_window	sources/execution/rendering/init_window.c	/^void	*create_mlx_window(t_screen *screen)$/;"	f	typeref:typename:void *
 create_scene_node	sources/utilities/createNodes.c	/^t_scene *create_scene_node(void)$/;"	f	typeref:typename:t_scene *
-create_temp_image	sources/execution/rendering/init_window.c	/^void	*create_temp_image(t_screen	*screen)$/;"	f	typeref:typename:void *
+create_temp_image	sources/execution/rendering/startRendering.c	/^static void	*create_temp_image(t_screen	*screen)$/;"	f	typeref:typename:void *	file:
 create_vertex_with_normal	binaries_and_external_sources/tesselationFromClaude.c	/^t_vertex create_vertex_with_normal(t_vec3 pos, t_vec3 normal, double u, double v) {$/;"	f	typeref:typename:t_vertex
 cylinder	includes/structures.h	/^        struct	cylinder	cylinder;$/;"	m	union:object::objtype	typeref:struct:cylinder
 cylinder	includes/structures.h	/^typedef struct	cylinder$/;"	s
@@ -427,7 +426,6 @@ get_best_axis	sources/execution/rendering/BVH/getSah.c	/^static int	get_best_axi
 get_center	sources/execution/rendering/BVH/buildBVH.c	/^static float	get_center(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 get_center	sources/execution/rendering/BVH/getSah.c	/^static inline float	get_center(t_object *current, int axis)$/;"	f	typeref:typename:float	file:
 get_color_and_append_img	sources/execution/rendering/rays/traceRays.c	/^static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)$/;"	f	typeref:typename:void	file:
-get_color_from_returned_vector	sources/execution/rendering/rays/traceRays.c	/^static float	get_color_from_returned_vector(t_vec ret)$/;"	f	typeref:typename:float	file:
 get_colors	sources/utilities/rgbConvert.c	/^bool    get_colors(int *color, char **str)$/;"	f	typeref:typename:bool
 get_cosinus	sources/execution/rendering/reflexion_and_refraction.c	/^static inline float	get_cosinus(t_vec v1, t_vec v2)$/;"	f	typeref:typename:float	file:
 get_cylinder_c	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static float	get_cylinder_c(float diameter, t_vec axis, t_vec oc)$/;"	f	typeref:typename:float	file:
@@ -443,7 +441,7 @@ heapSort	sources/utilities/sorting.c	/^int	*heapSort(int *arr, int size, bool ty
 height	binaries_and_external_sources/tesselationFromClaude.c	/^    double height;$/;"	m	struct:s_cylinder_data	typeref:typename:double	file:
 height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 height	includes/structures.h	/^	float	height;$/;"	m	struct:cylinder	typeref:typename:float
-height	includes/structures.h	/^	int		height;$/;"	m	struct:screen	typeref:typename:int
+height	includes/structures.h	/^	int				height;$/;"	m	struct:screen	typeref:typename:int
 hit	includes/structures.h	/^    bool		hit;$/;"	m	struct:hit	typeref:typename:bool
 hit	includes/structures.h	/^typedef struct hit$/;"	s
 hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
@@ -453,7 +451,6 @@ im2	includes/minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void
 im3	includes/minilibx-linux/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
 im4	includes/minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
 image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
-img_add	includes/structures.h	/^	void	*img_add;$/;"	m	struct:screen	typeref:typename:void *
 init_hit_values	sources/execution/rendering/rays/castRay.c	/^void	init_hit_values(t_hit *hit)$/;"	f	typeref:typename:void
 init_parsing	sources/parsing/parsing.c	/^static const char	*init_parsing(int argc, char **argv, char **envp)$/;"	f	typeref:typename:const char *	file:
 init_window	sources/execution/rendering/init_window.c	/^bool	init_window(t_screen *screen)$/;"	f	typeref:typename:bool
@@ -580,8 +577,8 @@ mlx_xpm_file_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_file
 mlx_xpm_file_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *
 mlx_xpm_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
 mlx_xpm_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
-mlxptr	includes/structures.h	/^	void	*mlxptr;$/;"	m	struct:screen	typeref:typename:void *
-mlxwin	includes/structures.h	/^	void	*mlxwin;$/;"	m	struct:screen	typeref:typename:void *
+mlxptr	includes/structures.h	/^	void			*mlxptr;$/;"	m	struct:screen	typeref:typename:void *
+mlxwin	includes/structures.h	/^	void			*mlxwin;$/;"	m	struct:screen	typeref:typename:void *
 mouse_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 mouse_param	includes/minilibx-linux/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 mouse_win1	includes/minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
@@ -638,6 +635,7 @@ print_tree_bfs	sources/temp.c	/^void	print_tree_bfs(const t_bvh *root)$/;"	f	typ
 print_vec	sources/temp.c	/^void	print_vec(const char *label, t_vec v)$/;"	f	typeref:typename:void
 private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
+purge_image	sources/utilities/freeUtils.c	/^void	*purge_image(t_screen *screen)$/;"	f	typeref:typename:void *
 putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
 radius	binaries_and_external_sources/tesselationFromClaude.c	/^    double radius;$/;"	m	struct:s_mesh	typeref:typename:double	file:
 re	Makefile	/^re: fclean all$/;"	t
@@ -738,7 +736,7 @@ t_win_list	includes/minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:st
 t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
 test_default_main	includes/minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
-tmp_img	includes/structures.h	/^	void	*tmp_img;$/;"	m	struct:screen	typeref:typename:void *
+tmp_img	includes/structures.h	/^	struct	s_img	*tmp_img;$/;"	m	struct:screen	typeref:struct:s_img *
 trace_rays	sources/execution/rendering/rays/traceRays.c	/^void	trace_rays(t_minirt *minirt, int width, int height)$/;"	f	typeref:typename:void
 triangle	includes/structures.h	/^typedef struct	triangle$/;"	s
 triangle_count	binaries_and_external_sources/tesselationFromClaude.c	/^    int triangle_count;$/;"	m	struct:s_mesh	typeref:typename:int	file:
@@ -777,7 +775,7 @@ vertices	binaries_and_external_sources/tesselationFromClaude.c	/^    t_vertex *v
 view_point	includes/structures.h	/^	t_vec	view_point;$/;"	m	struct:camera	typeref:typename:t_vec
 visual	includes/minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
 width	includes/minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
-width	includes/structures.h	/^	int		width;$/;"	m	struct:screen	typeref:typename:int
+width	includes/structures.h	/^	int				width;$/;"	m	struct:screen	typeref:typename:int
 win1	includes/minilibx-linux/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
 win1	includes/minilibx-linux/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
 win2	includes/minilibx-linux/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *

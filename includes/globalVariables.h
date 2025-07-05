@@ -61,5 +61,6 @@
 # define REFRACTCOLOR 2
 # define REFLECTCOLOR 3
 
+# define PROGRAM_NAME "miniRT"
 
 #endif

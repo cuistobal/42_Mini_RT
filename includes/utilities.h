@@ -7,6 +7,7 @@
 bool		print_error_message(char *msg);
 
 //sources/utilities/freeUtils.c
+void		*purge_image(t_screen *screen);
 void    	*free_generic_pointer(void *ptr);
 void		*free_arr(char **arr, int len);
 void		*free_object(t_object *ptr);

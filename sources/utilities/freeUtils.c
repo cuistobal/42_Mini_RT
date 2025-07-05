@@ -1,5 +1,12 @@
 #include "minirt.h"
 
+void	*purge_image(t_screen *screen)
+{
+	if (screen->tmp_img)
+		mlx_destroy_image(screen->mlxptr, screen->tmp_img);
+	return (NULL);
+}
+
 void    *free_generic_pointer(void *ptr)
 {
     if (ptr)

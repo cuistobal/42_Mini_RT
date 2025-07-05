@@ -28,12 +28,11 @@ typedef	struct	render
 //SUb structure holding mlx pointers && screen informations
 typedef struct	screen
 {
-	int		width;
-	int		height;
-	void	*mlxptr;
-	void	*mlxwin;
-	void	*tmp_img;
-	void	*img_add;
+	int				width;
+	int				height;
+	void			*mlxptr;
+	void			*mlxwin;
+	struct	s_img	*tmp_img;
 }	t_screen;
 
 typedef	struct	minirt

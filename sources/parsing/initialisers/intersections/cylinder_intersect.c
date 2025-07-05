@@ -47,29 +47,21 @@ static bool	get_cylinder_intersection(t_object *cyl, t_vec orig, t_vec dir, floa
     return (solve_cylinder_quadratic(a, b, cc, t));
 }
 
-static t_hit    fill_cylinder_hit(t_object *obj, t_vec orig, t_vec dir, float t)
-{
-    t_vec	pt;
-    t_vec	cp;
-    t_vec	ax;
-    t_hit   hit;
-
-    ax = obj->pdata.normalized_axis;
-    pt = vec_add(orig, vec_scale(dir, t));
-    cp = vec_sub(pt, obj->pdata.center);
-    hit.hit = true;
-    hit.distance = t;
-    hit.point = pt;
-    hit.normal = vec_normalized(vec_sub(cp, vec_scale(ax, vec_dot(cp, ax))));
-    return ((t_hit){hit.hit, hit.distance, hit.point, hit.normal, obj->pdata.material});
-}
-
 bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
-    float		t;
+    t_vec	cp;
+    t_vec	axis;
+	t_vec	point;
+    float	distance;
 
-    if (!get_cylinder_intersection(obj, orig, dir, &t))
+	cp = 
+	axis = obj->pdata.normalized_axis;
+    if (!get_cylinder_intersection(obj, orig, dir, &distance))
         return (false);
-    *hit = fill_cylinder_hit(obj, orig, dir, t);
+    hit->hit = true;
+    hit->distance = distance;
+    hit->point = point;
+    hit->normal = vec_normalized(vec_sub(cp, vec_scale(axis, vec_dot(cp, axis))));
+	hit->material = obj->pdata.material;	
     return (true);
 }

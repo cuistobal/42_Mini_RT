@@ -32,23 +32,16 @@ static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 	t_vec	dir;
 	t_vec	ret;
 	float	color;
-	//int		offset;	
+	int		offset;	
 
-	(void)img;
-	color = 0X000000;
+	color = 0X00000000;
 	dir = append_dir_value(minirt, x, y);
 	ray = minirt->scene->camera->u_type.camera.view_point;
 	ret = cast_ray(minirt->scene, ray, dir, 0);
 	if (ret.x == 0.2 && ret.y == 0.7 && ret.z == 0.8)	
-		color = 0Xffffff;
-/*
+		color = 0X00ffffff;
 	offset = y * img->size_line + x * (img->bpp / 8);
-	printf("%d\n", offset);	
-    *(unsigned int *)(img->data + offset) = color.x;
-    *(unsigned int *)(img->data + offset + 1) = color.y;
-    *(unsigned int *)(img->data + offset + 2) = color.z;	
-*/
-	mlx_pixel_put(minirt->screen.mlxptr, minirt->screen.mlxwin, x, y, color);
+    *(unsigned int *)(img->data + offset) = color;
 }
 
 
@@ -71,5 +64,4 @@ void	trace_rays(t_minirt *minirt, int width, int height)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(minirt->screen.mlxptr, minirt->screen.mlxwin, img, 0, 0);
 }

@@ -29,5 +29,6 @@ bool	plane_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
     hit->distance = intersection;
     hit->point = vec_add(orig, vec_scale(dir, intersection));
     hit->normal = obj->pdata.normalized_axis;
+	hit->material = obj->pdata.material;
     return (true);
 }

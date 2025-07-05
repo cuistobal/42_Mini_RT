@@ -4,10 +4,13 @@
 int	main(int argc, char **argv, char **envp)
 {
 	t_minirt	minirt;
-
+	
 	if (!parsing(argc, argv, envp, &minirt))
-		return (print_minirt(minirt), 1);
-	init_window(&minirt.screen);
+		return (1);
+
 	start_rendering(&minirt);
+	mlx_clear_window(minirt.screen.mlxptr, minirt.screen.mlxwin);
+	mlx_destroy_display(minirt.screen.mlxptr);
+
 	return (free_minirt(&minirt), 0);
 }
