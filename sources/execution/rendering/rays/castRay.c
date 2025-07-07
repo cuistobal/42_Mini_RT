@@ -92,6 +92,7 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 
     min = 1e30;
 	found = false;
+//This is where we should use the BVH instead of looping through all objects
 	current = scene->objects;
 	while (current)
 	{
