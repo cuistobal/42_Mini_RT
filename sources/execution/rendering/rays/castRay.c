@@ -82,24 +82,13 @@ static void	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)
 */
 
 //
-bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
+bool	scene_intersect(t_minirt *minirt, t_vec orig, t_vec dir, \
 		t_hit *closest_hit)
 {
 	init_hit_values(closest_hit);
-	if (!scene->rendering.root)
+	if (!minirt->rendering.root)
 		return (false);
-	return traverse_bvh(scene->rendering.root, orig, dir, closest_hit);
-		{
-			if (hit.distance < min)
-			{
-            	min = hit.distance;
-            	*closest_hit = hit;
-            	found = true;
-        	}
-		}
-		current = current->next;
-    }
-    return (found);
+	return traverse_bvh(minirt->rendering.root, orig, dir, closest_hit);
 }
 
 // 0 ->	diffuse
@@ -109,7 +98,7 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 //
 //We cast a ray. If it hits an object, we make also check for reflection && 
 //refraction. We've put a depth limit for performance purposes.
-t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
+t_vec	cast_ray(t_minirt *minirt, t_vec orig, t_vec dir, int depth)
 {
 	t_hit	hit;
 //	t_vec	buffer[4];
@@ -117,7 +106,7 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 	init_hit_values(&hit);
 	if (depth > MAX_RAY_DEPTH)
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
-	if (!scene_intersect(scene, orig, dir, &hit))
+	if (!scene_intersect(minirt, orig, dir, &hit))
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
 	else
 		print_vec("hit.normal", hit.normal);

@@ -3,6 +3,8 @@
 //
 static inline float	get_center(t_object *current, int axis)
 {
+	if (!current)
+		return (0);
 	if (axis == 0)
 		return (current->pdata.center.x);
 	else if (axis == 1)
@@ -60,12 +62,12 @@ static float	evaluate_sah(t_bvh *node, int axis, float split)
 		}
 		current = current->next;
 	}
-	return (surface_area_difference(lbounds, rbounds, \
+	return (surface_area_difference(node->bounds, lbounds, rbounds, \
 				node->objcount - diff, diff));
 }
 
 //
-static float compute_split(t_bvh *node, t_object *objects, int axis, int binCount)
+static float compute_split(t_object *objects, int axis)
 {
     t_vec min = {1e30f, 1e30f, 1e30f};
     t_vec max = {-1e30f, -1e30f, -1e30f};
@@ -109,7 +111,7 @@ static int	get_best_axis(t_bvh *node, float *bcost, float *bsplit, int curr_axis
 	float	cost;
 	float	split;
 
-	split = compute_split(node, node->objects, curr_axis, 8);
+	split = compute_split(node->objects, curr_axis);
 	cost = evaluate_sah(node, curr_axis, split);
 	if (cost < *bcost)
 	{

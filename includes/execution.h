@@ -23,7 +23,7 @@ t_aabb	create_empty_aabb_node(void);
 t_bvh	*build_bvh_node(t_object *objects, int start, int end, int depth);
 
 //sources/execution/castRay.c
-t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth);
+t_vec	cast_ray(t_minirt *minirt, t_vec orig, t_vec dir, int depth);
 
 //sources/execution/reflexion_and_refraction.c
 t_vec	reflect(t_vec a, t_vec b);
@@ -33,10 +33,16 @@ t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta);
 void	trace_rays(t_minirt *minirt, int width, int height);
 
 //sources/execution/intersections.c
-bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
+bool	scene_intersect(t_minirt *minirt, t_vec orig, t_vec dir, \
 		t_hit *closestHit);
 
 //sources/execution/rendering/init_window.c
 bool	init_window(t_screen *screen);
+
+//sources/execution/rendering/rays/castRay.c
+void	init_hit_values(t_hit *hit);
+
+//sources/execution/rendering/BVH/traverseBVH.c
+bool traverse_bvh(t_bvh *node, t_vec origin, t_vec dir, t_hit *closest_hit);
 
 #endif
