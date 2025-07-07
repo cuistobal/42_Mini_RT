@@ -34,12 +34,10 @@ static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 	float	color;
 	int		offset;	
 
-	color = 0X00000000;
 	dir = append_dir_value(minirt, x, y);
 	ray = minirt->scene->camera->u_type.camera.view_point;
 	ret = cast_ray(minirt->scene, ray, dir, 0);
-	if (ret.x == 0.2 && ret.y == 0.7 && ret.z == 0.8)	
-		color = 0X00ffffff;
+	color = 0X00ffffff;
 	offset = y * img->size_line + x * (img->bpp / 8);
     *(unsigned int *)(img->data + offset) = color;
 }
