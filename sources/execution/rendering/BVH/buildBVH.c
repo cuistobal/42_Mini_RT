@@ -49,8 +49,7 @@ static bool	create_bvh_node(t_bvh **node)
 	*node = malloc(sizeof(t_bvh));
 	if (!node)
 		return (print_error_message(MEMALLOC));
-	
-    (*node)->bounds = set_aabb_value(set_vec_value(0, 0, 0), set_vec_value(0, 0, 0));
+    (*node)->bounds = create_empty_aabb_node();
     (*node)->left = NULL; 
 	(*node)->right = NULL;
     (*node)->objects = NULL;

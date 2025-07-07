@@ -11,30 +11,27 @@ static inline float	get_center(t_object *current, int axis)
 }
 
 //
-static float	surface_area_difference(t_aabb l, t_aabb r, int lc, int rc)
+static float	surface_area_difference(t_aabb parent, t_aabb l, t_aabb r, int lc, int rc)
 {
 	float	lsa;
 	float	rsa;
+	float   psa;
+	float   traversal_cost;
+	float   intersection_cost;
 
+	psa = get_aabb_surface_area(parent);
 	lsa = get_aabb_surface_area(l);
-	//
-/*float get_aabb_surface_area(AABB box)
-{
-    Vec3 dimensions = {
-        box.max.x - box.min.x,
-        box.max.y - box.min.y,
-        box.max.z - box.min.z};
-    return 2.0f * (dimensions.x * dimensions.y +
-                   dimensions.y * dimensions.z +
-                   dimensions.z * dimensions.x);
-}*/
-
-	//I think it's the vec product of the max and mion value within the box
-
 	rsa = get_aabb_surface_area(r);
-    return (0.125f + (lc * lsa + rc * rsa));
-	//Change magic number. We could compute it but 0.125 is an accurate 
-	//approximation and I'm too lazy to implement the formula :)
+
+	// Traversal cost for BVH node (typically much less than intersection cost)
+	traversal_cost = 1.0f;
+	
+	// Intersection cost (typically much higher than traversal)
+	intersection_cost = 8.0f;
+
+	// SAH = traversal_cost + (p_left * n_left + p_right * n_right) * intersection_cost
+	// where p_left and p_right are probabilities of hitting child nodes
+	return (traversal_cost + ((lsa / psa) * lc + (rsa / psa) * rc) * intersection_cost);
 }
 
 //
@@ -68,42 +65,59 @@ static float	evaluate_sah(t_bvh *node, int axis, float split)
 }
 
 //
-static float	compute_split(t_bvh *node, int axis, int i)
+static float compute_split(t_bvh *node, t_object *objects, int axis, int binCount)
 {
-	if (axis == 0)
-    	return (node->bounds.min_vec.x + (i / 8.0f) * \
-				(node->bounds.max_vec.x - node->bounds.min_vec.x));
-	else if (axis == 1)
-    	return (node->bounds.min_vec.y + (i / 8.0f) * \
-				(node->bounds.max_vec.y - node->bounds.min_vec.y));
-   	return (node->bounds.min_vec.z + (i / 8.0f) * \
-		(node->bounds.max_vec.z - node->bounds.min_vec.z));
+    t_vec min = {1e30f, 1e30f, 1e30f};
+    t_vec max = {-1e30f, -1e30f, -1e30f};
+    int count = 0;
+    t_object *curr = objects;
+
+    // First pass: find actual bounds of objects
+    while (curr)
+    {
+        float val = get_center(curr, axis);
+        if (val < (axis == 0 ? min.x : axis == 1 ? min.y : min.z))
+            *(axis == 0 ? &min.x : axis == 1 ? &min.y : &min.z) = val;
+        if (val > (axis == 0 ? max.x : axis == 1 ? max.y : max.z))
+            *(axis == 0 ? &max.x : axis == 1 ? &max.y : &max.z) = val;
+        count++;
+        curr = curr->next;
+    }
+
+    // If all objects are at the same position on this axis, move to next axis
+    if ((axis == 0 && min.x == max.x) ||
+        (axis == 1 && min.y == max.y) ||
+        (axis == 2 && min.z == max.z))
+        return (axis == 0 ? min.x : axis == 1 ? min.y : min.z);
+
+    // Choose split position as median of actual object positions
+    curr = objects;
+    float midPoint = count / 2;
+    int i = 0;
+    while (curr && i < midPoint)
+    {
+        curr = curr->next;
+        i++;
+    }
+    
+    return get_center(curr, axis);
 }
 
 //Returns the best axis
-static int	get_best_axis(t_bvh *node, float *bcost, float *bsplit, int axis)
+static int	get_best_axis(t_bvh *node, float *bcost, float *bsplit, int curr_axis)
 {
-	int		i;
-	int		ret;
 	float	cost;
 	float	split;
 
-	i = 1;
-	ret = 0;
-	cost = 0;
-	while (i < 8)
+	split = compute_split(node, node->objects, curr_axis, 8);
+	cost = evaluate_sah(node, curr_axis, split);
+	if (cost < *bcost)
 	{
-		split =	compute_split(node, axis, i);
-		cost = evaluate_sah(node, axis, split);
-		if (cost < *bcost)
-		{
-			*bcost = cost;
-            ret = axis;
-            *bsplit = split;
-		}
-		i++;
+		*bcost = cost;
+		*bsplit = split;
+		return (curr_axis);
 	}
-	return (ret);
+	return (0);
 }
 
 //

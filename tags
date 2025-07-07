@@ -297,8 +297,8 @@ convert_parsed_plane_to_mesh	binaries_and_external_sources/tesselationFromClaude
 convert_parsed_sphere_to_mesh	binaries_and_external_sources/tesselationFromClaude.c	/^t_mesh *convert_parsed_sphere_to_mesh(char **tokens, int resolution) {$/;"	f	typeref:typename:t_mesh *
 convert_scene_to_meshes	binaries_and_external_sources/tesselationFromClaude.c	/^t_mesh_scene *convert_scene_to_meshes(\/* your parsed scene data *\/) {$/;"	f	typeref:typename:t_mesh_scene *
 count_objects_and_populate_aabb	sources/execution/rendering/startRendering.c	/^static int	count_objects_and_populate_aabb(t_object *objects)$/;"	f	typeref:typename:int	file:
-create_aabb_node	sources/execution/rendering/BVH/aabbNodeHandler.c	/^t_aabb	*create_aabb_node(t_object *object)$/;"	f	typeref:typename:t_aabb *
 create_bvh_node	sources/execution/rendering/BVH/buildBVH.c	/^static bool	create_bvh_node(t_bvh **node)$/;"	f	typeref:typename:bool	file:
+create_empty_aabb_node	sources/execution/rendering/BVH/aabbNodeHandler.c	/^t_aabb	create_empty_aabb_node(void)$/;"	f	typeref:typename:t_aabb
 create_scene_node	sources/utilities/createNodes.c	/^t_scene *create_scene_node(void)$/;"	f	typeref:typename:t_scene *
 create_temp_image	sources/execution/rendering/startRendering.c	/^static void	*create_temp_image(t_screen	*screen)$/;"	f	typeref:typename:void *	file:
 create_vertex_with_normal	binaries_and_external_sources/tesselationFromClaude.c	/^t_vertex create_vertex_with_normal(t_vec3 pos, t_vec3 normal, double u, double v) {$/;"	f	typeref:typename:t_vertex

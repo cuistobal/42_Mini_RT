@@ -46,10 +46,16 @@ bool	start_rendering(t_minirt *minirt)
 	if (!build_bvh(&minirt->rendering.root, current, count, 0))
 		return (false);		//probbaly needs some free here
 
+	print_tree_bfs(minirt->rendering.root);
+
+	return (create_temp_image(screen));
+
 //Include a loop for frames here -> change trace_ray's return value;		
 //The idea here is to loop permanently to create frame and render them in real
 //time.
 //Not important for the mandatory part.
+
+/*
 	while (true)
 	{
 		if (!create_temp_image(screen))
@@ -59,4 +65,5 @@ bool	start_rendering(t_minirt *minirt)
 		screen->tmp_img = purge_image(screen);
 	}	
 	return (true);
+*/
 }

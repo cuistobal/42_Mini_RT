@@ -85,19 +85,10 @@ static void	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)
 bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 		t_hit *closest_hit)
 {
-	float		min;
-    t_hit		hit;
-    bool		found;
-	t_object	*current;
-
-    min = 1e30;
-	found = false;
-//This is where we should use the BVH instead of looping through all objects
-	current = scene->objects;
-	while (current)
-	{
-		init_hit_values(&hit);
-		if (current->methods.intersect(current, orig, dir, &hit))
+	init_hit_values(closest_hit);
+	if (!scene->rendering.root)
+		return (false);
+	return traverse_bvh(scene->rendering.root, orig, dir, closest_hit);
 		{
 			if (hit.distance < min)
 			{
