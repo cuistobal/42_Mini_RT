@@ -13,17 +13,28 @@ static t_vec	append_dir_value(t_minirt *minirt, int x, int y)
 	return ((t_vec)vec_normalized(ret));
 }
 
-/*
-static t_vec	*createFrameBuffer(t_minirt *minirt, int size)
-{
-	t_vec		*buffer;
 
-	buffer = malloc(sizeof(t_vec) * size);
-	if (buffer)
-		return (NULL);
-	return (buffer);
+static float clamp(float x)
+{
+	if (x < 0.0f)
+		return (0.0f);
+	else if (x > 1.0f)
+		return (1.0f);
+    return (x);
 }
-*/
+
+// Convert t_vec (with .x, .y, .z in [0,1]) to 0xRRGGBB
+int vec_to_color(t_vec color)
+{
+	int	r;
+	int	g;
+	int b;
+
+    r = (int)(255.0f * clamp(color.x));
+    g = (int)(255.0f * clamp(color.y));
+    b = (int)(255.0f * clamp(color.z));
+	return ((r << 16) | (g << 8) | b);
+}
 
 //Protoype might evolve if we need to use a boolean return downstream.
 static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
@@ -31,13 +42,13 @@ static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 	t_vec	ray;
 	t_vec	dir;
 	t_vec	ret;
-	float	color;
+	int		color;
 	int		offset;	
 
 	dir = append_dir_value(minirt, x, y);
 	ray = minirt->scene->camera->u_type.camera.view_point;
 	ret = cast_ray(minirt->scene, ray, dir, 0);
-	color = 0X00ffffff;
+	color = vec_to_color(ret);
 	offset = y * img->size_line + x * (img->bpp / 8);
     *(unsigned int *)(img->data + offset) = color;
 }

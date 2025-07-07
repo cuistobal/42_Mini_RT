@@ -11,7 +11,7 @@ static inline float	get_cosinus(t_vec v1, t_vec v2)
 	cos = 0;
 	dot = vec_dot(v1, v2);
 	min = fminf(1.0f, dot);
-	max = fmax(1.0f, min);
+	max = fmax(-1.0f, min);
 	cos -= max;
 	return (cos);
 }

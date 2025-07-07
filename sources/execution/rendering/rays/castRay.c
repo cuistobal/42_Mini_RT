@@ -52,14 +52,16 @@ static float compute_shadow_light_index(t_vec dir, t_vec light_dir, t_hit hit)
 }
 
 //
-void	handle_multiple_lights(t_scene *scene, t_hit hit, float *dli, float *sli)
+static void	handle_multiple_lights(t_scene *scene, t_hit hit, t_vec dir, float scales[4])
 {
 	t_object	*lights;
+	t_vec		indices;
 	t_vec		light_pos;
     t_vec		light_dir;
     t_hit		shadow_hit;
 
 	lights = scene->light;
+	indices = set_vec_value(0, 0, 0);
 	while (lights)
 	{
 		init_hit_values(&shadow_hit);
@@ -68,8 +70,8 @@ void	handle_multiple_lights(t_scene *scene, t_hit hit, float *dli, float *sli)
         if (scene_intersect(scene, hit.point, light_dir, &shadow_hit) &&
 			handle_multiple_lights_helper(light_pos, shadow_hit, hit))
             continue;
-        *dli += fmaxf(0.0f, vec_dot(light_dir, hit.normal));
-        *sli += compute_shadow_light_index(dir, light_dir, hit);
+        scales[DLI] += fmaxf(0.0f, vec_dot(light_dir, hit.normal));
+        scales[SLI] += compute_shadow_light_index(dir, light_dir, hit);
 		lights = lights->next;
     }
 }
@@ -77,30 +79,28 @@ void	handle_multiple_lights(t_scene *scene, t_hit hit, float *dli, float *sli)
 //dli -> diffuse light intensity
 //sli -> specular light intensity
 //
-static void	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)
+static t_vec	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)
 {
-	float	dli;
-	float	sli;
-	t_hit	shadow;
 	t_vec	buff[4];
-	t_vec	light_dir;
+	float	scales[4];
 
-	dli = 0;
-	sli = 0;
-	buff[REFLECTDIR] = vec_normalized(reflect(dir, hit.normal));
-	buff[REFRACTDIR] = vec_normalized(refract(dir, hit.normal, \
-					hit.material.refractive_index, 1.0f)) ;
-	buff[REFLECTCOLOR] = cast_ray(scene, hit.point, buff[REFLECTDIR], depth + 1);
-	buff[REFRACTCOLOR] = Cast_ray(scene, hit.point,	buff[REFRACTDIR], depth + 1);
-
-	handle_multiple_lights(scene, hit, &dli, &sli);
-
-    buffer[DIFFUSE] = vec_scale(hit.material.diffuse_color, \
-			dli * hit.material.albedo[0]);
-    buffer[SPECULAR] = vec_scale((t_vec)set_vec_value(1.0, 1.0, 1.0), \
-			sli * hit.material.albedo[1]);
-    buffer[REFLECTION] = vec_scale(reflect_color, hit.material.albedo[2]);
-    buffer[REFRACTION] = vec_scale(refract_color, hit.material.albedo[3]);
+	scales[0] = 1;	
+	scales[1] = 1;	
+	scales[2] = 1;	
+	scales[3] = 1;
+	handle_multiple_lights(scene, hit, dir, scales);
+	if (hit.material.set)
+	{
+		scales[DLI] = scales[DLI] * hit.material.albedo[0];
+		scales[SLI] = scales[SLI] * hit.material.albedo[1];
+		scales[2] = hit.material.albedo[2];
+		scales[3] = hit.material.albedo[3];
+	}
+    buff[DIFFUSE] = vec_scale(hit.material.diffuse_color, scales[DLI]);
+    buff[SPECULAR] = vec_scale((t_vec)set_vec_value(1, 1, 1), scales[SLI]);
+    buff[REFLECTION] = vec_scale(buffer[REFLECTCOLOR], scales[2]);
+   	buff[REFRACTION] = vec_scale(buffer[REFRACTCOLOR], scales[3]);
+	return ((t_vec)(cast_ray_return(buff)));
 }
 
 //
@@ -133,11 +133,6 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
     return (found);
 }
 
-t_vec	find_light()
-{
-
-}
-
 // 0 ->	diffuse
 // 1 -> specular
 // 2 -> reflection
@@ -153,6 +148,11 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 	init_hit_values(&hit);
 	if (depth > MAX_RAY_DEPTH || !scene_intersect(scene, orig, dir, &hit))
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
-	handle_impact(scene, buffer, dir, hit);
-	return (cast_ray_return(buffer));
+	depth++;
+	buffer[REFLECTDIR] = vec_normalized(reflect(dir, hit.normal));
+	buffer[REFRACTDIR] = vec_normalized(refract(dir, hit.normal, \
+					hit.material.refractive_index, 1.0f)) ;
+	buffer[REFLECTCOLOR] = cast_ray(scene, hit.point, buffer[REFLECTDIR], depth);
+	buffer[REFRACTCOLOR] = cast_ray(scene, hit.point, buffer[REFRACTDIR], depth);
+	return (handle_impact(scene, buffer, dir, hit));
 }

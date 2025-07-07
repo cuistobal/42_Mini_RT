@@ -111,6 +111,7 @@ typedef struct bvh
 //Bonus
 typedef struct material
 {
+	bool	set;
     float	albedo[4];
     float	refractive_index;
     float	specular_exponent;

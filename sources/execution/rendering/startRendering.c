@@ -30,13 +30,13 @@ bool	start_rendering(t_minirt *minirt)
 //The idea here is to loop permanently to create frame and render them in real
 //time.
 //Not important for the mandatory part.
-	while (true)
-	{
+//	while (true)
+//	{
 		if (!create_temp_image(screen))
 			return (false);
 		trace_rays(minirt, screen->width, screen->height);
 		mlx_put_image_to_window(screen->mlxptr, screen->mlxwin, screen->tmp_img, 0, 0);
 		screen->tmp_img = purge_image(screen);
-	}	
+//	}	
 	return (true);
 }

@@ -63,4 +63,7 @@
 
 # define PROGRAM_NAME "miniRT"
 
+# define DLI 0
+# define SLI 1
+
 #endif
