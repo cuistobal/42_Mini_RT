@@ -1,21 +1,6 @@
 #include "minirt.h"
 
 //
-static int	count_objects_and_populate_aabb(t_object *objects)
-{
-	int	i;
-
-	i = 0;
-	while (objects)
-	{
-		objects->methods.bounds(objects);
-		objects = objects->next;
-		i++;
-	}
-	return (i);
-}
-
-//
 static void	*create_temp_image(t_screen	*screen)
 {	
 	int		width;
@@ -34,7 +19,6 @@ static void	*create_temp_image(t_screen	*screen)
 //
 bool	start_rendering(t_minirt *minirt)
 {
-	int			count;
 	t_bvh		*root;
 	t_screen	*screen;
 	t_object	*current;
@@ -42,10 +26,6 @@ bool	start_rendering(t_minirt *minirt)
 	root = NULL;
 	screen = &minirt->screen;
 	current = minirt->scene->objects;
-	count = count_objects_and_populate_aabb(minirt->scene->objects);
-	if (!build_bvh(&minirt->rendering.root, current, count, 0))
-		return (false);		//probbaly needs some free here
-
 //Include a loop for frames here -> change trace_ray's return value;		
 //The idea here is to loop permanently to create frame and render them in real
 //time.
