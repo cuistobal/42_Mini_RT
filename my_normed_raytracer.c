@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 00:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/07/07 14:08:26 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:41:10 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
+
+#ifndef AMBIANT_LIGHTNING
+# define AMBIANT_LIGHTNING 0.5
+#endif
 
 typedef struct s_vec
 {
@@ -144,12 +148,21 @@ float	ft_sphere_intersect_dist(t_sphere *s, t_vec orig, t_vec dir)
 	return (tca - thc);
 }
 
+bool	get_distance(float *distance, float t0, float t1)
+{
+	if (t0 > 0)
+		*distance = t0;
+	else
+		*distance = t1;
+	return (*distance > 0);
+}
+
 bool	ft_sphere_intersect(t_obj *self, t_vec orig, t_vec dir, t_hit *hit)
 {
 	t_sphere	*s;
 	float		t0;
 	float		t1;
-	float		t;
+	float		distance;
 
 	s = (t_sphere *)self->data;
 	if (!ft_sphere_intersect_calc(s, orig, dir))
@@ -158,12 +171,11 @@ bool	ft_sphere_intersect(t_obj *self, t_vec orig, t_vec dir, t_hit *hit)
 	t1 = t0 + 2 * sqrtf(s->radius * s->radius - 
 		(ft_vec3_dot(ft_vec3_sub(s->center, orig), ft_vec3_sub(s->center, orig)) - 
 		ft_vec3_dot(ft_vec3_sub(s->center, orig), dir) * ft_vec3_dot(ft_vec3_sub(s->center, orig), dir)));
-	t = (t0 > 0.001f) ? t0 : (t1 > 0.001f ? t1 : -1);
-	if (t < 0)
+	if (!get_distance(&distance, t0, t1))
 		return (false);
 	hit->hit = true;
-	hit->distance = t;
-	hit->point = ft_vec3_add(orig, ft_vec3_scale(dir, t));
+	hit->distance = distance;
+	hit->point = ft_vec3_add(orig, ft_vec3_scale(dir, distance));
 	hit->normal = ft_vec3_normalized(ft_vec3_sub(hit->point, s->center));
 	hit->material = s->material;
 	return (true);
@@ -291,6 +303,7 @@ void	ft_calculate_lighting(t_scene *scene, t_hit *hit, t_vec dir, float *diffuse
 t_vec	ft_calculate_final_color(t_hit *hit, t_vec reflect_color, \
 		t_vec refract_color, t_scene *scene, t_vec dir);
 
+//SHould returnt he ambiant lightning if no intersection / depth reached
 t_vec	ft_cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 {
 	t_hit	hit;
@@ -300,10 +313,12 @@ t_vec	ft_cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 	t_vec	refract_color;
 
 	if (depth > 4)
-		return ((t_vec){0.2, 0.7, 0.8});
+		//return ((t_vec){0.2, 0.7, 0.8});
+		return ((t_vec){AMBIANT_LIGHTNING, AMBIANT_LIGHTNING, AMBIANT_LIGHTNING});
 	hit = (t_hit){0};
 	if (!ft_scene_intersect(scene, orig, dir, &hit))
-		return ((t_vec){0.2, 0.7, 0.8});
+		return ((t_vec){AMBIANT_LIGHTNING, AMBIANT_LIGHTNING, AMBIANT_LIGHTNING});
+		//return ((t_vec){0.2, 0.7, 0.8});
 	reflect_dir = ft_vec3_normalized(ft_reflect(dir, hit.normal));
 	refract_dir = ft_vec3_normalized(ft_refract(dir, hit.normal, 
 		hit.material.refractive_index, 1.0f));
@@ -332,13 +347,16 @@ t_vec	ft_calculate_final_color(t_hit *hit, t_vec reflect_color, t_vec refract_co
 	return (result);
 }
 
+//
 void	ft_init_materials(t_material *ivory, t_material *glass, 
-	t_material *red_rubber, t_material *mirror)
+	t_material *red_rubber, t_material *mirror, t_material *none, t_material *invisible)
 {
 	*ivory = (t_material){1.0, {0.9, 0.5, 0.1, 0.0}, {0.4, 0.4, 0.3}, 50.0};
 	*glass = (t_material){1.5, {0.0, 0.9, 0.1, 0.8}, {0.6, 0.7, 0.8}, 125.0};
 	*red_rubber = (t_material){1.0, {1.4, 0.3, 0.0, 0.0}, {0.3, 0.1, 0.1}, 10.0};
 	*mirror = (t_material){1.0, {0.0, 16.0, 0.8, 0.0}, {1.0, 1.0, 1.0}, 1425.0};
+	*none = (t_material){1.0, {1.0, 1.0, 1.0, 1.0}, {1.0, 1.0, 1.0}, 1.0};
+	*invisible = (t_material){AMBIANT_LIGHTNING, {AMBIANT_LIGHTNING, AMBIANT_LIGHTNING, AMBIANT_LIGHTNING, AMBIANT_LIGHTNING}, {AMBIANT_LIGHTNING, AMBIANT_LIGHTNING, AMBIANT_LIGHTNING}, AMBIANT_LIGHTNING};
 }
 
 void	ft_init_scene(t_scene *scene, t_material ivory, t_material glass, 
@@ -378,7 +396,8 @@ void	ft_render_frame(t_scene *scene, t_vec *framebuffer, int width, int height)
 	int		j;
 	float	fov;
 
-	fov = 1.05f;
+	//fov = scene->camera.u_type.camera.fov;
+	fov = 1.0f;
 	j = 0;
 	while (j < height)
 	{
@@ -437,6 +456,8 @@ int	main(void)
 	t_material	glass;
 	t_material	red_rubber;
 	t_material	mirror;
+	t_material	none;
+	t_material	invisible;
 	t_scene		scene;
 	t_vec		*framebuffer;
 	int			width;
@@ -444,8 +465,8 @@ int	main(void)
 
 	width = 1024;
 	height = 768;
-	ft_init_materials(&ivory, &glass, &red_rubber, &mirror);
-	ft_init_scene(&scene, ivory, glass, red_rubber, mirror);
+	ft_init_materials(&ivory, &glass, &red_rubber, &mirror, &none, &invisible);
+	ft_init_scene(&scene, invisible, invisible, invisible, mirror);
 	framebuffer = malloc(width * height * sizeof(t_vec));
 	if (!framebuffer)
 		return (1);
