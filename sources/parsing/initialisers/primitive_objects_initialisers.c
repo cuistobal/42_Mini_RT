@@ -13,6 +13,7 @@ void	*sphere_initialiser(char **str, void *data, t_prim *pdata)
     if (!get_colors(&pdata->color, str))
 		return (NULL);
 	set_standard_material(&pdata->material);
+	pdata->normalized_axis = set_vec_value(0, 0, 0);
 	return (end_of_scenario(*str, &this));
 }
 

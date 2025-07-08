@@ -16,6 +16,7 @@
 # include "parsing.h"
 # include "execution.h"
 # include "minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx_int.h"
 
 int	main(int argc, char **argv, char **envp);
 

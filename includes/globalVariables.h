@@ -45,8 +45,8 @@
 # define Z 2
 
 //bvh
-# define MAXBVHDEPTH 40
-# define SURFACECOEFFICIENT 2.0f
+# define MAX_BVH_DEPTH 40
+# define SURFACE_COEFFICIENT 2.0f
 
 //ray casting
 # define DIFFUSE 0
@@ -54,12 +54,16 @@
 # define REFLECTION 2
 # define REFRACTION 3
 
-# define MAXRAYDEPTH 4
+# define MAX_RAY_DEPTH 4
 
 # define REFRACTDIR 0
 # define REFLECTDIR 1
 # define REFRACTCOLOR 2
 # define REFLECTCOLOR 3
 
+# define PROGRAM_NAME "miniRT"
+
+# define DLI 0
+# define SLI 1
 
 #endif

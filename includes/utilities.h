@@ -7,6 +7,7 @@
 bool		print_error_message(char *msg);
 
 //sources/utilities/freeUtils.c
+void		*purge_image(t_screen *screen);
 void    	*free_generic_pointer(void *ptr);
 void		*free_arr(char **arr, int len);
 void		*free_object(t_object *ptr);
@@ -18,13 +19,14 @@ t_object	*create_object_node(void);
 t_scene     *create_scene_node(void);
 
 //sources/utilities/my_atof.c
-double  	ft_atof(const char *str, bool *error);
+//double  	ft_atof(const char *str, bool *error);
+float	ft_atof(const char *str, bool *error);
 
 //sources/utilities/rgbConvert.c
 bool    	get_colors(int *colot, char **str);
 
 //sources/utilities/init_window.c
-void 		init_window(t_minirt *scene);
+bool	init_window(t_screen *screen);
 
 //sources/utilities/vectorOperations.c
 t_vec		vec_add(t_vec a, t_vec b);
