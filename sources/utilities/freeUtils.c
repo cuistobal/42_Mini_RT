@@ -1,5 +1,12 @@
 #include "minirt.h"
 
+void	*purge_image(t_screen *screen)
+{
+	if (screen->tmp_img)
+		mlx_destroy_image(screen->mlxptr, screen->tmp_img);
+	return (NULL);
+}
+
 void    *free_generic_pointer(void *ptr)
 {
     if (ptr)
@@ -46,12 +53,47 @@ void	*free_scene(t_scene *ptr)
 }
 
 //
+void	*free_bvh(t_bvh *root)
+{
+	if (!root)
+		return (NULL);
+	root->left = free_bvh(root->left);
+	root->right = free_bvh(root->left);
+	free(root);
+	root = NULL;
+	return (NULL);
+}
+
+//
+void	*free_cache(t_cache *cache)
+{	
+	t_cache	*head;
+	t_cache	*current;
+
+	head = cache;
+	current = cache;
+	while (current && current->next != head)
+	{
+		current->prev = free_generic_pointer(current->prev);
+		current = current->next;
+	}
+	free_generic_pointer(current);
+	return (NULL);
+}
+
+//
+void	free_rendering(t_render *ptr)
+{
+	ptr->lru = free_cache(ptr->lru);
+	ptr->root = free_bvh(ptr->root);
+}
+
+//
 void	*free_minirt(t_minirt *ptr)
 {
 	if (!ptr)
 		return (NULL);
     ptr->scene = free_scene(ptr->scene);
-	ptr->mlxptr = free_generic_pointer(ptr->mlxptr);  
-	ptr->mlxwin = free_generic_pointer(ptr->mlxwin);
+	free_rendering(&ptr->rendering);
 	return (NULL);
 }

@@ -24,22 +24,22 @@ static void	get_methods(char type, t_methods *out)
 {
 	if (type == ESPHERE)
 		*out = (t_methods){.initializer = sphere_initialiser, .intersect = \
-			sphere_intersect, .bounds = sphere_bounds, .destroy = destroy};
+			sphere_intersect, .destroy = destroy};
 	else if (type == EPLANE)
 		*out = (t_methods){.initializer = plane_initialiser, .intersect = \
-			plane_intersect, .bounds = no_bounds, .destroy = destroy};
+			plane_intersect, .destroy = destroy};
 	else if (type == ECYLINDER)
 		*out = (t_methods){.initializer = cylinder_init, .intersect = \
-			cylinder_intersect, .bounds = cylinder_bounds, .destroy = destroy};
+			cylinder_intersect, .destroy = destroy};
 	else if (type == ECAMERA)
 		*out = (t_methods){.initializer = camera_initialiser, .intersect = \
-			NULL, .bounds = no_bounds, .destroy = destroy};
+			NULL, .destroy = destroy};
 	else if (type == ELIGHT)
 		*out = (t_methods){.initializer = light_initialiser, .intersect = \
-			NULL, .bounds = no_bounds, .destroy = destroy};
+			NULL, .destroy = destroy};
 	else if (type == EALIGHT)
 		*out = (t_methods){.initializer = ambient_initialiser, .intersect = \
-			NULL, .bounds = no_bounds, .destroy = destroy};
+			NULL, .destroy = destroy};
 	else
 		*out = (t_methods){0};
 }
@@ -54,6 +54,7 @@ static t_object	*parse_line(char *line)
 	if (!new)
 		return (NULL);
 	ptr = ft_strtok_r(line, WHITESPACES, &line);
+	new->next = NULL;
 	new->type = find_type(ptr);
 	if (!new->type)
 		new = free_object(new);

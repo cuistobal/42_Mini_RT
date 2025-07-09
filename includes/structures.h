@@ -4,13 +4,42 @@
 //General defintions
 
 //Main structure holding all the program's informations
-typedef	struct	minirt
+
+typedef struct	cache
+{
+	char	type;
+/*
+	union	cdt
+	{
+
+	}	u_cdt;
+*/
+	struct	cache	*next;
+	struct	cache	*prev;
+}	t_cache;
+
+//Sub struct holding rendering cache && infos;
+typedef	struct	render
+{
+	struct	cache	*lru;
+	struct	bvh		*root;
+}	t_render;
+
+//SUb structure holding mlx pointers && screen informations
+typedef struct	screen
 {
 	int				width;
 	int				height;
-	void    	    *mlxptr;
-	void	        *mlxwin;
-    struct scene    *scene;
+	void			*mlxptr;
+	void			*mlxwin;
+	struct	s_img	*tmp_img;
+}	t_screen;
+
+typedef	struct	minirt
+{
+	struct	screen	screen;
+    struct	scene	*scene;
+	struct	render	rendering;
 }	t_minirt;
 
 //Object specific structure holding a pointer to unique objects light, camera and
@@ -74,7 +103,7 @@ typedef struct bvh
 {
 	int				objcount;
 	struct object	*objects;
-    struct aabb		*bounds;
+    struct aabb		bounds;
     struct bvh		*left;
     struct bvh		*right;
 }	t_bvh;
@@ -82,6 +111,7 @@ typedef struct bvh
 //Bonus
 typedef struct material
 {
+	bool	set;
     float	albedo[4];
     float	refractive_index;
     float	specular_exponent;
@@ -113,7 +143,7 @@ typedef struct methods
 {
     void	*(*initializer)(char **, void *, t_prim *);
     bool	(*intersect)(struct object *, t_vec, t_vec, t_hit *);
-    t_aabb	(*bounds)(struct object *);
+//    t_aabb	(*bounds)(struct object *);
     void 	*(*destroy)(struct object *);
 }	t_methods;
 
@@ -126,39 +156,29 @@ typedef struct	camera
 
 typedef struct	ambient
 {
-	int		color;
 	float	light_ratio;
 }	t_ambient;
 
 typedef struct	light
 {
-	int		color;
 	float	brightness;
 	t_vec	light_position;
 }	t_light;
 
 typedef struct	sphere
 {
-	int		color;
-	t_vec	center;
-	t_vec	normalized_axis;	
 	float	diameter;
 }	t_sphere;
 
 typedef struct	cylinder
-{
-	int		color;
-	t_vec	center;	
-	t_vec	normalized_axis;	
+{	
 	float	height;
 	float	diameter;
 }	t_cylinder;
 
 typedef struct	plane
 {
-	int		color;
-	t_vec	center;
-	t_vec	normalized_axis;
+	void	*v;
 }	t_plane;
 
 
@@ -174,7 +194,6 @@ typedef	struct	object
         struct	light		light;
         struct	ambient		ambient;
     }	u_type;
-	//void			*data;
 	t_prim			pdata;
 	t_methods		methods;
 	struct	object	*next;

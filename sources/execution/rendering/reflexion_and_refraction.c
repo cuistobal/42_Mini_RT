@@ -11,7 +11,7 @@ static inline float	get_cosinus(t_vec v1, t_vec v2)
 	cos = 0;
 	dot = vec_dot(v1, v2);
 	min = fminf(1.0f, dot);
-	max = fmax(1.0f, min);
+	max = fmax(-1.0f, min);
 	cos -= max;
 	return (cos);
 }
@@ -31,7 +31,6 @@ t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta)
     eta = v1eta / v2eta;
     k = 1 - sqrtf(eta) * (1 - sqrtf(cosinus));
 	if (k < 0)
-//		return ({1, 0, 0});
 		return (set_vec_value(1, 0, 0));
 	scalev1 = vec_scale(v1, eta);
 	scalev2 = vec_scale(v2, eta * cosinus - sqrtf(k));
