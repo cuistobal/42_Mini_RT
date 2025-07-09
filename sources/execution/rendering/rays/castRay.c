@@ -55,13 +55,11 @@ static float compute_shadow_light_index(t_vec dir, t_vec light_dir, t_hit hit)
 static void	handle_multiple_lights(t_scene *scene, t_hit hit, t_vec dir, float scales[4])
 {
 	t_object	*lights;
-	t_vec		indices;
 	t_vec		light_pos;
     t_vec		light_dir;
     t_hit		shadow_hit;
 
 	lights = scene->light;
-	indices = set_vec_value(0, 0, 0);
 	while (lights)
 	{
 		init_hit_values(&shadow_hit);

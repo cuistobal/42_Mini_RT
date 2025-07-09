@@ -19,13 +19,11 @@ static void	*create_temp_image(t_screen	*screen)
 //
 bool	start_rendering(t_minirt *minirt)
 {
-	t_bvh		*root;
 	t_screen	*screen;
-	t_object	*current;
+//	t_object	*current;
 
-	root = NULL;
 	screen = &minirt->screen;
-	current = minirt->scene->objects;
+//	current = minirt->scene->objects;
 //Include a loop for frames here -> change trace_ray's return value;		
 //The idea here is to loop permanently to create frame and render them in real
 //time.
