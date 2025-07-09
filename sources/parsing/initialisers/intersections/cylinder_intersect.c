@@ -74,6 +74,5 @@ bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
     hit->point = vec_add(orig, vec_scale(dir, distance));
     hit->normal = vec_normalized(vec_sub(cp, vec_scale(axis, vec_dot(cp, axis))));
 	hit->material = obj->pdata.material;
-	print_vec("cylinder intersection", hit->point);
     return (true);
 }

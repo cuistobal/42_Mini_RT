@@ -145,7 +145,8 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 
 	init_hit_values(&hit);
 	if (depth > MAX_RAY_DEPTH || !scene_intersect(scene, orig, dir, &hit))
-		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
+	//	return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
+		return ((t_vec)set_vec_value(0, 0, 0));
 	//	return (VECTORIZED AMBIENT LIGHTNING);
 	depth++;
 	buffer[REFLECTDIR] = vec_normalized(reflect(dir, hit.normal));
