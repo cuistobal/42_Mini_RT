@@ -63,3 +63,30 @@ bool	convert(float *coordinates, char *str)
     *coordinates = ft_atof(str, &error);
     return (error);
 }
+
+/*
+t_vec	hit_color(t_hit hit, t_object *obj)
+{
+	t_vec	color;
+	
+	color = vec_sub(hit,point, obj->(?))
+	return ((t_vec)color);
+}
+
+t_rgb	color_disk(t_model *m, t_impact *imp, t_dsk *obj)
+{
+	t_v3	vec;
+	int		f2;
+	int		f3;
+
+	(void) m;
+	if (!obj->check)
+		return (obj->col1);
+	vec_sub(vec, imp->pos, obj->pos);
+	f2 = roundf(2 * vec_dot(obj->e2, vec) / obj->rad);
+	f3 = roundf(2 * vec_dot(obj->e3, vec) / obj->rad);
+	if ((f2 + f3) % 2)
+		return (obj->col1);
+	return (obj->col2);
+}
+*/

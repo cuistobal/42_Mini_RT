@@ -5,6 +5,7 @@ void	init_hit_values(t_hit *hit)
 {
 	hit->hit = false;
 	hit->distance = 1e30;
+	hit->color = set_vec_value(0, 0, 0);
 	hit->point = set_vec_value(0, 0, 0);
 	hit->normal = set_vec_value(0, 0, 0);
 	set_standard_material(&hit->material);
@@ -16,10 +17,13 @@ static t_vec	cast_ray_return(t_vec buffer[])
 {
 	t_vec	sumof1;
 	t_vec	sumof2;
+	t_vec	sumof3;
 
 	sumof1 = vec_add(buffer[DIFFUSE], buffer[SPECULAR]);
 	sumof2 = vec_add(buffer[REFLECTION], buffer[REFRACTION]);
-	return (vec_add(sumof1, sumof2));
+	sumof3 = vec_add(sumof1, sumof2);
+//	return ((t_vec)vec_add(sumof1, sumof2));
+	return ((t_vec){sumof3.x, sumof3.y, sumof3.z});
 }
 
 bool	handle_multiple_lights_helper(t_vec lpos, t_hit	shadow_hit, t_hit hit)
@@ -146,6 +150,8 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 	init_hit_values(&hit);
 	if (depth > MAX_RAY_DEPTH || !scene_intersect(scene, orig, dir, &hit))
 		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
+	else	
+		return ((t_vec)hit.color);
 	//	return (VECTORIZED AMBIENT LIGHTNING);
 	depth++;
 	buffer[REFLECTDIR] = vec_normalized(reflect(dir, hit.normal));
@@ -153,5 +159,5 @@ t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 					hit.material.refractive_index, 1.0f)) ;
 	buffer[REFLECTCOLOR] = cast_ray(scene, hit.point, buffer[REFLECTDIR], depth);
 	buffer[REFRACTCOLOR] = cast_ray(scene, hit.point, buffer[REFRACTDIR], depth);
-	return (handle_impact(scene, buffer, dir, hit));
+	return ((t_vec)handle_impact(scene, buffer, dir, hit));
 }

@@ -58,6 +58,7 @@ bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 	return (hit->hit);
 }
 */
+
 bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
 	t_vec	oc;
@@ -72,7 +73,9 @@ bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
     float (sqrt_disc) = sqrtf(discriminant);
     float (t1) = (-b - sqrt_disc) / (2.0f * a);
     float (t2) = (-b + sqrt_disc) / (2.0f * a);
-    float (t) = (t1 > 0.001f) ? t1 : (t2 > 0.001f ? t2 : -1.0f);
+    float (t) = t1;
+	if (t < 0)
+		t = t2;
     if (t < 0)
         return false;
     hit->distance = t;

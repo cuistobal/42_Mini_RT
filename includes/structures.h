@@ -122,6 +122,7 @@ typedef struct hit
 {
     bool		hit;
     float		distance;
+	t_vec		color;
     t_vec		point;
     t_vec		normal;
     t_material	material;
