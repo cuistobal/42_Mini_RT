@@ -24,7 +24,7 @@ t_aabb  *create_aabb_node(t_object *object);
 t_bvh	*build_bvh_node(t_object *objects, int start, int end, int depth);
 
 //sources/execution/castRay.c
-t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth);
+int		cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth);
 
 //sources/execution/reflexion_and_refraction.c
 t_vec	reflect(t_vec a, t_vec b);

@@ -11,21 +11,7 @@ void	init_hit_values(t_hit *hit)
 	set_standard_material(&hit->material);
 }
 
-//Returns the sum of all the vectors contained in our computed buffer. Hence,
-//we get a vector that represents the light status of our ray;
-static t_vec	cast_ray_return(t_vec buffer[])
-{
-	t_vec	sumof1;
-	t_vec	sumof2;
-	t_vec	sumof3;
-
-	sumof1 = vec_add(buffer[DIFFUSE], buffer[SPECULAR]);
-	sumof2 = vec_add(buffer[REFLECTION], buffer[REFRACTION]);
-	sumof3 = vec_add(sumof1, sumof2);
-//	return ((t_vec)vec_add(sumof1, sumof2));
-	return ((t_vec){sumof3.x, sumof3.y, sumof3.z});
-}
-
+/*
 bool	handle_multiple_lights_helper(t_vec lpos, t_hit	shadow_hit, t_hit hit)
 {
 	float	ln;
@@ -77,33 +63,7 @@ static void	handle_multiple_lights(t_scene *scene, t_hit hit, t_vec dir, float s
 		lights = lights->next;
     }
 }
-
-//dli -> diffuse light intensity
-//sli -> specular light intensity
-//
-static t_vec	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)
-{
-	t_vec	buff[4];
-	float	scales[4];
-
-	scales[0] = 1;	
-	scales[1] = 1;	
-	scales[2] = 1;	
-	scales[3] = 1;
-	handle_multiple_lights(scene, hit, dir, scales);
-	if (hit.material.set)
-	{
-		scales[DLI] = scales[DLI] * hit.material.albedo[0];
-		scales[SLI] = scales[SLI] * hit.material.albedo[1];
-		scales[2] = hit.material.albedo[2];
-		scales[3] = hit.material.albedo[3];
-	}
-    buff[DIFFUSE] = vec_scale(hit.material.diffuse_color, scales[DLI]);
-    buff[SPECULAR] = vec_scale((t_vec)set_vec_value(1, 1, 1), scales[SLI]);
-    buff[REFLECTION] = vec_scale(buffer[REFLECTCOLOR], scales[2]);
-   	buff[REFRACTION] = vec_scale(buffer[REFRACTCOLOR], scales[3]);
-	return ((t_vec)(cast_ray_return(buff)));
-}
+*/
 
 //
 bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
@@ -116,7 +76,6 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 
     min = 1e30;
 	found = false;
-//This is where we should use the BVH instead of looping through all objects
 	current = scene->objects;
 	while (current)
 	{
@@ -140,24 +99,19 @@ bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \
 // 2 -> reflection
 // 3 -> refraction
 //
-//We cast a ray. If it hits an object, we make also check for reflection && 
-//refraction. We've put a depth limit for performance purposes.
-t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
+//We cast a ray. If it hits an object, we send recursively send another ray to
+//find the light source(s). We've put a depth limit for performance purposes.
+int	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)
 {
 	t_hit	hit;
-	t_vec	buffer[4];
+	t_vec	reflectdir;
 
 	init_hit_values(&hit);
-	if (depth > MAX_RAY_DEPTH || !scene_intersect(scene, orig, dir, &hit))
-		return ((t_vec)set_vec_value(0.2, 0.7, 0.8));
-	else	
-		return ((t_vec)hit.color);
-	//	return (VECTORIZED AMBIENT LIGHTNING);
+	if (depth > MAX_RAY_DEPTH)
+		return(0);
+	else if (!scene_intersect(scene, orig, dir, &hit))
+		return (scene->ambiant->pdata.color); //Add ratio here
 	depth++;
-	buffer[REFLECTDIR] = vec_normalized(reflect(dir, hit.normal));
-	buffer[REFRACTDIR] = vec_normalized(refract(dir, hit.normal, \
-					hit.material.refractive_index, 1.0f)) ;
-	buffer[REFLECTCOLOR] = cast_ray(scene, hit.point, buffer[REFLECTDIR], depth);
-	buffer[REFRACTCOLOR] = cast_ray(scene, hit.point, buffer[REFRACTDIR], depth);
-	return ((t_vec)handle_impact(scene, buffer, dir, hit));
+	reflectdir = vec_normalized(reflect(dir, hit.normal));
+	return (cast_ray(scene, hit.point, reflectdir, depth));
 }

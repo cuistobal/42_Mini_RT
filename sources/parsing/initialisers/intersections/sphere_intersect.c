@@ -61,26 +61,32 @@ bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 
 bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)
 {
-	t_vec	oc;
+    t_vec   oc;
+    float   epsilon;
 
+    epsilon = 0.001f;  // Avoid self-intersection
     oc = vec_sub(orig, obj->pdata.center);
     float (a) = vec_dot(dir, dir);
     float (b) = 2.0f * vec_dot(oc, dir);
     float (c) = vec_dot(oc, oc) - powf(obj->u_type.sphere.diameter / 2.0f, 2.0f);
     float (discriminant) = b * b - 4 * a * c;
+    
     if (discriminant < 0)
         return false;
+    
     float (sqrt_disc) = sqrtf(discriminant);
     float (t1) = (-b - sqrt_disc) / (2.0f * a);
     float (t2) = (-b + sqrt_disc) / (2.0f * a);
-    float (t) = t1;
-	if (t < 0)
-		t = t2;
-    if (t < 0)
+    
+    // Get the nearest positive intersection
+    float t = (t1 > epsilon) ? t1 : (t2 > epsilon ? t2 : -1.0f);
+    if (t < epsilon)
         return false;
+        
     hit->distance = t;
     hit->point = vec_add(orig, vec_scale(dir, t));
     hit->normal = vec_normalized(vec_sub(hit->point, obj->pdata.center));
     hit->hit = true;
+    hit->material = obj->pdata.material;  // Copy material properties
     return true;
 }

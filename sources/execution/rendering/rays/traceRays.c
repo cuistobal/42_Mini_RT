@@ -13,7 +13,7 @@ static t_vec	append_dir_value(t_minirt *minirt, int x, int y)
 	return ((t_vec)vec_normalized(ret));
 }
 
-
+/*
 static float clamp(float x)
 {
 	if (x < 0.0f)
@@ -35,20 +35,19 @@ int vec_to_color(t_vec color)
     b = (int)(255.0f * clamp(color.z));
 	return ((r << 16) | (g << 8) | b);
 }
+*/
 
 //Protoype might evolve if we need to use a boolean return downstream.
 static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)
 {
 	t_vec	ray;
 	t_vec	dir;
-	t_vec	ret;
 	int		color;
 	int		offset;	
 
 	dir = append_dir_value(minirt, x, y);
 	ray = minirt->scene->camera->u_type.camera.view_point;
-	ret = cast_ray(minirt->scene, ray, dir, 0);
-	color = vec_to_color(ret);
+	color = cast_ray(minirt->scene, ray, dir, 0);
 	offset = y * img->size_line + x * (img->bpp / 8);
     *(unsigned int *)(img->data + offset) = color;
 }

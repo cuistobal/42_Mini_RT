@@ -144,7 +144,8 @@ typedef struct methods
 {
     void	*(*initializer)(char **, void *, t_prim *);
     bool	(*intersect)(struct object *, t_vec, t_vec, t_hit *);
-//    t_aabb	(*bounds)(struct object *);
+//	int		(*color)(struct object *, t_hit);
+//	t_aabb	(*bounds)(struct object *);
     void 	*(*destroy)(struct object *);
 }	t_methods;
 
