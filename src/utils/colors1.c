@@ -6,21 +6,11 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 10:47:46 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/09 12:11:26 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:15:27 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-t_color	color_new(int r, int g, int b)
-{
-	t_color	color;
-
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	return (color);
-}
 
 t_color	color_add(t_color a, t_color b)
 {
@@ -52,7 +42,7 @@ t_color	color_blend(t_color a, t_color b, double ratio)
 	return (color_clamp(result));
 }
 
-void	check_limits(int *color)
+static void	check_limits(int *color)
 {
 	if (*color > 255)
 		*color = 255;
