@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 10:40:49 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 10:44:41 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	pitch_epsilon_helper(t_camera *camera, double pitch)
 				camera->direction.z * sin_pitch;
 	new_dir.z = camera->direction.y * sin_pitch + \
 				camera->direction.z * cos_pitch;
-	camera->direction = new_dir;		
+	camera->direction = new_dir;
 }
 
 static void	yaw_epsilon_helper(t_camera *camera, double yaw)
@@ -78,7 +78,7 @@ static void	yaw_epsilon_helper(t_camera *camera, double yaw)
 	new_dir.x = camera->direction.x * cos_yaw - camera->direction.z * sin_yaw;
 	new_dir.y = camera->direction.y;
 	new_dir.z = camera->direction.x * sin_yaw + camera->direction.z * cos_yaw;
-	camera->direction = new_dir;		
+	camera->direction = new_dir;
 }
 
 /*

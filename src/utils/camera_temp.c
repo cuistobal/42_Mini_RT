@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 11:44:26 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,36 @@ void	move_camera(t_camera *camera, t_vec3 direction, double distance)
 	camera->position = vec3_add(camera->position, movement);
 }
 
+void	pitch_epsilon_helper(t_camera *camera, double pitch)
+{
+	double	cos_pitch;
+	double	sin_pitch;
+	t_vec3	new_dir;
+
+	cos_pitch = cos(pitch);
+	sin_pitch = sin(pitch);
+	new_dir.x = camera->direction.x;
+	new_dir.y = camera->direction.y * cos_pitch - camera->direction.z \
+				* sin_pitch;
+	new_dir.z = camera->direction.y * sin_pitch + camera->direction.z \
+				* cos_pitch;
+	camera->direction = vec3_normalize(new_dir);
+}
+
+void	yaw_epsilon_helper(t_camera *camera, double yaw)
+{
+	double	cos_yaw;
+	double	sin_yaw;
+	t_vec3	new_dir;
+
+	cos_yaw = cos(yaw);
+	sin_yaw = sin(yaw);
+	new_dir.x = camera->direction.x * cos_yaw - camera->direction.z * sin_yaw;
+	new_dir.y = camera->direction.y;
+	new_dir.z = camera->direction.x * sin_yaw + camera->direction.z * cos_yaw;
+	camera->direction = vec3_normalize(new_dir);
+}
+
 /*
 ** rotate_camera - Rotate camera by yaw and pitch angles
 ** camera: Camera structure to modify
@@ -37,40 +67,14 @@ void	move_camera(t_camera *camera, t_vec3 direction, double distance)
 void	rotate_camera(t_camera *camera, double yaw, double pitch)
 {
 	t_vec3	world_up;
-	t_vec3	new_dir;
-	double	cos_yaw;
-	double	sin_yaw;
-	double	cos_pitch;
-	double	sin_pitch;
 
 	if (!camera)
 		return ;
-	
 	world_up = vec3_new(0, 1, 0);
-	
-	// Apply yaw rotation (around world Y axis)
 	if (fabs(yaw) > EPSILON)
-	{
-		cos_yaw = cos(yaw);
-		sin_yaw = sin(yaw);
-		new_dir.x = camera->direction.x * cos_yaw - camera->direction.z * sin_yaw;
-		new_dir.y = camera->direction.y;
-		new_dir.z = camera->direction.x * sin_yaw + camera->direction.z * cos_yaw;
-		camera->direction = vec3_normalize(new_dir);
-	}
-	
-	// Apply pitch rotation (around camera's right axis)
+		yaw_epsilon_helper(camera, yaw);
 	if (fabs(pitch) > EPSILON)
-	{
-		cos_pitch = cos(pitch);
-		sin_pitch = sin(pitch);
-		new_dir.x = camera->direction.x;
-		new_dir.y = camera->direction.y * cos_pitch - camera->direction.z * sin_pitch;
-		new_dir.z = camera->direction.y * sin_pitch + camera->direction.z * cos_pitch;
-		camera->direction = vec3_normalize(new_dir);
-	}
-	
-	// Recalculate camera coordinate system
+		pitch_epsilon_helper(camera, pitch);
 	camera->right = vec3_normalize(vec3_cross(camera->direction, world_up));
 	camera->up = vec3_normalize(vec3_cross(camera->right, camera->direction));
 }

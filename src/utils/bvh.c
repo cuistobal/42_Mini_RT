@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/29 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 11:56:37 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 
 /*
 ** get_object_bounds - Calculate axis-aligned bounding box for an object
+** integrate SAH instead of creating a box per object. This neglects the whole
+** point of the bvh.
 */
 static t_aabb	get_object_bounds(t_object *obj)
 {
-	t_aabb	bounds;
 	double	r;
+	t_aabb	bounds;
 
 	if (!obj)
-		return ((t_aabb){{INFINITY, INFINITY, INFINITY}, 
-			{-INFINITY, -INFINITY, -INFINITY}});
-	
+		return ((t_aabb){{INFINITY, INFINITY, INFINITY}, \
+				{-INFINITY, -INFINITY, -INFINITY}});
 	if (obj->type == SPHERE)
 	{
 		r = obj->radius;
@@ -65,8 +66,7 @@ static t_aabb	get_object_bounds(t_object *obj)
 	{
 		bounds.min = obj->position;
 		bounds.max = obj->position;
-	}
-	
+	}	
 	return (bounds);
 }
 
@@ -82,14 +82,14 @@ static t_aabb	aabb_union(t_aabb a, t_aabb b)
 	result.min.z = fmin(a.min.z, b.min.z);
 	result.max.x = fmax(a.max.x, b.max.x);
 	result.max.y = fmax(a.max.y, b.max.y);
-	result.max.z = fmax(a.max.z, b.max.z);
-	
+	result.max.z = fmax(a.max.z, b.max.z);	
 	return (result);
 }
 
 /*
 ** intersect_aabb - Fast ray-AABB intersection test
 ** Returns 1 if ray intersects the bounding box, 0 otherwise
+** We need to split that shit for norminette
 */
 static int	intersect_aabb(t_ray ray, t_aabb box)
 {
@@ -116,13 +116,13 @@ static int	intersect_aabb(t_ray ray, t_aabb box)
 	box_min[2] = box.min.z;
 	box_max[0] = box.max.x;
 	box_max[1] = box.max.y;
-	box_max[2] = box.max.z;
-	
+	box_max[2] = box.max.z;	
 	t_min = -INFINITY;
 	t_max = INFINITY;
-	
+
 	// Test intersection with each pair of parallel planes
-	for (i = 0; i < 3; i++)
+	i = 0;
+	while (i < 3)
 	{
 		if (fabs(ray_dir[i]) < EPSILON)
 		{
@@ -134,24 +134,21 @@ static int	intersect_aabb(t_ray ray, t_aabb box)
 		{
 			t1 = (box_min[i] - ray_orig[i]) / ray_dir[i];
 			t2 = (box_max[i] - ray_orig[i]) / ray_dir[i];
-			
 			if (t1 > t2)
 			{
 				temp = t1;
 				t1 = t2;
 				t2 = temp;
-			}
-			
+			}	
 			if (t1 > t_min)
 				t_min = t1;
 			if (t2 < t_max)
 				t_max = t2;
-			
 			if (t_min > t_max)
 				return (0);
 		}
+		i++;
 	}
-	
 	return (t_max > EPSILON);
 }
 
@@ -221,39 +218,33 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 */
 t_bvh_node	*build_bvh(t_scene *scene)
 {
-	t_object	**object_array;
-	t_object	*current;
-	int			count;
 	int			i;
+	int			count;
 	t_bvh_node	*root;
+	t_object	*current;
+	t_object	**object_array;
 
 	if (!scene || !scene->objects)
-		return (NULL);
-	
-	// Count objects
+		return (NULL);	
+	// Count objects -> that shit sucks, we can keep trqack of the obj count
+	// while parsing
 	count = count_objects(scene->objects);
 	if (count == 0)
-		return (NULL);
-	
+		return (NULL);	
 	// Create array of object pointers for easier manipulation
 	object_array = safe_malloc(sizeof(t_object *) * count);
 	if (!object_array)
-		return (NULL);
-	
-	current = scene->objects;
+		return (NULL);	
 	i = 0;
+	current = scene->objects;
 	while (current && i < count)
 	{
 		object_array[i] = current;
 		current = current->next;
 		i++;
 	}
-	
-	// Build BVH tree
-	root = build_bvh_recursive(object_array, count);
-	
-	safe_free((void **)&object_array);
-	return (root);
+	root = build_bvh_recursive(object_array, count);	
+	return (safe_free((void **)&object_array), root);
 }
 
 /*

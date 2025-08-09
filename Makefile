@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/09 10:31:03 by chrleroy         ###   ########.fr        #
+#    Updated: 2025/08/09 11:53:44 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ UTILS_SRC = utils/error.c \
             utils/memory.c \
             utils/cleanup.c \
             utils/colors.c \
+            utils/colors1.c \
             utils/camera.c \
             utils/bvh.c
 
