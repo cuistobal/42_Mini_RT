@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/07/30 08:32:35 by cuistobal        ###   ########.fr        #
+#    Updated: 2025/08/09 10:20:55 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ PARSING_SRC = parsing/parse_scene.c \
               parsing/parse_utils.c
 
 MATH_SRC = math/vector.c \
+		   math/vector1.c \
            math/matrix.c \
            math/ray.c \
            math/intersections.c \
