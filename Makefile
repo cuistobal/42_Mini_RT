@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/09 12:55:25 by chrleroy         ###   ########.fr        #
+#    Updated: 2025/08/09 17:00:05 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,6 @@ MATH_SRC = math/vector.c \
 RENDERING_SRC = rendering/raytracer.c \
                 rendering/raytracer_utils.c \
                 rendering/raycast_optimized.c \
-                rendering/progressive_render.c \
                 rendering/lighting.c \
                 rendering/shadows.c \
                 rendering/reflections.c \

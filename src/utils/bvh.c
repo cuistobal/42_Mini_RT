@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 16:51:15 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 16:52:38 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,12 +179,10 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	int			mid;
 
 	if (count <= 0)
-		return (NULL);
-	
+		return (NULL);	
 	node = safe_malloc(sizeof(t_bvh_node));
 	if (!node)
 		return (NULL);
-	
 	// Calculate bounding box for all objects
 	bounds = get_object_bounds(objects[0]);
 	i = 1;
@@ -194,7 +192,6 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		i++;
 	}
 	node->bounds = bounds;
-	
 	// Leaf node case
 	if (count == 1)
 	{
@@ -203,13 +200,11 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		node->right = NULL;
 		return (node);
 	}
-	
 	// Internal node case - split objects in half (simple split)
 	node->object = NULL;
 	mid = count / 2;
 	node->left = build_bvh_recursive(objects, mid);
 	node->right = build_bvh_recursive(objects + mid, count - mid);
-	
 	return (node);
 }
 
