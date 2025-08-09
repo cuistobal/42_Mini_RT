@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:05:11 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:41:40 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,31 @@
 */
 int	handle_keypress(int keycode, t_minirt *rt)
 {
-	double	move_speed;
-	double	rotate_speed;
-
 	if (!rt)
 		return (1);
-	move_speed = 1.0;
-	rotate_speed = 0.1;
 	if (keycode == KEY_ESC)
 		return (exit_success(rt), 1);
 	else if (keycode == KEY_W)
-		move_camera(&rt->scene.camera, rt->scene.camera.direction, move_speed);
+		move_camera(&rt->scene.camera, rt->scene.camera.direction, \
+				rt->scene.camera.move_speed);
 	else if (keycode == KEY_S)
-		move_camera(&rt->scene.camera, \
-				vec3_mult(rt->scene.camera.direction, -1), move_speed);
+		move_camera(&rt->scene.camera, vec3_mult(rt->scene.camera.direction, \
+					-1), rt->scene.camera.move_speed);
 	else if (keycode == KEY_A)
-		move_camera(&rt->scene.camera, \
-				vec3_mult(rt->scene.camera.right, -1), move_speed);
+		move_camera(&rt->scene.camera, vec3_mult(rt->scene.camera.right, -1), \
+				rt->scene.camera.move_speed);
 	else if (keycode == KEY_D)
-		move_camera(&rt->scene.camera, rt->scene.camera.right, move_speed);
+		move_camera(&rt->scene.camera, rt->scene.camera.right, \
+				rt->scene.camera.move_speed);
 	else if (keycode == KEY_UP)
-		rotate_camera(&rt->scene.camera, 0, -rotate_speed);
+		rotate_camera(&rt->scene.camera, 0, -rt->scene.camera.rotate_speed);
 	else if (keycode == KEY_DOWN)
-		rotate_camera(&rt->scene.camera, 0, rotate_speed);
+		rotate_camera(&rt->scene.camera, 0, rt->scene.camera.rotate_speed);
 	else if (keycode == KEY_LEFT)
-		rotate_camera(&rt->scene.camera, -rotate_speed, 0);
+		rotate_camera(&rt->scene.camera, -rt->scene.camera.rotate_speed, 0);
 	else if (keycode == KEY_RIGHT)
-		rotate_camera(&rt->scene.camera, rotate_speed, 0);
-	render_scene(rt);
-	return (0);
+		rotate_camera(&rt->scene.camera, rt->scene.camera.rotate_speed, 0);
+	return (render_scene(rt), 0);
 }
 
 /*

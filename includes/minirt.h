@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 09:47:24 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:45:48 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ typedef struct s_ray
 	t_vec3	direction;
 }	t_ray;
 
-/* Camera structure */
+/* Camera structure 
+ * The move && rotate speed name are misleading
+ * Those variables are used to define the movement
+ * distance rather than speed of execution
+ * */
 typedef struct s_camera
 {
 	t_vec3	position;
@@ -90,6 +94,8 @@ typedef struct s_camera
 	t_vec3	up;
 	t_vec3	right;
 	double	fov;
+	double	move_speed;
+	double	rotate_speed;
 }	t_camera;
 
 /* Material structure (bonus) */
