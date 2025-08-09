@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
+#include <pthread.h>
 /*
 ** setup_camera - Initialize camera coordinate system
 */
@@ -71,15 +71,66 @@ static void	render_all_pixels(t_minirt *rt)
 	}
 }
 
+
+// inter thread
+
+typedef struct s_intels
+{
+	t_minirt *rt;
+	int xstart;
+	int ystart;
+
+	int xend;
+	int yend;
+
+}	t_intels;
+
+void	*rap(void *intels)
+{
+	t_intels intel = *(t_intels *)intels;
+	
+	int		x;
+	int		y;
+	double	inv_width;
+	double	inv_height;
+
+	inv_width = 1.0 / (double)intel.rt->mlx.width;
+	inv_height = 1.0 / (double)intel.rt->mlx.height;
+	y = intel.ystart;
+	while (y < intel.rt->mlx.height)
+	{
+		x = intel.xstart;
+		while (x < rt->mlx.width)
+		{
+			render_pixel_at_coordinates(rt, x, y, inv_width, inv_height);
+			x++;
+		}
+		y++;
+	}
+}
+
 /*
 ** render_scene - Main rendering function
 */
+
+
 void	render_scene(t_minirt *rt)
 {
+	pthread_t threads[4];
+	t_intels intels[4];
+	int i;
+
+	i = 0;
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
-	render_all_pixels(rt);
+	// expension
+	
+	while(i < 4)
+	{
+		pthread_create(&threads[i], NULL, rt, &intels[i]);
+		i++;
+	}
 	display_image(&rt->mlx);
 }
 
