@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 10:22:09 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static t_slab_result	process_x_slab(t_ray ray, t_vec3 cube_min,
 		result.valid = 0;
 		return (result);
 	}
-	intersections = calculate_slab_intersections(ray.direction.x, ray.origin.x,
-		cube_min.x, cube_max.x);
+	intersections = calculate_slab_intersections(ray.direction.x, \
+			ray.origin.x, cube_min.x, cube_max.x);
 	return (update_intersection_interval(result, intersections.t1,
 			intersections.t2));
 }
@@ -40,8 +40,8 @@ static t_slab_result	process_y_slab(t_ray ray, t_vec3 cube_min,
 		result.valid = 0;
 		return (result);
 	}
-	intersections = calculate_slab_intersections(ray.direction.y, ray.origin.y,
-		cube_min.y, cube_max.y);
+	intersections = calculate_slab_intersections(ray.direction.y, \
+			ray.origin.y, cube_min.y, cube_max.y);
 	return (update_intersection_interval(result, intersections.t1,
 			intersections.t2));
 }
@@ -57,8 +57,8 @@ static t_slab_result	process_z_slab(t_ray ray, t_vec3 cube_min,
 		result.valid = 0;
 		return (result);
 	}
-	intersections = calculate_slab_intersections(ray.direction.z, ray.origin.z,
-		cube_min.z, cube_max.z);
+	intersections = calculate_slab_intersections(ray.direction.z, \
+			ray.origin.z, cube_min.z, cube_max.z);
 	return (update_intersection_interval(result, intersections.t1,
 			intersections.t2));
 }

@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 09:47:08 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 10:23:17 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,8 @@ t_ray	ray_reflect(t_ray incident, t_vec3 hit_point, t_vec3 normal)
 	t_vec3	reflection_dir;
 
 	dot_product = vec3_dot(incident.direction, normal);
-	reflection_dir = vec3_sub(incident.direction, 
-		vec3_mult(normal, 2.0 * dot_product));
-	
+	reflection_dir = vec3_sub(incident.direction, \
+			vec3_mult(normal, 2.0 * dot_product));
 	reflected.origin = hit_point;
 	reflected.direction = vec3_normalize(reflection_dir);
 	return (reflected);

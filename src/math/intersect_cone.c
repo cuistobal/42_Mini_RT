@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 10:22:48 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,8 @@ static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)
 	params.a = vec3_dot(projected_ray_dir, projected_ray_dir)
 		- tan_angle_sq * vec3_dot(ray.direction, cone->axis)
 		* vec3_dot(ray.direction, cone->axis);
-	params.b = 2.0 * (vec3_dot(projected_ray_dir, projected_oc)
-		- tan_angle_sq * vec3_dot(ray.direction, cone->axis)
-		* vec3_dot(oc, cone->axis));
+	params.b = 2.0 * (vec3_dot(projected_ray_dir, projected_oc) - tan_angle_sq \
+			* vec3_dot(ray.direction, cone->axis) * vec3_dot(oc, cone->axis));
 	params.c = vec3_dot(projected_oc, projected_oc)
 		- tan_angle_sq * vec3_dot(oc, cone->axis)
 		* vec3_dot(oc, cone->axis);
