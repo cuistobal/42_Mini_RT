@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 12:05:11 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	handle_keypress(int keycode, t_minirt *rt)
 	else if (keycode == KEY_W)
 		move_camera(&rt->scene.camera, rt->scene.camera.direction, move_speed);
 	else if (keycode == KEY_S)
-		move_camera(&rt->scene.camera, vec3_mult(rt->scene.camera.direction, -1), move_speed);
+		move_camera(&rt->scene.camera, \
+				vec3_mult(rt->scene.camera.direction, -1), move_speed);
 	else if (keycode == KEY_A)
-		move_camera(&rt->scene.camera, vec3_mult(rt->scene.camera.right, -1), move_speed);
+		move_camera(&rt->scene.camera, \
+				vec3_mult(rt->scene.camera.right, -1), move_speed);
 	else if (keycode == KEY_D)
 		move_camera(&rt->scene.camera, rt->scene.camera.right, move_speed);
 	else if (keycode == KEY_UP)
@@ -66,15 +68,12 @@ int	handle_close(t_minirt *rt)
 ** handle_loop - Main event loop handler (called continuously)
 ** rt: Main program structure
 ** Returns 0 to continue
+** This function can be used for continuous updates
+** For now, it just returns to keep the loop running
 */
 int	handle_loop(t_minirt *rt)
 {
-	if (!rt)
-		return (1);
-	
-	// This function can be used for continuous updates
-	// For now, it just returns to keep the loop running
-	return (0);
+	return (!rt);
 }
 
 /*
