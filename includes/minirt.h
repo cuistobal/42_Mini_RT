@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:45:48 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:56:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,6 +246,10 @@ double	ray_distance_to_point(t_ray ray, t_vec3 point);
 /* ************************************************************************** */
 /*                            PARSING FUNCTIONS                              */
 /* ************************************************************************** */
+
+int		validate_file_extension(char *filename);
+int		validate_file_access(char *filename);
+int		validate_arguments(int argc, char **argv);
 
 int		parse_scene(char *filename, t_scene *scene);
 int		parse_ambient(char *line, t_scene *scene);

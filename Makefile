@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/09 11:53:44 by chrleroy         ###   ########.fr        #
+#    Updated: 2025/08/09 12:55:25 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ MLX_DIR = minilibx-linux
 # Source files
 MAIN_SRC = main.c
 
-PARSING_SRC = parsing/parse_scene.c \
+PARSING_SRC = parsing/validate_arguments.c\
+			  parsing/parse_scene.c \
               parsing/parse_objects.c \
               parsing/parse_sphere.c \
               parsing/parse_plane.c \

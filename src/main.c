@@ -6,63 +6,11 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 09:38:34 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:54:59 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-static int	validate_file_extension(char *filename)
-{
-	int		len;
-	char	*ext;
-
-	len = strlen(filename);
-	if (len < 4)
-	{
-		printf("Error\nInvalid file extension. Expected .rt file\n");
-		return (0);
-	}
-	ext = filename + len - 3;
-	if (strcmp(ext, ".rt") != 0)
-	{
-		printf("Error\nInvalid file extension. Expected .rt file\n");
-		return (0);
-	}
-	return (1);
-}
-
-static int	validate_file_access(char *filename)
-{
-	int	fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error\nCannot open file: %s\n", filename);
-		return (0);
-	}
-	return (close(fd), 1);
-}
-
-static int	validate_arguments(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		printf("Error\nUsage: %s <scene_file.rt>\n", argv[0]);
-		return (0);
-	}
-	if (!argv[1] || argv[1][0] == '\0')
-	{
-		printf("Error\nEmpty filename provided\n");
-		return (0);
-	}
-	if (!validate_file_extension(argv[1]))
-		return (0);
-	if (!validate_file_access(argv[1]))
-		return (0);
-	return (1);
-}
 
 static void	init_scene(t_scene *scene)
 {

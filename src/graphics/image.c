@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 12:50:50 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 		return ;
 	if (x < 0 || x >= mlx->width || y < 0 || y >= mlx->height)
 		return ;
-	pixel = mlx->img_data + (y * mlx->size_line + x * (mlx->bits_per_pixel / 8));
+	pixel = mlx->img_data + (y * mlx->size_line + x * \
+			(mlx->bits_per_pixel / 8));
 	color_int = color_to_int(color);
 	*(unsigned int *)pixel = color_int;
 }
@@ -37,9 +38,9 @@ void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 */
 int	color_to_int(t_color color)
 {
-	int r;
-	int g;
-	int b;
+	int	r;
+	int	g;
+	int	b;
 
 	r = color.r;
 	if (r > 255)
@@ -50,7 +51,7 @@ int	color_to_int(t_color color)
 	if (g > 255)
 		g = 255;
 	else if (g < 0)
-		g = 0;	
+		g = 0;
 	b = color.b;
 	if (b > 255)
 		b = 255;

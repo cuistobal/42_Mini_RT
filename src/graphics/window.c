@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 09:38:19 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/09 12:51:30 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ int	init_mlx(t_mlx *mlx)
 	if (!mlx->mlx_ptr)
 		return (-1);
 	mlx_get_screen_size(mlx->mlx_ptr, &mlx->width, &mlx->height);
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->width, mlx->height, "miniRT");
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->width, \
+			mlx->height, "miniRT");
 	if (!mlx->win_ptr)
 		return (cleanup_mlx(mlx), -1);
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->width, mlx->height);
 	if (!mlx->img_ptr)
 		return (cleanup_mlx(mlx), -1);
-	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bits_per_pixel,
-									  &mlx->size_line, &mlx->endian);
+	mlx->img_data = mlx_get_data_addr(mlx->img_ptr, &mlx->bits_per_pixel, \
+			&mlx->size_line, &mlx->endian);
 	if (!mlx->img_data)
 		return (cleanup_mlx(mlx), -1);
 	return (0);

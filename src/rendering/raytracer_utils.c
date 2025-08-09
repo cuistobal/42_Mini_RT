@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/07/30 07:37:53 by cuistobal        ###   ########.fr       */
+/*   Updated: 2025/08/09 12:53:22 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,
 /*
 ** calculate_pixel_world_position - Convert screen coords to world position
 */
-t_vec3	calculate_pixel_world_position(t_camera *camera, double u,
-	double v, double half_width, double half_height)
+t_vec3	calculate_pixel_world_position(t_camera *camera, double u, \
+		double v, double half_width, double half_height)
 {
 	t_vec3	pixel_world;
 	t_vec3	right_offset;
@@ -53,11 +53,8 @@ t_color	calculate_background_color(t_ray ray)
 {
 	t_color	background_color;
 
-	background_color = color_new(
-		(int)(135 + ray.direction.y * 50),
-		(int)(206 + ray.direction.y * 49),
-		255
-	);
+	background_color = color_new((int)(135 + ray.direction.y * 50), (int)(206 \
+				+ ray.direction.y * 49), 255);
 	return (color_clamp(background_color));
 }
 
