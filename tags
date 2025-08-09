@@ -4,721 +4,907 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/chrleroy/Desktop/repos/Github/42_Mini_RT/	//
+!_TAG_PROC_CWD	/home/chrleroy/Desktop/repos/Github/MyRT/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
-$(LIBFT_LIB)	Makefile	/^$(LIBFT_LIB):$/;"	t
-$(MLX_LIB)	Makefile	/^$(MLX_LIB):$/;"	t
-$(NAME)	Makefile	/^$(NAME): $(MLX_LIB) $(LIBFT_LIB) $(OBJ)$/;"	t
-$(NAME)	includes/minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
-$(NAME)	includes/minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
-$(NAME)	sources/utilities/Libft/Makefile	/^$(NAME): $(MLX_LIB) $(OBJ)$/;"	t
-$(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
-$(OBJ_DIR)/%.o	includes/minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
-$(OBJ_DIR)/%.o	sources/utilities/Libft/Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
-AMBIENT_LIGHTNING	includes/globalVariables.h	/^# define AMBIENT_LIGHTNING /;"	d
-AUTHOR	includes/minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man3/mlx.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-AUTHOR	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-BUFFER_SIZE	sources/utilities/Libft/includes/get_next_line.h	/^#  define BUFFER_SIZE /;"	d
-CAMERA	includes/globalVariables.h	/^# define CAMERA /;"	d
-CC	Makefile	/^CC		= cc$/;"	m
-CC	includes/minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
-CC	includes/minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
-CC	includes/minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
-CC	includes/minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
-CC	sources/utilities/Libft/Makefile	/^CC 		= cc$/;"	m
-CFLAGS	Makefile	/^CFLAGS	= -Wall -Werror -Wextra -g3$/;"	m
-CFLAGS	includes/minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
-CFLAGS	includes/minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
-CHAR_OCTET	sources/utilities/Libft/includes/get_next_line.h	/^#  define CHAR_OCTET /;"	d
-COLOR	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
-COLOR	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
-CONE	includes/globalVariables.h	/^# define CONE /;"	d
-CYLINDER	includes/globalVariables.h	/^# define CYLINDER /;"	d
-DEPS	Makefile	/^DEPS	= $(OBJ:.o=.d)$/;"	m
-DEPS	sources/utilities/Libft/Makefile	/^DEPS	= $(OBJ:.o=.d)$/;"	m
-DESCRIPTION	includes/minilibx-linux/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man3/mlx.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DESCRIPTION	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-DIFFUSE	includes/globalVariables.h	/^# define DIFFUSE /;"	d
-DLI	includes/globalVariables.h	/^# define DLI /;"	d
-EALIGHT	includes/globalVariables.h	/^# define EALIGHT /;"	d
-ECAMERA	includes/globalVariables.h	/^# define ECAMERA /;"	d
-ECONE	includes/globalVariables.h	/^# define ECONE /;"	d
-ECYLINDER	includes/globalVariables.h	/^# define ECYLINDER /;"	d
-ELIGHT	includes/globalVariables.h	/^# define ELIGHT /;"	d
-ENVIRON	includes/errors.h	/^# define ENVIRON /;"	d
-ENV_DISPLAY	includes/minilibx-linux/mlx_int.h	/^# define ENV_DISPLAY /;"	d
-EOF	includes/minilibx-linux/configure	/^cat <<EOF$/;"	h
-EPLANE	includes/globalVariables.h	/^# define EPLANE /;"	d
-ERRORS_H	includes/errors.h	/^# define ERRORS_H$/;"	d
-ERR_NO_TRUECOLOR	includes/minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
-ESPHERE	includes/globalVariables.h	/^# define ESPHERE /;"	d
-EXECUTION_H	includes/execution.h	/^# define EXECUTION_H$/;"	d
-EXTENSION	includes/globalVariables.h	/^# define EXTENSION /;"	d
-E_ENVIRON	includes/errors.h	/^# define E_ENVIRON /;"	d
-E_FILE	includes/errors.h	/^# define E_FILE /;"	d
-E_USAGE	includes/errors.h	/^# define E_USAGE /;"	d
-FILENAME	includes/errors.h	/^# define FILENAME /;"	d
-FLAGS	sources/utilities/Libft/Makefile	/^FLAGS 	= -Werror -Wextra -Wall -g3 -I.\/include$/;"	m
-FOVCOEF	includes/globalVariables.h	/^# define FOVCOEF /;"	d
-GET_NEXT_LINE_H	sources/utilities/Libft/includes/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
-GLOBALVARIABLES_H	includes/globalVariables.h	/^# define GLOBALVARIABLES_H$/;"	d
-GOING	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
-GOING	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
-IM1_SX	includes/minilibx-linux/test/main.c	/^#define	IM1_SX	/;"	d	file:
-IM1_SY	includes/minilibx-linux/test/main.c	/^#define	IM1_SY	/;"	d	file:
-IM3_SX	includes/minilibx-linux/test/main.c	/^#define	IM3_SX	/;"	d	file:
-IM3_SY	includes/minilibx-linux/test/main.c	/^#define	IM3_SY	/;"	d	file:
-INC	includes/minilibx-linux/Makefile.mk	/^INC	=%%%%$/;"	m
-INC	includes/minilibx-linux/test/Makefile.mk	/^INC=%%%%$/;"	m
-INCLIB	includes/minilibx-linux/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
-INCLUDE	includes/minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
-INCLUDE	includes/minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
-INC_DIR	Makefile	/^INC_DIR	= includes$/;"	m
-INC_DIR	sources/utilities/Libft/Makefile	/^INC_DIR	= includes$/;"	m
-INVADRR	includes/errors.h	/^# define INVADRR /;"	d
-LFLAGS	includes/minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
-LIBFT_DIR	Makefile	/^LIBFT_DIR = $(SRC_DIR)\/utilities\/Libft$/;"	m
-LIBFT_H	sources/utilities/Libft/includes/libft.h	/^# define LIBFT_H$/;"	d
-LIBFT_LIB	Makefile	/^LIBFT_LIB = $(LIBFT_DIR)\/libft.a$/;"	m
-LIBRARY	includes/minilibx-linux/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
-LIBRARY	includes/minilibx-linux/man/man3/mlx.3	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
-LIGHT	includes/globalVariables.h	/^# define LIGHT /;"	d
-LINKING	includes/minilibx-linux/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
-LINKING	includes/minilibx-linux/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
-LOCALHOST	includes/minilibx-linux/mlx_int.h	/^# define LOCALHOST /;"	d
-MAX_BVH_DEPTH	includes/globalVariables.h	/^# define MAX_BVH_DEPTH /;"	d
-MAX_RAY_DEPTH	includes/globalVariables.h	/^# define MAX_RAY_DEPTH /;"	d
-MEMALLOC	includes/errors.h	/^# define MEMALLOC /;"	d
+$(MLX_DIR)/libmlx.a	Makefile	/^$(MLX_DIR)\/libmlx.a:$/;"	t
+$(NAME)	Makefile	/^$(NAME): $(OBJS)$/;"	t
+$(NAME)	minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
+$(NAME)	minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
+$(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
+$(OBJ_DIR)/%.o	minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
+1. Module de Correction de Norme	.kiro/specs/minirt-compliance-fixes/design.md	/^### 1. Module de Correction de Norme$/;"	S	section:Design Document""Components and Interfaces
+2. Module de Gestion d'Erreur Amélioré	.kiro/specs/minirt-compliance-fixes/design.md	/^### 2. Module de Gestion d'Erreur Amélioré$/;"	S	section:Design Document""Components and Interfaces
+3. Module de Contrôle Caméra	.kiro/specs/minirt-compliance-fixes/design.md	/^### 3. Module de Contrôle Caméra$/;"	S	section:Design Document""Components and Interfaces
+4. Module de Gestion Mémoire Amélioré	.kiro/specs/minirt-compliance-fixes/design.md	/^### 4. Module de Gestion Mémoire Amélioré$/;"	S	section:Design Document""Components and Interfaces
+AUTHOR	minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man1/mlx_new_window.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man3/mlx.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man3/mlx_loop.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 1
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 2
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 3
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 4
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 5
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 6
+Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 7
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 1
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 10
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 2
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 3
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 4
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 5
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 6 (Bonus)
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 7 (Bonus)
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 8 (Bonus)
+Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 9
+Algorithme de Ray Tracing	.kiro/specs/minirt-with-bonus/design.md	/^### Algorithme de Ray Tracing$/;"	S	section:Design Document""Data Models
+Améliorations Possibles	.kiro/specs/minirt-compliance-fixes/design.md	/^### Améliorations Possibles$/;"	S	section:Design Document""Performance Considerations
+Architecture	.kiro/specs/minirt-compliance-fixes/design.md	/^## Architecture$/;"	s	chapter:Design Document
+Architecture	.kiro/specs/minirt-with-bonus/design.md	/^## Architecture$/;"	s	chapter:Design Document
+BLUE	Makefile	/^BLUE = \\033[0;34m$/;"	m
+CC	Makefile	/^CC = gcc$/;"	m
+CC	minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
+CC	minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
+CC	minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
+CC	minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -g3$/;"	m
+CFLAGS	minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
+CFLAGS	minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+COLOR	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+COLOR	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+CONE	includes/minirt.h	/^# define CONE /;"	d
+CUBE	includes/minirt.h	/^# define CUBE /;"	d
+CYLINDER	includes/minirt.h	/^# define CYLINDER /;"	d
+Calculs d'Intersection	.kiro/specs/minirt-with-bonus/design.md	/^### Calculs d'Intersection$/;"	S	section:Design Document""Data Models
+Components and Interfaces	.kiro/specs/minirt-compliance-fixes/design.md	/^## Components and Interfaces$/;"	s	chapter:Design Document
+Components and Interfaces	.kiro/specs/minirt-with-bonus/design.md	/^## Components and Interfaces$/;"	s	chapter:Design Document
+Critères de Performance	.kiro/specs/minirt-with-bonus/design.md	/^### Critères de Performance$/;"	S	section:Design Document""Testing Strategy
+Cylindre	.kiro/specs/minirt-with-bonus/design.md	/^#### Cylindre$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
+DESCRIPTION	minilibx-linux/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man1/mlx_new_window.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man3/mlx.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man3/mlx_loop.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man3/mlx_new_image.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man3/mlx_new_window.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+Data Models	.kiro/specs/minirt-compliance-fixes/design.md	/^## Data Models$/;"	s	chapter:Design Document
+Data Models	.kiro/specs/minirt-with-bonus/design.md	/^## Data Models$/;"	s	chapter:Design Document
+Design Document	.kiro/specs/minirt-compliance-fixes/design.md	/^# Design Document$/;"	c
+Design Document	.kiro/specs/minirt-with-bonus/design.md	/^# Design Document$/;"	c
+ENV_DISPLAY	minilibx-linux/mlx_int.h	/^# define ENV_DISPLAY /;"	d
+EOF	minilibx-linux/configure	/^cat <<EOF$/;"	h
+EPSILON	includes/minirt.h	/^# define EPSILON /;"	d
+ERROR_ARGS	includes/minirt.h	/^	ERROR_ARGS = 1,$/;"	e	enum:e_error
+ERROR_FILE	includes/minirt.h	/^	ERROR_FILE = 2,$/;"	e	enum:e_error
+ERROR_MEMORY	includes/minirt.h	/^	ERROR_MEMORY = 4,$/;"	e	enum:e_error
+ERROR_MLX	includes/minirt.h	/^	ERROR_MLX = 5$/;"	e	enum:e_error
+ERROR_NONE	includes/minirt.h	/^	ERROR_NONE = 0,$/;"	e	enum:e_error
+ERROR_PARSE	includes/minirt.h	/^	ERROR_PARSE = 3,$/;"	e	enum:e_error
+ERR_NO_TRUECOLOR	minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
+Error Handling	.kiro/specs/minirt-compliance-fixes/design.md	/^## Error Handling$/;"	s	chapter:Design Document
+Error Handling	.kiro/specs/minirt-with-bonus/design.md	/^## Error Handling$/;"	s	chapter:Design Document
+Flux de Données	.kiro/specs/minirt-with-bonus/design.md	/^### Flux de Données$/;"	S	section:Design Document""Architecture
+Fonctions de Gestion d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Fonctions de Gestion d'Erreurs$/;"	S	section:Design Document""Error Handling
+Format de Fichier .rt	.kiro/specs/minirt-with-bonus/design.md	/^### Format de Fichier .rt$/;"	S	section:Design Document""Data Models
+GOING	minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+GOING	minilibx-linux/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+GRAPHICS_SRC	Makefile	/^GRAPHICS_SRC = graphics\/window.c \\$/;"	m
+GREEN	Makefile	/^GREEN = \\033[0;32m$/;"	m
+GREEN_OFFSET	includes/minirt.h	/^# define GREEN_OFFSET /;"	d
+Gestion Mémoire Sécurisée	.kiro/specs/minirt-compliance-fixes/design.md	/^### Gestion Mémoire Sécurisée$/;"	S	section:Design Document""Security Considerations
+Hiérarchie d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Hiérarchie d'Erreur$/;"	S	section:Design Document""Error Handling
+IM1_SX	minilibx-linux/test/main.c	/^#define	IM1_SX	/;"	d	file:
+IM1_SY	minilibx-linux/test/main.c	/^#define	IM1_SY	/;"	d	file:
+IM3_SX	minilibx-linux/test/main.c	/^#define	IM3_SX	/;"	d	file:
+IM3_SY	minilibx-linux/test/main.c	/^#define	IM3_SY	/;"	d	file:
+INC	minilibx-linux/Makefile.mk	/^INC	=%%%%$/;"	m
+INC	minilibx-linux/test/Makefile.mk	/^INC=%%%%$/;"	m
+INCLIB	minilibx-linux/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
+INCLUDE	minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+INCLUDE	minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+INCLUDES	Makefile	/^INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)$/;"	m
+INC_DIR	Makefile	/^INC_DIR = includes$/;"	m
+Implementation Plan	.kiro/specs/minirt-compliance-fixes/design.md	/^## Implementation Plan$/;"	s	chapter:Design Document
+Implementation Plan	.kiro/specs/minirt-compliance-fixes/tasks.md	/^# Implementation Plan$/;"	c
+Implementation Plan	.kiro/specs/minirt-with-bonus/tasks.md	/^# Implementation Plan$/;"	c
+Interfaces des Modules	.kiro/specs/minirt-with-bonus/design.md	/^### Interfaces des Modules$/;"	S	section:Design Document""Components and Interfaces
+Introduction	.kiro/specs/minirt-compliance-fixes/requirements.md	/^## Introduction$/;"	s	chapter:Requirements Document
+Introduction	.kiro/specs/minirt-with-bonus/requirements.md	/^## Introduction$/;"	s	chapter:Requirements Document
+KEY_A	includes/minirt.h	/^# define KEY_A /;"	d
+KEY_D	includes/minirt.h	/^# define KEY_D /;"	d
+KEY_DOWN	includes/minirt.h	/^# define KEY_DOWN /;"	d
+KEY_ESC	includes/minirt.h	/^# define KEY_ESC /;"	d
+KEY_LEFT	includes/minirt.h	/^# define KEY_LEFT /;"	d
+KEY_RIGHT	includes/minirt.h	/^# define KEY_RIGHT /;"	d
+KEY_S	includes/minirt.h	/^# define KEY_S /;"	d
+KEY_UP	includes/minirt.h	/^# define KEY_UP /;"	d
+KEY_W	includes/minirt.h	/^# define KEY_W /;"	d
+LFLAGS	minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
+LIBRARY	minilibx-linux/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LIBRARY	minilibx-linux/man/man3/mlx.3	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LIBS	Makefile	/^LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm$/;"	m
+LINKING	minilibx-linux/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LINKING	minilibx-linux/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LOCALHOST	minilibx-linux/mlx_int.h	/^# define LOCALHOST /;"	d
+MAIN_SRC	Makefile	/^MAIN_SRC = main.c$/;"	m
+MATH_SRC	Makefile	/^MATH_SRC = math\/vector.c \\$/;"	m
+MAX_DEPTH	includes/minirt.h	/^# define MAX_DEPTH /;"	d
 MINIRT_H	includes/minirt.h	/^# define MINIRT_H$/;"	d
-MLX_DIR	Makefile	/^MLX_DIR = $(INC_DIR)\/minilibx-linux$/;"	m
-MLX_H	includes/minilibx-linux/mlx.h	/^#define	MLX_H$/;"	d
-MLX_INT_H	includes/minilibx-linux/mlx_int.h	/^# define MLX_INT_H$/;"	d
-MLX_LIB	Makefile	/^MLX_LIB = $(MLX_DIR)\/libmlx.a$/;"	m
-MLX_MAX_EVENT	includes/minilibx-linux/mlx_int.h	/^# define MLX_MAX_EVENT /;"	d
-MLX_TYPE_SHM	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM /;"	d
-MLX_TYPE_SHM_PIXMAP	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM_PIXMAP /;"	d
-MLX_TYPE_XIMAGE	includes/minilibx-linux/mlx_int.h	/^# define MLX_TYPE_XIMAGE /;"	d
-MiniLibX	includes/minilibx-linux/man/man1/mlx.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man1/mlx_loop.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man3/mlx.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man3/mlx_loop.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-MiniLibX	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-NAME	Makefile	/^NAME	= miniRT$/;"	m
-NAME	includes/minilibx-linux/Makefile.mk	/^NAME		= libmlx.a$/;"	m
-NAME	includes/minilibx-linux/man/man1/mlx.1	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man3/mlx.3	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
-NAME	includes/minilibx-linux/test/Makefile.mk	/^NAME= mlx-test$/;"	m
-NAME	sources/utilities/Libft/Makefile	/^NAME 	= libft.a$/;"	m
-NAME_UNAME	includes/minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
-OBJ	Makefile	/^OBJ		= $(SRC:%.c=$(OBJ_DIR)\/%.o)$/;"	m
-OBJ	includes/minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
-OBJ	includes/minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
-OBJ	sources/utilities/Libft/Makefile	/^OBJ		= $(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
-OBJ_DIR	Makefile	/^OBJ_DIR	= objects$/;"	m
-OBJ_DIR	includes/minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
-OBJ_DIR	sources/utilities/Libft/Makefile	/^OBJ_DIR	= objects$/;"	m
-PARSING_H	includes/parsing.h	/^# define PARSING_H$/;"	d
-PERMISSIONS	includes/errors.h	/^# define PERMISSIONS /;"	d
-PLANE	includes/globalVariables.h	/^# define PLANE /;"	d
-PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
-PROGRAM_NAME	includes/globalVariables.h	/^# define PROGRAM_NAME /;"	d
-RATIOLIMAX	includes/globalVariables.h	/^# define RATIOLIMAX /;"	d
-RATIOLIMIN	includes/globalVariables.h	/^# define RATIOLIMIN /;"	d
-REFLECTCOLOR	includes/globalVariables.h	/^# define REFLECTCOLOR /;"	d
-REFLECTDIR	includes/globalVariables.h	/^# define REFLECTDIR /;"	d
-REFLECTION	includes/globalVariables.h	/^# define REFLECTION /;"	d
-REFRACTCOLOR	includes/globalVariables.h	/^# define REFRACTCOLOR /;"	d
-REFRACTDIR	includes/globalVariables.h	/^# define REFRACTDIR /;"	d
-REFRACTION	includes/globalVariables.h	/^# define REFRACTION /;"	d
-RETURN	includes/minilibx-linux/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
-RETURN	includes/minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
-RM	Makefile	/^RM		= rm -f$/;"	m
-RM	sources/utilities/Libft/Makefile	/^RM		= rm -f$/;"	m
-SEE	includes/minilibx-linux/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man3/mlx.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SEE	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
-SLI	includes/globalVariables.h	/^# define SLI /;"	d
-SPECULAR	includes/globalVariables.h	/^# define SPECULAR /;"	d
-SPHERE	includes/globalVariables.h	/^# define SPHERE /;"	d
-SRC	Makefile	/^SRC		= $(shell find $(SRC_DIR) -name "*.c")$/;"	m
-SRC	includes/minilibx-linux/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
-SRC	includes/minilibx-linux/test/Makefile.mk	/^SRC = main.c$/;"	m
-SRC	sources/utilities/Libft/Makefile	/^SRC		= $(shell find $(SRC_DIR) -name "*.c")$/;"	m
-SRC_DIR	Makefile	/^SRC_DIR	= sources$/;"	m
-SRC_DIR	sources/utilities/Libft/Makefile	/^SRC_DIR	= sources$/;"	m
-STORING	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
-STORING	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
-STRUCTURES_H	includes/structures.h	/^# define STRUCTURES_H$/;"	d
-SURFACE_COEFFICIENT	includes/globalVariables.h	/^# define SURFACE_COEFFICIENT /;"	d
-SYNOPSYS	includes/minilibx-linux/man/man1/mlx.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man1/mlx_new_window.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man3/mlx.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-SYNOPSYS	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-TEMP_H	includes/temp.h	/^# define TEMP_H$/;"	d
-UNAME	includes/minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
-UNAME	includes/minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
-USAGE	includes/errors.h	/^# define USAGE /;"	d
-UTILITIES_H	includes/utilities.h	/^# define UTILITIES_H$/;"	d
-VECLIMAX	includes/globalVariables.h	/^# define VECLIMAX /;"	d
-VECLIMIN	includes/globalVariables.h	/^# define VECLIMIN /;"	d
-WARN_SHM_ATTACH	includes/minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
-WHITESPACES	includes/globalVariables.h	/^# define WHITESPACES /;"	d
-WIN1_SX	includes/minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
-WIN1_SY	includes/minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
-X	includes/globalVariables.h	/^# define X /;"	d
-X-WINDOW	includes/minilibx-linux/man/man1/mlx.1	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
-X-WINDOW	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
-X-WINDOW	includes/minilibx-linux/man/man3/mlx.3	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
-X-WINDOW	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
-XPM	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
-XPM	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
-X_ShmAttach	includes/minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
-Y	includes/globalVariables.h	/^# define Y /;"	d
-Z	includes/globalVariables.h	/^# define Z /;"	d
-aabb	includes/structures.h	/^typedef struct aabb$/;"	s
-albedo	includes/structures.h	/^    float	albedo[4];$/;"	m	struct:material	typeref:typename:float[4]
-all	Makefile	/^all: $(NAME)$/;"	t
-all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
-all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
-all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
-all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
-ambiant	includes/structures.h	/^    struct object	*ambiant;$/;"	m	struct:scene	typeref:struct:object *
-ambient	includes/structures.h	/^        struct	ambient		ambient;$/;"	m	union:object::objtype	typeref:struct:ambient
-ambient	includes/structures.h	/^typedef struct	ambient$/;"	s
-ambient_initialiser	sources/parsing/initialisers/environement_objects_initialisers.c	/^void	*ambient_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-appendDot	sources/utilities/my_atof.c	/^static double  appendDot(const char *str, double result, int sign, bool *error)$/;"	f	typeref:typename:double	file:
-append_dir_value	sources/execution/rendering/rays/traceRays.c	/^static t_vec	append_dir_value(t_minirt *minirt, int x, int y)$/;"	f	typeref:typename:t_vec	file:
-at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
-boundaries	includes/structures.h	/^	t_aabb		boundaries;$/;"	m	struct:primitives	typeref:typename:t_aabb
-bounds	includes/structures.h	/^    struct aabb		bounds;$/;"	m	struct:bvh	typeref:struct:aabb
-bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
-bpp1	includes/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
-bpp2	includes/minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
-bpp3	includes/minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
-bpp4	includes/minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
-brightness	includes/structures.h	/^	float	brightness;$/;"	m	struct:light	typeref:typename:float
-buildMaxHeap	sources/utilities/sorting.c	/^static void	buildMaxHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
-buildMinHeap	sources/utilities/sorting.c	/^static void	buildMinHeap(int *arr, int size, void (*sorter)(int *, int, int))$/;"	f	typeref:typename:void	file:
-bvh	includes/structures.h	/^typedef struct bvh$/;"	s
-cache	includes/structures.h	/^typedef struct	cache$/;"	s
-call_object_initializer	sources/parsing/initialisers/helpers_for_initialisers.c	/^void	*call_object_initializer(char type, char **line, t_object *obj)$/;"	f	typeref:typename:void *
-camera	includes/structures.h	/^        struct	camera		camera;$/;"	m	union:object::objtype	typeref:struct:camera
-camera	includes/structures.h	/^    struct object	*camera;$/;"	m	struct:scene	typeref:struct:object *
-camera	includes/structures.h	/^typedef struct	camera$/;"	s
-camera_initialiser	sources/parsing/initialisers/environement_objects_initialisers.c	/^void	*camera_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-cast_ray	sources/execution/rendering/rays/castRay.c	/^t_vec	cast_ray(t_scene *scene, t_vec orig, t_vec dir, int depth)$/;"	f	typeref:typename:t_vec
-cast_ray_return	sources/execution/rendering/rays/castRay.c	/^static t_vec	cast_ray_return(t_vec buffer[])$/;"	f	typeref:typename:t_vec	file:
-center	includes/structures.h	/^	t_vec		center;	$/;"	m	struct:primitives	typeref:typename:t_vec
-check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
-check_format	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^static int	check_format( int fd, char format, va_list arg)$/;"	f	typeref:typename:int	file:
-check_limits	sources/parsing/initialisers/helpers_for_initialisers.c	/^inline static bool	check_limits(bool status, float value, float limin, float limax)$/;"	f	typeref:typename:bool	file:
-clamp	sources/execution/rendering/rays/traceRays.c	/^static float clamp(float x)$/;"	f	typeref:typename:float	file:
+MLX_DIR	Makefile	/^MLX_DIR = minilibx-linux$/;"	m
+MLX_H	minilibx-linux/mlx.h	/^#define	MLX_H$/;"	d
+MLX_INT_H	minilibx-linux/mlx_int.h	/^# define MLX_INT_H$/;"	d
+MLX_MAX_EVENT	minilibx-linux/mlx_int.h	/^# define MLX_MAX_EVENT /;"	d
+MLX_TYPE_SHM	minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM /;"	d
+MLX_TYPE_SHM_PIXMAP	minilibx-linux/mlx_int.h	/^# define MLX_TYPE_SHM_PIXMAP /;"	d
+MLX_TYPE_XIMAGE	minilibx-linux/mlx_int.h	/^# define MLX_TYPE_XIMAGE /;"	d
+MiniLibX	minilibx-linux/man/man1/mlx.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man1/mlx_loop.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man1/mlx_new_image.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man1/mlx_new_window.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man1/mlx_pixel_put.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man3/mlx.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man3/mlx_loop.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man3/mlx_new_image.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man3/mlx_new_window.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	minilibx-linux/man/man3/mlx_pixel_put.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+Module Mathématique	.kiro/specs/minirt-with-bonus/design.md	/^#### Module Mathématique$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
+Module de Parsing	.kiro/specs/minirt-with-bonus/design.md	/^#### Module de Parsing$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
+Module de Rendu	.kiro/specs/minirt-with-bonus/design.md	/^#### Module de Rendu$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
+NAME	Makefile	/^NAME = miniRT$/;"	m
+NAME	minilibx-linux/Makefile.mk	/^NAME		= libmlx.a$/;"	m
+NAME	minilibx-linux/man/man1/mlx.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man1/mlx_loop.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man1/mlx_new_image.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man1/mlx_new_window.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man3/mlx.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man3/mlx_loop.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man3/mlx_new_image.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man3/mlx_new_window.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	minilibx-linux/test/Makefile.mk	/^NAME= mlx-test$/;"	m
+NAME_UNAME	minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
+NC	Makefile	/^NC = \\033[0m$/;"	m
+OBJ	minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
+OBJ	minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
+OBJS	Makefile	/^OBJS = $(SRCS:%.c=$(OBJ_DIR)\/%.o)$/;"	m
+OBJ_DIR	Makefile	/^OBJ_DIR = obj$/;"	m
+OBJ_DIR	minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+Optimisations Maintenues	.kiro/specs/minirt-compliance-fixes/design.md	/^### Optimisations Maintenues$/;"	S	section:Design Document""Performance Considerations
+Optimisations Prévues	.kiro/specs/minirt-with-bonus/design.md	/^### Optimisations Prévues$/;"	S	section:Design Document""Testing Strategy
+Overview	.kiro/specs/minirt-compliance-fixes/design.md	/^## Overview$/;"	s	chapter:Design Document
+Overview	.kiro/specs/minirt-with-bonus/design.md	/^## Overview$/;"	s	chapter:Design Document
+PARSING_SRC	Makefile	/^PARSING_SRC = parsing\/parse_scene.c \\$/;"	m
+PFLAGS	Makefile	/^PFLAGS = -pg$/;"	m
+PLANE	includes/minirt.h	/^# define PLANE /;"	d
+Performance Considerations	.kiro/specs/minirt-compliance-fixes/design.md	/^## Performance Considerations$/;"	s	chapter:Design Document
+Phase 1 : Correction Norme 42	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 1 : Correction Norme 42$/;"	S	section:Design Document""Implementation Plan
+Phase 2 : Gestion d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 2 : Gestion d'Erreur$/;"	S	section:Design Document""Implementation Plan
+Phase 3 : Fonctions Manquantes	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 3 : Fonctions Manquantes$/;"	S	section:Design Document""Implementation Plan
+Phase 4 : Tests et Validation	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 4 : Tests et Validation$/;"	S	section:Design Document""Implementation Plan
+Plan	.kiro/specs/minirt-with-bonus/design.md	/^#### Plan$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
+RED	Makefile	/^RED = \\033[0;31m$/;"	m
+RED_OFFSET	includes/minirt.h	/^# define RED_OFFSET /;"	d
+RENDERING_SRC	Makefile	/^RENDERING_SRC = rendering\/raytracer.c \\$/;"	m
+RETURN	minilibx-linux/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/man/man1/mlx_new_window.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
+Requirement 1	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 1$/;"	S	section:Requirements Document""Requirements
+Requirement 1	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 1$/;"	S	section:Requirements Document""Requirements
+Requirement 10	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 10$/;"	S	section:Requirements Document""Requirements
+Requirement 2	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 2$/;"	S	section:Requirements Document""Requirements
+Requirement 2	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 2$/;"	S	section:Requirements Document""Requirements
+Requirement 3	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 3$/;"	S	section:Requirements Document""Requirements
+Requirement 3	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 3$/;"	S	section:Requirements Document""Requirements
+Requirement 4	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 4$/;"	S	section:Requirements Document""Requirements
+Requirement 4	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 4$/;"	S	section:Requirements Document""Requirements
+Requirement 5	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 5$/;"	S	section:Requirements Document""Requirements
+Requirement 5	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 5$/;"	S	section:Requirements Document""Requirements
+Requirement 6	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 6$/;"	S	section:Requirements Document""Requirements
+Requirement 6 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 6 (Bonus)$/;"	S	section:Requirements Document""Requirements
+Requirement 7	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 7$/;"	S	section:Requirements Document""Requirements
+Requirement 7 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 7 (Bonus)$/;"	S	section:Requirements Document""Requirements
+Requirement 8 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 8 (Bonus)$/;"	S	section:Requirements Document""Requirements
+Requirement 9	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 9$/;"	S	section:Requirements Document""Requirements
+Requirements	.kiro/specs/minirt-compliance-fixes/requirements.md	/^## Requirements$/;"	s	chapter:Requirements Document
+Requirements	.kiro/specs/minirt-with-bonus/requirements.md	/^## Requirements$/;"	s	chapter:Requirements Document
+Requirements Document	.kiro/specs/minirt-compliance-fixes/requirements.md	/^# Requirements Document$/;"	c
+Requirements Document	.kiro/specs/minirt-with-bonus/requirements.md	/^# Requirements Document$/;"	c
+SEE	minilibx-linux/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man1/mlx_new_window.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man3/mlx.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man3/mlx_loop.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man3/mlx_new_image.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man3/mlx_new_window.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SPHERE	includes/minirt.h	/^# define SPHERE /;"	d
+SRC	minilibx-linux/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
+SRC	minilibx-linux/test/Makefile.mk	/^SRC = main.c$/;"	m
+SRCS	Makefile	/^SRCS = $(MAIN_SRC) $(PARSING_SRC) $(MATH_SRC) \\$/;"	m
+SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
+STORING	minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+STORING	minilibx-linux/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man1/mlx.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man1/mlx_loop.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man1/mlx_new_image.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man1/mlx_new_window.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man3/mlx.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+Scènes de Test	.kiro/specs/minirt-with-bonus/design.md	/^### Scènes de Test$/;"	S	section:Design Document""Testing Strategy
+Security Considerations	.kiro/specs/minirt-compliance-fixes/design.md	/^## Security Considerations$/;"	s	chapter:Design Document
+Sphère	.kiro/specs/minirt-with-bonus/design.md	/^#### Sphère$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
+Stratégie de Gestion d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Stratégie de Gestion d'Erreur$/;"	S	section:Design Document""Error Handling
+Stratégie de Gestion d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Stratégie de Gestion d'Erreurs$/;"	S	section:Design Document""Error Handling
+Stratégie de Refactoring	.kiro/specs/minirt-compliance-fixes/design.md	/^### Stratégie de Refactoring$/;"	S	section:Design Document""Architecture
+Structure Générale	.kiro/specs/minirt-with-bonus/design.md	/^### Structure Générale$/;"	S	section:Design Document""Architecture
+Structure d'Erreur Étendue	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure d'Erreur Étendue$/;"	S	section:Design Document""Data Models
+Structure de Caméra Étendue	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure de Caméra Étendue$/;"	S	section:Design Document""Data Models
+Structure de Données Principales	.kiro/specs/minirt-with-bonus/design.md	/^### Structure de Données Principales$/;"	S	section:Design Document""Components and Interfaces
+Structure des Modules	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure des Modules$/;"	S	section:Design Document""Architecture
+TEST_EPSILON	tests/test_camera_ray.c	/^#define TEST_EPSILON /;"	d	file:
+TEST_EPSILON	tests/test_intersections.c	/^#define TEST_EPSILON /;"	d	file:
+TEST_EPSILON	tests/test_parsing_comprehensive.c	/^#define TEST_EPSILON /;"	d	file:
+TEST_EPSILON	tests/test_ray.c	/^#define TEST_EPSILON /;"	d	file:
+TEST_EPSILON	tests/test_vector.c	/^#define TEST_EPSILON /;"	d	file:
+TEST_EPSILON	tests/test_vector_raytracing.c	/^#define TEST_EPSILON /;"	d	file:
+Testing Strategy	.kiro/specs/minirt-compliance-fixes/design.md	/^## Testing Strategy$/;"	s	chapter:Design Document
+Testing Strategy	.kiro/specs/minirt-with-bonus/design.md	/^## Testing Strategy$/;"	s	chapter:Design Document
+Tests Fonctionnels	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests Fonctionnels$/;"	S	section:Design Document""Testing Strategy
+Tests Unitaires	.kiro/specs/minirt-with-bonus/design.md	/^### Tests Unitaires$/;"	S	section:Design Document""Testing Strategy
+Tests d'Intégration	.kiro/specs/minirt-with-bonus/design.md	/^### Tests d'Intégration$/;"	S	section:Design Document""Testing Strategy
+Tests de Conformité Norme 42	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests de Conformité Norme 42$/;"	S	section:Design Document""Testing Strategy
+Tests de Régression	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests de Régression$/;"	S	section:Design Document""Testing Strategy
+Types d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Types d'Erreurs$/;"	S	section:Design Document""Error Handling
+UNAME	minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
+UNAME	minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
+UTILS_SRC	Makefile	/^UTILS_SRC = utils\/error.c \\$/;"	m
+Validation d'Entrée	.kiro/specs/minirt-compliance-fixes/design.md	/^### Validation d'Entrée$/;"	S	section:Design Document""Security Considerations
+WARN_SHM_ATTACH	minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
+WIN1_SX	minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
+WIN1_SY	minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
+X-WINDOW	minilibx-linux/man/man1/mlx.1	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	minilibx-linux/man/man1/mlx_loop.1	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+X-WINDOW	minilibx-linux/man/man3/mlx.3	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	minilibx-linux/man/man3/mlx_loop.3	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+XPM	minilibx-linux/man/man1/mlx_new_image.1	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+XPM	minilibx-linux/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+X_ShmAttach	minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
+YELLOW	Makefile	/^YELLOW = \\033[0;33m$/;"	m
+a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cone_params	typeref:typename:double
+a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cylinder_params	typeref:typename:double
+aabb_union	src/utils/bvh.c	/^static t_aabb	aabb_union(t_aabb a, t_aabb b)$/;"	f	typeref:typename:t_aabb	file:
+add_light_to_scene	src/parsing/parse_lights.c	/^static void	add_light_to_scene(t_scene *scene, t_light *light)$/;"	f	typeref:typename:void	file:
+add_object_to_scene	src/parsing/parse_objects.c	/^void	add_object_to_scene(t_scene *scene, t_object *object)$/;"	f	typeref:typename:void
+add_reflection_if_needed	src/rendering/raycast_optimized.c	/^static t_color	add_reflection_if_needed(t_color base_color, t_ray ray,$/;"	f	typeref:typename:t_color	file:
+add_refraction_if_needed	src/rendering/raycast_optimized.c	/^static t_color	add_refraction_if_needed(t_color base_color, t_ray ray,$/;"	f	typeref:typename:t_color	file:
+all	Makefile	/^all: $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
+all	minilibx-linux/Makefile	/^all	: do_configure$/;"	t
+all	minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
+all	minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
+ambient	includes/minirt.h	/^	t_color		ambient;$/;"	m	struct:s_scene	typeref:typename:t_color
+ambient_ratio	includes/minirt.h	/^	double		ambient_ratio;$/;"	m	struct:s_scene	typeref:typename:double
+analyze	Makefile	/^analyze:$/;"	t
+angle	includes/minirt.h	/^	double			angle;$/;"	m	struct:s_object	typeref:typename:double
+at_exit	minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
+axis	includes/minirt.h	/^	t_vec3			axis;$/;"	m	struct:s_object	typeref:typename:t_vec3
+b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cone_params	typeref:typename:double
+b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cylinder_params	typeref:typename:double
+b	includes/minirt.h	/^	int	b;$/;"	m	struct:s_color	typeref:typename:int
+bits_per_pixel	includes/minirt.h	/^	int		bits_per_pixel;$/;"	m	struct:s_mlx	typeref:typename:int
+bounds	includes/minirt.h	/^	t_aabb				bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
+bounds	tests/test_cleanup_only.c	/^    t_aabb bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb	file:
+bpp	minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
+bpp1	minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
+bpp2	minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
+bpp3	minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
+bpp4	minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
+build_bvh	src/utils/bvh.c	/^t_bvh_node	*build_bvh(t_scene *scene)$/;"	f	typeref:typename:t_bvh_node *
+build_bvh_recursive	src/utils/bvh.c	/^static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)$/;"	f	typeref:typename:t_bvh_node *	file:
+bvh_root	includes/minirt.h	/^	t_bvh_node	*bvh_root;$/;"	m	struct:s_scene	typeref:typename:t_bvh_node *
+c	includes/minirt.h	/^	double	c;$/;"	m	struct:s_cone_params	typeref:typename:double
+c	includes/minirt.h	/^	double	c;$/;"	m	struct:s_cylinder_params	typeref:typename:double
+calculate_ambient_lighting	src/rendering/lighting.c	/^static t_color	calculate_ambient_lighting(t_scene *scene, t_material *material)$/;"	f	typeref:typename:t_color	file:
+calculate_background_color	src/rendering/raytracer_utils.c	/^t_color	calculate_background_color(t_ray ray)$/;"	f	typeref:typename:t_color
+calculate_cone_coefficients	src/math/intersect_cone.c	/^static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)$/;"	f	typeref:typename:t_cone_params	file:
+calculate_cylinder_params	src/math/intersect_cylinder.c	/^static t_cylinder_params	calculate_cylinder_params(t_ray ray,$/;"	f	typeref:typename:t_cylinder_params	file:
+calculate_diffuse_lighting	src/rendering/lighting.c	/^static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_materia/;"	f	typeref:typename:t_color	file:
+calculate_fresnel	src/rendering/reflections.c	/^static double	calculate_fresnel(double cos_i, double n1, double n2)$/;"	f	typeref:typename:double	file:
+calculate_hit_color	src/rendering/raycast_optimized.c	/^t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
+calculate_lighting	src/rendering/lighting.c	/^t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_material *material)$/;"	f	typeref:typename:t_color
+calculate_pixel_world_position	src/rendering/raytracer_utils.c	/^t_vec3	calculate_pixel_world_position(t_camera *camera, double u,$/;"	f	typeref:typename:t_vec3
+calculate_reflection	src/rendering/reflections.c	/^t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
+calculate_refraction	src/rendering/reflections.c	/^t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
+calculate_refraction_ray	src/rendering/reflections.c	/^static t_vec3	calculate_refraction_ray(t_vec3 incident, t_vec3 normal, double n1, double n2)$/;"	f	typeref:typename:t_vec3	file:
+calculate_slab_intersections	src/math/cube_utils.c	/^t_slab_intersections	calculate_slab_intersections(double ray_dir,$/;"	f	typeref:typename:t_slab_intersections
+calculate_viewport_dimensions	src/rendering/raytracer_utils.c	/^void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,$/;"	f	typeref:typename:void
+camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
+check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 clean	Makefile	/^clean:$/;"	t
-clean	includes/minilibx-linux/Makefile	/^clean	:$/;"	t
-clean	includes/minilibx-linux/Makefile.mk	/^clean	:$/;"	t
-clean	includes/minilibx-linux/configure	/^clean(){$/;"	f
-clean	includes/minilibx-linux/test/Makefile.mk	/^clean:$/;"	t
-clean	sources/utilities/Libft/Makefile	/^clean:$/;"	t
-cmap	includes/minilibx-linux/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar	typeref:typename:Colormap
-col	includes/minilibx-linux/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typeref:typename:int
-color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
-color	includes/structures.h	/^	int			color;$/;"	m	struct:primitives	typeref:typename:int
-color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
-color_map_2	includes/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
-computeCylinderBounds	sources/utilities/objects_utils/computeBounds.c	/^void	computeCylinderBounds()$/;"	f	typeref:typename:void
-computePlaneBounds	sources/utilities/objects_utils/computeBounds.c	/^void	computePlaneBounds()$/;"	f	typeref:typename:void
-computeScalarProduct	sources/utilities/computing.c	/^inline float	computeScalarProduct(int *obj1, int *obj2)$/;"	f	typeref:typename:float
-computeSphereBounds	sources/utilities/objects_utils/computeBounds.c	/^void	computeSphereBounds()$/;"	f	typeref:typename:void
-compute_cp	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static t_vec	compute_cp(t_vec orig, t_vec dir, t_vec center, float t)$/;"	f	typeref:typename:t_vec	file:
-compute_shadow_light_index	sources/execution/rendering/rays/castRay.c	/^static float compute_shadow_light_index(t_vec dir, t_vec light_dir, t_hit hit)$/;"	f	typeref:typename:float	file:
-content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
-convert	sources/utilities/rgbConvert.c	/^bool	convert(float *coordinates, char *str)$/;"	f	typeref:typename:bool
-convertRGB	sources/utilities/rgbConvert.c	/^static bool convertRGB(char *rgb, long *value)$/;"	f	typeref:typename:bool	file:
-create_scene_node	sources/utilities/createNodes.c	/^t_scene *create_scene_node(void)$/;"	f	typeref:typename:t_scene *
-create_temp_image	sources/execution/rendering/startRendering.c	/^static void	*create_temp_image(t_screen	*screen)$/;"	f	typeref:typename:void *	file:
-cylinder	includes/structures.h	/^        struct	cylinder	cylinder;$/;"	m	union:object::objtype	typeref:struct:cylinder
-cylinder	includes/structures.h	/^typedef struct	cylinder$/;"	s
-cylinder_init	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*cylinder_init(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-cylinder_intersect	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^bool	cylinder_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
-data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
-data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
-data2	includes/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
-data3	includes/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
-data4	includes/minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
-decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
-depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
-destroy	includes/structures.h	/^    void 	*(*destroy)(struct object *);$/;"	m	struct:methods	typeref:typename:void * (*)(struct object *)
-destroy	sources/parsing/initialisers/destroy.c	/^void	*destroy(t_object *self)$/;"	f	typeref:typename:void *
-diameter	includes/structures.h	/^	float	diameter;$/;"	m	struct:cylinder	typeref:typename:float
-diameter	includes/structures.h	/^	float	diameter;$/;"	m	struct:sphere	typeref:typename:float
-diffuse_color	includes/structures.h	/^    t_vec	diffuse_color;$/;"	m	struct:material	typeref:typename:t_vec
-display	includes/minilibx-linux/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
-distance	includes/structures.h	/^    float		distance;$/;"	m	struct:hit	typeref:typename:float
-do_configure	includes/minilibx-linux/Makefile	/^do_configure	:$/;"	t
-do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
-end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
-end_of_scenario	sources/parsing/initialisers/helpers_for_initialisers.c	/^void	*end_of_scenario(char *str, void *object)$/;"	f	typeref:typename:void *
-endian1	includes/minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
-endian2	includes/minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
-endian3	includes/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
-endian4	includes/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
-expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
-expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
-expose_win1	includes/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
-expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
-extract_float_from_string	sources/parsing/initialisers/helpers_for_initialisers.c	/^bool	extract_float_from_string(float *value, char **str, \\$/;"	f	typeref:typename:bool
-extract_vector_from_string	sources/parsing/initialisers/helpers_for_initialisers.c	/^bool	extract_vector_from_string(t_vec *v, char **str, \\$/;"	f	typeref:typename:bool
+clean	minilibx-linux/Makefile	/^clean	:$/;"	t
+clean	minilibx-linux/Makefile.mk	/^clean	:$/;"	t
+clean	minilibx-linux/configure	/^clean(){$/;"	f
+clean	minilibx-linux/test/Makefile.mk	/^clean:$/;"	t
+clean_profile	Makefile	/^clean_profile:$/;"	t
+cleanup_all	src/utils/error.c	/^void	cleanup_all(t_minirt *rt)$/;"	f	typeref:typename:void
+cleanup_bvh	src/utils/bvh.c	/^void	cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
+cleanup_bvh	tests/test_cleanup_only.c	/^void cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
+cleanup_light_list	src/utils/memory.c	/^void	cleanup_light_list(t_light *lights)$/;"	f	typeref:typename:void
+cleanup_mlx	src/graphics/window.c	/^void	cleanup_mlx(t_mlx *mlx)$/;"	f	typeref:typename:void
+cleanup_mlx	tests/test_scene_parsers_simple.c	/^void cleanup_mlx(t_mlx *mlx) { (void)mlx; }$/;"	f	typeref:typename:void
+cleanup_object_list	src/utils/memory.c	/^void	cleanup_object_list(t_object *objects)$/;"	f	typeref:typename:void
+cleanup_scene	src/utils/error.c	/^void	cleanup_scene(t_scene *scene)$/;"	f	typeref:typename:void
+cleanup_scene_on_error	src/parsing/parse_scene.c	/^static void	cleanup_scene_on_error(t_scene *scene)$/;"	f	typeref:typename:void	file:
+cleanup_string_array	src/utils/memory.c	/^void	cleanup_string_array(char **array, int count)$/;"	f	typeref:typename:void
+cmap	minilibx-linux/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar	typeref:typename:Colormap
+col	minilibx-linux/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typeref:typename:int
+color	includes/minirt.h	/^	t_color			color;$/;"	m	struct:s_light	typeref:typename:t_color
+color	includes/minirt.h	/^	t_color	color;$/;"	m	struct:s_material	typeref:typename:t_color
+color	minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
+color_add	src/utils/colors.c	/^t_color	color_add(t_color a, t_color b)$/;"	f	typeref:typename:t_color
+color_blend	src/utils/colors.c	/^t_color	color_blend(t_color a, t_color b, double ratio)$/;"	f	typeref:typename:t_color
+color_clamp	src/utils/colors.c	/^t_color	color_clamp(t_color color)$/;"	f	typeref:typename:t_color
+color_equals	tests/test_parsing_comprehensive.c	/^int	color_equals(t_color a, t_color b)$/;"	f	typeref:typename:int
+color_gamma_correct	src/utils/colors.c	/^t_color	color_gamma_correct(t_color color, double gamma)$/;"	f	typeref:typename:t_color
+color_linear_to_srgb	src/utils/colors.c	/^t_color	color_linear_to_srgb(t_color color)$/;"	f	typeref:typename:t_color
+color_map_1	minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
+color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
+color_mult	src/utils/colors.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
+color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
+color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
+count_objects	src/utils/bvh.c	/^static int	count_objects(t_object *objects)$/;"	f	typeref:typename:int	file:
+count_objects	tests/test_scene_parsers.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
+count_objects	tests/test_scene_parsers_simple.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
+create_and_add_cylinder	src/parsing/parse_cylinder.c	/^static int	create_and_add_cylinder(t_scene *scene, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:int	file:
+create_cone	src/parsing/parse_cone.c	/^static t_object	*create_cone(t_vec3 pos, t_vec3 axis, double angle,$/;"	f	typeref:typename:t_object *	file:
+create_cube	src/parsing/parse_cube.c	/^static t_object	*create_cube(t_vec3 position, double size, t_color color)$/;"	f	typeref:typename:t_object *	file:
+create_plane	src/parsing/parse_plane.c	/^static t_object	*create_plane(t_vec3 position, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object *	file:
+create_sphere	src/parsing/parse_sphere.c	/^static t_object	*create_sphere(t_vec3 position, double diameter, t_color color)$/;"	f	typeref:typename:t_object *	file:
+create_test_cylinder	tests/test_intersections.c	/^t_object	create_test_cylinder(t_vec3 center, t_vec3 axis, double radius, double height, t_color /;"	f	typeref:typename:t_object
+create_test_plane	tests/test_intersections.c	/^t_object	create_test_plane(t_vec3 point, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object
+create_test_sphere	tests/test_intersections.c	/^t_object	create_test_sphere(t_vec3 center, double radius, t_color color)$/;"	f	typeref:typename:t_object
+data	minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
+data1	minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
+data2	minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
+data3	minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
+data4	minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
+decrgb	minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
+depth	minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
+detect_edge	src/rendering/antialiasing.c	/^static int	detect_edge(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:int	file:
+direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_camera	typeref:typename:t_vec3
+direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+display	minilibx-linux/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
+display_image	src/graphics/image.c	/^void	display_image(t_mlx *mlx)$/;"	f	typeref:typename:void
+do_configure	minilibx-linux/Makefile	/^do_configure	:$/;"	t
+do_flush	minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
+double_equals	tests/test_camera_ray.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+double_equals	tests/test_intersections.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+double_equals	tests/test_parsing_comprehensive.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+double_equals	tests/test_ray.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+double_equals	tests/test_vector.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+double_equals	tests/test_vector_raytracing.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
+draw_test_pattern	tests/test_visual_mlx.c	/^void	draw_test_pattern(t_mlx *mlx)$/;"	f	typeref:typename:void
+e_error	includes/minirt.h	/^typedef enum e_error$/;"	g
+end_loop	minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
+endian	includes/minirt.h	/^	int		endian;$/;"	m	struct:s_mlx	typeref:typename:int
+endian1	minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
+endian2	minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
+endian3	minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
+endian4	minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
+error_exit	src/utils/error.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
+exit_success	src/utils/error.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
+expose_hook	minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+expose_param	minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+expose_win1	minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
+expose_win2	minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 fclean	Makefile	/^fclean: clean$/;"	t
-fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
-files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
-fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
-findDistance	sources/utilities/computing.c	/^inline float	findDistance(int *arr)$/;"	f	typeref:typename:float
-find_type	sources/parsing/readFileContentAndCreateScene.c	/^static char	find_type(char *ptr)$/;"	f	typeref:typename:char	file:
-format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
-fov	includes/structures.h	/^	float	fov;	$/;"	m	struct:camera	typeref:typename:float
-free_arr	sources/utilities/freeUtils.c	/^void	*free_arr(char **arr, int len)$/;"	f	typeref:typename:void *
-free_bvh	sources/utilities/freeUtils.c	/^void	*free_bvh(t_bvh *root)$/;"	f	typeref:typename:void *
-free_cache	sources/utilities/freeUtils.c	/^void	*free_cache(t_cache *cache)$/;"	f	typeref:typename:void *
-free_generic_pointer	sources/utilities/freeUtils.c	/^void    *free_generic_pointer(void *ptr)$/;"	f	typeref:typename:void *
-free_minirt	sources/utilities/freeUtils.c	/^void	*free_minirt(t_minirt *ptr)$/;"	f	typeref:typename:void *
-free_object	sources/utilities/freeUtils.c	/^void	*free_object(t_object *ptr)$/;"	f	typeref:typename:void *
-free_rendering	sources/utilities/freeUtils.c	/^void	free_rendering(t_render *ptr)$/;"	f	typeref:typename:void
-free_scene	sources/utilities/freeUtils.c	/^void	*free_scene(t_scene *ptr)$/;"	f	typeref:typename:void *
-ft_atof	sources/utilities/my_atof.c	/^float	ft_atof(const char *str, bool *error)$/;"	f	typeref:typename:float
-ft_atoi	sources/utilities/Libft/sources/mandatory/ft_convert/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
-ft_base_attribution	sources/utilities/Libft/sources/printf_fd/utilities/ft_base_attribution.c	/^char	*ft_base_attribution(char format)$/;"	f	typeref:typename:char *
-ft_bzero	sources/utilities/Libft/sources/mandatory/ft_mem/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
-ft_calloc	sources/utilities/Libft/sources/mandatory/ft_heap/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
-ft_countword	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static int	ft_countword(char const *s, char c)$/;"	f	typeref:typename:int	file:
-ft_fill	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	*ft_fill(const char *s, char c)$/;"	f	typeref:typename:char *	file:
-ft_free	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	**ft_free(char **dest, int words)$/;"	f	typeref:typename:char **	file:
-ft_isalnum	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
-ft_isalpha	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
-ft_isascii	sources/utilities/Libft/sources/mandatory/ft_is/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
-ft_isdigit	sources/utilities/Libft/sources/mandatory/ft_is/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
-ft_isprint	sources/utilities/Libft/sources/mandatory/ft_is/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
-ft_itoa	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
-ft_lstadd_back	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_back_bonus.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
-ft_lstadd_front	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_front_bonus.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
-ft_lstclear	sources/utilities/Libft/sources/bonus/ft_list/ft_lstclear_bonus.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f	typeref:typename:void
-ft_lstdelone	sources/utilities/Libft/sources/bonus/ft_list/ft_lstdelone_bonus.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f	typeref:typename:void
-ft_lstiter	sources/utilities/Libft/sources/bonus/ft_list/ft_lstiter_bonus.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
-ft_lstlast	sources/utilities/Libft/sources/bonus/ft_list/ft_lstlast_bonus.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
-ft_lstmap	sources/utilities/Libft/sources/bonus/ft_list/ft_lstmap_bonus.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
-ft_lstnew	sources/utilities/Libft/sources/bonus/ft_list/ft_lstnew_bonus.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
-ft_lstsize	sources/utilities/Libft/sources/bonus/ft_list/ft_lstsize_bonus.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
-ft_memchr	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
-ft_memcmp	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
-ft_memcpy	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
-ft_memmove	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
-ft_memset	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *
-ft_num_len	sources/utilities/Libft/sources/printf_fd/utilities/ft_num_len.c	/^int	ft_num_len(unsigned	int num, char *base)$/;"	f	typeref:typename:int
-ft_pointer_len	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_pointer_len(uintptr_t num)$/;"	f	typeref:typename:int
-ft_print_char	sources/utilities/Libft/sources/printf_fd/src/ft_print_char.c	/^int	ft_print_char(int c, int fd)$/;"	f	typeref:typename:int
-ft_print_hexa	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^int	ft_print_hexa(unsigned int num, char format, int fd)$/;"	f	typeref:typename:int
-ft_print_number_base	sources/utilities/Libft/sources/printf_fd/src/ft_print_number_base.c	/^int	ft_print_number_base(int num, char format, int fd)$/;"	f	typeref:typename:int
-ft_print_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_print_pointer(unsigned long long num, int fd)$/;"	f	typeref:typename:int
-ft_print_string	sources/utilities/Libft/sources/printf_fd/src/ft_print_string.c	/^int	ft_print_string(char *s, int fd)$/;"	f	typeref:typename:int
-ft_print_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^int	ft_print_unsigned(unsigned long long num, char format, int fd)$/;"	f	typeref:typename:int
-ft_printf_fd	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^int	ft_printf_fd(int fd, char *toprint, ...)$/;"	f	typeref:typename:int
-ft_put_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^void	ft_put_pointer(uintptr_t num, int fd)$/;"	f	typeref:typename:void
-ft_putchar_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
-ft_putendl_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_base	sources/utilities/Libft/sources/printf_fd/utilities/ft_putnbr_base.c	/^void	ft_putnbr_base(long long int num, char format, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
-ft_putnbr_hex	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^static void	ft_putnbr_hex(unsigned int num, const char format, int fd)$/;"	f	typeref:typename:void	file:
-ft_putstr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
-ft_size	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^int	ft_size(int n)$/;"	f	typeref:typename:int
-ft_split	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
-ft_strchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strchr.c	/^char	*ft_strchr(const char *string, int c)$/;"	f	typeref:typename:char *
-ft_strcmp	sources/utilities/Libft/sources/mandatory/misc/ft_strcmp.c	/^int	ft_strcmp(const char *source, const char *comp)$/;"	f	typeref:typename:int
-ft_strdup	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strdup.c	/^char	*ft_strdup(const char *string)$/;"	f	typeref:typename:char *
-ft_striteri	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f	typeref:typename:void
-ft_strjoin	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*ft_strjoin(const char *s1, const char *s2)$/;"	f	typeref:typename:char *
-ft_strlcat	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
-ft_strlcpy	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
-ft_strlen	sources/utilities/Libft/sources/mandatory/misc/ft_strlen.c	/^int	ft_strlen(const char *string)$/;"	f	typeref:typename:int
-ft_strmapi	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
-ft_strncmp	sources/utilities/Libft/sources/mandatory/misc/ft_strncmp.c	/^int	ft_strncmp(const char *source, const char *comp, size_t n)$/;"	f	typeref:typename:int
-ft_strnstr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
-ft_strrchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
-ft_strtok_r	sources/utilities/Libft/sources/additional/ft_strtok_r.c	/^char	*ft_strtok_r(char *str, const char *delim, char **saveptr)$/;"	f	typeref:typename:char *
-ft_strtrim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
-ft_substr	sources/utilities/Libft/sources/mandatory/ft_heap/ft_substr.c	/^char	*ft_substr(const char *string, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
-ft_tolower	sources/utilities/Libft/sources/mandatory/misc/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
-ft_toupper	sources/utilities/Libft/sources/mandatory/misc/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
-ft_trim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^int	ft_trim(char c, char const *set)$/;"	f	typeref:typename:int
-gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
-gc	includes/minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
-gere_mouse	includes/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
-get_color_and_append_img	sources/execution/rendering/rays/traceRays.c	/^static void	get_color_and_append_img(t_minirt *minirt, t_img *img, int x, int y)$/;"	f	typeref:typename:void	file:
-get_colors	sources/utilities/rgbConvert.c	/^bool    get_colors(int *color, char **str)$/;"	f	typeref:typename:bool
-get_cosinus	sources/execution/rendering/reflexion_and_refraction.c	/^static inline float	get_cosinus(t_vec v1, t_vec v2)$/;"	f	typeref:typename:float	file:
-get_cylinder_c	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static float	get_cylinder_c(float diameter, t_vec axis, t_vec oc)$/;"	f	typeref:typename:float	file:
-get_cylinder_intersection	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static bool	get_cylinder_intersection(t_object *cyl, t_vec orig, t_vec dir, float *t)$/;"	f	typeref:typename:bool	file:
-get_methods	sources/parsing/readFileContentAndCreateScene.c	/^static void	get_methods(char type, t_methods *out)$/;"	f	typeref:typename:void	file:
-get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
-get_next_valid_line	sources/parsing/readFileContentAndCreateScene.c	/^static char *get_next_valid_line(int fd, char **saveptr)$/;"	f	typeref:typename:char *	file:
-get_plane_intersection	sources/parsing/initialisers/intersections/plane_intersect.c	/^static float	get_plane_intersection(t_object *obj, t_vec orig, t_vec dir)$/;"	f	typeref:typename:float	file:
-get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
-handleSign	sources/utilities/my_atof.c	/^void    handleSign(const char *str, float *sign, int *i)$/;"	f	typeref:typename:void
-handle_impact	sources/execution/rendering/rays/castRay.c	/^static t_vec	handle_impact(t_scene *scene, t_vec buffer[], t_vec dir, t_hit hit)$/;"	f	typeref:typename:t_vec	file:
-handle_multiple_lights	sources/execution/rendering/rays/castRay.c	/^static void	handle_multiple_lights(t_scene *scene, t_hit hit, t_vec dir, float scales[4])$/;"	f	typeref:typename:void	file:
-handle_multiple_lights_helper	sources/execution/rendering/rays/castRay.c	/^bool	handle_multiple_lights_helper(t_vec lpos, t_hit	shadow_hit, t_hit hit)$/;"	f	typeref:typename:bool
-heapSort	sources/utilities/sorting.c	/^int	*heapSort(int *arr, int size, bool type)$/;"	f	typeref:typename:int *
-height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
-height	includes/structures.h	/^	float	height;$/;"	m	struct:cylinder	typeref:typename:float
-height	includes/structures.h	/^	int				height;$/;"	m	struct:screen	typeref:typename:int
-hit	includes/structures.h	/^    bool		hit;$/;"	m	struct:hit	typeref:typename:bool
-hit	includes/structures.h	/^typedef struct hit$/;"	s
-hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
-hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
-im1	includes/minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
-im2	includes/minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
-im3	includes/minilibx-linux/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
-im4	includes/minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
-image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
-init_hit_values	sources/execution/rendering/rays/castRay.c	/^void	init_hit_values(t_hit *hit)$/;"	f	typeref:typename:void
-init_parsing	sources/parsing/parsing.c	/^static const char	*init_parsing(int argc, char **argv, char **envp)$/;"	f	typeref:typename:const char *	file:
-init_window	sources/execution/init_window.c	/^bool	init_window(t_screen *screen)$/;"	f	typeref:typename:bool
-initializer	includes/structures.h	/^    void	*(*initializer)(char **, void *, t_prim *);$/;"	m	struct:methods	typeref:typename:void * (*)(char **,void *,t_prim *)
-insert_new_object	sources/parsing/insertNewObjectInMinirt.c	/^static void	insert_new_object(t_object **head, t_object **tail, t_object *new)$/;"	f	typeref:typename:void	file:
-insert_new_object_in_minirt	sources/parsing/insertNewObjectInMinirt.c	/^bool    insert_new_object_in_minirt(t_minirt *minirt, t_object *new, t_object **tail)$/;"	f	typeref:typename:bool
-insert_scene_parameter	sources/parsing/insertNewObjectInMinirt.c	/^static bool insert_scene_parameter(t_scene **scene, t_object *new, char type)$/;"	f	typeref:typename:bool	file:
-intersect	includes/structures.h	/^    bool	(*intersect)(struct object *, t_vec, t_vec, t_hit *);$/;"	m	struct:methods	typeref:typename:bool (*)(struct object *,t_vec,t_vec,t_hit *)
-join_s1	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s1(const char *s1, char *joined)$/;"	f	typeref:typename:char *
-join_s2	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s2(const char *s2, char *joined)$/;"	f	typeref:typename:char *
-key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
-key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
-key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
-key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
-key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
-left	includes/structures.h	/^    struct bvh		*left;$/;"	m	struct:bvh	typeref:struct:bvh *
-light	includes/structures.h	/^        struct	light		light;$/;"	m	union:object::objtype	typeref:struct:light
-light	includes/structures.h	/^    struct object	*light;$/;"	m	struct:scene	typeref:struct:object *
-light	includes/structures.h	/^typedef struct	light$/;"	s
-light_initialiser	sources/parsing/initialisers/environement_objects_initialisers.c	/^void	*light_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-light_position	includes/structures.h	/^	t_vec	light_position;$/;"	m	struct:light	typeref:typename:t_vec
-light_ratio	includes/structures.h	/^	float	light_ratio;$/;"	m	struct:ambient	typeref:typename:float
-local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
-log_error	includes/minilibx-linux/configure	/^log_error(){$/;"	f
-log_error	includes/minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f
-log_info	includes/minilibx-linux/configure	/^log_info(){$/;"	f
-log_info	includes/minilibx-linux/test/run_tests.sh	/^log_info(){$/;"	f
-logging	includes/minilibx-linux/configure	/^logging(){$/;"	f
-logging	includes/minilibx-linux/test/run_tests.sh	/^logging(){$/;"	f
-loop_hook	includes/minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
-loop_param	includes/minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
-lru	includes/structures.h	/^	struct	cache	*lru;$/;"	m	struct:render	typeref:struct:cache *
-main	includes/minilibx-linux/configure	/^main(){$/;"	f
-main	includes/minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
-main	includes/minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
-main	includes/minilibx-linux/test/run_tests.sh	/^main(){$/;"	f
-main	sources/main.c	/^int	main(int argc, char **argv, char **envp)$/;"	f	typeref:typename:int
-mask	includes/minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
-material	includes/structures.h	/^	t_material	material;$/;"	m	struct:primitives	typeref:typename:t_material
-material	includes/structures.h	/^    t_material	material;$/;"	m	struct:hit	typeref:typename:t_material
-material	includes/structures.h	/^typedef struct material$/;"	s
-math.h	.vscode/settings.json	/^        "math.h": "c"$/;"	s	object:files.associations
-maxHeapify	sources/utilities/sorting.c	/^static void	maxHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
-max_vec	includes/structures.h	/^	t_vec	max_vec;$/;"	m	struct:aabb	typeref:typename:t_vec
-meshes	includes/structures.h	/^typedef struct meshes$/;"	s
-meshing	sources/execution/meshing/meshing.c	/^void	meshing()$/;"	f	typeref:typename:void
-methods	includes/structures.h	/^	t_methods		methods;$/;"	m	struct:object	typeref:typename:t_methods
-methods	includes/structures.h	/^typedef struct methods$/;"	s
-minHeapify	sources/utilities/sorting.c	/^static void	minHeapify(int *arr, int size, int i)$/;"	f	typeref:typename:void	file:
-min_vec	includes/structures.h	/^	t_vec	min_vec;$/;"	m	struct:aabb	typeref:typename:t_vec
-minirt	includes/structures.h	/^typedef	struct	minirt$/;"	s
-minirt.h	.vscode/settings.json	/^        "minirt.h": "c",$/;"	s	object:files.associations
-mlx	includes/minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
-mlx	includes/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
-mlx_X_error	includes/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
-mlx_clear_window	includes/minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
-mlx_col_name	includes/minilibx-linux/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name[]
-mlx_destroy_display	includes/minilibx-linux/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_destroy_image	includes/minilibx-linux/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f	typeref:typename:int
-mlx_destroy_window	includes/minilibx-linux/mlx_destroy_window.c	/^int	mlx_destroy_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
-mlx_do_key_autorepeatoff	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeatoff(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_do_key_autorepeaton	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeaton(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_do_sync	includes/minilibx-linux/mlx_hook.c	/^int	mlx_do_sync(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_expose_hook	includes/minilibx-linux/mlx_expose_hook.c	/^int		mlx_expose_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
-mlx_ext_fullscreen	includes/minilibx-linux/mlx_ext_randr.c	/^int			mlx_ext_fullscreen(t_xvar *xvar, t_win_list *win, int fullscreen)$/;"	f	typeref:typename:int
-mlx_flush_event	includes/minilibx-linux/mlx_flush_event.c	/^int	mlx_flush_event(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_get_color_value	includes/minilibx-linux/mlx_get_color_value.c	/^int             mlx_get_color_value(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
-mlx_get_data_addr	includes/minilibx-linux/mlx_get_data_addr.c	/^char	*mlx_get_data_addr(t_img *img,int *bits_per_pixel,$/;"	f	typeref:typename:char *
-mlx_get_screen_size	includes/minilibx-linux/mlx_screen_size.c	/^int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)$/;"	f	typeref:typename:int
-mlx_hook	includes/minilibx-linux/mlx_hook.c	/^int	mlx_hook(t_win_list *win, int x_event, int x_mask, $/;"	f	typeref:typename:int
-mlx_init	includes/minilibx-linux/mlx_init.c	/^void	*mlx_init()$/;"	f	typeref:typename:void *
-mlx_int_anti_resize_win	includes/minilibx-linux/mlx_int_anti_resize_win.c	/^int	mlx_int_anti_resize_win(t_xvar *xvar,Window win,int w,int h)$/;"	f	typeref:typename:int
-mlx_int_deal_shm	includes/minilibx-linux/mlx_init.c	/^int		mlx_int_deal_shm(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_int_do_nothing	includes/minilibx-linux/mlx_int_do_nothing.c	/^int	mlx_int_do_nothing(void *param)$/;"	f	typeref:typename:int
-mlx_int_egal_img	includes/minilibx-linux/mlx_lib_xpm.c	/^int	mlx_int_egal_img(XImage *img1,XImage *img2)$/;"	f	typeref:typename:int
-mlx_int_file_get_rid_comment	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_file_get_rid_comment(char *ptr, int size)$/;"	f	typeref:typename:int
-mlx_int_get_col_name	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_col_name(char *str,int size)$/;"	f	typeref:typename:int
-mlx_int_get_good_color	includes/minilibx-linux/mlx_get_color_value.c	/^int		mlx_int_get_good_color(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
-mlx_int_get_line	includes/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_get_line(char *ptr,int *pos,int size)$/;"	f	typeref:typename:char *
-mlx_int_get_text_rgb	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_text_rgb(char *name, char *end)$/;"	f	typeref:typename:int
-mlx_int_get_visual	includes/minilibx-linux/mlx_int_get_visual.c	/^int		mlx_int_get_visual(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_int_new_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_image(t_xvar *xvar,int width, int height,int format)$/;"	f	typeref:typename:void *
-mlx_int_new_xshm_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)$/;"	f	typeref:typename:void *
-mlx_int_param_ButtonPress	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_ButtonRelease	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_Expose	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_Expose(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_KeyPress	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_KeyRelease	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_MotionNotify	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_MotionNotify(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_event	includes/minilibx-linux/mlx_int_param_event.c	/^int	(*(mlx_int_param_event[]))() =$/;"	v	typeref:typename:int (* ([]))()
-mlx_int_param_generic	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_generic(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_int_param_undef	includes/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_undef()$/;"	f	typeref:typename:int
-mlx_int_parse_xpm	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())$/;"	f	typeref:typename:void *
-mlx_int_rgb_conversion	includes/minilibx-linux/mlx_init.c	/^int		mlx_int_rgb_conversion(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_int_set_win_event_mask	includes/minilibx-linux/mlx_int_set_win_event_mask.c	/^int	mlx_int_set_win_event_mask(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_int_static_line	includes/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_static_line(char **xpm_data,int *pos,int size)$/;"	f	typeref:typename:char *
-mlx_int_str_str	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str(char *str,char *find,int len)$/;"	f	typeref:typename:int
-mlx_int_str_str_cote	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str_cote(char *str,char *find,int len)$/;"	f	typeref:typename:int
-mlx_int_str_to_wordtab	includes/minilibx-linux/mlx_int_str_to_wordtab.c	/^char	**mlx_int_str_to_wordtab(char *str)$/;"	f	typeref:typename:char **
-mlx_int_wait_first_expose	includes/minilibx-linux/mlx_int_wait_first_expose.c	/^int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)$/;"	f	typeref:typename:int
-mlx_int_xpm_f_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void		*mlx_int_xpm_f_image(t_xvar *xvar,int *width,int *height,$/;"	f	typeref:typename:void *
-mlx_int_xpm_set_pixel	includes/minilibx-linux/mlx_xpm.c	/^int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)$/;"	f	typeref:typename:int
-mlx_key_hook	includes/minilibx-linux/mlx_key_hook.c	/^int		mlx_key_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
-mlx_loop	includes/minilibx-linux/mlx_loop.c	/^int			mlx_loop(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_loop_end	includes/minilibx-linux/mlx_loop.c	/^int			mlx_loop_end(t_xvar *xvar)$/;"	f	typeref:typename:int
-mlx_loop_hook	includes/minilibx-linux/mlx_loop_hook.c	/^int	mlx_loop_hook(t_xvar *xvar,int (*funct)(),void *param)$/;"	f	typeref:typename:int
-mlx_mouse_get_pos	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \\$/;"	f	typeref:typename:int
-mlx_mouse_hide	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_mouse_hook	includes/minilibx-linux/mlx_mouse_hook.c	/^int		mlx_mouse_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
-mlx_mouse_move	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)$/;"	f	typeref:typename:int
-mlx_mouse_show	includes/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
-mlx_new_image	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
-mlx_new_image2	includes/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image2(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
-mlx_new_window	includes/minilibx-linux/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title)$/;"	f	typeref:typename:void *
-mlx_pixel_put	includes/minilibx-linux/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
-mlx_put_image_to_window	includes/minilibx-linux/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f	typeref:typename:int
-mlx_set_font	includes/minilibx-linux/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f	typeref:typename:void
-mlx_string_put	includes/minilibx-linux/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
-mlx_xpm_file_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f	typeref:typename:void *
-mlx_xpm_file_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *
-mlx_xpm_to_image	includes/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
-mlx_xpm_to_image	includes/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
-mlxptr	includes/structures.h	/^	void			*mlxptr;$/;"	m	struct:screen	typeref:typename:void *
-mlxwin	includes/structures.h	/^	void			*mlxwin;$/;"	m	struct:screen	typeref:typename:void *
-mouse_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
-mouse_param	includes/minilibx-linux/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
-mouse_win1	includes/minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
-mouse_win2	includes/minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
-mouse_win3	includes/minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
-name	includes/minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
-name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
-next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
-next	includes/structures.h	/^	struct	cache	*next;$/;"	m	struct:cache	typeref:struct:cache *
-next	includes/structures.h	/^	struct	object	*next;$/;"	m	struct:object	typeref:struct:object *
-next	includes/structures.h	/^	struct meshes	*next;$/;"	m	struct:meshes	typeref:struct:meshes *
-next	includes/structures.h	/^	struct triangle	*next;$/;"	m	struct:triangle	typeref:struct:triangle *
-next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
-normal	includes/structures.h	/^    t_vec		normal;$/;"	m	struct:hit	typeref:typename:t_vec
-normalized_axis	includes/structures.h	/^	t_vec		normalized_axis;	$/;"	m	struct:primitives	typeref:typename:t_vec
-normalized_orientation	includes/structures.h	/^	t_vec	normalized_orientation;$/;"	m	struct:camera	typeref:typename:t_vec
-objcount	includes/structures.h	/^	int				objcount;$/;"	m	struct:bvh	typeref:typename:int
-object	includes/structures.h	/^typedef	struct	object$/;"	s
-objects	includes/structures.h	/^	struct object	*objects;$/;"	m	struct:bvh	typeref:struct:object *
-objects	includes/structures.h	/^    struct object	*objects;$/;"	m	struct:scene	typeref:struct:object *
-objtype	includes/structures.h	/^	union objtype$/;"	u	struct:object
-open_file	sources/parsing/parsing.c	/^static int	open_file(const char *file)$/;"	f	typeref:typename:int	file:
-param	includes/minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
-parse_args	includes/minilibx-linux/configure	/^parse_args(){$/;"	f
-parse_line	sources/parsing/readFileContentAndCreateScene.c	/^static t_object	*parse_line(char *line)$/;"	f	typeref:typename:t_object *	file:
-parsing	sources/parsing/parsing.c	/^bool    parsing(int argc, char **argv, char **envp, t_minirt *minirt)$/;"	f	typeref:typename:bool
-pdata	includes/structures.h	/^	t_prim			pdata;$/;"	m	struct:object	typeref:typename:t_prim
-pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
-plane	includes/structures.h	/^        struct	plane		plane;$/;"	m	union:object::objtype	typeref:struct:plane
-plane	includes/structures.h	/^typedef struct	plane$/;"	s
-plane_initialiser	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*plane_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-plane_intersect	sources/parsing/initialisers/intersections/plane_intersect.c	/^bool	plane_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
-point	includes/structures.h	/^    t_vec		point;$/;"	m	struct:hit	typeref:typename:t_vec
-prev	includes/structures.h	/^	struct	cache	*prev;$/;"	m	struct:cache	typeref:struct:cache *
-primitives	includes/structures.h	/^typedef struct	primitives$/;"	s
-print_ambient	sources/temp.c	/^static void print_ambient(const t_ambient *a)$/;"	f	typeref:typename:void	file:
-print_camera	sources/temp.c	/^static void print_camera(const t_camera *c)$/;"	f	typeref:typename:void	file:
-print_cylinder	sources/temp.c	/^static void print_cylinder(const t_cylinder *c)$/;"	f	typeref:typename:void	file:
-print_error_message	sources/utilities/errorMessages.c	/^bool	print_error_message(char *msg)$/;"	f	typeref:typename:bool
-print_light	sources/temp.c	/^static void print_light(const t_light *l)$/;"	f	typeref:typename:void	file:
-print_minirt	sources/temp.c	/^void	print_minirt(const t_minirt minirt)$/;"	f	typeref:typename:void
-print_object	sources/temp.c	/^void	print_object(const t_object *obj)$/;"	f	typeref:typename:void
-print_objects	sources/temp.c	/^void	print_objects(t_object *objects)$/;"	f	typeref:typename:void
-print_sphere	sources/temp.c	/^static void print_sphere(const t_sphere *s)$/;"	f	typeref:typename:void	file:
-print_tree_bfs	sources/temp.c	/^void	print_tree_bfs(const t_bvh *root)$/;"	f	typeref:typename:void
-print_vec	sources/temp.c	/^void	print_vec(const char *label, t_vec v)$/;"	f	typeref:typename:void
-private_cmap	includes/minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
-pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
-purge_image	sources/utilities/freeUtils.c	/^void	*purge_image(t_screen *screen)$/;"	f	typeref:typename:void *
-putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
+filename	includes/minirt.h	/^	char	*filename;$/;"	m	struct:s_minirt	typeref:typename:char *
+fill_pixel_block	src/rendering/progressive_render.c	/^void	fill_pixel_block(t_minirt *rt, int x, int y, int step,$/;"	f	typeref:typename:void
+format	minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
+fov	includes/minirt.h	/^	double	fov;$/;"	m	struct:s_camera	typeref:typename:double
+free_cone_tokens	src/parsing/parse_cone.c	/^static void	free_cone_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
+free_cube_tokens	src/parsing/parse_cube.c	/^static void	free_cube_tokens(char *pos, char *size, char *col)$/;"	f	typeref:typename:void	file:
+free_cylinder_tokens	src/parsing/parse_cylinder.c	/^static void	free_cylinder_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
+free_plane_tokens	src/parsing/parse_plane.c	/^static void	free_plane_tokens(char *pos, char *norm, char *col)$/;"	f	typeref:typename:void	file:
+free_sphere_tokens	src/parsing/parse_sphere.c	/^static void	free_sphere_tokens(char *pos, char *diam, char *col)$/;"	f	typeref:typename:void	file:
+g	includes/minirt.h	/^	int	g;$/;"	m	struct:s_color	typeref:typename:int
+g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_offsets[4][2] = {$/;"	v	typeref:typename:const double[4][2]	file:
+gc	minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
+gc	minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
+gere_mouse	minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+get_camera_ray	src/rendering/raytracer.c	/^t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)$/;"	f	typeref:typename:t_ray
+get_closest_root	src/math/intersect_sphere.c	/^static double	get_closest_root(double a, double b, double discriminant)$/;"	f	typeref:typename:double	file:
+get_cone_discriminant_root	src/math/intersect_cone.c	/^static double	get_cone_discriminant_root(double a, double b,$/;"	f	typeref:typename:double	file:
+get_cone_normal	src/math/object_normals.c	/^t_vec3	get_cone_normal(t_vec3 hit_point, t_object *cone)$/;"	f	typeref:typename:t_vec3
+get_cone_projections	src/math/cone_utils.c	/^void	get_cone_projections(t_ray ray, t_object *cone, t_vec3 *proj_ray,$/;"	f	typeref:typename:void
+get_cube_bounds	src/math/cube_utils.c	/^void	get_cube_bounds(t_object *cube, t_vec3 *cube_min, t_vec3 *cube_max)$/;"	f	typeref:typename:void
+get_cube_normal	src/math/normal_utils.c	/^static t_vec3	get_cube_normal(t_vec3 hit_point, t_object *cube)$/;"	f	typeref:typename:t_vec3	file:
+get_cylinder_normal	src/math/object_normals.c	/^t_vec3	get_cylinder_normal(t_vec3 hit_point, t_object *cylinder)$/;"	f	typeref:typename:t_vec3
+get_cylinder_root	src/math/intersect_cylinder.c	/^static double	get_cylinder_root(double a, double b, double discriminant)$/;"	f	typeref:typename:double	file:
+get_next_token	src/parsing/parse_utils.c	/^char	*get_next_token(char **str)$/;"	f	typeref:typename:char *
+get_object_bounds	src/utils/bvh.c	/^static t_aabb	get_object_bounds(t_object *obj)$/;"	f	typeref:typename:t_aabb	file:
+get_object_intersection	src/math/intersections.c	/^static double	get_object_intersection(t_ray ray, t_object *current)$/;"	f	typeref:typename:double	file:
+get_object_normal	src/math/normal_utils.c	/^t_vec3	get_object_normal(t_vec3 hit_point, t_object *object)$/;"	f	typeref:typename:t_vec3
+get_plane_normal	src/math/object_normals.c	/^t_vec3	get_plane_normal(t_vec3 hit_point, t_object *plane)$/;"	f	typeref:typename:t_vec3
+get_sphere_normal	src/math/object_normals.c	/^t_vec3	get_sphere_normal(t_vec3 hit_point, t_object *sphere)$/;"	f	typeref:typename:t_vec3
+get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
+handle_close	src/graphics/events.c	/^int	handle_close(t_minirt *rt)$/;"	f	typeref:typename:int
+handle_file_error	src/utils/error.c	/^void	handle_file_error(char *filename, char *operation, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_keypress	src/graphics/events.c	/^int	handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
+handle_loop	src/graphics/events.c	/^int	handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
+handle_malloc_error	src/utils/error.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, t_minirt *rt)$/;"	f	typeref:typename:void
+height	includes/minirt.h	/^	double			height;$/;"	m	struct:s_object	typeref:typename:double
+height	includes/minirt.h	/^	int		height;$/;"	m	struct:s_mlx	typeref:typename:int
+height	minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
+hook	minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
+hooks	minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
+im1	minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
+im2	minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
+im3	minilibx-linux/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
+im4	minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
+image	minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
+img_data	includes/minirt.h	/^	char	*img_data;$/;"	m	struct:s_mlx	typeref:typename:char *
+img_ptr	includes/minirt.h	/^	void	*img_ptr;$/;"	m	struct:s_mlx	typeref:typename:void *
+init_cone_material	src/parsing/parse_cone.c	/^static void	init_cone_material(t_object *cone)$/;"	f	typeref:typename:void	file:
+init_cube_material	src/parsing/parse_cube.c	/^static void	init_cube_material(t_object *cube)$/;"	f	typeref:typename:void	file:
+init_cylinder_material	src/parsing/parse_cylinder.c	/^static void	init_cylinder_material(t_object *cylinder)$/;"	f	typeref:typename:void	file:
+init_minirt	src/main.c	/^static int	init_minirt(t_minirt *rt, char *filename)$/;"	f	typeref:typename:int	file:
+init_mlx	src/graphics/window.c	/^int	init_mlx(t_mlx *mlx)$/;"	f	typeref:typename:int
+init_mlx_context	src/main.c	/^static void	init_mlx_context(t_mlx *mlx)$/;"	f	typeref:typename:void	file:
+init_plane_material	src/parsing/parse_plane.c	/^static void	init_plane_material(t_object *plane)$/;"	f	typeref:typename:void	file:
+init_scene	src/main.c	/^static void	init_scene(t_scene *scene)$/;"	f	typeref:typename:void	file:
+init_sphere_material	src/parsing/parse_sphere.c	/^static void	init_sphere_material(t_object *sphere)$/;"	f	typeref:typename:void	file:
+int_to_color	src/graphics/image.c	/^t_color	int_to_color(int color_int)$/;"	f	typeref:typename:t_color
+intensity	includes/minirt.h	/^	double			intensity;$/;"	m	struct:s_light	typeref:typename:double
+intersect_aabb	src/utils/bvh.c	/^static int	intersect_aabb(t_ray ray, t_aabb box)$/;"	f	typeref:typename:int	file:
+intersect_bvh	src/utils/bvh.c	/^int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_cone	src/math/intersect_cone.c	/^double	intersect_cone(t_ray ray, t_object *cone)$/;"	f	typeref:typename:double
+intersect_cube	src/math/intersect_cube.c	/^double	intersect_cube(t_ray ray, t_object *cube)$/;"	f	typeref:typename:double
+intersect_cylinder	src/math/intersect_cylinder.c	/^double	intersect_cylinder(t_ray ray, t_object *cylinder)$/;"	f	typeref:typename:double
+intersect_plane	src/math/intersect_plane.c	/^double	intersect_plane(t_ray ray, t_object *plane)$/;"	f	typeref:typename:double
+intersect_scene	src/math/intersections.c	/^int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_scene_linear	src/math/intersections.c	/^int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_sphere	src/math/intersect_sphere.c	/^double	intersect_sphere(t_ray ray, t_object *sphere)$/;"	f	typeref:typename:double
+is_empty_line	src/parsing/parse_scene.c	/^static int	is_empty_line(char *line)$/;"	f	typeref:typename:int	file:
+is_in_shadow	src/rendering/lighting.c	/^int	is_in_shadow(t_vec3 point, t_light *light, t_scene *scene)$/;"	f	typeref:typename:int
+is_within_cone_height	src/math/intersect_cone.c	/^static int	is_within_cone_height(t_vec3 hit_point, t_object *cone)$/;"	f	typeref:typename:int	file:
+is_within_cylinder_height	src/math/intersect_cylinder.c	/^static int	is_within_cylinder_height(t_vec3 hit_point, t_object *cylinder)$/;"	f	typeref:typename:int	file:
+key_hook	minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+key_param	minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+key_win1	minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
+key_win2	minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
+key_win3	minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
+left	includes/minirt.h	/^	struct s_bvh_node	*left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
+left	tests/test_cleanup_only.c	/^    struct s_bvh_node *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
+lights	includes/minirt.h	/^	t_light		*lights;$/;"	m	struct:s_scene	typeref:typename:t_light *
+local_endian	minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
+log_error	minilibx-linux/configure	/^log_error(){$/;"	f
+log_error	minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f
+log_info	minilibx-linux/configure	/^log_info(){$/;"	f
+log_info	minilibx-linux/test/run_tests.sh	/^log_info(){$/;"	f
+logging	minilibx-linux/configure	/^logging(){$/;"	f
+logging	minilibx-linux/test/run_tests.sh	/^logging(){$/;"	f
+loop_hook	minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
+loop_param	minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
+main	minilibx-linux/configure	/^main(){$/;"	f
+main	minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
+main	minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
+main	minilibx-linux/test/run_tests.sh	/^main(){$/;"	f
+main	src/main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
+main	tests/test_camera_ray.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_cleanup_only.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_cylinder.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_events.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_events_simple.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_integration.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_intersections.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_mlx_graphics.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_object_parsing.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_object_parsing_final.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_object_parsing_simple.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_parsing.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_parsing_comprehensive.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_parsing_simple.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_ray.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_scene_parsers.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_scene_parsers_simple.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_simple.c	/^int main(void)$/;"	f	typeref:typename:int
+main	tests/test_vector.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_vector_raytracing.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	tests/test_visual_mlx.c	/^int	main(void)$/;"	f	typeref:typename:int
+mask	minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
+material	includes/minirt.h	/^	t_material		material;$/;"	m	struct:s_object	typeref:typename:t_material
+material	includes/minirt.h	/^	t_material	*material;$/;"	m	struct:s_hit	typeref:typename:t_material *
+max	includes/minirt.h	/^	t_vec3	max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
+max	tests/test_cleanup_only.c	/^    t_vec3 max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
+min	includes/minirt.h	/^	t_vec3	min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
+min	tests/test_cleanup_only.c	/^    t_vec3 min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
+mlx	includes/minirt.h	/^	t_mlx	mlx;$/;"	m	struct:s_minirt	typeref:typename:t_mlx
+mlx	minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
+mlx	minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
+mlx_X_error	minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
+mlx_clear_window	minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_col_name	minilibx-linux/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name[]
+mlx_destroy_display	minilibx-linux/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_destroy_image	minilibx-linux/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f	typeref:typename:int
+mlx_destroy_window	minilibx-linux/mlx_destroy_window.c	/^int	mlx_destroy_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeatoff	minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeatoff(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeaton	minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeaton(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_sync	minilibx-linux/mlx_hook.c	/^int	mlx_do_sync(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_expose_hook	minilibx-linux/mlx_expose_hook.c	/^int		mlx_expose_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_ext_fullscreen	minilibx-linux/mlx_ext_randr.c	/^int			mlx_ext_fullscreen(t_xvar *xvar, t_win_list *win, int fullscreen)$/;"	f	typeref:typename:int
+mlx_flush_event	minilibx-linux/mlx_flush_event.c	/^int	mlx_flush_event(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_get_color_value	minilibx-linux/mlx_get_color_value.c	/^int             mlx_get_color_value(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_get_data_addr	minilibx-linux/mlx_get_data_addr.c	/^char	*mlx_get_data_addr(t_img *img,int *bits_per_pixel,$/;"	f	typeref:typename:char *
+mlx_get_screen_size	minilibx-linux/mlx_screen_size.c	/^int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)$/;"	f	typeref:typename:int
+mlx_hook	minilibx-linux/mlx_hook.c	/^int	mlx_hook(t_win_list *win, int x_event, int x_mask, $/;"	f	typeref:typename:int
+mlx_init	minilibx-linux/mlx_init.c	/^void	*mlx_init()$/;"	f	typeref:typename:void *
+mlx_int_anti_resize_win	minilibx-linux/mlx_int_anti_resize_win.c	/^int	mlx_int_anti_resize_win(t_xvar *xvar,Window win,int w,int h)$/;"	f	typeref:typename:int
+mlx_int_deal_shm	minilibx-linux/mlx_init.c	/^int		mlx_int_deal_shm(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_do_nothing	minilibx-linux/mlx_int_do_nothing.c	/^int	mlx_int_do_nothing(void *param)$/;"	f	typeref:typename:int
+mlx_int_egal_img	minilibx-linux/mlx_lib_xpm.c	/^int	mlx_int_egal_img(XImage *img1,XImage *img2)$/;"	f	typeref:typename:int
+mlx_int_file_get_rid_comment	minilibx-linux/mlx_xpm.c	/^int	mlx_int_file_get_rid_comment(char *ptr, int size)$/;"	f	typeref:typename:int
+mlx_int_get_col_name	minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_col_name(char *str,int size)$/;"	f	typeref:typename:int
+mlx_int_get_good_color	minilibx-linux/mlx_get_color_value.c	/^int		mlx_int_get_good_color(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_int_get_line	minilibx-linux/mlx_xpm.c	/^char	*mlx_int_get_line(char *ptr,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_get_text_rgb	minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_text_rgb(char *name, char *end)$/;"	f	typeref:typename:int
+mlx_int_get_visual	minilibx-linux/mlx_int_get_visual.c	/^int		mlx_int_get_visual(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_new_image	minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_image(t_xvar *xvar,int width, int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_new_xshm_image	minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_param_ButtonPress	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_ButtonRelease	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_Expose	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_Expose(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyPress	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyRelease	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_MotionNotify	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_MotionNotify(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_event	minilibx-linux/mlx_int_param_event.c	/^int	(*(mlx_int_param_event[]))() =$/;"	v	typeref:typename:int (* ([]))()
+mlx_int_param_generic	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_generic(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_undef	minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_undef()$/;"	f	typeref:typename:int
+mlx_int_parse_xpm	minilibx-linux/mlx_xpm.c	/^void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())$/;"	f	typeref:typename:void *
+mlx_int_rgb_conversion	minilibx-linux/mlx_init.c	/^int		mlx_int_rgb_conversion(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_set_win_event_mask	minilibx-linux/mlx_int_set_win_event_mask.c	/^int	mlx_int_set_win_event_mask(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_static_line	minilibx-linux/mlx_xpm.c	/^char	*mlx_int_static_line(char **xpm_data,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_str_str	minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_str_cote	minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str_cote(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_to_wordtab	minilibx-linux/mlx_int_str_to_wordtab.c	/^char	**mlx_int_str_to_wordtab(char *str)$/;"	f	typeref:typename:char **
+mlx_int_wait_first_expose	minilibx-linux/mlx_int_wait_first_expose.c	/^int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)$/;"	f	typeref:typename:int
+mlx_int_xpm_f_image	minilibx-linux/mlx_lib_xpm.c	/^void		*mlx_int_xpm_f_image(t_xvar *xvar,int *width,int *height,$/;"	f	typeref:typename:void *
+mlx_int_xpm_set_pixel	minilibx-linux/mlx_xpm.c	/^int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)$/;"	f	typeref:typename:int
+mlx_key_hook	minilibx-linux/mlx_key_hook.c	/^int		mlx_key_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_loop	minilibx-linux/mlx_loop.c	/^int			mlx_loop(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_end	minilibx-linux/mlx_loop.c	/^int			mlx_loop_end(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_hook	minilibx-linux/mlx_loop_hook.c	/^int	mlx_loop_hook(t_xvar *xvar,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_get_pos	minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \\$/;"	f	typeref:typename:int
+mlx_mouse_hide	minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_mouse_hook	minilibx-linux/mlx_mouse_hook.c	/^int		mlx_mouse_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_move	minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)$/;"	f	typeref:typename:int
+mlx_mouse_show	minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_new_image	minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_image2	minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image2(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_window	minilibx-linux/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title)$/;"	f	typeref:typename:void *
+mlx_pixel_put	minilibx-linux/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_ptr	includes/minirt.h	/^	void	*mlx_ptr;$/;"	m	struct:s_mlx	typeref:typename:void *
+mlx_put_image_to_window	minilibx-linux/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f	typeref:typename:int
+mlx_set_font	minilibx-linux/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f	typeref:typename:void
+mlx_string_put	minilibx-linux/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_xpm_file_to_image	minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f	typeref:typename:void *
+mlx_xpm_file_to_image	minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
+mouse_hook	minilibx-linux/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+mouse_param	minilibx-linux/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+mouse_win1	minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win2	minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win3	minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
+move_camera	src/utils/camera.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
+move_camera	src/utils/camera_temp.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
+name	minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
+name	minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
+next	includes/minirt.h	/^	struct s_light	*next;$/;"	m	struct:s_light	typeref:struct:s_light *
+next	includes/minirt.h	/^	struct s_object	*next;$/;"	m	struct:s_object	typeref:struct:s_object *
+next	minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
+normal	includes/minirt.h	/^	t_vec3			normal;$/;"	m	struct:s_object	typeref:typename:t_vec3
+normal	includes/minirt.h	/^	t_vec3		normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
+object	includes/minirt.h	/^	t_object			*object;$/;"	m	struct:s_bvh_node	typeref:typename:t_object *
+object	includes/minirt.h	/^	t_object	*object;$/;"	m	struct:s_hit	typeref:typename:t_object *
+object	tests/test_cleanup_only.c	/^    void *object;$/;"	m	struct:s_bvh_node	typeref:typename:void *	file:
+objects	includes/minirt.h	/^	t_object	*objects;$/;"	m	struct:s_scene	typeref:typename:t_object *
+origin	includes/minirt.h	/^	t_vec3	origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+param	minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
+parse_ambient	src/parsing/parse_camera.c	/^int	parse_ambient(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_args	minilibx-linux/configure	/^parse_args(){$/;"	f
+parse_camera	src/parsing/parse_camera.c	/^int	parse_camera(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_color	src/parsing/parse_utils.c	/^int	parse_color(char *str, t_color *result)$/;"	f	typeref:typename:int
+parse_cone	src/parsing/parse_cone.c	/^int	parse_cone(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_cone	tests/test_scene_parsers_simple.c	/^int parse_cone(char *line, t_scene *scene) { (void)line; (void)scene; return 0; }$/;"	f	typeref:typename:int
+parse_cone_tokens	src/parsing/parse_cone.c	/^static int	parse_cone_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,$/;"	f	typeref:typename:int	file:
+parse_cube	src/parsing/parse_cube.c	/^int	parse_cube(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_cube	tests/test_scene_parsers_simple.c	/^int parse_cube(char *line, t_scene *scene) { (void)line; (void)scene; return 0; }$/;"	f	typeref:typename:int
+parse_cylinder	src/parsing/parse_cylinder.c	/^int	parse_cylinder(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_cylinder_tokens	src/parsing/parse_cylinder.c	/^static int	parse_cylinder_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,$/;"	f	typeref:typename:int	file:
+parse_double	src/parsing/parse_utils.c	/^int	parse_double(char *str, double *result)$/;"	f	typeref:typename:int
+parse_element_by_identifier	src/parsing/parse_scene.c	/^static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *scene)$/;"	f	typeref:typename:int	file:
+parse_int	src/parsing/parse_utils.c	/^int	parse_int(char *str, int *result)$/;"	f	typeref:typename:int
+parse_light	src/parsing/parse_lights.c	/^int	parse_light(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_line	src/parsing/parse_scene.c	/^static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)$/;"	f	typeref:typename:int	file:
+parse_plane	src/parsing/parse_plane.c	/^int	parse_plane(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_scene	src/parsing/parse_scene.c	/^int	parse_scene(char *filename, t_scene *scene)$/;"	f	typeref:typename:int
+parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
+pix	minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
+point	includes/minirt.h	/^	t_vec3		point;$/;"	m	struct:s_hit	typeref:typename:t_vec3
+populate_hit_info	src/math/intersections.c	/^static void	populate_hit_info(t_hit *hit, double closest_t,$/;"	f	typeref:typename:void	file:
+position	includes/minirt.h	/^	t_vec3			position;$/;"	m	struct:s_light	typeref:typename:t_vec3
+position	includes/minirt.h	/^	t_vec3			position;$/;"	m	struct:s_object	typeref:typename:t_vec3
+position	includes/minirt.h	/^	t_vec3	position;$/;"	m	struct:s_camera	typeref:typename:t_vec3
+print_error	src/utils/error.c	/^void	print_error(char *message)$/;"	f	typeref:typename:void
+private_cmap	minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
+process_x_slab	src/math/intersect_cube.c	/^static t_slab_result	process_x_slab(t_ray ray, t_vec3 cube_min,$/;"	f	typeref:typename:t_slab_result	file:
+process_y_slab	src/math/intersect_cube.c	/^static t_slab_result	process_y_slab(t_ray ray, t_vec3 cube_min,$/;"	f	typeref:typename:t_slab_result	file:
+process_z_slab	src/math/intersect_cube.c	/^static t_slab_result	process_z_slab(t_ray ray, t_vec3 cube_min,$/;"	f	typeref:typename:t_slab_result	file:
+profile	Makefile	/^profile: CFLAGS += $(PFLAGS)$/;"	t
+profile	Makefile	/^profile: LIBS += $(PFLAGS)$/;"	t
+profile	Makefile	/^profile: fclean $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
+pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
+put_pixel	src/graphics/image.c	/^void	put_pixel(t_mlx *mlx, int x, int y, t_color color)$/;"	f	typeref:typename:void
+r	includes/minirt.h	/^	int	r;$/;"	m	struct:s_color	typeref:typename:int
+radius	includes/minirt.h	/^	double			radius;$/;"	m	struct:s_object	typeref:typename:double
+ray_at	src/math/ray.c	/^t_vec3	ray_at(t_ray ray, double t)$/;"	f	typeref:typename:t_vec3
+ray_distance_to_point	src/math/ray.c	/^double	ray_distance_to_point(t_ray ray, t_vec3 point)$/;"	f	typeref:typename:double
+ray_new	src/math/ray.c	/^t_ray	ray_new(t_vec3 origin, t_vec3 direction)$/;"	f	typeref:typename:t_ray
+ray_reflect	src/math/ray.c	/^t_ray	ray_reflect(t_ray incident, t_vec3 hit_point, t_vec3 normal)$/;"	f	typeref:typename:t_ray
+ray_transform	src/math/ray.c	/^t_ray	ray_transform(t_ray ray, t_vec3 translation)$/;"	f	typeref:typename:t_ray
+raycast	src/rendering/raytracer.c	/^t_color	raycast(t_ray ray, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
+raycast_optimized	src/rendering/raycast_optimized.c	/^t_color	raycast_optimized(t_ray ray, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 re	Makefile	/^re: fclean all$/;"	t
-re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
-re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
-re	sources/utilities/Libft/Makefile	/^re: fclean all$/;"	t
-read_file_content_and_create_scene	sources/parsing/readFileContentAndCreateScene.c	/^bool    read_file_content_and_create_scene(t_minirt *minirt, int fd)$/;"	f	typeref:typename:bool
-reflect	sources/execution/rendering/reflexion_and_refraction.c	/^t_vec	reflect(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
-refract	sources/execution/rendering/reflexion_and_refraction.c	/^t_vec	refract(t_vec v1, t_vec v2, float v1eta, float v2eta)$/;"	f	typeref:typename:t_vec
-refractive_index	includes/structures.h	/^    float	refractive_index;$/;"	m	struct:material	typeref:typename:float
-render	includes/structures.h	/^typedef	struct	render$/;"	s
-rendering	includes/structures.h	/^	struct	render	rendering;$/;"	m	struct:minirt	typeref:struct:render
-right	includes/structures.h	/^    struct bvh		*right;$/;"	m	struct:bvh	typeref:struct:bvh *
-root	includes/minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
-root	includes/structures.h	/^	struct	bvh		*root;$/;"	m	struct:render	typeref:struct:bvh *
-s_col_name	includes/minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
-s_event_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_event_list$/;"	s
-s_img	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_img$/;"	s
-s_list	sources/utilities/Libft/includes/libft.h	/^typedef struct s_list$/;"	s
-s_win_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_win_list$/;"	s
-s_xpm_col	includes/minilibx-linux/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
-s_xvar	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_xvar$/;"	s
-saved_mode	includes/minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
-scene	includes/structures.h	/^    struct	scene	*scene;$/;"	m	struct:minirt	typeref:struct:scene *
-scene	includes/structures.h	/^typedef struct	scene$/;"	s
-scene_intersect	sources/execution/rendering/rays/castRay.c	/^bool	scene_intersect(t_scene *scene, t_vec orig, t_vec dir, \\$/;"	f	typeref:typename:bool
-screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
-screen	includes/structures.h	/^	struct	screen	screen;$/;"	m	struct:minirt	typeref:struct:screen
-screen	includes/structures.h	/^typedef struct	screen$/;"	s
-set	includes/structures.h	/^	bool	set;$/;"	m	struct:material	typeref:typename:bool
-set_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*set_line(char *line)$/;"	f	typeref:typename:char *
-set_standard_material	sources/parsing/initialisers/materials.c	/^void	set_standard_material(t_material *m)$/;"	f	typeref:typename:void
-set_vec_value	sources/utilities/vectorOperations1.c	/^inline t_vec	set_vec_value(float x, float y, float z)$/;"	f	typeref:typename:t_vec
-shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
-shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
-show	includes/minilibx-linux/Makefile.mk	/^show:$/;"	t
-show	includes/minilibx-linux/test/Makefile.mk	/^show:$/;"	t
-show_help	includes/minilibx-linux/configure	/^show_help(){$/;"	f
-sigint_handler	includes/minilibx-linux/test/run_tests.sh	/^sigint_handler(){$/;"	f
-size_line	includes/minilibx-linux/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img	typeref:typename:int
-sl1	includes/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
-sl2	includes/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
-sl3	includes/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
-sl4	includes/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
-solve_cylinder_quadratic	sources/parsing/initialisers/intersections/cylinder_intersect.c	/^static bool	solve_cylinder_quadratic(float a, float b, float c, float *t)$/;"	f	typeref:typename:bool	file:
-specular_exponent	includes/structures.h	/^    float	specular_exponent;$/;"	m	struct:material	typeref:typename:float
-sphere	includes/structures.h	/^        struct	sphere		sphere;$/;"	m	union:object::objtype	typeref:struct:sphere
-sphere	includes/structures.h	/^typedef struct	sphere$/;"	s
-sphere_initialiser	sources/parsing/initialisers/primitive_objects_initialisers.c	/^void	*sphere_initialiser(char **str, void *data, t_prim *pdata)$/;"	f	typeref:typename:void *
-sphere_intersect	sources/parsing/initialisers/intersections/sphere_intersect.c	/^bool sphere_intersect(t_object *obj, t_vec orig, t_vec dir, t_hit *hit)$/;"	f	typeref:typename:bool
-start_rendering	sources/execution/rendering/startRendering.c	/^bool	start_rendering(t_minirt *minirt)$/;"	f	typeref:typename:bool
-strlcpy_is_not_posix	includes/minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
-t_aabb	includes/structures.h	/^}	t_aabb;$/;"	t	typeref:struct:aabb
-t_ambient	includes/structures.h	/^}	t_ambient;$/;"	t	typeref:struct:ambient
-t_bvh	includes/structures.h	/^}	t_bvh;$/;"	t	typeref:struct:bvh
-t_cache	includes/structures.h	/^}	t_cache;$/;"	t	typeref:struct:cache
-t_camera	includes/structures.h	/^}	t_camera;$/;"	t	typeref:struct:camera
-t_cylinder	includes/structures.h	/^}	t_cylinder;$/;"	t	typeref:struct:cylinder
-t_event_list	includes/minilibx-linux/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
-t_hit	includes/structures.h	/^}	t_hit;$/;"	t	typeref:struct:hit
-t_img	includes/minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
-t_light	includes/structures.h	/^}	t_light;$/;"	t	typeref:struct:light
-t_list	sources/utilities/Libft/includes/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
-t_material	includes/structures.h	/^}	t_material;$/;"	t	typeref:struct:material
-t_mesh	includes/structures.h	/^}	t_mesh;$/;"	t	typeref:struct:meshes
-t_methods	includes/structures.h	/^}	t_methods;$/;"	t	typeref:struct:methods
-t_minirt	includes/structures.h	/^}	t_minirt;$/;"	t	typeref:struct:minirt
-t_object	includes/structures.h	/^}	t_object;$/;"	t	typeref:struct:object
-t_plane	includes/structures.h	/^}	t_plane;$/;"	t	typeref:struct:plane
-t_prim	includes/structures.h	/^}	t_prim;$/;"	t	typeref:struct:primitives
-t_render	includes/structures.h	/^}	t_render;$/;"	t	typeref:struct:render
-t_scene	includes/structures.h	/^}	t_scene;$/;"	t	typeref:struct:scene
-t_screen	includes/structures.h	/^}	t_screen;$/;"	t	typeref:struct:screen
-t_sphere	includes/structures.h	/^}	t_sphere;$/;"	t	typeref:struct:sphere
-t_triangle	includes/structures.h	/^}	t_triangle;$/;"	t	typeref:struct:triangle
-t_vec	includes/structures.h	/^}	t_vec;$/;"	t	typeref:struct:vector
-t_win_list	includes/minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
-t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
-t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
-test_default_main	includes/minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
-tmp_img	includes/structures.h	/^	struct	s_img	*tmp_img;$/;"	m	struct:screen	typeref:struct:s_img *
-trace_rays	sources/execution/rendering/rays/traceRays.c	/^void	trace_rays(t_minirt *minirt, int width, int height)$/;"	f	typeref:typename:void
-triangle	includes/structures.h	/^typedef struct	triangle$/;"	s
-type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
-type	includes/structures.h	/^	char			type;$/;"	m	struct:object	typeref:typename:char
-type	includes/structures.h	/^	char	type;$/;"	m	struct:cache	typeref:typename:char
-u_type	includes/structures.h	/^    }	u_type;$/;"	m	struct:object	typeref:union:object::objtype
-use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
-utilities.h	.vscode/settings.json	/^        "utilities.h": "c",$/;"	s	object:files.associations
-v	includes/structures.h	/^	void	*v;$/;"	m	struct:plane	typeref:typename:void *
-v1	includes/structures.h	/^	struct vector	v1;$/;"	m	struct:triangle	typeref:struct:vector
-v2	includes/structures.h	/^	struct vector	v2;$/;"	m	struct:triangle	typeref:struct:vector
-v3	includes/structures.h	/^	struct vector	v3;$/;"	m	struct:triangle	typeref:struct:vector
-vec_add	sources/utilities/vectorOperations.c	/^inline t_vec	vec_add(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
-vec_cross	sources/utilities/vectorOperations1.c	/^inline t_vec	vec_cross(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
-vec_dot	sources/utilities/vectorOperations.c	/^inline float	vec_dot(t_vec a, t_vec b)$/;"	f	typeref:typename:float
-vec_negate	sources/utilities/vectorOperations1.c	/^inline t_vec	vec_negate(t_vec v)$/;"	f	typeref:typename:t_vec
-vec_norm	sources/utilities/vectorOperations.c	/^inline float	vec_norm(t_vec v)$/;"	f	typeref:typename:float
-vec_normalized	sources/utilities/vectorOperations1.c	/^inline t_vec	vec_normalized(t_vec v)$/;"	f	typeref:typename:t_vec
-vec_scale	sources/utilities/vectorOperations.c	/^inline t_vec	vec_scale(t_vec vector, float s)$/;"	f	typeref:typename:t_vec
-vec_sub	sources/utilities/vectorOperations.c	/^inline t_vec	vec_sub(t_vec a, t_vec b)$/;"	f	typeref:typename:t_vec
-vec_to_color	sources/execution/rendering/rays/traceRays.c	/^int vec_to_color(t_vec color)$/;"	f	typeref:typename:int
-vector	includes/structures.h	/^typedef struct vector$/;"	s
-view_point	includes/structures.h	/^	t_vec	view_point;$/;"	m	struct:camera	typeref:typename:t_vec
-visual	includes/minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
-width	includes/minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
-width	includes/structures.h	/^	int				width;$/;"	m	struct:screen	typeref:typename:int
-win1	includes/minilibx-linux/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
-win1	includes/minilibx-linux/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
-win2	includes/minilibx-linux/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *
-win2	includes/minilibx-linux/test/new_win.c	/^void *win2;$/;"	v	typeref:typename:void *
-win3	includes/minilibx-linux/test/main.c	/^void    *win3;$/;"	v	typeref:typename:void *
-win_count	includes/minilibx-linux/mlx_loop.c	/^static int	win_count(t_xvar *xvar)$/;"	f	typeref:typename:int	file:
-win_list	includes/minilibx-linux/mlx_int.h	/^	t_win_list	*win_list;$/;"	m	struct:s_xvar	typeref:typename:t_win_list *
-window	includes/minilibx-linux/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win_list	typeref:typename:Window
-wm_delete_window	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar	typeref:typename:Atom
-wm_protocols	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
-x	includes/structures.h	/^	float	x;$/;"	m	struct:vector	typeref:typename:float
-xpm1_x	includes/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
-xpm1_y	includes/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
-y	includes/structures.h	/^	float	y;$/;"	m	struct:vector	typeref:typename:float
-z	includes/structures.h	/^	float	z;$/;"	m	struct:vector	typeref:typename:float
+re	minilibx-linux/Makefile	/^re	: clean all$/;"	t
+re	minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
+read_file_line	src/parsing/parse_scene.c	/^static char	*read_file_line(int fd)$/;"	f	typeref:typename:char *	file:
+reflection	includes/minirt.h	/^	double	reflection;$/;"	m	struct:s_material	typeref:typename:double
+refraction_index	includes/minirt.h	/^	double	refraction_index;$/;"	m	struct:s_material	typeref:typename:double
+render_all_pixels	src/rendering/raytracer.c	/^static void	render_all_pixels(t_minirt *rt)$/;"	f	typeref:typename:void	file:
+render_pixel_adaptive	src/rendering/antialiasing.c	/^t_color	render_pixel_adaptive(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
+render_pixel_antialiased	src/rendering/antialiasing.c	/^t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
+render_pixel_at_coordinates	src/rendering/raytracer_utils.c	/^void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,$/;"	f	typeref:typename:void
+render_progressive_step	src/rendering/progressive_render.c	/^void	render_progressive_step(t_minirt *rt, int step,$/;"	f	typeref:typename:void
+render_scene	src/rendering/raytracer.c	/^void	render_scene(t_minirt *rt)$/;"	f	typeref:typename:void
+render_scene_progressive	src/rendering/progressive_render.c	/^void	render_scene_progressive(t_minirt *rt)$/;"	f	typeref:typename:void
+right	includes/minirt.h	/^	struct s_bvh_node	*right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
+right	includes/minirt.h	/^	t_vec3	right;$/;"	m	struct:s_camera	typeref:typename:t_vec3
+right	tests/test_cleanup_only.c	/^    struct s_bvh_node *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
+root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
+rotate_camera	src/utils/camera.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
+rotate_camera	src/utils/camera_temp.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
+run_test	tests/run_tests.sh	/^run_test() {$/;"	f
+s_aabb	includes/minirt.h	/^typedef struct s_aabb$/;"	s
+s_aabb	tests/test_cleanup_only.c	/^typedef struct s_aabb$/;"	s	file:
+s_bvh_node	includes/minirt.h	/^typedef struct s_bvh_node$/;"	s
+s_bvh_node	tests/test_cleanup_only.c	/^typedef struct s_bvh_node$/;"	s	file:
+s_camera	includes/minirt.h	/^typedef struct s_camera$/;"	s
+s_col_name	minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
+s_color	includes/minirt.h	/^typedef struct s_color$/;"	s
+s_cone_params	includes/minirt.h	/^typedef struct s_cone_params$/;"	s
+s_cylinder_params	includes/minirt.h	/^typedef struct s_cylinder_params$/;"	s
+s_event_list	minilibx-linux/mlx_int.h	/^typedef struct	s_event_list$/;"	s
+s_hit	includes/minirt.h	/^typedef struct s_hit$/;"	s
+s_img	minilibx-linux/mlx_int.h	/^typedef struct	s_img$/;"	s
+s_light	includes/minirt.h	/^typedef struct s_light$/;"	s
+s_material	includes/minirt.h	/^typedef struct s_material$/;"	s
+s_minirt	includes/minirt.h	/^typedef struct s_minirt$/;"	s
+s_mlx	includes/minirt.h	/^typedef struct s_mlx$/;"	s
+s_object	includes/minirt.h	/^typedef struct s_object$/;"	s
+s_ray	includes/minirt.h	/^typedef struct s_ray$/;"	s
+s_scene	includes/minirt.h	/^typedef struct s_scene$/;"	s
+s_slab_intersections	includes/minirt.h	/^typedef struct s_slab_intersections$/;"	s
+s_slab_result	includes/minirt.h	/^typedef struct s_slab_result$/;"	s
+s_vec3	includes/minirt.h	/^typedef struct s_vec3$/;"	s
+s_vec3	tests/test_cleanup_only.c	/^typedef struct s_vec3$/;"	s	file:
+s_win_list	minilibx-linux/mlx_int.h	/^typedef struct	s_win_list$/;"	s
+s_xpm_col	minilibx-linux/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
+s_xvar	minilibx-linux/mlx_int.h	/^typedef struct	s_xvar$/;"	s
+safe_calloc	src/utils/memory.c	/^void	*safe_calloc(size_t count, size_t size)$/;"	f	typeref:typename:void *
+safe_free	src/utils/memory.c	/^void	safe_free(void **ptr)$/;"	f	typeref:typename:void
+safe_free	tests/test_cleanup_only.c	/^void safe_free(void **ptr)$/;"	f	typeref:typename:void
+safe_malloc	src/utils/memory.c	/^void	*safe_malloc(size_t size)$/;"	f	typeref:typename:void *
+safe_malloc	tests/test_cleanup_only.c	/^void *safe_malloc(size_t size)$/;"	f	typeref:typename:void *
+safe_realloc	src/utils/memory.c	/^void	*safe_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
+safe_strdup	src/utils/memory.c	/^char	*safe_strdup(char *str)$/;"	f	typeref:typename:char *
+saved_mode	minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
+scene	includes/minirt.h	/^	t_scene	scene;$/;"	m	struct:s_minirt	typeref:typename:t_scene
+screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
+set_cylinder_properties	src/parsing/parse_cylinder.c	/^static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:void	file:
+setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
+setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
+shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
+shm_att_pb	minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
+show	minilibx-linux/Makefile.mk	/^show:$/;"	t
+show	minilibx-linux/test/Makefile.mk	/^show:$/;"	t
+show_help	minilibx-linux/configure	/^show_help(){$/;"	f
+sigint_handler	minilibx-linux/test/run_tests.sh	/^sigint_handler(){$/;"	f
+size_line	includes/minirt.h	/^	int		size_line;$/;"	m	struct:s_mlx	typeref:typename:int
+size_line	minilibx-linux/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img	typeref:typename:int
+skip_whitespace	src/parsing/parse_scene.c	/^static char	*skip_whitespace(char *str)$/;"	f	typeref:typename:char *	file:
+skip_whitespace	src/parsing/parse_utils.c	/^static char	*skip_whitespace(char *str)$/;"	f	typeref:typename:char *	file:
+sl1	minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
+sl2	minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
+sl3	minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
+sl4	minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
+solve_quadratic	src/math/intersect_sphere.c	/^static double	solve_quadratic(double a, double b, double c)$/;"	f	typeref:typename:double	file:
+solve_quadratic_cone	src/math/intersect_cone.c	/^static double	solve_quadratic_cone(double a, double b, double c)$/;"	f	typeref:typename:double	file:
+solve_quadratic_cylinder	src/math/intersect_cylinder.c	/^static double	solve_quadratic_cylinder(double a, double b, double c)$/;"	f	typeref:typename:double	file:
+strlcpy_is_not_posix	minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
+swap_values	src/math/cube_utils.c	/^void	swap_values(double *t1, double *t2)$/;"	f	typeref:typename:void
+t	includes/minirt.h	/^	double		t;$/;"	m	struct:s_hit	typeref:typename:double
+t1	includes/minirt.h	/^	double	t1;$/;"	m	struct:s_slab_intersections	typeref:typename:double
+t2	includes/minirt.h	/^	double	t2;$/;"	m	struct:s_slab_intersections	typeref:typename:double
+t_aabb	includes/minirt.h	/^}	t_aabb;$/;"	t	typeref:struct:s_aabb
+t_aabb	tests/test_cleanup_only.c	/^} t_aabb;$/;"	t	typeref:struct:s_aabb	file:
+t_bvh_node	includes/minirt.h	/^}	t_bvh_node;$/;"	t	typeref:struct:s_bvh_node
+t_bvh_node	tests/test_cleanup_only.c	/^} t_bvh_node;$/;"	t	typeref:struct:s_bvh_node	file:
+t_camera	includes/minirt.h	/^}	t_camera;$/;"	t	typeref:struct:s_camera
+t_color	includes/minirt.h	/^}	t_color;$/;"	t	typeref:struct:s_color
+t_cone_params	includes/minirt.h	/^}	t_cone_params;$/;"	t	typeref:struct:s_cone_params
+t_cylinder_params	includes/minirt.h	/^}	t_cylinder_params;$/;"	t	typeref:struct:s_cylinder_params
+t_error	includes/minirt.h	/^}	t_error;$/;"	t	typeref:enum:e_error
+t_event_list	minilibx-linux/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
+t_hit	includes/minirt.h	/^}	t_hit;$/;"	t	typeref:struct:s_hit
+t_img	minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
+t_light	includes/minirt.h	/^}	t_light;$/;"	t	typeref:struct:s_light
+t_material	includes/minirt.h	/^}	t_material;$/;"	t	typeref:struct:s_material
+t_max	includes/minirt.h	/^	double	t_max;$/;"	m	struct:s_slab_result	typeref:typename:double
+t_min	includes/minirt.h	/^	double	t_min;$/;"	m	struct:s_slab_result	typeref:typename:double
+t_minirt	includes/minirt.h	/^}	t_minirt;$/;"	t	typeref:struct:s_minirt
+t_mlx	includes/minirt.h	/^}	t_mlx;$/;"	t	typeref:struct:s_mlx
+t_object	includes/minirt.h	/^}	t_object;$/;"	t	typeref:struct:s_object
+t_ray	includes/minirt.h	/^}	t_ray;$/;"	t	typeref:struct:s_ray
+t_scene	includes/minirt.h	/^}	t_scene;$/;"	t	typeref:struct:s_scene
+t_slab_intersections	includes/minirt.h	/^}	t_slab_intersections;$/;"	t	typeref:struct:s_slab_intersections
+t_slab_result	includes/minirt.h	/^}	t_slab_result;$/;"	t	typeref:struct:s_slab_result
+t_vec3	includes/minirt.h	/^}	t_vec3;$/;"	t	typeref:struct:s_vec3
+t_vec3	tests/test_cleanup_only.c	/^} t_vec3;$/;"	t	typeref:struct:s_vec3	file:
+t_win_list	minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
+t_xpm_col	minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
+t_xvar	minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
+test_all_object_types	tests/test_integration.c	/^void	test_all_object_types(void)$/;"	f	typeref:typename:void
+test_camera_fov_effects	tests/test_camera_ray.c	/^void	test_camera_fov_effects(void)$/;"	f	typeref:typename:void
+test_camera_vectors	tests/test_vector_raytracing.c	/^void	test_camera_vectors(void)$/;"	f	typeref:typename:void
+test_close_handler	tests/test_visual_mlx.c	/^int	test_close_handler(t_mlx *mlx)$/;"	f	typeref:typename:int
+test_color_conversion	tests/test_mlx_graphics.c	/^void	test_color_conversion(void)$/;"	f	typeref:typename:void
+test_complete_scene_parsing	tests/test_scene_parsers.c	/^void test_complete_scene_parsing(void)$/;"	f	typeref:typename:void
+test_complete_scene_parsing	tests/test_scene_parsers_simple.c	/^void test_complete_scene_parsing(void)$/;"	f	typeref:typename:void
+test_cylinder_intersection_basic	tests/test_intersections.c	/^void	test_cylinder_intersection_basic(void)$/;"	f	typeref:typename:void
+test_default_main	minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
+test_edge_cases	tests/test_object_parsing_final.c	/^void test_edge_cases(void)$/;"	f	typeref:typename:void
+test_error_handling_integration	tests/test_integration.c	/^void	test_error_handling_integration(void)$/;"	f	typeref:typename:void
+test_get_next_token	tests/test_parsing_comprehensive.c	/^void	test_get_next_token(void)$/;"	f	typeref:typename:void
+test_intersect_scene	tests/test_intersections.c	/^void	test_intersect_scene(void)$/;"	f	typeref:typename:void
+test_intersection_accuracy	tests/test_intersections.c	/^void	test_intersection_accuracy(void)$/;"	f	typeref:typename:void
+test_intersection_performance	tests/test_intersections.c	/^void	test_intersection_performance(void)$/;"	f	typeref:typename:void
+test_key_handler	tests/test_visual_mlx.c	/^int	test_key_handler(int keycode, t_mlx *mlx)$/;"	f	typeref:typename:int
+test_lighting_scenarios	tests/test_integration.c	/^void	test_lighting_scenarios(void)$/;"	f	typeref:typename:void
+test_memory_management	tests/test_integration.c	/^void	test_memory_management(void)$/;"	f	typeref:typename:void
+test_mlx_init	tests/test_mlx_graphics.c	/^void	test_mlx_init(void)$/;"	f	typeref:typename:void
+test_multiple_objects	tests/test_object_parsing.c	/^void test_multiple_objects(void)$/;"	f	typeref:typename:void
+test_multiple_objects	tests/test_object_parsing_final.c	/^void test_multiple_objects(void)$/;"	f	typeref:typename:void
+test_object_parsing	tests/test_parsing_comprehensive.c	/^void	test_object_parsing(void)$/;"	f	typeref:typename:void
+test_object_validation	tests/test_object_parsing.c	/^void test_object_validation(void)$/;"	f	typeref:typename:void
+test_object_validation	tests/test_object_parsing_final.c	/^void test_object_validation(void)$/;"	f	typeref:typename:void
+test_parse_color	tests/test_parsing_comprehensive.c	/^void	test_parse_color(void)$/;"	f	typeref:typename:void
+test_parse_cylinder	tests/test_object_parsing.c	/^void test_parse_cylinder(void)$/;"	f	typeref:typename:void
+test_parse_cylinder	tests/test_object_parsing_final.c	/^void test_parse_cylinder(void)$/;"	f	typeref:typename:void
+test_parse_double	tests/test_parsing_comprehensive.c	/^void	test_parse_double(void)$/;"	f	typeref:typename:void
+test_parse_int	tests/test_parsing_comprehensive.c	/^void	test_parse_int(void)$/;"	f	typeref:typename:void
+test_parse_plane	tests/test_object_parsing.c	/^void test_parse_plane(void)$/;"	f	typeref:typename:void
+test_parse_plane	tests/test_object_parsing_final.c	/^void test_parse_plane(void)$/;"	f	typeref:typename:void
+test_parse_sphere	tests/test_object_parsing.c	/^void test_parse_sphere(void)$/;"	f	typeref:typename:void
+test_parse_sphere	tests/test_object_parsing_final.c	/^void test_parse_sphere(void)$/;"	f	typeref:typename:void
+test_parse_vec3	tests/test_parsing_comprehensive.c	/^void	test_parse_vec3(void)$/;"	f	typeref:typename:void
+test_parsing_error_cases	tests/test_parsing_comprehensive.c	/^void	test_parsing_error_cases(void)$/;"	f	typeref:typename:void
+test_performance_complex_scene	tests/test_integration.c	/^void	test_performance_complex_scene(void)$/;"	f	typeref:typename:void
+test_pixel_operations	tests/test_mlx_graphics.c	/^void	test_pixel_operations(void)$/;"	f	typeref:typename:void
+test_plane_intersection_angled	tests/test_intersections.c	/^void	test_plane_intersection_angled(void)$/;"	f	typeref:typename:void
+test_plane_intersection_basic	tests/test_intersections.c	/^void	test_plane_intersection_basic(void)$/;"	f	typeref:typename:void
+test_ray_at	tests/test_ray.c	/^void	test_ray_at(void)$/;"	f	typeref:typename:void
+test_ray_distance_to_point	tests/test_ray.c	/^void	test_ray_distance_to_point(void)$/;"	f	typeref:typename:void
+test_ray_from_camera	tests/test_camera_ray.c	/^void	test_ray_from_camera(void)$/;"	f	typeref:typename:void
+test_ray_new	tests/test_ray.c	/^void	test_ray_new(void)$/;"	f	typeref:typename:void
+test_ray_reflect	tests/test_ray.c	/^void	test_ray_reflect(void)$/;"	f	typeref:typename:void
+test_ray_tracing_scenarios	tests/test_ray.c	/^void	test_ray_tracing_scenarios(void)$/;"	f	typeref:typename:void
+test_ray_transform	tests/test_ray.c	/^void	test_ray_transform(void)$/;"	f	typeref:typename:void
+test_raytracing_scenarios	tests/test_vector_raytracing.c	/^void	test_raytracing_scenarios(void)$/;"	f	typeref:typename:void
+test_rendering_pipeline	tests/test_integration.c	/^void	test_rendering_pipeline(void)$/;"	f	typeref:typename:void
+test_scene_element_parsing	tests/test_parsing_comprehensive.c	/^void	test_scene_element_parsing(void)$/;"	f	typeref:typename:void
+test_scene_parsing_integration	tests/test_integration.c	/^void	test_scene_parsing_integration(void)$/;"	f	typeref:typename:void
+test_scene_validation	tests/test_parsing_comprehensive.c	/^void	test_scene_validation(void)$/;"	f	typeref:typename:void
+test_slab_intersection	src/math/cube_utils.c	/^int	test_slab_intersection(double ray_dir, double ray_orig,$/;"	f	typeref:typename:int
+test_sphere_intersection_basic	tests/test_intersections.c	/^void	test_sphere_intersection_basic(void)$/;"	f	typeref:typename:void
+test_sphere_intersection_edge_cases	tests/test_intersections.c	/^void	test_sphere_intersection_edge_cases(void)$/;"	f	typeref:typename:void
+test_vec3_add	tests/test_vector.c	/^void	test_vec3_add(void)$/;"	f	typeref:typename:void
+test_vec3_cross	tests/test_vector.c	/^void	test_vec3_cross(void)$/;"	f	typeref:typename:void
+test_vec3_div	tests/test_vector.c	/^void	test_vec3_div(void)$/;"	f	typeref:typename:void
+test_vec3_dot	tests/test_vector.c	/^void	test_vec3_dot(void)$/;"	f	typeref:typename:void
+test_vec3_length	tests/test_vector.c	/^void	test_vec3_length(void)$/;"	f	typeref:typename:void
+test_vec3_length_squared	tests/test_vector.c	/^void	test_vec3_length_squared(void)$/;"	f	typeref:typename:void
+test_vec3_mult	tests/test_vector.c	/^void	test_vec3_mult(void)$/;"	f	typeref:typename:void
+test_vec3_new	tests/test_vector.c	/^void	test_vec3_new(void)$/;"	f	typeref:typename:void
+test_vec3_normalize	tests/test_vector.c	/^void	test_vec3_normalize(void)$/;"	f	typeref:typename:void
+test_vec3_sub	tests/test_vector.c	/^void	test_vec3_sub(void)$/;"	f	typeref:typename:void
+transparency	includes/minirt.h	/^	double	transparency;$/;"	m	struct:s_material	typeref:typename:double
+type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
+type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
+up	includes/minirt.h	/^	t_vec3	up;$/;"	m	struct:s_camera	typeref:typename:t_vec3
+update_camera_vectors	src/utils/camera.c	/^void	update_camera_vectors(t_camera *camera)$/;"	f	typeref:typename:void
+update_closest_hit	src/math/intersections.c	/^static void	update_closest_hit(double t, t_object *current,$/;"	f	typeref:typename:void	file:
+update_intersection_interval	src/math/cube_utils.c	/^t_slab_result	update_intersection_interval(t_slab_result prev,$/;"	f	typeref:typename:t_slab_result
+use_xshm	minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
+valid	includes/minirt.h	/^	int		valid;$/;"	m	struct:s_slab_result	typeref:typename:int
+validate_arguments	src/main.c	/^static int	validate_arguments(int argc, char **argv)$/;"	f	typeref:typename:int	file:
+validate_cone_params	src/parsing/parse_cone.c	/^static int	validate_cone_params(double angle, double height, t_vec3 axis)$/;"	f	typeref:typename:int	file:
+validate_cube_params	src/parsing/parse_cube.c	/^static int	validate_cube_params(double size)$/;"	f	typeref:typename:int	file:
+validate_cylinder_params	src/parsing/parse_cylinder.c	/^static int	validate_cylinder_params(double diameter, double height, t_vec3 axis)$/;"	f	typeref:typename:int	file:
+validate_file_access	src/main.c	/^static int	validate_file_access(char *filename)$/;"	f	typeref:typename:int	file:
+validate_file_extension	src/main.c	/^static int	validate_file_extension(char *filename)$/;"	f	typeref:typename:int	file:
+validate_plane_params	src/parsing/parse_plane.c	/^static int	validate_plane_params(t_vec3 normal)$/;"	f	typeref:typename:int	file:
+validate_scene	src/utils/error.c	/^int	validate_scene(t_scene *scene)$/;"	f	typeref:typename:int
+validate_scene_with_filename	src/parsing/parse_scene.c	/^static int	validate_scene_with_filename(t_scene *scene, char *filename)$/;"	f	typeref:typename:int	file:
+validate_sphere_params	src/parsing/parse_sphere.c	/^static int	validate_sphere_params(double diameter)$/;"	f	typeref:typename:int	file:
+vec3_add	src/math/vector.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+vec3_cross	src/math/vector.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+vec3_div	src/math/vector.c	/^t_vec3	vec3_div(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
+vec3_dot	src/math/vector.c	/^double	vec3_dot(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:double
+vec3_equals	tests/test_camera_ray.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
+vec3_equals	tests/test_parsing_comprehensive.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
+vec3_equals	tests/test_ray.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
+vec3_equals	tests/test_vector.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
+vec3_equals	tests/test_vector_raytracing.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
+vec3_length	src/math/vector.c	/^double	vec3_length(t_vec3 v)$/;"	f	typeref:typename:double
+vec3_length_squared	src/math/vector.c	/^double	vec3_length_squared(t_vec3 v)$/;"	f	typeref:typename:double
+vec3_mult	src/math/vector.c	/^t_vec3	vec3_mult(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
+vec3_new	src/math/vector.c	/^t_vec3	vec3_new(double x, double y, double z)$/;"	f	typeref:typename:t_vec3
+vec3_normalize	src/math/vector.c	/^t_vec3	vec3_normalize(t_vec3 v)$/;"	f	typeref:typename:t_vec3
+vec3_sub	src/math/vector.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+visual	minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
+width	includes/minirt.h	/^	int		width;$/;"	m	struct:s_mlx	typeref:typename:int
+width	minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
+win1	minilibx-linux/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
+win1	minilibx-linux/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
+win2	minilibx-linux/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *
+win2	minilibx-linux/test/new_win.c	/^void *win2;$/;"	v	typeref:typename:void *
+win3	minilibx-linux/test/main.c	/^void    *win3;$/;"	v	typeref:typename:void *
+win_count	minilibx-linux/mlx_loop.c	/^static int	win_count(t_xvar *xvar)$/;"	f	typeref:typename:int	file:
+win_list	minilibx-linux/mlx_int.h	/^	t_win_list	*win_list;$/;"	m	struct:s_xvar	typeref:typename:t_win_list *
+win_ptr	includes/minirt.h	/^	void	*win_ptr;$/;"	m	struct:s_mlx	typeref:typename:void *
+window	minilibx-linux/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win_list	typeref:typename:Window
+wm_delete_window	minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar	typeref:typename:Atom
+wm_protocols	minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
+x	includes/minirt.h	/^	double	x;$/;"	m	struct:s_vec3	typeref:typename:double
+x	tests/test_cleanup_only.c	/^    double x;$/;"	m	struct:s_vec3	typeref:typename:double	file:
+xpm1_x	minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
+xpm1_y	minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
+y	includes/minirt.h	/^	double	y;$/;"	m	struct:s_vec3	typeref:typename:double
+y	tests/test_cleanup_only.c	/^    double y;$/;"	m	struct:s_vec3	typeref:typename:double	file:
+z	includes/minirt.h	/^	double	z;$/;"	m	struct:s_vec3	typeref:typename:double
+z	tests/test_cleanup_only.c	/^    double z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
