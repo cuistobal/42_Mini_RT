@@ -51,7 +51,7 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 */
 static void	render_all_pixels(t_minirt *rt)
 {
-	int		x;
+	/* int		x;
 	int		y;
 	double	inv_width;
 	double	inv_height;
@@ -68,7 +68,8 @@ static void	render_all_pixels(t_minirt *rt)
 			x++;
 		}
 		y++;
-	}
+	} */
+	(void)rt;
 }
 
 
@@ -94,43 +95,71 @@ void	*rap(void *intels)
 	double	inv_width;
 	double	inv_height;
 
+	render_all_pixels(intel.rt);
+	print_error("test 1");
 	inv_width = 1.0 / (double)intel.rt->mlx.width;
 	inv_height = 1.0 / (double)intel.rt->mlx.height;
 	y = intel.ystart;
 	while (y < intel.rt->mlx.height)
 	{
 		x = intel.xstart;
-		while (x < rt->mlx.width)
+		while (x < intel.rt->mlx.width)
 		{
-			render_pixel_at_coordinates(rt, x, y, inv_width, inv_height);
+			render_pixel_at_coordinates(intel.rt, x, y, inv_width, inv_height);
 			x++;
 		}
 		y++;
 	}
+	return NULL;
 }
 
 /*
 ** render_scene - Main rendering function
 */
+void target_area(t_intels *intel)
+{
+	intel[0].xstart = 0;
+	intel[0].xend = intel->rt->mlx.width / 2;
+	intel[0].ystart = 0;
+	intel[0].yend = intel->rt->mlx.height / 2;
+	
+	intel[1].xstart = intel->rt->mlx.width / 2 + 1;
+	intel[1].xend = intel->rt->mlx.width;
+	intel[1].ystart = 0;
+	intel[1].yend = intel->rt->mlx.height / 2;
 
+	intel[2].xstart = 0;
+	intel[2].xend = intel->rt->mlx.width / 2;
+	intel[2].ystart = intel->rt->mlx.height / 2 + 1;
+	intel[2].yend = intel->rt->mlx.height;
+
+	intel[3].xstart = intel->rt->mlx.width / 2 + 1;
+	intel[3].xend = intel->rt->mlx.width;
+	intel[3].ystart = intel->rt->mlx.height / 2 + 1;
+	intel[3].yend = intel->rt->mlx.height;
+}
 
 void	render_scene(t_minirt *rt)
 {
 	pthread_t threads[4];
 	t_intels intels[4];
 	int i;
-
+	printf("Testeur");
 	i = 0;
+	target_area(intels);
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
-	// expension
 	
 	while(i < 4)
 	{
-		pthread_create(&threads[i], NULL, rt, &intels[i]);
+		pthread_create(&threads[i], NULL, rap, &intels[i]);
 		i++;
 	}
+	pthread_join(threads[3], NULL);
+	pthread_join(threads[2], NULL);
+	pthread_join(threads[1], NULL);
+	pthread_join(threads[0], NULL);
 	display_image(&rt->mlx);
 }
 
