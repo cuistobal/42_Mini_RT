@@ -96,7 +96,6 @@ void	*rap(void *intels)
 	double	inv_height;
 
 	render_all_pixels(intel.rt);
-	print_error("test 1");
 	inv_width = 1.0 / (double)intel.rt->mlx.width;
 	inv_height = 1.0 / (double)intel.rt->mlx.height;
 	y = intel.ystart;
@@ -116,37 +115,41 @@ void	*rap(void *intels)
 /*
 ** render_scene - Main rendering function
 */
-void target_area(t_intels *intel)
+void target_area(t_intels *intel,t_minirt *rt)
 {
 	intel[0].xstart = 0;
-	intel[0].xend = intel->rt->mlx.width / 2;
+	intel[0].xend = rt->mlx.width / 2;
 	intel[0].ystart = 0;
-	intel[0].yend = intel->rt->mlx.height / 2;
-	
-	intel[1].xstart = intel->rt->mlx.width / 2 + 1;
-	intel[1].xend = intel->rt->mlx.width;
+	intel[0].yend = rt->mlx.height / 2;
+	intel[0].rt = rt;
+
+	intel[1].xstart = rt->mlx.width / 2 + 1;
+	intel[1].xend = rt->mlx.width;
 	intel[1].ystart = 0;
-	intel[1].yend = intel->rt->mlx.height / 2;
+	intel[1].yend = rt->mlx.height / 2;
+	intel[1].rt = rt;
 
 	intel[2].xstart = 0;
-	intel[2].xend = intel->rt->mlx.width / 2;
-	intel[2].ystart = intel->rt->mlx.height / 2 + 1;
-	intel[2].yend = intel->rt->mlx.height;
+	intel[2].xend = rt->mlx.width / 2;
+	intel[2].ystart = rt->mlx.height / 2 + 1;
+	intel[2].yend = rt->mlx.height;
+	intel[2].rt = rt;
 
-	intel[3].xstart = intel->rt->mlx.width / 2 + 1;
-	intel[3].xend = intel->rt->mlx.width;
-	intel[3].ystart = intel->rt->mlx.height / 2 + 1;
-	intel[3].yend = intel->rt->mlx.height;
+	intel[3].xstart = rt->mlx.width / 2 + 1;
+	intel[3].xend =   rt->mlx.width;
+	intel[3].ystart = rt->mlx.height / 2 + 1;
+	intel[3].yend =   rt->mlx.height;
+	intel[3].rt = rt;
 }
 
 void	render_scene(t_minirt *rt)
 {
 	pthread_t threads[4];
 	t_intels intels[4];
+
 	int i;
-	printf("Testeur");
 	i = 0;
-	target_area(intels);
+	target_area(intels,rt);
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
