@@ -4,7 +4,7 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/chrleroy/Desktop/repos/Github/MyRT/	//
+!_TAG_PROC_CWD	/home/chrleroy/Desktop/repos/Github/42_Mini_RT/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
@@ -15,10 +15,6 @@ $(NAME)	minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
 $(NAME)	minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
 $(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
 $(OBJ_DIR)/%.o	minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
-1. Module de Correction de Norme	.kiro/specs/minirt-compliance-fixes/design.md	/^### 1. Module de Correction de Norme$/;"	S	section:Design Document""Components and Interfaces
-2. Module de Gestion d'Erreur Amélioré	.kiro/specs/minirt-compliance-fixes/design.md	/^### 2. Module de Gestion d'Erreur Amélioré$/;"	S	section:Design Document""Components and Interfaces
-3. Module de Contrôle Caméra	.kiro/specs/minirt-compliance-fixes/design.md	/^### 3. Module de Contrôle Caméra$/;"	S	section:Design Document""Components and Interfaces
-4. Module de Gestion Mémoire Amélioré	.kiro/specs/minirt-compliance-fixes/design.md	/^### 4. Module de Gestion Mémoire Amélioré$/;"	S	section:Design Document""Components and Interfaces
 AUTHOR	minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
@@ -29,27 +25,6 @@ AUTHOR	minilibx-linux/man/man3/mlx_loop.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 1
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 2
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 3
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 4
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 5
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 6
-Acceptance Criteria	.kiro/specs/minirt-compliance-fixes/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 7
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 1
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 10
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 2
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 3
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 4
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 5
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 6 (Bonus)
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 7 (Bonus)
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 8 (Bonus)
-Acceptance Criteria	.kiro/specs/minirt-with-bonus/requirements.md	/^#### Acceptance Criteria$/;"	t	subsection:Requirements Document""Requirements""Requirement 9
-Algorithme de Ray Tracing	.kiro/specs/minirt-with-bonus/design.md	/^### Algorithme de Ray Tracing$/;"	S	section:Design Document""Data Models
-Améliorations Possibles	.kiro/specs/minirt-compliance-fixes/design.md	/^### Améliorations Possibles$/;"	S	section:Design Document""Performance Considerations
-Architecture	.kiro/specs/minirt-compliance-fixes/design.md	/^## Architecture$/;"	s	chapter:Design Document
-Architecture	.kiro/specs/minirt-with-bonus/design.md	/^## Architecture$/;"	s	chapter:Design Document
 BLUE	Makefile	/^BLUE = \\033[0;34m$/;"	m
 CC	Makefile	/^CC = gcc$/;"	m
 CC	minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
@@ -64,11 +39,6 @@ COLOR	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title
 CONE	includes/minirt.h	/^# define CONE /;"	d
 CUBE	includes/minirt.h	/^# define CUBE /;"	d
 CYLINDER	includes/minirt.h	/^# define CYLINDER /;"	d
-Calculs d'Intersection	.kiro/specs/minirt-with-bonus/design.md	/^### Calculs d'Intersection$/;"	S	section:Design Document""Data Models
-Components and Interfaces	.kiro/specs/minirt-compliance-fixes/design.md	/^## Components and Interfaces$/;"	s	chapter:Design Document
-Components and Interfaces	.kiro/specs/minirt-with-bonus/design.md	/^## Components and Interfaces$/;"	s	chapter:Design Document
-Critères de Performance	.kiro/specs/minirt-with-bonus/design.md	/^### Critères de Performance$/;"	S	section:Design Document""Testing Strategy
-Cylindre	.kiro/specs/minirt-with-bonus/design.md	/^#### Cylindre$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
 DESCRIPTION	minilibx-linux/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	minilibx-linux/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	minilibx-linux/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
@@ -79,10 +49,6 @@ DESCRIPTION	minilibx-linux/man/man3/mlx_loop.3	/^.SH DESCRIPTION$/;"	s	title:Min
 DESCRIPTION	minilibx-linux/man/man3/mlx_new_image.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	minilibx-linux/man/man3/mlx_new_window.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
-Data Models	.kiro/specs/minirt-compliance-fixes/design.md	/^## Data Models$/;"	s	chapter:Design Document
-Data Models	.kiro/specs/minirt-with-bonus/design.md	/^## Data Models$/;"	s	chapter:Design Document
-Design Document	.kiro/specs/minirt-compliance-fixes/design.md	/^# Design Document$/;"	c
-Design Document	.kiro/specs/minirt-with-bonus/design.md	/^# Design Document$/;"	c
 ENV_DISPLAY	minilibx-linux/mlx_int.h	/^# define ENV_DISPLAY /;"	d
 EOF	minilibx-linux/configure	/^cat <<EOF$/;"	h
 EPSILON	includes/minirt.h	/^# define EPSILON /;"	d
@@ -93,18 +59,11 @@ ERROR_MLX	includes/minirt.h	/^	ERROR_MLX = 5$/;"	e	enum:e_error
 ERROR_NONE	includes/minirt.h	/^	ERROR_NONE = 0,$/;"	e	enum:e_error
 ERROR_PARSE	includes/minirt.h	/^	ERROR_PARSE = 3,$/;"	e	enum:e_error
 ERR_NO_TRUECOLOR	minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
-Error Handling	.kiro/specs/minirt-compliance-fixes/design.md	/^## Error Handling$/;"	s	chapter:Design Document
-Error Handling	.kiro/specs/minirt-with-bonus/design.md	/^## Error Handling$/;"	s	chapter:Design Document
-Flux de Données	.kiro/specs/minirt-with-bonus/design.md	/^### Flux de Données$/;"	S	section:Design Document""Architecture
-Fonctions de Gestion d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Fonctions de Gestion d'Erreurs$/;"	S	section:Design Document""Error Handling
-Format de Fichier .rt	.kiro/specs/minirt-with-bonus/design.md	/^### Format de Fichier .rt$/;"	S	section:Design Document""Data Models
 GOING	minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
 GOING	minilibx-linux/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
 GRAPHICS_SRC	Makefile	/^GRAPHICS_SRC = graphics\/window.c \\$/;"	m
 GREEN	Makefile	/^GREEN = \\033[0;32m$/;"	m
 GREEN_OFFSET	includes/minirt.h	/^# define GREEN_OFFSET /;"	d
-Gestion Mémoire Sécurisée	.kiro/specs/minirt-compliance-fixes/design.md	/^### Gestion Mémoire Sécurisée$/;"	S	section:Design Document""Security Considerations
-Hiérarchie d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Hiérarchie d'Erreur$/;"	S	section:Design Document""Error Handling
 IM1_SX	minilibx-linux/test/main.c	/^#define	IM1_SX	/;"	d	file:
 IM1_SY	minilibx-linux/test/main.c	/^#define	IM1_SY	/;"	d	file:
 IM3_SX	minilibx-linux/test/main.c	/^#define	IM3_SX	/;"	d	file:
@@ -116,12 +75,6 @@ INCLUDE	minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
 INCLUDE	minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
 INCLUDES	Makefile	/^INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)$/;"	m
 INC_DIR	Makefile	/^INC_DIR = includes$/;"	m
-Implementation Plan	.kiro/specs/minirt-compliance-fixes/design.md	/^## Implementation Plan$/;"	s	chapter:Design Document
-Implementation Plan	.kiro/specs/minirt-compliance-fixes/tasks.md	/^# Implementation Plan$/;"	c
-Implementation Plan	.kiro/specs/minirt-with-bonus/tasks.md	/^# Implementation Plan$/;"	c
-Interfaces des Modules	.kiro/specs/minirt-with-bonus/design.md	/^### Interfaces des Modules$/;"	S	section:Design Document""Components and Interfaces
-Introduction	.kiro/specs/minirt-compliance-fixes/requirements.md	/^## Introduction$/;"	s	chapter:Requirements Document
-Introduction	.kiro/specs/minirt-with-bonus/requirements.md	/^## Introduction$/;"	s	chapter:Requirements Document
 KEY_A	includes/minirt.h	/^# define KEY_A /;"	d
 KEY_D	includes/minirt.h	/^# define KEY_D /;"	d
 KEY_DOWN	includes/minirt.h	/^# define KEY_DOWN /;"	d
@@ -159,9 +112,6 @@ MiniLibX	minilibx-linux/man/man3/mlx_loop.3	/^.TH MiniLibX 3 "September 19, 2002
 MiniLibX	minilibx-linux/man/man3/mlx_new_image.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
 MiniLibX	minilibx-linux/man/man3/mlx_new_window.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
 MiniLibX	minilibx-linux/man/man3/mlx_pixel_put.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
-Module Mathématique	.kiro/specs/minirt-with-bonus/design.md	/^#### Module Mathématique$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
-Module de Parsing	.kiro/specs/minirt-with-bonus/design.md	/^#### Module de Parsing$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
-Module de Rendu	.kiro/specs/minirt-with-bonus/design.md	/^#### Module de Rendu$/;"	t	subsection:Design Document""Components and Interfaces""Interfaces des Modules
 NAME	Makefile	/^NAME = miniRT$/;"	m
 NAME	minilibx-linux/Makefile.mk	/^NAME		= libmlx.a$/;"	m
 NAME	minilibx-linux/man/man1/mlx.1	/^.SH NAME$/;"	s	title:MiniLibX
@@ -182,19 +132,9 @@ OBJ	minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
 OBJS	Makefile	/^OBJS = $(SRCS:%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJ_DIR	Makefile	/^OBJ_DIR = obj$/;"	m
 OBJ_DIR	minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
-Optimisations Maintenues	.kiro/specs/minirt-compliance-fixes/design.md	/^### Optimisations Maintenues$/;"	S	section:Design Document""Performance Considerations
-Optimisations Prévues	.kiro/specs/minirt-with-bonus/design.md	/^### Optimisations Prévues$/;"	S	section:Design Document""Testing Strategy
-Overview	.kiro/specs/minirt-compliance-fixes/design.md	/^## Overview$/;"	s	chapter:Design Document
-Overview	.kiro/specs/minirt-with-bonus/design.md	/^## Overview$/;"	s	chapter:Design Document
-PARSING_SRC	Makefile	/^PARSING_SRC = parsing\/parse_scene.c \\$/;"	m
+PARSING_SRC	Makefile	/^PARSING_SRC = parsing\/validate_arguments.c\\$/;"	m
 PFLAGS	Makefile	/^PFLAGS = -pg$/;"	m
 PLANE	includes/minirt.h	/^# define PLANE /;"	d
-Performance Considerations	.kiro/specs/minirt-compliance-fixes/design.md	/^## Performance Considerations$/;"	s	chapter:Design Document
-Phase 1 : Correction Norme 42	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 1 : Correction Norme 42$/;"	S	section:Design Document""Implementation Plan
-Phase 2 : Gestion d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 2 : Gestion d'Erreur$/;"	S	section:Design Document""Implementation Plan
-Phase 3 : Fonctions Manquantes	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 3 : Fonctions Manquantes$/;"	S	section:Design Document""Implementation Plan
-Phase 4 : Tests et Validation	.kiro/specs/minirt-compliance-fixes/design.md	/^### Phase 4 : Tests et Validation$/;"	S	section:Design Document""Implementation Plan
-Plan	.kiro/specs/minirt-with-bonus/design.md	/^#### Plan$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
 RED	Makefile	/^RED = \\033[0;31m$/;"	m
 RED_OFFSET	includes/minirt.h	/^# define RED_OFFSET /;"	d
 RENDERING_SRC	Makefile	/^RENDERING_SRC = rendering\/raytracer.c \\$/;"	m
@@ -205,27 +145,6 @@ RETURN	minilibx-linux/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
-Requirement 1	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 1$/;"	S	section:Requirements Document""Requirements
-Requirement 1	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 1$/;"	S	section:Requirements Document""Requirements
-Requirement 10	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 10$/;"	S	section:Requirements Document""Requirements
-Requirement 2	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 2$/;"	S	section:Requirements Document""Requirements
-Requirement 2	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 2$/;"	S	section:Requirements Document""Requirements
-Requirement 3	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 3$/;"	S	section:Requirements Document""Requirements
-Requirement 3	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 3$/;"	S	section:Requirements Document""Requirements
-Requirement 4	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 4$/;"	S	section:Requirements Document""Requirements
-Requirement 4	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 4$/;"	S	section:Requirements Document""Requirements
-Requirement 5	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 5$/;"	S	section:Requirements Document""Requirements
-Requirement 5	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 5$/;"	S	section:Requirements Document""Requirements
-Requirement 6	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 6$/;"	S	section:Requirements Document""Requirements
-Requirement 6 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 6 (Bonus)$/;"	S	section:Requirements Document""Requirements
-Requirement 7	.kiro/specs/minirt-compliance-fixes/requirements.md	/^### Requirement 7$/;"	S	section:Requirements Document""Requirements
-Requirement 7 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 7 (Bonus)$/;"	S	section:Requirements Document""Requirements
-Requirement 8 (Bonus)	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 8 (Bonus)$/;"	S	section:Requirements Document""Requirements
-Requirement 9	.kiro/specs/minirt-with-bonus/requirements.md	/^### Requirement 9$/;"	S	section:Requirements Document""Requirements
-Requirements	.kiro/specs/minirt-compliance-fixes/requirements.md	/^## Requirements$/;"	s	chapter:Requirements Document
-Requirements	.kiro/specs/minirt-with-bonus/requirements.md	/^## Requirements$/;"	s	chapter:Requirements Document
-Requirements Document	.kiro/specs/minirt-compliance-fixes/requirements.md	/^# Requirements Document$/;"	c
-Requirements Document	.kiro/specs/minirt-with-bonus/requirements.md	/^# Requirements Document$/;"	c
 SEE	minilibx-linux/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
 SEE	minilibx-linux/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
 SEE	minilibx-linux/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
@@ -253,35 +172,15 @@ SYNOPSYS	minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-Scènes de Test	.kiro/specs/minirt-with-bonus/design.md	/^### Scènes de Test$/;"	S	section:Design Document""Testing Strategy
-Security Considerations	.kiro/specs/minirt-compliance-fixes/design.md	/^## Security Considerations$/;"	s	chapter:Design Document
-Sphère	.kiro/specs/minirt-with-bonus/design.md	/^#### Sphère$/;"	t	subsection:Design Document""Data Models""Calculs d'Intersection
-Stratégie de Gestion d'Erreur	.kiro/specs/minirt-compliance-fixes/design.md	/^### Stratégie de Gestion d'Erreur$/;"	S	section:Design Document""Error Handling
-Stratégie de Gestion d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Stratégie de Gestion d'Erreurs$/;"	S	section:Design Document""Error Handling
-Stratégie de Refactoring	.kiro/specs/minirt-compliance-fixes/design.md	/^### Stratégie de Refactoring$/;"	S	section:Design Document""Architecture
-Structure Générale	.kiro/specs/minirt-with-bonus/design.md	/^### Structure Générale$/;"	S	section:Design Document""Architecture
-Structure d'Erreur Étendue	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure d'Erreur Étendue$/;"	S	section:Design Document""Data Models
-Structure de Caméra Étendue	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure de Caméra Étendue$/;"	S	section:Design Document""Data Models
-Structure de Données Principales	.kiro/specs/minirt-with-bonus/design.md	/^### Structure de Données Principales$/;"	S	section:Design Document""Components and Interfaces
-Structure des Modules	.kiro/specs/minirt-compliance-fixes/design.md	/^### Structure des Modules$/;"	S	section:Design Document""Architecture
 TEST_EPSILON	tests/test_camera_ray.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_intersections.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_parsing_comprehensive.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_ray.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_vector.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_vector_raytracing.c	/^#define TEST_EPSILON /;"	d	file:
-Testing Strategy	.kiro/specs/minirt-compliance-fixes/design.md	/^## Testing Strategy$/;"	s	chapter:Design Document
-Testing Strategy	.kiro/specs/minirt-with-bonus/design.md	/^## Testing Strategy$/;"	s	chapter:Design Document
-Tests Fonctionnels	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests Fonctionnels$/;"	S	section:Design Document""Testing Strategy
-Tests Unitaires	.kiro/specs/minirt-with-bonus/design.md	/^### Tests Unitaires$/;"	S	section:Design Document""Testing Strategy
-Tests d'Intégration	.kiro/specs/minirt-with-bonus/design.md	/^### Tests d'Intégration$/;"	S	section:Design Document""Testing Strategy
-Tests de Conformité Norme 42	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests de Conformité Norme 42$/;"	S	section:Design Document""Testing Strategy
-Tests de Régression	.kiro/specs/minirt-compliance-fixes/design.md	/^### Tests de Régression$/;"	S	section:Design Document""Testing Strategy
-Types d'Erreurs	.kiro/specs/minirt-with-bonus/design.md	/^### Types d'Erreurs$/;"	S	section:Design Document""Error Handling
 UNAME	minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
 UTILS_SRC	Makefile	/^UTILS_SRC = utils\/error.c \\$/;"	m
-Validation d'Entrée	.kiro/specs/minirt-compliance-fixes/design.md	/^### Validation d'Entrée$/;"	S	section:Design Document""Security Considerations
 WARN_SHM_ATTACH	minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
 WIN1_SX	minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
 WIN1_SY	minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
@@ -334,7 +233,7 @@ calculate_diffuse_lighting	src/rendering/lighting.c	/^static t_color	calculate_d
 calculate_fresnel	src/rendering/reflections.c	/^static double	calculate_fresnel(double cos_i, double n1, double n2)$/;"	f	typeref:typename:double	file:
 calculate_hit_color	src/rendering/raycast_optimized.c	/^t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 calculate_lighting	src/rendering/lighting.c	/^t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_material *material)$/;"	f	typeref:typename:t_color
-calculate_pixel_world_position	src/rendering/raytracer_utils.c	/^t_vec3	calculate_pixel_world_position(t_camera *camera, double u,$/;"	f	typeref:typename:t_vec3
+calculate_pixel_world_position	src/rendering/raytracer_utils.c	/^t_vec3	calculate_pixel_world_position(t_camera *camera, double u, \\$/;"	f	typeref:typename:t_vec3
 calculate_reflection	src/rendering/reflections.c	/^t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 calculate_refraction	src/rendering/reflections.c	/^t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 calculate_refraction_ray	src/rendering/reflections.c	/^static t_vec3	calculate_refraction_ray(t_vec3 incident, t_vec3 normal, double n1, double n2)$/;"	f	typeref:typename:t_vec3	file:
@@ -342,6 +241,7 @@ calculate_slab_intersections	src/math/cube_utils.c	/^t_slab_intersections	calcul
 calculate_viewport_dimensions	src/rendering/raytracer_utils.c	/^void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,$/;"	f	typeref:typename:void
 camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
+check_limits	src/utils/colors1.c	/^static void	check_limits(int *color)$/;"	f	typeref:typename:void	file:
 clean	Makefile	/^clean:$/;"	t
 clean	minilibx-linux/Makefile	/^clean	:$/;"	t
 clean	minilibx-linux/Makefile.mk	/^clean	:$/;"	t
@@ -351,27 +251,27 @@ clean_profile	Makefile	/^clean_profile:$/;"	t
 cleanup_all	src/utils/error.c	/^void	cleanup_all(t_minirt *rt)$/;"	f	typeref:typename:void
 cleanup_bvh	src/utils/bvh.c	/^void	cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
 cleanup_bvh	tests/test_cleanup_only.c	/^void cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
-cleanup_light_list	src/utils/memory.c	/^void	cleanup_light_list(t_light *lights)$/;"	f	typeref:typename:void
+cleanup_light_list	src/utils/cleanup.c	/^void	cleanup_light_list(t_light *lights)$/;"	f	typeref:typename:void
 cleanup_mlx	src/graphics/window.c	/^void	cleanup_mlx(t_mlx *mlx)$/;"	f	typeref:typename:void
 cleanup_mlx	tests/test_scene_parsers_simple.c	/^void cleanup_mlx(t_mlx *mlx) { (void)mlx; }$/;"	f	typeref:typename:void
-cleanup_object_list	src/utils/memory.c	/^void	cleanup_object_list(t_object *objects)$/;"	f	typeref:typename:void
+cleanup_object_list	src/utils/cleanup.c	/^void	cleanup_object_list(t_object *objects)$/;"	f	typeref:typename:void
 cleanup_scene	src/utils/error.c	/^void	cleanup_scene(t_scene *scene)$/;"	f	typeref:typename:void
 cleanup_scene_on_error	src/parsing/parse_scene.c	/^static void	cleanup_scene_on_error(t_scene *scene)$/;"	f	typeref:typename:void	file:
-cleanup_string_array	src/utils/memory.c	/^void	cleanup_string_array(char **array, int count)$/;"	f	typeref:typename:void
+cleanup_string_array	src/utils/cleanup.c	/^void	cleanup_string_array(char **array, int count)$/;"	f	typeref:typename:void
 cmap	minilibx-linux/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar	typeref:typename:Colormap
 col	minilibx-linux/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typeref:typename:int
 color	includes/minirt.h	/^	t_color			color;$/;"	m	struct:s_light	typeref:typename:t_color
 color	includes/minirt.h	/^	t_color	color;$/;"	m	struct:s_material	typeref:typename:t_color
 color	minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
-color_add	src/utils/colors.c	/^t_color	color_add(t_color a, t_color b)$/;"	f	typeref:typename:t_color
-color_blend	src/utils/colors.c	/^t_color	color_blend(t_color a, t_color b, double ratio)$/;"	f	typeref:typename:t_color
-color_clamp	src/utils/colors.c	/^t_color	color_clamp(t_color color)$/;"	f	typeref:typename:t_color
+color_add	src/utils/colors1.c	/^t_color	color_add(t_color a, t_color b)$/;"	f	typeref:typename:t_color
+color_blend	src/utils/colors1.c	/^t_color	color_blend(t_color a, t_color b, double ratio)$/;"	f	typeref:typename:t_color
+color_clamp	src/utils/colors1.c	/^t_color	color_clamp(t_color color)$/;"	f	typeref:typename:t_color
 color_equals	tests/test_parsing_comprehensive.c	/^int	color_equals(t_color a, t_color b)$/;"	f	typeref:typename:int
 color_gamma_correct	src/utils/colors.c	/^t_color	color_gamma_correct(t_color color, double gamma)$/;"	f	typeref:typename:t_color
 color_linear_to_srgb	src/utils/colors.c	/^t_color	color_linear_to_srgb(t_color color)$/;"	f	typeref:typename:t_color
 color_map_1	minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
 color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
-color_mult	src/utils/colors.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
+color_mult	src/utils/colors1.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
 color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
 color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
 count_objects	src/utils/bvh.c	/^static int	count_objects(t_object *objects)$/;"	f	typeref:typename:int	file:
@@ -413,14 +313,15 @@ endian1	minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
 endian2	minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
 endian3	minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
 endian4	minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
-error_exit	src/utils/error.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
-exit_success	src/utils/error.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
+error_exit	src/utils/error1.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
+exit_success	src/utils/error1.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
 expose_hook	minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 expose_win1	minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
 expose_win2	minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 fclean	Makefile	/^fclean: clean$/;"	t
 filename	includes/minirt.h	/^	char	*filename;$/;"	m	struct:s_minirt	typeref:typename:char *
+files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
 fill_pixel_block	src/rendering/progressive_render.c	/^void	fill_pixel_block(t_minirt *rt, int x, int y, int step,$/;"	f	typeref:typename:void
 format	minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 fov	includes/minirt.h	/^	double	fov;$/;"	m	struct:s_camera	typeref:typename:double
@@ -451,11 +352,11 @@ get_plane_normal	src/math/object_normals.c	/^t_vec3	get_plane_normal(t_vec3 hit_
 get_sphere_normal	src/math/object_normals.c	/^t_vec3	get_sphere_normal(t_vec3 hit_point, t_object *sphere)$/;"	f	typeref:typename:t_vec3
 get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handle_close	src/graphics/events.c	/^int	handle_close(t_minirt *rt)$/;"	f	typeref:typename:int
-handle_file_error	src/utils/error.c	/^void	handle_file_error(char *filename, char *operation, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_file_error	src/utils/error1.c	/^void	handle_file_error(char *filename, char *operation, t_minirt *rt)$/;"	f	typeref:typename:void
 handle_keypress	src/graphics/events.c	/^int	handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
 handle_loop	src/graphics/events.c	/^int	handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
-handle_malloc_error	src/utils/error.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
-handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_malloc_error	src/utils/error1.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, \\$/;"	f	typeref:typename:void
 height	includes/minirt.h	/^	double			height;$/;"	m	struct:s_object	typeref:typename:double
 height	includes/minirt.h	/^	int		height;$/;"	m	struct:s_mlx	typeref:typename:int
 height	minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
@@ -538,10 +439,12 @@ main	tests/test_visual_mlx.c	/^int	main(void)$/;"	f	typeref:typename:int
 mask	minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
 material	includes/minirt.h	/^	t_material		material;$/;"	m	struct:s_object	typeref:typename:t_material
 material	includes/minirt.h	/^	t_material	*material;$/;"	m	struct:s_hit	typeref:typename:t_material *
+math.h	.vscode/settings.json	/^        "math.h": "c"$/;"	s	object:files.associations
 max	includes/minirt.h	/^	t_vec3	max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
 max	tests/test_cleanup_only.c	/^    t_vec3 max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
 min	includes/minirt.h	/^	t_vec3	min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
 min	tests/test_cleanup_only.c	/^    t_vec3 min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
+minirt.h	.vscode/settings.json	/^        "minirt.h": "c",$/;"	s	object:files.associations
 mlx	includes/minirt.h	/^	t_mlx	mlx;$/;"	m	struct:s_minirt	typeref:typename:t_mlx
 mlx	minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
 mlx	minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
@@ -621,6 +524,7 @@ mouse_win2	minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, v
 mouse_win3	minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
 move_camera	src/utils/camera.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
 move_camera	src/utils/camera_temp.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
+move_speed	includes/minirt.h	/^	double	move_speed;$/;"	m	struct:s_camera	typeref:typename:double
 name	minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
 name	minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
 next	includes/minirt.h	/^	struct s_light	*next;$/;"	m	struct:s_light	typeref:struct:s_light *
@@ -654,13 +558,15 @@ parse_plane	src/parsing/parse_plane.c	/^int	parse_plane(char *line, t_scene *sce
 parse_scene	src/parsing/parse_scene.c	/^int	parse_scene(char *filename, t_scene *scene)$/;"	f	typeref:typename:int
 parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
+pitch_epsilon_helper	src/utils/camera.c	/^static void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void	file:
+pitch_epsilon_helper	src/utils/camera_temp.c	/^void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void
 pix	minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
 point	includes/minirt.h	/^	t_vec3		point;$/;"	m	struct:s_hit	typeref:typename:t_vec3
 populate_hit_info	src/math/intersections.c	/^static void	populate_hit_info(t_hit *hit, double closest_t,$/;"	f	typeref:typename:void	file:
 position	includes/minirt.h	/^	t_vec3			position;$/;"	m	struct:s_light	typeref:typename:t_vec3
 position	includes/minirt.h	/^	t_vec3			position;$/;"	m	struct:s_object	typeref:typename:t_vec3
 position	includes/minirt.h	/^	t_vec3	position;$/;"	m	struct:s_camera	typeref:typename:t_vec3
-print_error	src/utils/error.c	/^void	print_error(char *message)$/;"	f	typeref:typename:void
+print_error	src/utils/error1.c	/^void	print_error(char *message)$/;"	f	typeref:typename:void
 private_cmap	minilibx-linux/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
 process_x_slab	src/math/intersect_cube.c	/^static t_slab_result	process_x_slab(t_ray ray, t_vec3 cube_min,$/;"	f	typeref:typename:t_slab_result	file:
 process_y_slab	src/math/intersect_cube.c	/^static t_slab_result	process_y_slab(t_ray ray, t_vec3 cube_min,$/;"	f	typeref:typename:t_slab_result	file:
@@ -698,6 +604,7 @@ right	tests/test_cleanup_only.c	/^    struct s_bvh_node *right;$/;"	m	struct:s_b
 root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 rotate_camera	src/utils/camera.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
 rotate_camera	src/utils/camera_temp.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
+rotate_speed	includes/minirt.h	/^	double	rotate_speed;$/;"	m	struct:s_camera	typeref:typename:double
 run_test	tests/run_tests.sh	/^run_test() {$/;"	f
 s_aabb	includes/minirt.h	/^typedef struct s_aabb$/;"	s
 s_aabb	tests/test_cleanup_only.c	/^typedef struct s_aabb$/;"	s	file:
@@ -860,20 +767,21 @@ update_camera_vectors	src/utils/camera.c	/^void	update_camera_vectors(t_camera *
 update_closest_hit	src/math/intersections.c	/^static void	update_closest_hit(double t, t_object *current,$/;"	f	typeref:typename:void	file:
 update_intersection_interval	src/math/cube_utils.c	/^t_slab_result	update_intersection_interval(t_slab_result prev,$/;"	f	typeref:typename:t_slab_result
 use_xshm	minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
+utilities.h	.vscode/settings.json	/^        "utilities.h": "c",$/;"	s	object:files.associations
 valid	includes/minirt.h	/^	int		valid;$/;"	m	struct:s_slab_result	typeref:typename:int
-validate_arguments	src/main.c	/^static int	validate_arguments(int argc, char **argv)$/;"	f	typeref:typename:int	file:
+validate_arguments	src/parsing/validate_arguments.c	/^int	validate_arguments(int argc, char **argv)$/;"	f	typeref:typename:int
 validate_cone_params	src/parsing/parse_cone.c	/^static int	validate_cone_params(double angle, double height, t_vec3 axis)$/;"	f	typeref:typename:int	file:
 validate_cube_params	src/parsing/parse_cube.c	/^static int	validate_cube_params(double size)$/;"	f	typeref:typename:int	file:
 validate_cylinder_params	src/parsing/parse_cylinder.c	/^static int	validate_cylinder_params(double diameter, double height, t_vec3 axis)$/;"	f	typeref:typename:int	file:
-validate_file_access	src/main.c	/^static int	validate_file_access(char *filename)$/;"	f	typeref:typename:int	file:
-validate_file_extension	src/main.c	/^static int	validate_file_extension(char *filename)$/;"	f	typeref:typename:int	file:
+validate_file_access	src/parsing/validate_arguments.c	/^int	validate_file_access(char *filename)$/;"	f	typeref:typename:int
+validate_file_extension	src/parsing/validate_arguments.c	/^int	validate_file_extension(char *filename)$/;"	f	typeref:typename:int
 validate_plane_params	src/parsing/parse_plane.c	/^static int	validate_plane_params(t_vec3 normal)$/;"	f	typeref:typename:int	file:
 validate_scene	src/utils/error.c	/^int	validate_scene(t_scene *scene)$/;"	f	typeref:typename:int
 validate_scene_with_filename	src/parsing/parse_scene.c	/^static int	validate_scene_with_filename(t_scene *scene, char *filename)$/;"	f	typeref:typename:int	file:
 validate_sphere_params	src/parsing/parse_sphere.c	/^static int	validate_sphere_params(double diameter)$/;"	f	typeref:typename:int	file:
-vec3_add	src/math/vector.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+vec3_add	src/math/vector1.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 vec3_cross	src/math/vector.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
-vec3_div	src/math/vector.c	/^t_vec3	vec3_div(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
+vec3_div	src/math/vector1.c	/^t_vec3	vec3_div(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
 vec3_dot	src/math/vector.c	/^double	vec3_dot(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:double
 vec3_equals	tests/test_camera_ray.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
 vec3_equals	tests/test_parsing_comprehensive.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
@@ -882,10 +790,10 @@ vec3_equals	tests/test_vector.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	type
 vec3_equals	tests/test_vector_raytracing.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
 vec3_length	src/math/vector.c	/^double	vec3_length(t_vec3 v)$/;"	f	typeref:typename:double
 vec3_length_squared	src/math/vector.c	/^double	vec3_length_squared(t_vec3 v)$/;"	f	typeref:typename:double
-vec3_mult	src/math/vector.c	/^t_vec3	vec3_mult(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
-vec3_new	src/math/vector.c	/^t_vec3	vec3_new(double x, double y, double z)$/;"	f	typeref:typename:t_vec3
+vec3_mult	src/math/vector1.c	/^t_vec3	vec3_mult(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
+vec3_new	src/math/vector1.c	/^t_vec3	vec3_new(double x, double y, double z)$/;"	f	typeref:typename:t_vec3
 vec3_normalize	src/math/vector.c	/^t_vec3	vec3_normalize(t_vec3 v)$/;"	f	typeref:typename:t_vec3
-vec3_sub	src/math/vector.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+vec3_sub	src/math/vector1.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 visual	minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
 width	includes/minirt.h	/^	int		width;$/;"	m	struct:s_mlx	typeref:typename:int
 width	minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
@@ -906,5 +814,7 @@ xpm1_x	minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
 xpm1_y	minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
 y	includes/minirt.h	/^	double	y;$/;"	m	struct:s_vec3	typeref:typename:double
 y	tests/test_cleanup_only.c	/^    double y;$/;"	m	struct:s_vec3	typeref:typename:double	file:
+yaw_epsilon_helper	src/utils/camera.c	/^static void	yaw_epsilon_helper(t_camera *camera, double yaw)$/;"	f	typeref:typename:void	file:
+yaw_epsilon_helper	src/utils/camera_temp.c	/^void	yaw_epsilon_helper(t_camera *camera, double yaw)$/;"	f	typeref:typename:void
 z	includes/minirt.h	/^	double	z;$/;"	m	struct:s_vec3	typeref:typename:double
 z	tests/test_cleanup_only.c	/^    double z;$/;"	m	struct:s_vec3	typeref:typename:double	file:

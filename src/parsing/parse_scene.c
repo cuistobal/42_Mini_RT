@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/09 16:50:19 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,18 +208,13 @@ int	parse_scene(char *filename, t_scene *scene)
 	int		parse_result;
 
 	if (!filename || !scene)
-	{
-		printf("Error\nInvalid parameters for scene parsing\n");
-		return (0);
-	}
+		return (printf("Error\nInvalid parameters for scene parsing\n"), 0);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("Error\nCannot open file: %s\n", filename);
-		return (0);
-	}
+		return (printf("Error\nCannot open file: %s\n", filename), 0);
 	line_number = 0;
-	while ((line = read_file_line(fd)) != NULL)
+	line = read_file_line(fd);
+	while (line)
 	{
 		line_number++;
 		parse_result = parse_line(line, scene, line_number, filename);
@@ -231,6 +226,7 @@ int	parse_scene(char *filename, t_scene *scene)
 			return (0);
 		}
 		free(line);
+		line = read_file_line(fd);
 	}
 	close(fd);
 	return (validate_scene_with_filename(scene, filename));
