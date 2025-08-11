@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
+#include <pthread.h>
 /*
 ** setup_camera - Initialize camera coordinate system
 */
@@ -46,40 +46,100 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 	return (ray_new(camera->position, ray_direction));
 }
 
+// inter thread
+
+typedef struct s_intels
+{
+	t_minirt *rt;
+	int xstart;
+	int ystart;
+
+	int xend;
+	int yend;
+
+}	t_intels;
+
 /*
 ** render_all_pixels - Render all pixels in the scene
 */
-static void	render_all_pixels(t_minirt *rt)
+
+void	*render_all_pixels(void *intels)
 {
+	t_intels intel = *(t_intels *)intels;
+	
 	int		x;
 	int		y;
 	double	inv_width;
 	double	inv_height;
 
-	inv_width = 1.0 / (double)rt->mlx.width;
-	inv_height = 1.0 / (double)rt->mlx.height;
-	y = 0;
-	while (y < rt->mlx.height)
+	//render_all_pixels(intel.rt);
+	inv_width = 1.0 / (double)intel.rt->mlx.width;
+	inv_height = 1.0 / (double)intel.rt->mlx.height;
+	y = intel.ystart;
+	while (y < intel.rt->mlx.height)
 	{
-		x = 0;
-		while (x < rt->mlx.width)
+		x = intel.xstart;
+		while (x < intel.rt->mlx.width)
 		{
-			render_pixel_at_coordinates(rt, x, y, inv_width, inv_height);
+			render_pixel_at_coordinates(intel.rt, x, y, inv_width, inv_height);
 			x++;
 		}
 		y++;
 	}
+	return NULL;
 }
 
 /*
 ** render_scene - Main rendering function
 */
+void target_area(t_intels *intel,t_minirt *rt)
+{
+	intel[0].xstart = 0;
+	intel[0].xend = rt->mlx.width / 2;
+	intel[0].ystart = 0;
+	intel[0].yend = rt->mlx.height / 2;
+	intel[0].rt = rt;
+
+	intel[1].xstart = rt->mlx.width / 2 + 1;
+	intel[1].xend = rt->mlx.width;
+	intel[1].ystart = 0;
+	intel[1].yend = rt->mlx.height / 2;
+	intel[1].rt = rt;
+
+	intel[2].xstart = 0;
+	intel[2].xend = rt->mlx.width / 2;
+	intel[2].ystart = rt->mlx.height / 2 + 1;
+	intel[2].yend = rt->mlx.height;
+	intel[2].rt = rt;
+
+	intel[3].xstart = rt->mlx.width / 2 + 1;
+	intel[3].xend =   rt->mlx.width;
+	intel[3].ystart = rt->mlx.height / 2 + 1;
+	intel[3].yend =   rt->mlx.height;
+	intel[3].rt = rt;
+}
+
 void	render_scene(t_minirt *rt)
 {
+	pthread_t threads[4];
+	t_intels intels[4];
+
+	int i;
+	i = 0;
+	target_area(intels,rt);
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
-	render_all_pixels(rt);
+	
+	while(i < 4)
+	{
+		pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]);
+		i++;
+	}
+	pthread_join(threads[3], NULL);
+	pthread_join(threads[2], NULL);
+	pthread_join(threads[1], NULL);
+	pthread_join(threads[0], NULL);
 	display_image(&rt->mlx);
 }
 
