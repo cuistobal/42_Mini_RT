@@ -194,11 +194,11 @@ X_ShmAttach	minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
 YELLOW	Makefile	/^YELLOW = \\033[0;33m$/;"	m
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cone_params	typeref:typename:double
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cylinder_params	typeref:typename:double
+aabb_surface	src/utils/sah.c	/^static double	aabb_surface(t_aabb box)$/;"	f	typeref:typename:double	file:
+aabb_surface	src/utils/test.c	/^static double	aabb_surface(t_aabb box)$/;"	f	typeref:typename:double	file:
 aabb_union	src/utils/bvh.c	/^static t_aabb	aabb_union(t_aabb a, t_aabb b)$/;"	f	typeref:typename:t_aabb	file:
 add_light_to_scene	src/parsing/parse_lights.c	/^static void	add_light_to_scene(t_scene *scene, t_light *light)$/;"	f	typeref:typename:void	file:
 add_object_to_scene	src/parsing/parse_objects.c	/^void	add_object_to_scene(t_scene *scene, t_object *object)$/;"	f	typeref:typename:void
-add_reflection_if_needed	src/rendering/raycast_optimized.c	/^static t_color	add_reflection_if_needed(t_color base_color, t_ray ray,$/;"	f	typeref:typename:t_color	file:
-add_refraction_if_needed	src/rendering/raycast_optimized.c	/^static t_color	add_refraction_if_needed(t_color base_color, t_ray ray,$/;"	f	typeref:typename:t_color	file:
 all	Makefile	/^all: $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 all	minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
@@ -222,6 +222,7 @@ bpp3	minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
 bpp4	minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
 build_bvh	src/utils/bvh.c	/^t_bvh_node	*build_bvh(t_scene *scene)$/;"	f	typeref:typename:t_bvh_node *
 build_bvh_recursive	src/utils/bvh.c	/^static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)$/;"	f	typeref:typename:t_bvh_node *	file:
+build_bvh_recursive	src/utils/test.c	/^static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)$/;"	f	typeref:typename:t_bvh_node *	file:
 bvh_root	includes/minirt.h	/^	t_bvh_node	*bvh_root;$/;"	m	struct:s_scene	typeref:typename:t_bvh_node *
 c	includes/minirt.h	/^	double	c;$/;"	m	struct:s_cone_params	typeref:typename:double
 c	includes/minirt.h	/^	double	c;$/;"	m	struct:s_cylinder_params	typeref:typename:double
@@ -274,6 +275,11 @@ color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int
 color_mult	src/utils/colors1.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
 color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
 color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
+compare_obj_axis	src/utils/test.c	/^static int	compare_obj_axis(const void *a, const void *b, void *axis_ptr)$/;"	f	typeref:typename:int	file:
+compare_obj_x	src/utils/sah.c	/^static int	compare_obj_x(const void *a, const void *b)$/;"	f	typeref:typename:int	file:
+compare_obj_y	src/utils/sah.c	/^static int	compare_obj_y(const void *a, const void *b)$/;"	f	typeref:typename:int	file:
+compare_obj_z	src/utils/sah.c	/^static int	compare_obj_z(const void *a, const void *b)$/;"	f	typeref:typename:int	file:
+compute_cost	src/utils/test.c	/^static inline int compute_cost(int oa, int ob)$/;"	f	typeref:typename:int	file:
 count_objects	src/utils/bvh.c	/^static int	count_objects(t_object *objects)$/;"	f	typeref:typename:int	file:
 count_objects	tests/test_scene_parsers.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
 count_objects	tests/test_scene_parsers_simple.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
@@ -322,7 +328,8 @@ expose_win2	minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:
 fclean	Makefile	/^fclean: clean$/;"	t
 filename	includes/minirt.h	/^	char	*filename;$/;"	m	struct:s_minirt	typeref:typename:char *
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
-fill_pixel_block	src/rendering/progressive_render.c	/^void	fill_pixel_block(t_minirt *rt, int x, int y, int step,$/;"	f	typeref:typename:void
+find_sah_split	src/utils/sah.c	/^static int	find_sah_split(t_object **objects, int count, int *best_axis, int *best_index)$/;"	f	typeref:typename:int	file:
+find_sah_split	src/utils/test.c	/^static int	find_sah_split(t_object **objects, int count, int *best_axis, int *best_index)$/;"	f	typeref:typename:int	file:
 format	minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 fov	includes/minirt.h	/^	double	fov;$/;"	m	struct:s_camera	typeref:typename:double
 free_cone_tokens	src/parsing/parse_cone.c	/^static void	free_cone_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
@@ -330,6 +337,7 @@ free_cube_tokens	src/parsing/parse_cube.c	/^static void	free_cube_tokens(char *p
 free_cylinder_tokens	src/parsing/parse_cylinder.c	/^static void	free_cylinder_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
 free_plane_tokens	src/parsing/parse_plane.c	/^static void	free_plane_tokens(char *pos, char *norm, char *col)$/;"	f	typeref:typename:void	file:
 free_sphere_tokens	src/parsing/parse_sphere.c	/^static void	free_sphere_tokens(char *pos, char *diam, char *col)$/;"	f	typeref:typename:void	file:
+ft_qsort	src/utils/test.c	/^void	ft_qsort(void *base, size_t nmemb, size_t size,$/;"	f	typeref:typename:void
 g	includes/minirt.h	/^	int	g;$/;"	m	struct:s_color	typeref:typename:int
 g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_offsets[4][2] = {$/;"	v	typeref:typename:const double[4][2]	file:
 gc	minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
@@ -584,7 +592,6 @@ ray_new	src/math/ray.c	/^t_ray	ray_new(t_vec3 origin, t_vec3 direction)$/;"	f	ty
 ray_reflect	src/math/ray.c	/^t_ray	ray_reflect(t_ray incident, t_vec3 hit_point, t_vec3 normal)$/;"	f	typeref:typename:t_ray
 ray_transform	src/math/ray.c	/^t_ray	ray_transform(t_ray ray, t_vec3 translation)$/;"	f	typeref:typename:t_ray
 raycast	src/rendering/raytracer.c	/^t_color	raycast(t_ray ray, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
-raycast_optimized	src/rendering/raycast_optimized.c	/^t_color	raycast_optimized(t_ray ray, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 re	Makefile	/^re: fclean all$/;"	t
 re	minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
@@ -595,9 +602,7 @@ render_all_pixels	src/rendering/raytracer.c	/^static void	render_all_pixels(t_mi
 render_pixel_adaptive	src/rendering/antialiasing.c	/^t_color	render_pixel_adaptive(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
 render_pixel_antialiased	src/rendering/antialiasing.c	/^t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
 render_pixel_at_coordinates	src/rendering/raytracer_utils.c	/^void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,$/;"	f	typeref:typename:void
-render_progressive_step	src/rendering/progressive_render.c	/^void	render_progressive_step(t_minirt *rt, int step,$/;"	f	typeref:typename:void
 render_scene	src/rendering/raytracer.c	/^void	render_scene(t_minirt *rt)$/;"	f	typeref:typename:void
-render_scene_progressive	src/rendering/progressive_render.c	/^void	render_scene_progressive(t_minirt *rt)$/;"	f	typeref:typename:void
 right	includes/minirt.h	/^	struct s_bvh_node	*right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 right	includes/minirt.h	/^	t_vec3	right;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 right	tests/test_cleanup_only.c	/^    struct s_bvh_node *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
@@ -662,6 +667,7 @@ sl4	minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
 solve_quadratic	src/math/intersect_sphere.c	/^static double	solve_quadratic(double a, double b, double c)$/;"	f	typeref:typename:double	file:
 solve_quadratic_cone	src/math/intersect_cone.c	/^static double	solve_quadratic_cone(double a, double b, double c)$/;"	f	typeref:typename:double	file:
 solve_quadratic_cylinder	src/math/intersect_cylinder.c	/^static double	solve_quadratic_cylinder(double a, double b, double c)$/;"	f	typeref:typename:double	file:
+sort_objects_axis	src/utils/test.c	/^static void	sort_objects_axis(t_object **objects, int count, int axis)$/;"	f	typeref:typename:void	file:
 strlcpy_is_not_posix	minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
 swap_values	src/math/cube_utils.c	/^void	swap_values(double *t1, double *t2)$/;"	f	typeref:typename:void
 t	includes/minirt.h	/^	double		t;$/;"	m	struct:s_hit	typeref:typename:double
