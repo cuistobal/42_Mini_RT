@@ -46,33 +46,6 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 	return (ray_new(camera->position, ray_direction));
 }
 
-/*
-** render_all_pixels - Render all pixels in the scene
-*/
-static void	render_all_pixels(t_minirt *rt)
-{
-	/* int		x;
-	int		y;
-	double	inv_width;
-	double	inv_height;
-
-	inv_width = 1.0 / (double)rt->mlx.width;
-	inv_height = 1.0 / (double)rt->mlx.height;
-	y = 0;
-	while (y < rt->mlx.height)
-	{
-		x = 0;
-		while (x < rt->mlx.width)
-		{
-			render_pixel_at_coordinates(rt, x, y, inv_width, inv_height);
-			x++;
-		}
-		y++;
-	} */
-	(void)rt;
-}
-
-
 // inter thread
 
 typedef struct s_intels
@@ -86,7 +59,11 @@ typedef struct s_intels
 
 }	t_intels;
 
-void	*rap(void *intels)
+/*
+** render_all_pixels - Render all pixels in the scene
+*/
+
+void	*render_all_pixels(void *intels)
 {
 	t_intels intel = *(t_intels *)intels;
 	
@@ -95,7 +72,7 @@ void	*rap(void *intels)
 	double	inv_width;
 	double	inv_height;
 
-	render_all_pixels(intel.rt);
+	//render_all_pixels(intel.rt);
 	inv_width = 1.0 / (double)intel.rt->mlx.width;
 	inv_height = 1.0 / (double)intel.rt->mlx.height;
 	y = intel.ystart;
@@ -156,7 +133,7 @@ void	render_scene(t_minirt *rt)
 	
 	while(i < 4)
 	{
-		pthread_create(&threads[i], NULL, rap, &intels[i]);
+		pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]);
 		i++;
 	}
 	pthread_join(threads[3], NULL);
