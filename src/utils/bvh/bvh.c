@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/11 10:36:34 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/11 11:51:50 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,20 @@ static t_aabb	get_object_bounds(t_object *obj)
 	if (!obj)
 		return ((t_aabb){{INFINITY, INFINITY, INFINITY}, \
 				{-INFINITY, -INFINITY, -INFINITY}});
-	if (obj->type == SPHERE)
+	if (obj->type == SPHERE || obj->type == CUBE)
 	{
 		r = obj->radius;
 		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
 		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
 	}
-	else if (obj->type == CUBE)
+	else if (obj->type == CYLINDER || obj->type == CONE)
 	{
-		r = obj->radius;
-		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
-		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
-	}
-	else if (obj->type == CYLINDER)
-	{
-		// Simplified AABB for cylinder (could be more precise)
-		r = obj->radius + obj->height * 0.5;
-		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
-		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
-	}
-	else if (obj->type == CONE)
-	{
-		// Simplified AABB for cone
 		r = obj->radius + obj->height * 0.5;
 		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
 		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
 	}
 	else if (obj->type == PLANE)
 	{
-		// Planes are infinite, use large bounds
 		bounds.min = vec3_new(-1000, -1000, -1000);
 		bounds.max = vec3_new(1000, 1000, 1000);
 	}
@@ -82,7 +67,7 @@ static t_aabb	aabb_union(t_aabb a, t_aabb b)
 	result.min.z = fmin(a.min.z, b.min.z);
 	result.max.x = fmax(a.max.x, b.max.x);
 	result.max.y = fmax(a.max.y, b.max.y);
-	result.max.z = fmax(a.max.z, b.max.z);	
+	result.max.z = fmax(a.max.z, b.max.z);
 	return (result);
 }
 
@@ -113,11 +98,10 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	int			mid;
 
 	if (count <= 0)
-		return (NULL);	
+		return (NULL);
 	node = safe_malloc(sizeof(t_bvh_node));
 	if (!node)
 		return (NULL);
-	// Calculate bounding box for all objects
 	bounds = get_object_bounds(objects[0]);
 	i = 1;
 	while (i < count)
