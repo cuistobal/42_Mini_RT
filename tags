@@ -93,6 +93,7 @@ LINKING	minilibx-linux/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLib
 LINKING	minilibx-linux/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
 LOCALHOST	minilibx-linux/mlx_int.h	/^# define LOCALHOST /;"	d
 MAX_DEPTH	includes/minirt.h	/^# define MAX_DEPTH /;"	d
+MAX_OBJECTS_PER_LEAF	src/utils/bvh.c	/^#define MAX_OBJECTS_PER_LEAF /;"	d	file:
 MINIRT_H	includes/minirt.h	/^# define MINIRT_H$/;"	d
 MLX_DIR	Makefile	/^MLX_DIR = minilibx-linux$/;"	m
 MLX_H	minilibx-linux/mlx.h	/^#define	MLX_H$/;"	d
@@ -209,7 +210,7 @@ b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cone_params	typeref:typename:dou
 b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cylinder_params	typeref:typename:double
 b	includes/minirt.h	/^	int	b;$/;"	m	struct:s_color	typeref:typename:int
 bits_per_pixel	includes/minirt.h	/^	int		bits_per_pixel;$/;"	m	struct:s_mlx	typeref:typename:int
-bounds	includes/minirt.h	/^	t_aabb				bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
+bounds	includes/minirt.h	/^    t_aabb              bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
 bounds	tests/test_cleanup_only.c	/^    t_aabb bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb	file:
 box	includes/minirt.h	/^	t_aabb	box;$/;"	m	struct:s_aabb_query	typeref:typename:t_aabb
 bpp	minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
@@ -336,6 +337,7 @@ g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_off
 gc	minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
 gc	minilibx-linux/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+get_axis_value	src/utils/bvh.c	/^static double get_axis_value(t_object *obj, int axis)$/;"	f	typeref:typename:double	file:
 get_camera_ray	src/rendering/raytracer.c	/^t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)$/;"	f	typeref:typename:t_ray
 get_closest_root	src/math/intersect_sphere.c	/^static double	get_closest_root(double a, double b, double discriminant)$/;"	f	typeref:typename:double	file:
 get_cone_discriminant_root	src/math/intersect_cone.c	/^static double	get_cone_discriminant_root(double a, double b,$/;"	f	typeref:typename:double	file:
@@ -399,7 +401,7 @@ key_param	minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_lis
 key_win1	minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
 key_win2	minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
-left	includes/minirt.h	/^	struct s_bvh_node	*left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
+left	includes/minirt.h	/^    struct s_bvh_node   *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 left	tests/test_cleanup_only.c	/^    struct s_bvh_node *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
 lights	includes/minirt.h	/^	t_light		*lights;$/;"	m	struct:s_scene	typeref:typename:t_light *
 linear_to_srgb_channel	src/utils/colors.c	/^static double linear_to_srgb_channel(double c)$/;"	f	typeref:typename:double	file:
@@ -533,10 +535,11 @@ next	includes/minirt.h	/^	struct s_object	*next;$/;"	m	struct:s_object	typeref:s
 next	minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 normal	includes/minirt.h	/^	t_vec3			normal;$/;"	m	struct:s_object	typeref:typename:t_vec3
 normal	includes/minirt.h	/^	t_vec3		normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
-object	includes/minirt.h	/^	t_object			*object;$/;"	m	struct:s_bvh_node	typeref:typename:t_object *
 object	includes/minirt.h	/^	t_object	*object;$/;"	m	struct:s_hit	typeref:typename:t_object *
 object	tests/test_cleanup_only.c	/^    void *object;$/;"	m	struct:s_bvh_node	typeref:typename:void *	file:
+object_count	includes/minirt.h	/^    int                 object_count;$/;"	m	struct:s_bvh_node	typeref:typename:int
 objects	includes/minirt.h	/^	t_object	*objects;$/;"	m	struct:s_scene	typeref:typename:t_object *
+objects	includes/minirt.h	/^    t_object            **objects;$/;"	m	struct:s_bvh_node	typeref:typename:t_object **
 origin	includes/minirt.h	/^	t_vec3	origin;$/;"	m	struct:s_aabb_query	typeref:typename:t_vec3
 origin	includes/minirt.h	/^	t_vec3	origin;$/;"	m	struct:s_ray	typeref:typename:t_vec3
 param	minilibx-linux/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
@@ -560,6 +563,7 @@ parse_plane	src/parsing/parse_plane.c	/^int	parse_plane(char *line, t_scene *sce
 parse_scene	src/parsing/parse_scene.c	/^int	parse_scene(char *filename, t_scene *scene)$/;"	f	typeref:typename:int
 parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
+partition	src/utils/bvh.c	/^static int partition(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:int	file:
 pitch_epsilon_helper	src/utils/camera.c	/^static void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void	file:
 pix	minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
 point	includes/minirt.h	/^	t_vec3		point;$/;"	m	struct:s_hit	typeref:typename:t_vec3
@@ -577,6 +581,7 @@ profile	Makefile	/^profile: LIBS += $(PFLAGS)$/;"	t
 profile	Makefile	/^profile: fclean $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 put_pixel	src/graphics/image.c	/^void	put_pixel(t_mlx *mlx, int x, int y, t_color color)$/;"	f	typeref:typename:void
+quicksort_objects	src/utils/bvh.c	/^static void quicksort_objects(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:void	file:
 r	includes/minirt.h	/^	int	r;$/;"	m	struct:s_color	typeref:typename:int
 radius	includes/minirt.h	/^	double			radius;$/;"	m	struct:s_object	typeref:typename:double
 ray_at	src/math/ray.c	/^t_vec3	ray_at(t_ray ray, double t)$/;"	f	typeref:typename:t_vec3
@@ -596,8 +601,8 @@ render_pixel_adaptive	src/rendering/antialiasing.c	/^t_color	render_pixel_adapti
 render_pixel_antialiased	src/rendering/antialiasing.c	/^t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
 render_pixel_at_coordinates	src/rendering/raytracer_utils.c	/^void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,$/;"	f	typeref:typename:void
 render_scene	src/rendering/raytracer.c	/^void	render_scene(t_minirt *rt)$/;"	f	typeref:typename:void
-right	includes/minirt.h	/^	struct s_bvh_node	*right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 right	includes/minirt.h	/^	t_vec3	right;$/;"	m	struct:s_camera	typeref:typename:t_vec3
+right	includes/minirt.h	/^    struct s_bvh_node   *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 right	tests/test_cleanup_only.c	/^    struct s_bvh_node *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
 root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 rotate_camera	src/utils/camera.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
@@ -666,6 +671,7 @@ solve_quadratic_cylinder	src/math/intersect_cylinder.c	/^static double	solve_qua
 sort_objects_axis	src/utils/bvh.c	/^void sort_objects_axis(t_object **objects, int count, int axis)$/;"	f	typeref:typename:void
 strlcpy_is_not_posix	minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
 swap	src/utils/aabb_intersections.c	/^void	swap(double *t0, double *t1)$/;"	f	typeref:typename:void
+swap_objects	src/utils/bvh.c	/^static void swap_objects(t_object **a, t_object **b)$/;"	f	typeref:typename:void	file:
 swap_values	src/math/cube_utils.c	/^void	swap_values(double *t1, double *t2)$/;"	f	typeref:typename:void
 t	includes/minirt.h	/^	double		t;$/;"	m	struct:s_hit	typeref:typename:double
 t1	includes/minirt.h	/^	double	t1;$/;"	m	struct:s_slab_intersections	typeref:typename:double
