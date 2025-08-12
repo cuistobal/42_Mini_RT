@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:56:43 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/12 09:44:08 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 /* Constants */
 # define EPSILON 1e-6
-# define MAX_DEPTH 5
+# define MAX_DEPTH 3
 
 /* Object types */
 # define SPHERE 1

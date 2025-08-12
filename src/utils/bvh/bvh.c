@@ -94,9 +94,7 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 {
 	t_bvh_node	*node;
 	t_aabb		bounds;
-	int			i;
-	int			mid;
-
+	int			(i), (mid), (axis), (split);
 	if (count <= 0)
 		return (NULL);
 	node = safe_malloc(sizeof(t_bvh_node));
@@ -118,19 +116,9 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		node->right = NULL;
 		return (node);
 	}
-/* 	
-	// OLD
-	// Internal node case - split objects in half (simple split)
-	node->object = NULL;
-	mid = count / 2;
-	node->left = build_bvh_recursive(objects, mid);
-	node->right = build_bvh_recursive(objects + mid, count - mid);
-*/
-	// NEW
 	node->object = NULL;
 	if (count > 2)
 	{
-		int axis, split;
 		find_sah_split(objects, count, &axis, &split);
 		sort_objects_axis(objects, count, axis);
 		node->left = build_bvh_recursive(objects, split);
@@ -138,7 +126,7 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	}
 	else
 	{
-		int mid = count / 2;
+		mid = count / 2;
 		node->left = build_bvh_recursive(objects, mid);
 		node->right = build_bvh_recursive(objects + mid, count - mid);
 	}
