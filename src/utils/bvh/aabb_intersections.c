@@ -65,16 +65,13 @@
 // 	return (t_max > EPSILON);
 // }
 
-static void	swap(double *t0, double *t1, double invD)
+static void	swap(double *t0, double *t1)
 {
-	double	tmp;
+    double	tmp;
 
-	if (invD < 0.0)
-	{
-		tmp = *t0;
-		*t0 = *t1;
-		*t1 = tmp;
-	}
+    tmp = *t0;
+    *t0 = *t1;
+    *t1 = tmp;
 }
 
 /*
@@ -82,26 +79,37 @@ static void	swap(double *t0, double *t1, double invD)
 ** Returns 1 if ray intersects the bounding box, 0 otherwise
 ** We need to split that shit for norminette
 */
-int	intersect_aabb(double ray_orig[3], double ray_dir[3], double box_min[3], double box_max[3])
-{
-	int i;
-    double (tmin), (tmax), (invD), (t0), t1;
 
-	tmin = -INFINITY;
+int	intersect_aabb_query(t_aabb_query *q)
+{
+    double	tmin;
+    double	tmax;
+    double	t0;
+    double	t1;
+    double	invD;
+    int		i;
+
+    tmin = -INFINITY;
     tmax = INFINITY;
-    for (i = 0; i < 3; i++)
+    i = 0;
+    while (i < 3)
     {
-        if (fabs(ray_dir[i]) < EPSILON)
+        double orig = ((double *)&q->origin)[i];
+        double dir = ((double *)&q->dir)[i];
+        double bmin = ((double *)&q->box.min)[i];
+        double bmax = ((double *)&q->box.max)[i];
+        if (fabs(dir) < EPSILON)
         {
-            if (ray_orig[i] < box_min[i] || ray_orig[i] > box_max[i])
+            if (orig < bmin || orig > bmax)
                 return (0);
         }
         else
         {
-            invD = 1.0 / ray_dir[i];
-            t0 = (box_min[i] - ray_orig[i]) * invD;
-            t1 = (box_max[i] - ray_orig[i]) * invD;
-			swap(&t0, &t1, invD);
+            invD = 1.0 / dir;
+            t0 = (bmin - orig) * invD;
+            t1 = (bmax - orig) * invD;
+            if (invD < 0.0)
+                swap(&t0, &t1);
             if (t0 > tmin)
                 tmin = t0;
             if (t1 < tmax)
@@ -109,6 +117,9 @@ int	intersect_aabb(double ray_orig[3], double ray_dir[3], double box_min[3], dou
             if (tmin > tmax)
                 return (0);
         }
+        i++;
     }
+    q->tmin = tmin;
+    q->tmax = tmax;
     return (tmax > EPSILON);
 }
