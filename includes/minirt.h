@@ -198,6 +198,16 @@ typedef struct s_scene
 	t_bvh_node	*bvh_root;
 }	t_scene;
 
+/* BVH intersection query structure */
+typedef struct s_aabb_query
+{
+    t_vec3	origin;
+    t_vec3	dir;
+    t_aabb	box;
+    double	tmin;
+    double	tmax;
+}	t_aabb_query;
+
 /* MLX context structure */
 typedef struct s_mlx
 {
