@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 /*
 ** Traverses both children node to find the matching leaf
 */
-static int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
+int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
-	t_aabb_query left_query;
-	t_aabb_query right_query;
-	int hit_left, hit_right;
-	t_bvh_node *first, *second;
-	double tmin_first, tmin_second;
-	t_hit hit_first, hit_second;
+	t_aabb_query (left_query), right_query;
+	int (hit_left), hit_right;
+	t_bvh_node (*first), *second;
+	double tmin_second;
+	t_hit (hit_first), hit_second;
 
 	left_query.origin = ray.origin;
 	left_query.dir = ray.direction;
@@ -36,26 +35,28 @@ static int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 
 	if (hit_left && (!hit_right || left_query.tmin < right_query.tmin))
 	{
-		first = node->left; tmin_first = left_query.tmin;
-		second = node->right; tmin_second = right_query.tmin;
+		first = node->left;
+		second = node->right;
+		tmin_second = right_query.tmin;
 	}
 	else if (hit_right)
 	{
-		first = node->right; tmin_first = right_query.tmin;
-		second = node->left; tmin_second = left_query.tmin;
+		first = node->right;
+		second = node->left;
+		tmin_second = left_query.tmin;
 	}
 	else
 		return (0);
 
-	if (first && intersect_bvh(ray, first, &hit_first))
+	if (first && intersect_bvh_iter(ray, first, &hit_first))
 	{
-		if (second && tmin_second < hit_first.t && intersect_bvh(ray, second, &hit_second) && hit_second.t < hit_first.t)
+		if (second && tmin_second < hit_first.t && intersect_bvh_iter(ray, second, &hit_second) && hit_second.t < hit_first.t)
 			*hit = hit_second;
 		else
 			*hit = hit_first;
 		return (1);
 	}
-	if (second && intersect_bvh(ray, second, hit))
+	if (second && intersect_bvh_iter(ray, second, hit))
 		return (1);
 	return (0);
 }
@@ -63,7 +64,7 @@ static int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 /*
 ** Base case -> fills the hit struct with the intersection data
 */
-static int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
+int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
 	double t;
 
@@ -92,7 +93,7 @@ static int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 /*
 ** intersect_bvh - Traverse BVH to find closest intersection
 */
-
+/* 
 int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)
 {
 	t_aabb_query query;
@@ -108,6 +109,7 @@ int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)
 		return (case_leaf_node(node, hit, ray));
 	return (case_internal_node(node, hit, ray));
 }
+ */
 
 #define BVH_STACK_SIZE 64
 
@@ -130,7 +132,7 @@ int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 	while (stack_ptr > 0)
 	{
 		t_bvh_node *node = stack[--stack_ptr];
-		t_aabb_query query = {ray.origin, ray.direction, node->bounds};
+		t_aabb_query query = {ray.origin, ray.direction, node->bounds, -INFINITY, INFINITY};
 		if (!intersect_aabb_query(&query))
 			continue;
 		if (node->object)

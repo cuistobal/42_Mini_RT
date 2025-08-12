@@ -20,7 +20,7 @@ MLX_DIR = minilibx-linux
 
 
 # Source files (wildcard, récursif)
-SRCS = $(wildcard $(SRC_DIR)/**/*.c)
+SRCS = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/**/*.c)
 
 # Object files
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

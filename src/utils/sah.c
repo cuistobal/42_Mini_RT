@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/12 08:34:51 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:45:59 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,48 @@
 
 
 /*
+** Computes the surface area of an axis-aligned bounding box (AABB)
+*/
+double aabb_surface(t_aabb a)
+{
+	double dx = a.max.x - a.min.x;
+	double dy = a.max.y - a.min.y;
+	double dz = a.max.z - a.min.z;
+
+	if (dx < 0) dx = -dx;
+	if (dy < 0) dy = -dy;
+	if (dz < 0) dz = -dz;
+	return 2.0 * (dx * dy + dx * dz + dy * dz);
+}
+
+/*
 **
 */
 static void	fill_bounds(t_object **objects, int count,
-    t_aabb *left, t_aabb *right)
+	t_aabb *left, t_aabb *right)
 {
-    int	i;
+	int	i;
 
-    left[0] = get_object_bounds(objects[0]);
-    i = 1;
-    while (i < count)
-    {
-        left[i] = aabb_union(left[i - 1], get_object_bounds(objects[i]));
-        i++;
-    }
-    right[count - 1] = get_object_bounds(objects[count - 1]);
-    i = count - 2;
-    while (i >= 0)
-    {
-        right[i] = aabb_union(right[i + 1], get_object_bounds(objects[i]));
-        i--;
-    }
+	left[0] = get_object_bounds(objects[0]);
+	i = 1;
+	while (i < count)
+	{
+		left[i] = aabb_union(left[i - 1], get_object_bounds(objects[i]));
+		i++;
+	}
+	right[count - 1] = get_object_bounds(objects[count - 1]);
+	i = count - 2;
+	while (i >= 0)
+	{
+		right[i] = aabb_union(right[i + 1], get_object_bounds(objects[i]));
+		i--;
+	}
 }
 
 static double	sah_cost(double left_area, double right_area,
-    int left_count, int right_count)
+	int left_count, int right_count)
 {
-    return (left_area * left_count + right_area * right_count);
+	return (left_area * left_count + right_area * right_count);
 }
 
 /*

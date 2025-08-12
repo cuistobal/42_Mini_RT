@@ -396,8 +396,11 @@ t_bvh_node	*build_bvh(t_scene *scene);
 t_aabb		get_object_bounds(t_object *object);
 t_aabb		aabb_union(t_aabb a, t_aabb b);
 double		aabb_surface(t_aabb a);
+int	find_sah_split(t_object **objects, int count, int *best_axis, \
+		int *best_index);
 //int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
 int			intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit);
+int			intersect_aabb_query(t_aabb_query *query);
 void		cleanup_bvh(t_bvh_node *node);
 t_vec3		get_object_normal(t_vec3 hit_point, t_object *object);
 void sort_objects_axis(t_object **objects, int count, int axis);

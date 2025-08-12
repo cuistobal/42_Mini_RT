@@ -74,7 +74,7 @@ t_aabb	aabb_union(t_aabb a, t_aabb b)
 /*
 ** count_objects - Count objects in linked list
 */
-static int	count_objects(t_object *objects)
+int	count_objects(t_object *objects)
 {
 	int	count;
 
@@ -90,7 +90,7 @@ static int	count_objects(t_object *objects)
 /*
 ** build_bvh_recursive - Recursively build BVH tree
 */
-static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
+t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 {
 	t_bvh_node	*node;
 	t_aabb		bounds;
@@ -185,33 +185,33 @@ void	cleanup_bvh(t_bvh_node *node)
 */
 void sort_objects_axis(t_object **objects, int count, int axis)
 {
-    int i, j;
-    for (i = 0; i < count - 1; i++)
-    {
-        for (j = 0; j < count - i - 1; j++)
-        {
-            double a, b;
-            if (axis == 0)
-            {
-                a = objects[j]->position.x;
-                b = objects[j + 1]->position.x;
-            }
-            else if (axis == 1)
-            {
-                a = objects[j]->position.y;
-                b = objects[j + 1]->position.y;
-            }
-            else
-            {
-                a = objects[j]->position.z;
-                b = objects[j + 1]->position.z;
-            }
-            if (a > b)
-            {
-                t_object *tmp = objects[j];
-                objects[j] = objects[j + 1];
-                objects[j + 1] = tmp;
-            }
-        }
-    }
+	int i, j;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = 0; j < count - i - 1; j++)
+		{
+			double a, b;
+			if (axis == 0)
+			{
+				a = objects[j]->position.x;
+				b = objects[j + 1]->position.x;
+			}
+			else if (axis == 1)
+			{
+				a = objects[j]->position.y;
+				b = objects[j + 1]->position.y;
+			}
+			else
+			{
+				a = objects[j]->position.z;
+				b = objects[j + 1]->position.z;
+			}
+			if (a > b)
+			{
+				t_object *tmp = objects[j];
+				objects[j] = objects[j + 1];
+				objects[j + 1] = tmp;
+			}
+		}
+	}
 }
