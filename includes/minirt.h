@@ -201,11 +201,11 @@ typedef struct s_scene
 /* BVH intersection query structure */
 typedef struct s_aabb_query
 {
-    t_vec3	origin;
-    t_vec3	dir;
-    t_aabb	box;
-    double	tmin;
-    double	tmax;
+	t_vec3	origin;
+	t_vec3	dir;
+	t_aabb	box;
+	double	tmin;
+	double	tmax;
 }	t_aabb_query;
 
 /* MLX context structure */
@@ -393,9 +393,14 @@ void	update_camera_vectors(t_camera *camera);
 /* ************************************************************************** */
 
 t_bvh_node	*build_bvh(t_scene *scene);
-int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+t_aabb		get_object_bounds(t_object *object);
+t_aabb		aabb_union(t_aabb a, t_aabb b);
+double		aabb_surface(t_aabb a);
+//int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+int			intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit);
 void		cleanup_bvh(t_bvh_node *node);
 t_vec3		get_object_normal(t_vec3 hit_point, t_object *object);
+void sort_objects_axis(t_object **objects, int count, int axis);
 
 /* ************************************************************************** */
 /*                             CUBE UTILITY FUNCTIONS                        */

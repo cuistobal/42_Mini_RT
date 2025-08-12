@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/11 11:51:50 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/12 11:13:01 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** integrate SAH instead of creating a box per object. This neglects the whole
 ** point of the bvh.
 */
-static t_aabb	get_object_bounds(t_object *obj)
+t_aabb	get_object_bounds(t_object *obj)
 {
 	double	r;
 	t_aabb	bounds;
@@ -58,7 +58,7 @@ static t_aabb	get_object_bounds(t_object *obj)
 /*
 ** aabb_union - Combine two AABBs into one that contains both
 */
-static t_aabb	aabb_union(t_aabb a, t_aabb b)
+t_aabb	aabb_union(t_aabb a, t_aabb b)
 {
 	t_aabb	result;
 
@@ -178,4 +178,40 @@ void	cleanup_bvh(t_bvh_node *node)
 	cleanup_bvh(node->left);
 	cleanup_bvh(node->right);
 	safe_free((void **)&node);
+}
+
+/*
+** sort_objects_axis - Naive bubble sort for BVH splitting (axis: 0=x, 1=y, 2=z)
+*/
+void sort_objects_axis(t_object **objects, int count, int axis)
+{
+    int i, j;
+    for (i = 0; i < count - 1; i++)
+    {
+        for (j = 0; j < count - i - 1; j++)
+        {
+            double a, b;
+            if (axis == 0)
+            {
+                a = objects[j]->position.x;
+                b = objects[j + 1]->position.x;
+            }
+            else if (axis == 1)
+            {
+                a = objects[j]->position.y;
+                b = objects[j + 1]->position.y;
+            }
+            else
+            {
+                a = objects[j]->position.z;
+                b = objects[j + 1]->position.z;
+            }
+            if (a > b)
+            {
+                t_object *tmp = objects[j];
+                objects[j] = objects[j + 1];
+                objects[j + 1] = tmp;
+            }
+        }
+    }
 }
