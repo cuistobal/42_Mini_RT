@@ -1,3 +1,4 @@
+#define MAX_OBJECTS_PER_LEAF 2
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -108,15 +109,19 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		i++;
 	}
 	node->bounds = bounds;
-	// Leaf node case
-	if (count == 1)
-	{
-		node->object = objects[0];
-		node->left = NULL;
-		node->right = NULL;
-		return (node);
-	}
-	node->object = NULL;
+	   // Leaf node case (seuil fixe)
+	   if (count <= MAX_OBJECTS_PER_LEAF)
+	   {
+			   node->objects = safe_malloc(sizeof(t_object *) * count);
+			   for (i = 0; i < count; i++)
+					   node->objects[i] = objects[i];
+			   node->object_count = count;
+			   node->left = NULL;
+			   node->right = NULL;
+			   return (node);
+	   }
+	   node->objects = NULL;
+	   node->object_count = 0;
 	if (count > 2)
 	{
 		find_sah_split(objects, count, &axis, &split);
@@ -177,7 +182,55 @@ void	cleanup_bvh(t_bvh_node *node)
 	
 	cleanup_bvh(node->left);
 	cleanup_bvh(node->right);
+	if (node->objects)
+		safe_free((void **)&node->objects);
 	safe_free((void **)&node);
+}
+
+
+static double get_axis_value(t_object *obj, int axis)
+{
+	if (axis == 0)
+		return (obj->position.x);
+	else if (axis == 1)
+		return (obj->position.y);
+	return (obj->position.z);
+}
+
+static void swap_objects(t_object **a, t_object **b)
+{
+	t_object *tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+static int partition(t_object **arr, int low, int high, int axis)
+{
+	double pivot = get_axis_value(arr[high], axis);
+	int i = low - 1;
+	int j = low;
+	while (j < high)
+	{
+		if (get_axis_value(arr[j], axis) < pivot)
+		{
+			i++;
+			swap_objects(&arr[i], &arr[j]);
+		}
+		j++;
+	}
+	swap_objects(&arr[i + 1], &arr[high]);
+	return (i + 1);
+}
+
+static void quicksort_objects(t_object **arr, int low, int high, int axis)
+{
+	int pivot;
+	if (low < high)
+	{
+		pivot = partition(arr, low, high, axis);
+		quicksort_objects(arr, low, pivot - 1, axis);
+		quicksort_objects(arr, pivot + 1, high, axis);
+	}
 }
 
 /*
@@ -185,33 +238,6 @@ void	cleanup_bvh(t_bvh_node *node)
 */
 void sort_objects_axis(t_object **objects, int count, int axis)
 {
-	int i, j;
-	for (i = 0; i < count - 1; i++)
-	{
-		for (j = 0; j < count - i - 1; j++)
-		{
-			double a, b;
-			if (axis == 0)
-			{
-				a = objects[j]->position.x;
-				b = objects[j + 1]->position.x;
-			}
-			else if (axis == 1)
-			{
-				a = objects[j]->position.y;
-				b = objects[j + 1]->position.y;
-			}
-			else
-			{
-				a = objects[j]->position.z;
-				b = objects[j + 1]->position.z;
-			}
-			if (a > b)
-			{
-				t_object *tmp = objects[j];
-				objects[j] = objects[j + 1];
-				objects[j + 1] = tmp;
-			}
-		}
-	}
+	if (count > 1)
+		quicksort_objects(objects, 0, count - 1, axis);
 }

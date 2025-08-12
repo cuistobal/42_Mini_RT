@@ -66,28 +66,38 @@ int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 */
 int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
-	double t;
-
-	if (node->object->type == SPHERE)
-		t = intersect_sphere(ray, node->object);
-	else if (node->object->type == PLANE)
-		t = intersect_plane(ray, node->object);
-	else if (node->object->type == CYLINDER)
-		t = intersect_cylinder(ray, node->object);
-	else if (node->object->type == CONE)
-		t = intersect_cone(ray, node->object);
-	else if (node->object->type == CUBE)
-		t = intersect_cube(ray, node->object);
-	else
-		t = -1.0;
-	if (t <= 0)
-		return (0);
-	hit->t = t;
-	hit->point = ray_at(ray, t);
-	hit->normal = get_object_normal(hit->point, node->object);
-	hit->material = &node->object->material;
-	hit->object = node->object;
-	return (1);
+double t, closest_t = INFINITY;
+int found = 0;
+t_hit temp_hit;
+for (int i = 0; i < node->object_count; i++)
+{
+	   t_object *obj = node->objects[i];
+	   if (obj->type == SPHERE)
+			   t = intersect_sphere(ray, obj);
+	   else if (obj->type == PLANE)
+			   t = intersect_plane(ray, obj);
+	   else if (obj->type == CYLINDER)
+			   t = intersect_cylinder(ray, obj);
+	   else if (obj->type == CONE)
+			   t = intersect_cone(ray, obj);
+	   else if (obj->type == CUBE)
+			   t = intersect_cube(ray, obj);
+	   else
+			   t = -1.0;
+	   if (t > 0 && t < closest_t)
+	   {
+			   closest_t = t;
+			   temp_hit.t = t;
+			   temp_hit.point = ray_at(ray, t);
+			   temp_hit.normal = get_object_normal(temp_hit.point, obj);
+			   temp_hit.material = &obj->material;
+			   temp_hit.object = obj;
+			   found = 1;
+	   }
+}
+if (found)
+	   *hit = temp_hit;
+return found;
 }
 
 /*
@@ -135,15 +145,15 @@ int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 		t_aabb_query query = {ray.origin, ray.direction, node->bounds, -INFINITY, INFINITY};
 		if (!intersect_aabb_query(&query))
 			continue;
-		if (node->object)
-		{
-			if (case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
-			{
-				*hit = temp_hit;
-				closest_t = temp_hit.t;
-				found = 1;
-			}
-		}
+			   if (node->objects)
+			   {
+					   if (case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
+					   {
+							   *hit = temp_hit;
+							   closest_t = temp_hit.t;
+							   found = 1;
+					   }
+			   }
 		else
 		{
 			t_aabb_query left_query, right_query;

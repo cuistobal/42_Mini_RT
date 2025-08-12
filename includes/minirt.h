@@ -181,10 +181,11 @@ typedef struct s_slab_intersections
 /* BVH (Bounding Volume Hierarchy) node structure */
 typedef struct s_bvh_node
 {
-	t_aabb				bounds;
-	t_object			*object;
-	struct s_bvh_node	*left;
-	struct s_bvh_node	*right;
+    t_aabb              bounds;
+    t_object            **objects;
+    int                 object_count;
+    struct s_bvh_node   *left;
+    struct s_bvh_node   *right;
 }	t_bvh_node;
 
 /* Scene structure */
