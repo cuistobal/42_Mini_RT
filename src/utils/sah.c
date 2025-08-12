@@ -18,13 +18,13 @@
 */
 double aabb_surface(t_aabb a)
 {
-	double dx;
-	double dy;
-	double dz;
+	double dx = a.max.x - a.min.x;
+	double dy = a.max.y - a.min.y;
+	double dz = a.max.z - a.min.z;
 
-	dx = fabs(a.max.x - a.min.x);
-	dy = fabs(a.max.y - a.min.y);
-	dz = fabs(a.max.z - a.min.z);
+	if (dx < 0) dx = -dx;
+	if (dy < 0) dy = -dy;
+	if (dz < 0) dz = -dz;
 	return 2.0 * (dx * dy + dx * dz + dy * dz);
 }
 
