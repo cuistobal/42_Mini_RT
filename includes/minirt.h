@@ -48,7 +48,7 @@
 # define RED_OFFSET 16
 # define GREEN_OFFSET 8
 # define BVH_STACK_SIZE 64
-#define MAX_OBJECTS_PER_LEAF 4
+# define MAX_OBJECTS_PER_LEAF 4
 
 /* Error codes */
 typedef enum e_error

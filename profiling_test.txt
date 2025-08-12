@@ -2,28 +2,28 @@ Flat profile:
 
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  us/call  us/call  name    
- 64.93      9.22     9.22 955568762     0.01     0.01  intersect_aabb_query
- 31.27     13.66     4.44 21270020     0.21     0.64  intersect_bvh_iter
-  1.69     13.90     0.24                             render_all_pixels
-  0.85     14.02     0.12                             image.c.6ad04909
-  0.42     14.08     0.06                             mlx_loop
-  0.35     14.13     0.05                             main.c.e8c4d63a
-  0.21     14.16     0.03                             events.c.1d839b4a
-  0.14     14.18     0.02  3104989     0.01     0.01  handle_loop
-  0.14     14.20     0.02   427084     0.05     1.16  raycast
-  0.00     14.20     0.00      989     0.00     0.00  get_object_bounds
-  0.00     14.20     0.00      153     0.00     0.00  get_next_token
-  0.00     14.20     0.00       72     0.00     0.00  quicksort_objects
-  0.00     14.20     0.00       44     0.00     0.00  parse_vec3
-  0.00     14.20     0.00       40     0.00     0.00  parse_double
-  0.00     14.20     0.00       39     0.00     0.00  read_file_line
-  0.00     14.20     0.00       34     0.00     0.00  parse_color
-  0.00     14.20     0.00        5     0.00     0.00  handle_keypress
-  0.00     14.20     0.00        2     0.00     0.00  cleanup_mlx
-  0.00     14.20     0.00        1     0.00     0.00  build_bvh_recursive
-  0.00     14.20     0.00        1     0.00     0.00  cleanup_bvh
-  0.00     14.20     0.00        1     0.00     0.00  exit_success
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 51.81      5.72     5.72 581711223     9.83     9.83  intersect_aabb_query
+ 43.39     10.51     4.79 16039575   298.64   655.25  intersect_bvh_iter
+  3.26     10.87     0.36                             render_all_pixels
+  0.72     10.95     0.08                             intersect_cube.c.3a7c82f9
+  0.36     10.99     0.04                             main.c.f40b4ae3
+  0.27     11.02     0.03  2974188    10.09    10.09  handle_loop
+  0.09     11.03     0.01                             _init
+  0.09     11.04     0.01                             image.c.1087c578
+  0.00     11.04     0.00   306256     0.00     0.00  raycast
+  0.00     11.04     0.00      828     0.00     0.00  get_object_bounds
+  0.00     11.04     0.00      153     0.00     0.00  get_next_token
+  0.00     11.04     0.00       84     0.00     0.00  parse_double
+  0.00     11.04     0.00       44     0.00     0.00  quicksort_objects
+  0.00     11.04     0.00       39     0.00     0.00  read_file_line
+  0.00     11.04     0.00       34     0.00     0.00  parse_color
+  0.00     11.04     0.00        7     0.00     0.00  parse_cone_tokens
+  0.00     11.04     0.00        4     0.00     0.00  handle_keypress
+  0.00     11.04     0.00        2     0.00     0.00  cleanup_mlx
+  0.00     11.04     0.00        1     0.00     0.00  build_bvh_recursive
+  0.00     11.04     0.00        1     0.00     0.00  cleanup_bvh
+  0.00     11.04     0.00        1     0.00     0.00  exit_success
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -61,92 +61,99 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.07% of 14.20 seconds
+granularity: each sample hit covers 4 byte(s) for 0.09% of 11.04 seconds
 
 index % time    self  children    called     name
-                             27718319             intersect_bvh_iter [1]
-                0.16    0.32  742990/21270020     raycast [6]
-                2.00    4.15 9564058/21270020     image.c.6ad04909 [4]
-                2.29    4.75 10962972/21270020     render_all_pixels [3]
-[1]     96.2    4.44    9.22 21270020+27718319 intersect_bvh_iter [1]
-                9.22    0.00 955568762/955568762     intersect_aabb_query [2]
-                             27718319             intersect_bvh_iter [1]
+                             20845422             intersect_bvh_iter [1]
+                0.16    0.19  542970/16039575     events.c.c8d4c4f0 [5]
+                2.22    2.65 7441965/16039575     image.c.1087c578 [4]
+                2.41    2.87 8054640/16039575     render_all_pixels [3]
+[1]     95.2    4.79    5.72 16039575+20845422 intersect_bvh_iter [1]
+                5.72    0.00 581711223/581711223     intersect_aabb_query [2]
+                             20845422             intersect_bvh_iter [1]
 -----------------------------------------------
-                9.22    0.00 955568762/955568762     intersect_bvh_iter [1]
-[2]     64.9    9.22    0.00 955568762         intersect_aabb_query [2]
------------------------------------------------
-                                                 <spontaneous>
-[3]     51.3    0.24    7.04                 render_all_pixels [3]
-                2.29    4.75 10962972/21270020     intersect_bvh_iter [1]
+                5.72    0.00 581711223/581711223     intersect_bvh_iter [1]
+[2]     51.8    5.72    0.00 581711223         intersect_aabb_query [2]
 -----------------------------------------------
                                                  <spontaneous>
-[4]     44.1    0.12    6.14                 image.c.6ad04909 [4]
-                2.00    4.15 9564058/21270020     intersect_bvh_iter [1]
+[3]     51.1    0.36    5.28                 render_all_pixels [3]
+                2.41    2.87 8054640/16039575     intersect_bvh_iter [1]
 -----------------------------------------------
                                                  <spontaneous>
-[5]      3.9    0.05    0.50                 main.c.e8c4d63a [5]
-                0.02    0.48  427084/427084      raycast [6]
------------------------------------------------
-                0.02    0.48  427084/427084      main.c.e8c4d63a [5]
-[6]      3.5    0.02    0.48  427084         raycast [6]
-                0.16    0.32  742990/21270020     intersect_bvh_iter [1]
+[4]     44.3    0.01    4.88                 image.c.1087c578 [4]
+                2.22    2.65 7441965/16039575     intersect_bvh_iter [1]
 -----------------------------------------------
                                                  <spontaneous>
-[7]      0.6    0.06    0.02                 mlx_loop [7]
-                0.02    0.00 3104989/3104989     handle_loop [9]
-                0.00    0.00       5/5           handle_keypress [17]
+[5]      3.2    0.00    0.36                 events.c.c8d4c4f0 [5]
+                0.16    0.19  542970/16039575     intersect_bvh_iter [1]
 -----------------------------------------------
                                                  <spontaneous>
-[8]      0.2    0.03    0.00                 events.c.1d839b4a [8]
+[6]      1.0    0.08    0.03                 intersect_cube.c.3a7c82f9 [6]
+                0.03    0.00 2974188/2974188     handle_loop [8]
+                0.00    0.00       4/4           handle_keypress [18]
 -----------------------------------------------
-                0.02    0.00 3104989/3104989     mlx_loop [7]
-[9]      0.1    0.02    0.00 3104989         handle_loop [9]
+                                                 <spontaneous>
+[7]      0.4    0.04    0.00                 main.c.f40b4ae3 [7]
+                0.00    0.00  306256/306256      raycast [10]
 -----------------------------------------------
-                0.00    0.00     989/989         build_bvh_recursive [19]
-[10]     0.0    0.00    0.00     989         get_object_bounds [10]
+                0.03    0.00 2974188/2974188     intersect_cube.c.3a7c82f9 [6]
+[8]      0.3    0.03    0.00 2974188         handle_loop [8]
+-----------------------------------------------
+                                                 <spontaneous>
+[9]      0.1    0.01    0.00                 _init [9]
+-----------------------------------------------
+                0.00    0.00  306256/306256      main.c.f40b4ae3 [7]
+[10]     0.0    0.00    0.00  306256         raycast [10]
+-----------------------------------------------
+                0.00    0.00     828/828         build_bvh_recursive [20]
+[11]     0.0    0.00    0.00     828         get_object_bounds [11]
 -----------------------------------------------
                 0.00    0.00     153/153         main [48]
-[11]     0.0    0.00    0.00     153         get_next_token [11]
+[12]     0.0    0.00    0.00     153         get_next_token [12]
 -----------------------------------------------
-                                 390             quicksort_objects [12]
-                0.00    0.00      72/72          build_bvh_recursive [19]
-[12]     0.0    0.00    0.00      72+390     quicksort_objects [12]
-                                 390             quicksort_objects [12]
+                0.00    0.00      28/84          parse_cone_tokens [17]
+                0.00    0.00      56/84          main [48]
+[13]     0.0    0.00    0.00      84         parse_double [13]
 -----------------------------------------------
-                0.00    0.00      44/44          main [48]
-[13]     0.0    0.00    0.00      44         parse_vec3 [13]
------------------------------------------------
-                0.00    0.00      40/40          main [48]
-[14]     0.0    0.00    0.00      40         parse_double [14]
+                                 331             quicksort_objects [14]
+                0.00    0.00      44/44          build_bvh_recursive [20]
+[14]     0.0    0.00    0.00      44+331     quicksort_objects [14]
+                                 331             quicksort_objects [14]
 -----------------------------------------------
                 0.00    0.00      39/39          main [48]
 [15]     0.0    0.00    0.00      39         read_file_line [15]
 -----------------------------------------------
-                0.00    0.00      34/34          main [48]
+                0.00    0.00       7/34          parse_cone_tokens [17]
+                0.00    0.00      27/34          main [48]
 [16]     0.0    0.00    0.00      34         parse_color [16]
 -----------------------------------------------
-                0.00    0.00       5/5           mlx_loop [7]
-[17]     0.0    0.00    0.00       5         handle_keypress [17]
+                0.00    0.00       7/7           main [48]
+[17]     0.0    0.00    0.00       7         parse_cone_tokens [17]
+                0.00    0.00      28/84          parse_double [13]
+                0.00    0.00       7/34          parse_color [16]
 -----------------------------------------------
-                0.00    0.00       2/2           exit_success [21]
-[18]     0.0    0.00    0.00       2         cleanup_mlx [18]
-                0.00    0.00       1/1           cleanup_bvh [20]
+                0.00    0.00       4/4           intersect_cube.c.3a7c82f9 [6]
+[18]     0.0    0.00    0.00       4         handle_keypress [18]
 -----------------------------------------------
-                                  36             build_bvh_recursive [19]
+                0.00    0.00       2/2           exit_success [22]
+[19]     0.0    0.00    0.00       2         cleanup_mlx [19]
+                0.00    0.00       1/1           cleanup_bvh [21]
+-----------------------------------------------
+                                  22             build_bvh_recursive [20]
                 0.00    0.00       1/1           main [48]
-[19]     0.0    0.00    0.00       1+36      build_bvh_recursive [19]
-                0.00    0.00     989/989         get_object_bounds [10]
-                0.00    0.00      72/72          quicksort_objects [12]
-                                  36             build_bvh_recursive [19]
+[20]     0.0    0.00    0.00       1+22      build_bvh_recursive [20]
+                0.00    0.00     828/828         get_object_bounds [11]
+                0.00    0.00      44/44          quicksort_objects [14]
+                                  22             build_bvh_recursive [20]
 -----------------------------------------------
-                                  20             cleanup_bvh [20]
-                0.00    0.00       1/1           cleanup_mlx [18]
-[20]     0.0    0.00    0.00       1+20      cleanup_bvh [20]
-                                  20             cleanup_bvh [20]
+                                  12             cleanup_bvh [21]
+                0.00    0.00       1/1           cleanup_mlx [19]
+[21]     0.0    0.00    0.00       1+12      cleanup_bvh [21]
+                                  12             cleanup_bvh [21]
 -----------------------------------------------
-                0.00    0.00       1/1           cube_utils.c.39c2f2b9 [32]
-[21]     0.0    0.00    0.00       1         exit_success [21]
-                0.00    0.00       2/2           cleanup_mlx [18]
+                0.00    0.00       1/1           cube_utils.c.45669c81 [33]
+[22]     0.0    0.00    0.00       1         exit_success [22]
+                0.00    0.00       2/2           cleanup_mlx [19]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -239,10 +246,10 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [19] build_bvh_recursive (bvh.c) [17] handle_keypress (events.c) [16] parse_color (parse_utils.c)
-  [20] cleanup_bvh (bvh.c)     [9] handle_loop (events.c) [14] parse_double (parse_utils.c)
-  [18] cleanup_mlx (window.c)  [4] image.c.6ad04909       [13] parse_vec3 (parse_utils.c)
-   [8] events.c.1d839b4a       [2] intersect_aabb_query (aabb_intersections.c) [12] quicksort_objects (bvh.c)
-  [21] exit_success (error1.c) [1] intersect_bvh_iter (bvh_intersections.c) [6] raycast (raytracer.c)
-  [11] get_next_token (parse_utils.c) [5] main.c.e8c4d63a [15] read_file_line (parse_scene.c)
-  [10] get_object_bounds (bvh.c) [7] mlx_loop              [3] render_all_pixels (raytracer.c)
+   [9] _init                  [18] handle_keypress (events.c) [16] parse_color (parse_utils.c)
+  [20] build_bvh_recursive (bvh.c) [8] handle_loop (events.c) [17] parse_cone_tokens (parse_cone.c)
+  [21] cleanup_bvh (bvh.c)     [4] image.c.1087c578       [13] parse_double (parse_utils.c)
+  [19] cleanup_mlx (window.c)  [2] intersect_aabb_query (aabb_intersections.c) [14] quicksort_objects (bvh.c)
+  [22] exit_success (error1.c) [1] intersect_bvh_iter (bvh_intersections.c) [10] raycast (raytracer.c)
+  [12] get_next_token (parse_utils.c) [6] intersect_cube.c.3a7c82f9 [15] read_file_line (parse_scene.c)
+  [11] get_object_bounds (bvh.c) [7] main.c.f40b4ae3       [3] render_all_pixels (raytracer.c)
