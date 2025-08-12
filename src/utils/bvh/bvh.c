@@ -118,11 +118,30 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		node->right = NULL;
 		return (node);
 	}
+/* 	
+	// OLD
 	// Internal node case - split objects in half (simple split)
 	node->object = NULL;
 	mid = count / 2;
 	node->left = build_bvh_recursive(objects, mid);
 	node->right = build_bvh_recursive(objects + mid, count - mid);
+*/
+	// NEW
+	node->object = NULL;
+	if (count > 2)
+	{
+		int axis, split;
+		find_sah_split(objects, count, &axis, &split);
+		sort_objects_axis(objects, count, axis);
+		node->left = build_bvh_recursive(objects, split);
+		node->right = build_bvh_recursive(objects + split, count - split);
+	}
+	else
+	{
+		int mid = count / 2;
+		node->left = build_bvh_recursive(objects, mid);
+		node->right = build_bvh_recursive(objects + mid, count - mid);
+	}
 	return (node);
 }
 

@@ -6,138 +6,149 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/10 14:35:32 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/12 08:34:51 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-static double	aabb_surface(t_aabb box)
+/*
+**
+*/
+static int	compare_obj_axis(const void *a, const void *b, void *axis_ptr)
 {
-    double dx;
-    double dy;
-    double dz;
-
-	dx = box.max.x - box.min.x;
-    dy = box.max.y - box.min.y;
-    dz = box.max.z - box.min.z;
-    return 2.0 * (dx * dy + dx * dz + dy * dz);
-}
-
-// Utilitaire pour comparer les objets selon un axe
-static int	compare_obj_x(const void *a, const void *b)
-{
-    const t_object *oa;
-    const t_object *ob;
+	const t_object	*oa;
+	const t_object	*ob;
+	int				axis;
 
 	oa = *(const t_object **)a;
 	ob = *(const t_object **)b;
-    return (oa->position.x > ob->position.x) - \
-		(oa->position.x < ob->position.x);
+	axis = *(int *)axis_ptr;
+	if (axis == 0)
+		return ((oa->position.x > ob->position.x) \
+				- (oa->position.x < ob->position.x));
+	if (axis == 1)
+		return ((oa->position.y > ob->position.y) \
+				- (oa->position.y < ob->position.y));
+	return ((oa->position.z > ob->position.z) \
+			- (oa->position.z < ob->position.z));
 }
 
-// Calcule le meilleur split selon SAH
-static int	find_sah_split(t_object **objects, int count, int *best_axis, int *best_index)
+/*
+**
+*/
+static void	sort_objects_axis(t_object **objects, int count, int axis)
 {
-    int axis, i, split, best_split = 1;
-    double best_cost = INFINITY;
-    int (*comparators[3])(const void *, const void *) = {compare_obj_x, compare_obj_y, compare_obj_z};
+	ft_qsort(objects, count, sizeof(t_object *), compare_obj_axis, &axis);
+}
 
-    for (axis = 0; axis < 3; axis++)
+/*
+**
+*/
+static void	fill_bounds(t_object **objects, int count,
+    t_aabb *left, t_aabb *right)
+{
+    int	i;
+
+    left[0] = get_object_bounds(objects[0]);
+    i = 1;
+    while (i < count)
     {
-        qsort(objects, count, sizeof(t_object *), comparators[axis]);
-        for (split = 1; split < count; split++)
-        {
-            t_aabb left_box = get_object_bounds(objects[0]);
-            t_aabb right_box = get_object_bounds(objects[split]);
-            for (i = 1; i < split; i++)
-                left_box = aabb_union(left_box, get_object_bounds(objects[i]));
-            for (i = split + 1; i < count; i++)
-                right_box = aabb_union(right_box, get_object_bounds(objects[i]));
-            double left_area = aabb_surface(left_box);
-            double right_area = aabb_surface(right_box);
-            double cost = left_area * split + right_area * (count - split);
-            if (cost < best_cost)
-            {
-                best_cost = cost;
-                *best_axis = axis;
-                *best_index = split;
-                best_split = split;
-            }
-        }
+        left[i] = aabb_union(left[i - 1], get_object_bounds(objects[i]));
+        i++;
     }
-    return best_split;
-}
-
-//
-
-
-static int	compare_obj_y(const void *a, const void *b)
-{
-    const t_object *oa = *(const t_object **)a;
-    const t_object *ob = *(const t_object **)b;
-    return (oa->position.y > ob->position.y) - (oa->position.y < ob->position.y);
-}
-
-static int	compare_obj_z(const void *a, const void *b)
-{
-    const t_object *oa = *(const t_object **)a;
-    const t_object *ob = *(const t_object **)b;
-    return (oa->position.z > ob->position.z) - (oa->position.z < ob->position.z);
-}
-
-static int	find_sah_split(t_object **objects, int count, int *best_axis, int *best_index)
-{
-    int		axis;
-    int		split;
-    int		i;
-    double	best_cost;
-    double	cost;
-    t_aabb	*left_bounds;
-    t_aabb	*right_bounds;
-
-    best_cost = INFINITY;
-    *best_axis = 0;
-    *best_index = 1;
-    left_bounds = malloc(sizeof(t_aabb) * count);
-    right_bounds = malloc(sizeof(t_aabb) * count);
-    axis = 0;
-    while (axis < 3)
+    right[count - 1] = get_object_bounds(objects[count - 1]);
+    i = count - 2;
+    while (i >= 0)
     {
-        sort_objects_axis(objects, count, axis);
-        left_bounds[0] = get_object_bounds(objects[0]);
-        i = 1;
-        while (i < count)
-        {
-            left_bounds[i] = aabb_union(left_bounds[i - 1],
-                    get_object_bounds(objects[i]));
-            i++;
-        }
-        right_bounds[count - 1] = get_object_bounds(objects[count - 1]);
-        i = count - 2;
-        while (i >= 0)
-        {
-            right_bounds[i] = aabb_union(right_bounds[i + 1],
-                    get_object_bounds(objects[i]));
-            i--;
-        }
-        split = 1;
-        while (split < count)
-        {
-            double	left_area = aabb_surface(left_bounds[split - 1]);
-            double	right_area = aabb_surface(right_bounds[split]);
-            cost = left_area * split + right_area * (count - split);
-            if (cost < best_cost)
-            {
-                best_cost = cost;
-                *best_axis = axis;
-                *best_index = split;
-            }
-            split++;
-        }
-        axis++;
+        right[i] = aabb_union(right[i + 1], get_object_bounds(objects[i]));
+        i--;
     }
-    free(left_bounds);
-    free(right_bounds);
-    return (*best_index);
+}
+
+static double	sah_cost(double left_area, double right_area,
+    int left_count, int right_count)
+{
+    return (left_area * left_count + right_area * right_count);
+}
+
+int	find_best_cost(t_aabb *left_bounds, t_aabb *right_bounds, int count)
+{
+	int		split;
+	double	cost;
+    double	left_area;
+	double	right_area;
+
+	split = 1;	
+	while (split < count)
+    {
+    	left_area = aabb_surface(left_bounds[split - 1]);
+        right_area = aabb_surface(right_bounds[split]);
+        cost = sah_cost(left_area, right_area, split, count - split);
+        if (cost < best_cost)
+        {
+            best_cost = cost;
+            *best_axis = axis;
+            *best_index = split;
+        }
+        split++;
+    }
+	return (best_cost);
+}
+
+/*
+**
+*/
+static void allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \
+		int count)
+{
+	*left_bounds = safe_malloc(sizeof(t_aabb) * count);
+	*right_bounds = safe_malloc(sizeof(t_aabb) * count);
+}
+
+/*
+**
+*/
+static void	variable_setup(int *axis, int *best_axis, double *best_cost, \
+		int *best_index)
+{
+	*axis = 0;
+	*best_axis = 0;
+	*best_index = 0;
+	*best_cost = INFINITY;
+}
+
+/*
+** La norminette n'a qu'a bien se tenir
+** Probably the least maintainable piece of crap within this project, thanks to
+** norminette. We could have created a specific struct in this regard.
+*/
+int	find_sah_split(t_object **objects, int count, int *best_axis, \
+		int *best_index)
+{
+	int (axis), split;
+	t_aabb (*left_bounds), *right_bounds;
+	double (left_area), (right_area), (cost), best_cost;
+	variable_setup(&axis, best_axis, &best_cost, best_index);
+	allocate_bounds(&left_bounds, &right_bounds, count);
+	while (axis++ < 3)
+	{
+		split = 1;
+		sort_objects_axis(objects, count, axis);
+		fill_bounds(objects, count, left_bounds, right_bounds);
+		while (split++ < count)
+		{
+			left_area = aabb_surface(left_bounds[split - 1]);
+			right_area = aabb_surface(right_bounds[split]);
+			cost = sah_cost(left_area, right_area, split, count - split);
+			if (cost < best_cost)
+			{
+				best_cost = cost;
+				*best_axis = axis;
+				*best_index = split;
+			}
+		}
+	}
+	return (safe_free((void **)&left_bounds), \
+			safe_free((void **)&right_bounds), *best_index);
 }

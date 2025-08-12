@@ -3,101 +3,108 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
- 33.17      0.34     0.34 15848115     0.00     0.00  intersect_aabb
- 13.86      0.47     0.14  3418398     0.00     0.00  intersect_bvh
- 12.87      0.60     0.13  3298811     0.00     0.00  color_new
-  5.94      0.67     0.06  3378391     0.00     0.00  get_camera_ray
-  3.96      0.70     0.04  3274592     0.00     0.00  render_pixel_at_coordinates
-  3.96      0.74     0.04  3124484     0.00     0.00  put_pixel
-  2.97      0.78     0.03  3319395     0.00     0.00  calculate_viewport_dimensions
-  2.97      0.81     0.03  3061554     0.00     0.00  calculate_pixel_world_position
-  1.98      0.82     0.02  9624084     0.00     0.00  vec3_add
-  1.98      0.84     0.02  3438053     0.00     0.00  vec3_div
-  1.98      0.86     0.02  3002504     0.00     0.00  raycast
-  1.49      0.88     0.01 12739731     0.00     0.00  check_limits
-  0.99      0.89     0.01  6649096     0.00     0.00  vec3_mult
-  0.99      0.90     0.01  4073692     0.00     0.00  vec3_sub
-  0.99      0.91     0.01  4058743     0.00     0.00  vec3_length
-  0.99      0.92     0.01  3275093     0.00     0.00  color_to_int
-  0.99      0.93     0.01  3195857     0.00     0.00  ray_new
-  0.99      0.94     0.01  3192536     0.00     0.00  intersect_scene
-  0.99      0.95     0.01  2955056     0.00     0.00  calculate_background_color
-  0.99      0.96     0.01   486760     0.00     0.00  color_add
-  0.99      0.97     0.01        1    10.00    12.50  setup_camera
-  0.99      0.98     0.01                             _init
-  0.99      0.99     0.01                             mlx_loop
-  0.50      0.99     0.01  4149893     0.00     0.00  vec3_length_squared
-  0.50      1.00     0.01  4056655     0.00     0.00  color_clamp
-  0.50      1.00     0.01      482     0.01     0.01  aabb_union
-  0.50      1.01     0.01        4     1.25     1.25  vec3_cross
-  0.00      1.01     0.00  3887952     0.00     0.00  vec3_normalize
-  0.00      1.01     0.00  1738117     0.00     0.00  vec3_dot
-  0.00      1.01     0.00   487399     0.00     0.00  solve_quadratic
-  0.00      1.01     0.00   443649     0.00     0.00  intersect_sphere
-  0.00      1.01     0.00   370268     0.00     0.00  get_closest_root
-  0.00      1.01     0.00   132838     0.00     0.00  ray_reflect
-  0.00      1.01     0.00   127945     0.00     0.00  calculate_refraction
-  0.00      1.01     0.00   127419     0.00     0.00  get_sphere_normal
-  0.00      1.01     0.00   126947     0.00     0.00  calculate_reflection
-  0.00      1.01     0.00   126011     0.00     0.00  get_object_normal
-  0.00      1.01     0.00   125465     0.00     0.00  color_mult
-  0.00      1.01     0.00   124788     0.00     0.00  calculate_diffuse_lighting
-  0.00      1.01     0.00   124344     0.00     0.00  ray_at
-  0.00      1.01     0.00   121447     0.00     0.00  calculate_ambient_lighting
-  0.00      1.01     0.00   116646     0.00     0.00  calculate_lighting
-  0.00      1.01     0.00   115092     0.00     0.00  calculate_hit_color
-  0.00      1.01     0.00   107172     0.00     0.00  handle_loop
-  0.00      1.01     0.00    97875     0.00     0.00  is_in_shadow
-  0.00      1.01     0.00     1312     0.00     0.00  vec3_new
-  0.00      1.01     0.00     1165     0.00     0.00  skip_whitespace
-  0.00      1.01     0.00      899     0.00     0.00  safe_malloc
-  0.00      1.01     0.00      655     0.00     0.00  get_object_bounds
-  0.00      1.01     0.00      637     0.00     0.00  safe_strdup
-  0.00      1.01     0.00      360     0.00     0.00  parse_double
-  0.00      1.01     0.00      359     0.00     0.00  get_next_token
-  0.00      1.01     0.00      267     0.00     0.00  parse_int
-  0.00      1.01     0.00      198     0.00     0.00  skip_whitespace
-  0.00      1.01     0.00      174     0.00     0.00  safe_free
-  0.00      1.01     0.00      100     0.00     0.00  read_file_line
-  0.00      1.01     0.00       99     0.00     0.00  is_empty_line
-  0.00      1.01     0.00       99     0.00     0.03  parse_line
-  0.00      1.01     0.00       90     0.00     0.03  parse_element_by_identifier
-  0.00      1.01     0.00       90     0.00     0.00  parse_vec3
-  0.00      1.01     0.00       89     0.00     0.00  parse_color
-  0.00      1.01     0.00       87     0.00     0.00  add_object_to_scene
-  0.00      1.01     0.00       87     0.00     0.00  create_sphere
-  0.00      1.01     0.00       87     0.00     0.00  free_sphere_tokens
-  0.00      1.01     0.00       87     0.00     0.00  init_sphere_material
-  0.00      1.01     0.00       87     0.00     0.00  parse_sphere
-  0.00      1.01     0.00       87     0.00     0.00  validate_sphere_params
-  0.00      1.01     0.00        2     0.00     6.25  handle_keypress
-  0.00      1.01     0.00        1     0.00     0.00  add_light_to_scene
-  0.00      1.01     0.00        1     0.00     5.00  build_bvh
-  0.00      1.01     0.00        1     0.00     5.00  build_bvh_recursive
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_all
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_bvh
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_light_list
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_mlx
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_object_list
-  0.00      1.01     0.00        1     0.00     0.00  cleanup_scene
-  0.00      1.01     0.00        1     0.00     0.00  count_objects
-  0.00      1.01     0.00        1     0.00     0.00  display_image
-  0.00      1.01     0.00        1     0.00     0.00  exit_success
-  0.00      1.01     0.00        1     0.00     0.00  init_minirt
-  0.00      1.01     0.00        1     0.00     0.00  init_mlx
-  0.00      1.01     0.00        1     0.00     0.00  init_mlx_context
-  0.00      1.01     0.00        1     0.00     0.00  init_scene
-  0.00      1.01     0.00        1     0.00     0.00  parse_ambient
-  0.00      1.01     0.00        1     0.00     2.50  parse_camera
-  0.00      1.01     0.00        1     0.00     0.00  parse_light
-  0.00      1.01     0.00        1     0.00     2.50  parse_scene
-  0.00      1.01     0.00        1     0.00    12.50  render_scene
-  0.00      1.01     0.00        1     0.00     0.00  setup_hooks
-  0.00      1.01     0.00        1     0.00     0.00  target_area
-  0.00      1.01     0.00        1     0.00     0.00  validate_arguments
-  0.00      1.01     0.00        1     0.00     0.00  validate_file_access
-  0.00      1.01     0.00        1     0.00     0.00  validate_file_extension
-  0.00      1.01     0.00        1     0.00     0.00  validate_scene_with_filename
+ 19.40      0.52     0.52 10495204     0.00     0.00  intersect_aabb
+ 14.93      0.92     0.40  6968108     0.00     0.00  color_add
+ 14.18      1.30     0.38  5514191     0.00     0.00  color_new
+  5.60      1.45     0.15  3800785     0.00     0.00  intersect_bvh
+  3.73      1.55     0.10  8834877     0.00     0.00  vec3_div
+  3.54      1.65     0.10 44850406     0.00     0.00  check_limits
+  3.17      1.73     0.09  1636115     0.00     0.00  calculate_diffuse_lighting
+  2.99      1.81     0.08 13006399     0.00     0.00  vec3_length_squared
+  2.99      1.89     0.08 12525938     0.00     0.00  vec3_length
+  2.80      1.97     0.07 14186292     0.00     0.00  color_clamp
+  2.24      2.02     0.06  9881492     0.00     0.00  vec3_dot
+  1.68      2.07     0.04  9674347     0.00     0.00  vec3_add
+  1.68      2.12     0.04  9183232     0.00     0.00  vec3_sub
+  1.49      2.15     0.04 10264788     0.00     0.00  vec3_normalize
+  1.49      2.19     0.04  2353041     0.00     0.00  get_camera_ray
+  1.49      2.23     0.04  2114343     0.00     0.00  color_to_int
+  1.31      2.27     0.04  7741722     0.00     0.00  vec3_mult
+  1.12      2.30     0.03  3420731     0.00     0.00  intersect_scene
+  1.12      2.33     0.03  1761039     0.00     0.00  calculate_ambient_lighting
+  1.12      2.36     0.03  1648511     0.00     0.00  calculate_reflection
+  1.12      2.39     0.03  1505382     0.00     0.00  calculate_hit_color
+  1.12      2.42     0.03        4     7.50     7.50  vec3_cross
+  0.75      2.44     0.02  3318703     0.00     0.00  ray_new
+  0.75      2.46     0.02  3093053     0.00     0.00  intersect_plane
+  0.75      2.48     0.02  2089112     0.00     0.00  put_pixel
+  0.75      2.50     0.02  1917146     0.00     0.00  ray_at
+  0.75      2.52     0.02  1584066     0.00     0.00  calculate_refraction
+  0.75      2.54     0.02  1389076     0.00     0.00  is_in_shadow
+  0.75      2.56     0.02    78298     0.00     0.00  ray_reflect
+  0.56      2.58     0.01  2050667     0.00     0.00  calculate_pixel_world_position
+  0.56      2.59     0.01  1682510     0.00     0.00  calculate_lighting
+  0.37      2.60     0.01  2228303     0.00     0.00  render_pixel_at_coordinates
+  0.37      2.61     0.01  2025477     0.00     0.00  get_object_normal
+  0.37      2.62     0.01  1988062     0.00     0.00  raycast
+  0.37      2.63     0.01   404470     0.00     0.00  intersect_sphere
+  0.37      2.64     0.01   395815     0.00     0.00  calculate_background_color
+  0.37      2.65     0.01    82699     0.00     0.00  color_mult
+  0.37      2.66     0.01                             _init
+  0.37      2.67     0.01                             populate_hit_info
+  0.19      2.67     0.01  2292490     0.00     0.00  calculate_viewport_dimensions
+  0.19      2.68     0.01       10     0.50     0.50  vec3_new
+  0.00      2.68     0.00  1868569     0.00     0.00  get_plane_normal
+  0.00      2.68     0.00   497535     0.00     0.00  solve_quadratic
+  0.00      2.68     0.00   303700     0.00     0.00  get_closest_root
+  0.00      2.68     0.00   168598     0.00     0.00  get_sphere_normal
+  0.00      2.68     0.00   150333     0.00     0.00  handle_loop
+  0.00      2.68     0.00       63     0.00     0.00  skip_whitespace
+  0.00      2.68     0.00       41     0.00     0.00  safe_malloc
+  0.00      2.68     0.00       34     0.00     0.00  safe_strdup
+  0.00      2.68     0.00       22     0.00     0.00  parse_double
+  0.00      2.68     0.00       19     0.00     0.00  get_next_token
+  0.00      2.68     0.00       12     0.00     0.00  parse_int
+  0.00      2.68     0.00       10     0.00     0.00  skip_whitespace
+  0.00      2.68     0.00        6     0.00     0.00  parse_vec3
+  0.00      2.68     0.00        6     0.00     0.00  read_file_line
+  0.00      2.68     0.00        5     0.00     0.00  is_empty_line
+  0.00      2.68     0.00        5     0.00     3.10  parse_element_by_identifier
+  0.00      2.68     0.00        5     0.00     3.10  parse_line
+  0.00      2.68     0.00        4     0.00     1.00  get_object_bounds
+  0.00      2.68     0.00        4     0.00     0.00  parse_color
+  0.00      2.68     0.00        4     0.00     0.00  safe_free
+  0.00      2.68     0.00        2     0.00     0.00  add_object_to_scene
+  0.00      2.68     0.00        2     0.00     7.75  handle_keypress
+  0.00      2.68     0.00        1     0.00     0.00  aabb_union
+  0.00      2.68     0.00        1     0.00     0.00  add_light_to_scene
+  0.00      2.68     0.00        1     0.00     4.00  build_bvh
+  0.00      2.68     0.00        1     0.00     4.00  build_bvh_recursive
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_all
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_bvh
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_light_list
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_mlx
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_object_list
+  0.00      2.68     0.00        1     0.00     0.00  cleanup_scene
+  0.00      2.68     0.00        1     0.00     0.00  count_objects
+  0.00      2.68     0.00        1     0.00     0.00  create_plane
+  0.00      2.68     0.00        1     0.00     0.00  create_sphere
+  0.00      2.68     0.00        1     0.00     0.00  display_image
+  0.00      2.68     0.00        1     0.00     0.00  exit_success
+  0.00      2.68     0.00        1     0.00     0.00  free_plane_tokens
+  0.00      2.68     0.00        1     0.00     0.00  free_sphere_tokens
+  0.00      2.68     0.00        1     0.00     0.00  init_minirt
+  0.00      2.68     0.00        1     0.00     0.00  init_mlx
+  0.00      2.68     0.00        1     0.00     0.00  init_mlx_context
+  0.00      2.68     0.00        1     0.00     0.00  init_plane_material
+  0.00      2.68     0.00        1     0.00     0.00  init_scene
+  0.00      2.68     0.00        1     0.00     0.00  init_sphere_material
+  0.00      2.68     0.00        1     0.00     0.00  parse_ambient
+  0.00      2.68     0.00        1     0.00    15.50  parse_camera
+  0.00      2.68     0.00        1     0.00     0.00  parse_light
+  0.00      2.68     0.00        1     0.00     0.00  parse_plane
+  0.00      2.68     0.00        1     0.00    15.50  parse_scene
+  0.00      2.68     0.00        1     0.00     0.00  parse_sphere
+  0.00      2.68     0.00        1     0.00    15.50  render_scene
+  0.00      2.68     0.00        1     0.00    15.50  setup_camera
+  0.00      2.68     0.00        1     0.00     0.00  setup_hooks
+  0.00      2.68     0.00        1     0.00     0.00  target_area
+  0.00      2.68     0.00        1     0.00     0.00  validate_arguments
+  0.00      2.68     0.00        1     0.00     0.00  validate_file_access
+  0.00      2.68     0.00        1     0.00     0.00  validate_file_extension
+  0.00      2.68     0.00        1     0.00     0.00  validate_plane_params
+  0.00      2.68     0.00        1     0.00     0.00  validate_scene_with_filename
+  0.00      2.68     0.00        1     0.00     0.00  validate_sphere_params
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -135,533 +142,584 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.99% of 1.01 seconds
+granularity: each sample hit covers 4 byte(s) for 0.37% of 2.68 seconds
 
 index % time    self  children    called     name
-                0.04    0.93 3274592/3274592     render_all_pixels [2]
-[1]     96.0    0.04    0.93 3274592         render_pixel_at_coordinates [1]
-                0.02    0.66 2889338/2889338     raycast <cycle 1> [4]
-                0.06    0.14 3378391/3378391     get_camera_ray [8]
-                0.04    0.01 3124484/3124484     put_pixel [12]
+                0.01    2.61 2228303/2228303     render_all_pixels [2]
+[1]     97.9    0.01    2.61 2228303         render_pixel_at_coordinates [1]
+                0.07    2.30 1930827/1930827     raycast <cycle 1> [9]
+                0.04    0.14 2353041/2353041     get_camera_ray [15]
+                0.02    0.04 2089112/2089112     put_pixel [28]
 -----------------------------------------------
                                                  <spontaneous>
-[2]     96.0    0.00    0.97                 render_all_pixels [2]
-                0.04    0.93 3274592/3274592     render_pixel_at_coordinates [1]
+[2]     97.9    0.00    2.62                 render_all_pixels [2]
+                0.01    2.61 2228303/2228303     render_pixel_at_coordinates [1]
 -----------------------------------------------
-[3]     67.8    0.02    0.66 2889338+355205  <cycle 1 as a whole> [3]
-                0.02    0.62 3002504             raycast <cycle 1> [4]
-                0.00    0.04  115092             calculate_hit_color <cycle 1> [13]
-                0.00    0.00  126947             calculate_reflection <cycle 1> [41]
+[3]     88.4    0.07    2.30 1930827+3211128 <cycle 1 as a whole> [3]
+                0.03    1.57 1505382             calculate_hit_color <cycle 1> [4]
+                0.01    0.58 1988062             raycast <cycle 1> [9]
+                0.03    0.15 1648511             calculate_reflection <cycle 1> [16]
 -----------------------------------------------
-                              113166             calculate_reflection <cycle 1> [41]
-                0.02    0.66 2889338/2889338     render_pixel_at_coordinates [1]
-[4]     63.1    0.02    0.62 3002504         raycast <cycle 1> [4]
-                0.01    0.46 3094799/3192536     intersect_scene [5]
-                0.01    0.13 2955056/2955056     calculate_background_color [9]
-                0.00    0.00     893/3298811     color_new [10]
-                              115092             calculate_hit_color <cycle 1> [13]
+                             1505382             raycast <cycle 1> [9]
+[4]     59.6    0.03    1.57 1505382         calculate_hit_color <cycle 1> [4]
+                0.01    1.17 1682510/1682510     calculate_lighting [5]
+                0.19    0.04 3367743/6968108     color_add [12]
+                0.02    0.11 1584066/1584066     calculate_refraction [19]
+                0.01    0.01 1834537/14186292     color_clamp [17]
+                             1648511             calculate_reflection <cycle 1> [16]
 -----------------------------------------------
-                0.00    0.01   97737/3192536     is_in_shadow [23]
-                0.01    0.46 3094799/3192536     raycast <cycle 1> [4]
-[5]     48.3    0.01    0.48 3192536         intersect_scene [5]
-                0.14    0.34 3418398/3418398     intersect_bvh [6]
+                0.01    1.17 1682510/1682510     calculate_hit_color <cycle 1> [4]
+[5]     44.2    0.01    1.17 1682510         calculate_lighting [5]
+                0.09    0.87 1636115/1636115     calculate_diffuse_lighting [6]
+                0.11    0.02 1994737/6968108     color_add [12]
+                0.03    0.02 1761039/1761039     calculate_ambient_lighting [30]
+                0.01    0.01 1903636/14186292     color_clamp [17]
 -----------------------------------------------
-                             12377927             intersect_bvh [6]
-                0.14    0.34 3418398/3418398     intersect_scene [5]
-[6]     47.3    0.14    0.34 3418398+12377927 intersect_bvh [6]
-                0.34    0.00 15848115/15848115     intersect_aabb [7]
-                0.00    0.00  126011/126011      get_object_normal [48]
-                0.00    0.00  443649/443649      intersect_sphere [49]
-                0.00    0.00  124344/124344      ray_at [52]
-                             12377927             intersect_bvh [6]
+                0.09    0.87 1636115/1636115     calculate_lighting [5]
+[6]     35.8    0.09    0.87 1636115         calculate_diffuse_lighting [6]
+                0.02    0.54 1389076/1389076     is_in_shadow [10]
+                0.12    0.00 1747199/5514191     color_new [13]
+                0.09    0.02 1605628/6968108     color_add [12]
+                0.01    0.04 1607821/10264788     vec3_normalize [14]
+                0.01    0.01 1840555/14186292     color_clamp [17]
+                0.01    0.00 1429907/9881492     vec3_dot [27]
+                0.01    0.00 1691424/9183232     vec3_sub [32]
 -----------------------------------------------
-                0.34    0.00 15848115/15848115     intersect_bvh [6]
-[7]     33.2    0.34    0.00 15848115         intersect_aabb [7]
+                0.01    0.36 1398130/3420731     is_in_shadow [10]
+                0.02    0.52 2022601/3420731     raycast <cycle 1> [9]
+[7]     33.8    0.03    0.88 3420731         intersect_scene [7]
+                0.15    0.73 3800785/3800785     intersect_bvh [8]
 -----------------------------------------------
-                0.06    0.14 3378391/3378391     render_pixel_at_coordinates [1]
-[8]     19.3    0.06    0.14 3378391         get_camera_ray [8]
-                0.03    0.03 3061554/3061554     calculate_pixel_world_position [11]
-                0.01    0.03 3096275/3195857     ray_new [14]
-                0.03    0.00 3319395/3319395     calculate_viewport_dimensions [17]
-                0.01    0.00 3155887/4073692     vec3_sub [31]
+                             6878852             intersect_bvh [8]
+                0.15    0.73 3800785/3800785     intersect_scene [7]
+[8]     32.7    0.15    0.73 3800785+6878852 intersect_bvh [8]
+                0.52    0.00 10495204/10495204     intersect_aabb [11]
+                0.02    0.06 3093053/3093053     intersect_plane [24]
+                0.01    0.06 2025477/2025477     get_object_normal [25]
+                0.02    0.02 1917146/1917146     ray_at [35]
+                0.01    0.01  404470/404470      intersect_sphere [39]
+                             6878852             intersect_bvh [8]
 -----------------------------------------------
-                0.01    0.13 2955056/2955056     raycast <cycle 1> [4]
-[9]     14.3    0.01    0.13 2955056         calculate_background_color [9]
-                0.12    0.00 3049272/3298811     color_new [10]
-                0.00    0.01 2865612/4056655     color_clamp [21]
+                               57235             calculate_reflection <cycle 1> [16]
+                0.07    2.30 1930827/1930827     render_pixel_at_coordinates [1]
+[9]     22.0    0.01    0.58 1988062         raycast <cycle 1> [9]
+                0.02    0.52 2022601/3420731     intersect_scene [7]
+                0.01    0.04  395815/395815      calculate_background_color [31]
+                             1505382             calculate_hit_color <cycle 1> [4]
 -----------------------------------------------
-                0.00    0.00       1/3298811     init_scene [55]
-                0.00    0.00     893/3298811     raycast <cycle 1> [4]
-                0.00    0.00  123289/3298811     calculate_refraction [40]
-                0.00    0.00  125356/3298811     calculate_diffuse_lighting [18]
-                0.12    0.00 3049272/3298811     calculate_background_color [9]
-[10]    12.9    0.13    0.00 3298811         color_new [10]
+                0.02    0.54 1389076/1389076     calculate_diffuse_lighting [6]
+[10]    21.0    0.02    0.54 1389076         is_in_shadow [10]
+                0.01    0.36 1398130/3420731     intersect_scene [7]
+                0.01    0.07 2927868/10264788     vec3_normalize [14]
+                0.01    0.04 1410671/3318703     ray_new [20]
+                0.01    0.01 1650254/12525938     vec3_length [18]
+                0.01    0.00 1554022/9183232     vec3_sub [32]
+                0.01    0.00 1476050/9674347     vec3_add [33]
+                0.01    0.00 1457658/7741722     vec3_mult [36]
 -----------------------------------------------
-                0.03    0.03 3061554/3061554     get_camera_ray [8]
-[11]     5.8    0.03    0.03 3061554         calculate_pixel_world_position [11]
-                0.02    0.00 9402910/9624084     vec3_add [20]
-                0.01    0.00 6297308/6649096     vec3_mult [30]
+                0.52    0.00 10495204/10495204     intersect_bvh [8]
+[11]    19.4    0.52    0.00 10495204         intersect_aabb [11]
 -----------------------------------------------
-                0.04    0.01 3124484/3124484     render_pixel_at_coordinates [1]
-[12]     5.0    0.04    0.01 3124484         put_pixel [12]
-                0.01    0.00 3275093/3275093     color_to_int [32]
+                0.09    0.02 1605628/6968108     calculate_diffuse_lighting [6]
+                0.11    0.02 1994737/6968108     calculate_lighting [5]
+                0.19    0.04 3367743/6968108     calculate_hit_color <cycle 1> [4]
+[12]    17.8    0.40    0.08 6968108         color_add [12]
+                0.03    0.04 6474837/14186292     color_clamp [17]
 -----------------------------------------------
-                              115092             raycast <cycle 1> [4]
-[13]     4.4    0.00    0.04  115092         calculate_hit_color <cycle 1> [13]
-                0.00    0.03  116646/116646      calculate_lighting [16]
-                0.00    0.00  240454/486760      color_add [29]
-                0.00    0.00  127945/127945      calculate_refraction [40]
-                0.00    0.00  124137/4056655     color_clamp [21]
-                              126947             calculate_reflection <cycle 1> [41]
+                0.00    0.00       1/5514191     init_scene [59]
+                0.03    0.00  452587/5514191     calculate_background_color [31]
+                0.11    0.00 1630133/5514191     calculate_refraction [19]
+                0.12    0.00 1684271/5514191     calculate_reflection <cycle 1> [16]
+                0.12    0.00 1747199/5514191     calculate_diffuse_lighting [6]
+[13]    14.2    0.38    0.00 5514191         color_new [13]
 -----------------------------------------------
-                0.00    0.00   99582/3195857     is_in_shadow [23]
-                0.01    0.03 3096275/3195857     get_camera_ray [8]
-[14]     3.9    0.01    0.03 3195857         ray_new [14]
-                0.00    0.03 3312702/3887952     vec3_normalize [15]
+                0.00    0.00       1/10264788     create_plane [61]
+                0.00    0.00       2/10264788     parse_camera [48]
+                0.00    0.00       3/10264788     setup_camera [46]
+                0.00    0.00   63739/10264788     ray_reflect [38]
+                0.00    0.00  170064/10264788     get_sphere_normal [52]
+                0.01    0.04 1607821/10264788     calculate_diffuse_lighting [6]
+                0.01    0.04 1897486/10264788     get_plane_normal [29]
+                0.01    0.07 2927868/10264788     is_in_shadow [10]
+                0.01    0.08 3597804/10264788     ray_new [20]
+[14]    10.4    0.04    0.24 10264788         vec3_normalize [14]
+                0.07    0.07 10875683/12525938     vec3_length [18]
+                0.10    0.00 8834877/8834877     vec3_div [21]
 -----------------------------------------------
-                0.00    0.00       2/3887952     parse_camera [44]
-                0.00    0.00       3/3887952     setup_camera [28]
-                0.00    0.00  113027/3887952     calculate_diffuse_lighting [18]
-                0.00    0.00  124346/3887952     ray_reflect [46]
-                0.00    0.00  137882/3887952     get_sphere_normal [47]
-                0.00    0.00  199990/3887952     is_in_shadow [23]
-                0.00    0.03 3312702/3887952     ray_new [14]
-[15]     3.4    0.00    0.03 3887952         vec3_normalize [15]
-                0.02    0.00 3438053/3438053     vec3_div [22]
-                0.01    0.00 3952074/4058743     vec3_length [25]
+                0.04    0.14 2353041/2353041     render_pixel_at_coordinates [1]
+[15]     6.9    0.04    0.14 2353041         get_camera_ray [15]
+                0.01    0.06 1908032/3318703     ray_new [20]
+                0.01    0.05 2050667/2050667     calculate_pixel_world_position [26]
+                0.01    0.00 1954137/9183232     vec3_sub [32]
+                0.01    0.00 2292490/2292490     calculate_viewport_dimensions [53]
 -----------------------------------------------
-                0.00    0.03  116646/116646      calculate_hit_color <cycle 1> [13]
-[16]     3.3    0.00    0.03  116646         calculate_lighting [16]
-                0.00    0.03  124788/124788      calculate_diffuse_lighting [18]
-                0.00    0.00  133376/486760      color_add [29]
-                0.00    0.00  134102/4056655     color_clamp [21]
-                0.00    0.00  121447/121447      calculate_ambient_lighting [51]
+                             1648511             calculate_hit_color <cycle 1> [4]
+[16]     6.8    0.03    0.15 1648511         calculate_reflection <cycle 1> [16]
+                0.12    0.00 1684271/5514191     color_new [13]
+                0.02    0.00   78298/78298       ray_reflect [38]
+                0.01    0.00   82699/82699       color_mult [49]
+                0.00    0.00   82693/14186292     color_clamp [17]
+                               57235             raycast <cycle 1> [9]
 -----------------------------------------------
-                0.03    0.00 3319395/3319395     get_camera_ray [8]
-[17]     3.0    0.03    0.00 3319395         calculate_viewport_dimensions [17]
+                0.00    0.00   82693/14186292     calculate_reflection <cycle 1> [16]
+                0.00    0.00   94328/14186292     color_mult [49]
+                0.00    0.00  365547/14186292     calculate_background_color [31]
+                0.01    0.01 1590159/14186292     calculate_ambient_lighting [30]
+                0.01    0.01 1834537/14186292     calculate_hit_color <cycle 1> [4]
+                0.01    0.01 1840555/14186292     calculate_diffuse_lighting [6]
+                0.01    0.01 1903636/14186292     calculate_lighting [5]
+                0.03    0.04 6474837/14186292     color_add [12]
+[17]     6.3    0.07    0.10 14186292         color_clamp [17]
+                0.10    0.00 44850406/44850406     check_limits [22]
 -----------------------------------------------
-                0.00    0.03  124788/124788      calculate_lighting [16]
-[18]     2.8    0.00    0.03  124788         calculate_diffuse_lighting [18]
-                0.00    0.02   97875/97875       is_in_shadow [23]
-                0.00    0.00  125356/3298811     color_new [10]
-                0.00    0.00  112930/486760      color_add [29]
-                0.00    0.00  113027/3887952     vec3_normalize [15]
-                0.00    0.00  134822/4056655     color_clamp [21]
-                0.00    0.00  115532/4073692     vec3_sub [31]
-                0.00    0.00  109205/1738117     vec3_dot [56]
+                0.00    0.00       1/12525938     validate_plane_params [62]
+                0.01    0.01 1650254/12525938     is_in_shadow [10]
+                0.07    0.07 10875683/12525938     vec3_normalize [14]
+[18]     6.0    0.08    0.08 12525938         vec3_length [18]
+                0.08    0.00 13006399/13006399     vec3_length_squared [23]
+-----------------------------------------------
+                0.02    0.11 1584066/1584066     calculate_hit_color <cycle 1> [4]
+[19]     4.9    0.02    0.11 1584066         calculate_refraction [19]
+                0.11    0.00 1630133/5514191     color_new [13]
+-----------------------------------------------
+                0.01    0.04 1410671/3318703     is_in_shadow [10]
+                0.01    0.06 1908032/3318703     get_camera_ray [15]
+[20]     4.4    0.02    0.10 3318703         ray_new [20]
+                0.01    0.08 3597804/10264788     vec3_normalize [14]
+-----------------------------------------------
+                0.10    0.00 8834877/8834877     vec3_normalize [14]
+[21]     3.7    0.10    0.00 8834877         vec3_div [21]
+-----------------------------------------------
+                0.10    0.00 44850406/44850406     color_clamp [17]
+[22]     3.5    0.10    0.00 44850406         check_limits [22]
+-----------------------------------------------
+                0.08    0.00 13006399/13006399     vec3_length [18]
+[23]     3.0    0.08    0.00 13006399         vec3_length_squared [23]
+-----------------------------------------------
+                0.02    0.06 3093053/3093053     intersect_bvh [8]
+[24]     2.9    0.02    0.06 3093053         intersect_plane [24]
+                0.04    0.00 6925626/9881492     vec3_dot [27]
+                0.02    0.00 3298237/9183232     vec3_sub [32]
+-----------------------------------------------
+                0.01    0.06 2025477/2025477     intersect_bvh [8]
+[25]     2.5    0.01    0.06 2025477         get_object_normal [25]
+                0.00    0.05 1868569/1868569     get_plane_normal [29]
+                0.00    0.01  168598/168598      get_sphere_normal [52]
+-----------------------------------------------
+                0.01    0.05 2050667/2050667     get_camera_ray [15]
+[26]     2.3    0.01    0.05 2050667         calculate_pixel_world_position [26]
+                0.03    0.00 6140797/9674347     vec3_add [33]
+                0.02    0.00 4173978/7741722     vec3_mult [36]
+-----------------------------------------------
+                0.00    0.00   75939/9881492     ray_reflect [38]
+                0.01    0.00 1429907/9881492     calculate_diffuse_lighting [6]
+                0.01    0.00 1450020/9881492     intersect_sphere [39]
+                0.04    0.00 6925626/9881492     intersect_plane [24]
+[27]     2.2    0.06    0.00 9881492         vec3_dot [27]
+-----------------------------------------------
+                0.02    0.04 2089112/2089112     render_pixel_at_coordinates [1]
+[28]     2.2    0.02    0.04 2089112         put_pixel [28]
+                0.04    0.00 2114343/2114343     color_to_int [34]
+-----------------------------------------------
+                0.00    0.05 1868569/1868569     get_object_normal [25]
+[29]     1.9    0.00    0.05 1868569         get_plane_normal [29]
+                0.01    0.04 1897486/10264788     vec3_normalize [14]
+-----------------------------------------------
+                0.03    0.02 1761039/1761039     calculate_lighting [5]
+[30]     1.8    0.03    0.02 1761039         calculate_ambient_lighting [30]
+                0.01    0.01 1590159/14186292     color_clamp [17]
+-----------------------------------------------
+                0.01    0.04  395815/395815      raycast <cycle 1> [9]
+[31]     1.7    0.01    0.04  395815         calculate_background_color [31]
+                0.03    0.00  452587/5514191     color_new [13]
+                0.00    0.00  365547/14186292     color_clamp [17]
+-----------------------------------------------
+                0.00    0.00       2/9183232     get_object_bounds [55]
+                0.00    0.00   68405/9183232     ray_reflect [38]
+                0.00    0.00  170909/9183232     get_sphere_normal [52]
+                0.00    0.00  446096/9183232     intersect_sphere [39]
+                0.01    0.00 1554022/9183232     is_in_shadow [10]
+                0.01    0.00 1691424/9183232     calculate_diffuse_lighting [6]
+                0.01    0.00 1954137/9183232     get_camera_ray [15]
+                0.02    0.00 3298237/9183232     intersect_plane [24]
+[32]     1.7    0.05    0.00 9183232         vec3_sub [32]
+-----------------------------------------------
+                0.00    0.00       2/9674347     get_object_bounds [55]
+                0.01    0.00 1476050/9674347     is_in_shadow [10]
+                0.01    0.00 2057498/9674347     ray_at [35]
+                0.03    0.00 6140797/9674347     calculate_pixel_world_position [26]
+[33]     1.7    0.04    0.00 9674347         vec3_add [33]
+-----------------------------------------------
+                0.04    0.00 2114343/2114343     put_pixel [28]
+[34]     1.5    0.04    0.00 2114343         color_to_int [34]
+-----------------------------------------------
+                0.02    0.02 1917146/1917146     intersect_bvh [8]
+[35]     1.4    0.02    0.02 1917146         ray_at [35]
+                0.01    0.00 2057498/9674347     vec3_add [33]
+                0.01    0.00 2044861/7741722     vec3_mult [36]
+-----------------------------------------------
+                0.00    0.00   65225/7741722     ray_reflect [38]
+                0.01    0.00 1457658/7741722     is_in_shadow [10]
+                0.01    0.00 2044861/7741722     ray_at [35]
+                0.02    0.00 4173978/7741722     calculate_pixel_world_position [26]
+[36]     1.3    0.04    0.00 7741722         vec3_mult [36]
+-----------------------------------------------
+                0.01    0.00       2/4           parse_camera [48]
+                0.01    0.00       2/4           setup_camera [46]
+[37]     1.1    0.03    0.00       4         vec3_cross [37]
+-----------------------------------------------
+                0.02    0.00   78298/78298       calculate_reflection <cycle 1> [16]
+[38]     0.9    0.02    0.00   78298         ray_reflect [38]
+                0.00    0.00   63739/10264788     vec3_normalize [14]
+                0.00    0.00   75939/9881492     vec3_dot [27]
+                0.00    0.00   68405/9183232     vec3_sub [32]
+                0.00    0.00   65225/7741722     vec3_mult [36]
+-----------------------------------------------
+                0.01    0.01  404470/404470      intersect_bvh [8]
+[39]     0.8    0.01    0.01  404470         intersect_sphere [39]
+                0.01    0.00 1450020/9881492     vec3_dot [27]
+                0.00    0.00  446096/9183232     vec3_sub [32]
+                0.00    0.00  497535/497535      solve_quadratic [63]
 -----------------------------------------------
                                                  <spontaneous>
-[19]     2.2    0.01    0.01                 mlx_loop [19]
-                0.00    0.01       2/2           handle_keypress [26]
-                0.00    0.00  107172/107172      handle_loop [59]
+[40]     0.7    0.00    0.02                 main [40]
+                0.00    0.02       1/1           parse_scene [43]
+                0.00    0.00       1/1           build_bvh [56]
+                0.00    0.00       1/1           init_minirt [58]
+                0.00    0.00       1/1           validate_arguments [102]
+                0.00    0.00       1/1           init_mlx [93]
+                0.00    0.00       1/1           setup_hooks [100]
 -----------------------------------------------
-                0.00    0.00     655/9624084     get_object_bounds [53]
-                0.00    0.00   98631/9624084     is_in_shadow [23]
-                0.00    0.00  121888/9624084     ray_at [52]
-                0.02    0.00 9402910/9624084     calculate_pixel_world_position [11]
-[20]     2.0    0.02    0.00 9624084         vec3_add [20]
+                0.00    0.02       5/5           parse_line [42]
+[41]     0.6    0.00    0.02       5         parse_element_by_identifier [41]
+                0.00    0.02       1/1           parse_camera [48]
+                0.00    0.00       1/1           parse_plane [60]
+                0.00    0.00       1/1           parse_ambient [97]
+                0.00    0.00       1/1           parse_light [98]
+                0.00    0.00       1/1           parse_sphere [99]
 -----------------------------------------------
-                0.00    0.00  110938/4056655     calculate_ambient_lighting [51]
-                0.00    0.00  119605/4056655     color_mult [50]
-                0.00    0.00  124137/4056655     calculate_hit_color <cycle 1> [13]
-                0.00    0.00  124536/4056655     calculate_reflection <cycle 1> [41]
-                0.00    0.00  134102/4056655     calculate_lighting [16]
-                0.00    0.00  134822/4056655     calculate_diffuse_lighting [18]
-                0.00    0.00  442903/4056655     color_add [29]
-                0.00    0.01 2865612/4056655     calculate_background_color [9]
-[21]     2.0    0.01    0.01 4056655         color_clamp [21]
-                0.01    0.00 12739731/12739731     check_limits [24]
+                0.00    0.02       5/5           parse_scene [43]
+[42]     0.6    0.00    0.02       5         parse_line [42]
+                0.00    0.02       5/5           parse_element_by_identifier [41]
+                0.00    0.00       5/10          skip_whitespace [72]
+                0.00    0.00       5/5           is_empty_line [75]
+                0.00    0.00       5/19          get_next_token [70]
 -----------------------------------------------
-                0.02    0.00 3438053/3438053     vec3_normalize [15]
-[22]     2.0    0.02    0.00 3438053         vec3_div [22]
+                0.00    0.02       1/1           main [40]
+[43]     0.6    0.00    0.02       1         parse_scene [43]
+                0.00    0.02       5/5           parse_line [42]
+                0.00    0.00       6/6           read_file_line [74]
+                0.00    0.00       1/1           validate_scene_with_filename [105]
 -----------------------------------------------
-                0.00    0.02   97875/97875       calculate_diffuse_lighting [18]
-[23]     1.9    0.00    0.02   97875         is_in_shadow [23]
-                0.00    0.01   97737/3192536     intersect_scene [5]
-                0.00    0.00  199990/3887952     vec3_normalize [15]
-                0.00    0.00   99582/3195857     ray_new [14]
-                0.00    0.00  106669/4058743     vec3_length [25]
-                0.00    0.00  102569/4073692     vec3_sub [31]
-                0.00    0.00   98631/9624084     vec3_add [20]
-                0.00    0.00  102852/6649096     vec3_mult [30]
+                0.00    0.02       2/2           mlx_loop [47]
+[44]     0.6    0.00    0.02       2         handle_keypress [44]
+                0.00    0.02       1/1           render_scene [45]
+                0.00    0.00       1/1           exit_success [90]
 -----------------------------------------------
-                0.01    0.00 12739731/12739731     color_clamp [21]
-[24]     1.5    0.01    0.00 12739731         check_limits [24]
+                0.00    0.02       1/1           handle_keypress [44]
+[45]     0.6    0.00    0.02       1         render_scene [45]
+                0.00    0.02       1/1           setup_camera [46]
+                0.00    0.00       1/1           target_area [101]
+                0.00    0.00       1/1           display_image [89]
 -----------------------------------------------
-                0.00    0.00  106669/4058743     is_in_shadow [23]
-                0.01    0.00 3952074/4058743     vec3_normalize [15]
-[25]     1.5    0.01    0.01 4058743         vec3_length [25]
-                0.01    0.00 4149893/4149893     vec3_length_squared [37]
------------------------------------------------
-                0.00    0.01       2/2           mlx_loop [19]
-[26]     1.2    0.00    0.01       2         handle_keypress [26]
-                0.00    0.01       1/1           render_scene [27]
-                0.00    0.00       1/1           exit_success [88]
------------------------------------------------
-                0.00    0.01       1/1           handle_keypress [26]
-[27]     1.2    0.00    0.01       1         render_scene [27]
-                0.01    0.00       1/1           setup_camera [28]
-                0.00    0.00       1/1           target_area [94]
-                0.00    0.00       1/1           display_image [87]
------------------------------------------------
-                0.01    0.00       1/1           render_scene [27]
-[28]     1.2    0.01    0.00       1         setup_camera [28]
-                0.00    0.00       2/4           vec3_cross [39]
-                0.00    0.00       3/3887952     vec3_normalize [15]
-                0.00    0.00       1/1312        vec3_new [60]
------------------------------------------------
-                0.00    0.00  112930/486760      calculate_diffuse_lighting [18]
-                0.00    0.00  133376/486760      calculate_lighting [16]
-                0.00    0.00  240454/486760      calculate_hit_color <cycle 1> [13]
-[29]     1.2    0.01    0.00  486760         color_add [29]
-                0.00    0.00  442903/4056655     color_clamp [21]
------------------------------------------------
-                0.00    0.00  102852/6649096     is_in_shadow [23]
-                0.00    0.00  123445/6649096     ray_at [52]
-                0.00    0.00  125491/6649096     ray_reflect [46]
-                0.01    0.00 6297308/6649096     calculate_pixel_world_position [11]
-[30]     1.0    0.01    0.00 6649096         vec3_mult [30]
------------------------------------------------
-                0.00    0.00     655/4073692     get_object_bounds [53]
-                0.00    0.00  102569/4073692     is_in_shadow [23]
-                0.00    0.00  115532/4073692     calculate_diffuse_lighting [18]
-                0.00    0.00  126061/4073692     get_sphere_normal [47]
-                0.00    0.00  127811/4073692     ray_reflect [46]
-                0.00    0.00  445177/4073692     intersect_sphere [49]
-                0.01    0.00 3155887/4073692     get_camera_ray [8]
-[31]     1.0    0.01    0.00 4073692         vec3_sub [31]
------------------------------------------------
-                0.01    0.00 3275093/3275093     put_pixel [12]
-[32]     1.0    0.01    0.00 3275093         color_to_int [32]
+                0.00    0.02       1/1           render_scene [45]
+[46]     0.6    0.00    0.02       1         setup_camera [46]
+                0.01    0.00       2/4           vec3_cross [37]
+                0.00    0.00       1/10          vec3_new [54]
+                0.00    0.00       3/10264788     vec3_normalize [14]
 -----------------------------------------------
                                                  <spontaneous>
-[33]     1.0    0.01    0.00                 _init [33]
+[47]     0.6    0.00    0.02                 mlx_loop [47]
+                0.00    0.02       2/2           handle_keypress [44]
+                0.00    0.00  150333/150333      handle_loop [65]
+-----------------------------------------------
+                0.00    0.02       1/1           parse_element_by_identifier [41]
+[48]     0.6    0.00    0.02       1         parse_camera [48]
+                0.01    0.00       2/4           vec3_cross [37]
+                0.00    0.00       1/10          vec3_new [54]
+                0.00    0.00       2/10264788     vec3_normalize [14]
+                0.00    0.00       3/19          get_next_token [70]
+                0.00    0.00       2/6           parse_vec3 [73]
+                0.00    0.00       1/22          parse_double [69]
+-----------------------------------------------
+                0.01    0.00   82699/82699       calculate_reflection <cycle 1> [16]
+[49]     0.4    0.01    0.00   82699         color_mult [49]
+                0.00    0.00   94328/14186292     color_clamp [17]
 -----------------------------------------------
                                                  <spontaneous>
-[34]     0.7    0.00    0.01                 main [34]
-                0.00    0.01       1/1           build_bvh [35]
-                0.00    0.00       1/1           parse_scene [45]
-                0.00    0.00       1/1           init_minirt [54]
-                0.00    0.00       1/1           validate_arguments [95]
-                0.00    0.00       1/1           init_mlx [89]
-                0.00    0.00       1/1           setup_hooks [93]
------------------------------------------------
-                0.00    0.01       1/1           main [34]
-[35]     0.5    0.00    0.01       1         build_bvh [35]
-                0.00    0.01       1/1           build_bvh_recursive [36]
-                0.00    0.00       1/1           count_objects [86]
-                0.00    0.00       1/899         safe_malloc [62]
-                0.00    0.00       1/174         safe_free [68]
------------------------------------------------
-                                 172             build_bvh_recursive [36]
-                0.00    0.01       1/1           build_bvh [35]
-[36]     0.5    0.00    0.01       1+172     build_bvh_recursive [36]
-                0.01    0.00     482/482         aabb_union [38]
-                0.00    0.00     655/655         get_object_bounds [53]
-                0.00    0.00     173/899         safe_malloc [62]
-                                 172             build_bvh_recursive [36]
------------------------------------------------
-                0.01    0.00 4149893/4149893     vec3_length [25]
-[37]     0.5    0.01    0.00 4149893         vec3_length_squared [37]
------------------------------------------------
-                0.01    0.00     482/482         build_bvh_recursive [36]
-[38]     0.5    0.01    0.00     482         aabb_union [38]
------------------------------------------------
-                0.00    0.00       2/4           parse_camera [44]
-                0.00    0.00       2/4           setup_camera [28]
-[39]     0.5    0.01    0.00       4         vec3_cross [39]
------------------------------------------------
-                0.00    0.00  127945/127945      calculate_hit_color <cycle 1> [13]
-[40]     0.5    0.00    0.00  127945         calculate_refraction [40]
-                0.00    0.00  123289/3298811     color_new [10]
------------------------------------------------
-                              126947             calculate_hit_color <cycle 1> [13]
-[41]     0.3    0.00    0.00  126947         calculate_reflection <cycle 1> [41]
-                0.00    0.00  132838/132838      ray_reflect [46]
-                0.00    0.00  124536/4056655     color_clamp [21]
-                0.00    0.00  125465/125465      color_mult [50]
-                              113166             raycast <cycle 1> [4]
------------------------------------------------
-                0.00    0.00      99/99          parse_scene [45]
-[42]     0.2    0.00    0.00      99         parse_line [42]
-                0.00    0.00      90/90          parse_element_by_identifier [43]
-                0.00    0.00      99/198         skip_whitespace [67]
-                0.00    0.00      99/99          is_empty_line [70]
-                0.00    0.00      90/359         get_next_token [65]
------------------------------------------------
-                0.00    0.00      90/90          parse_line [42]
-[43]     0.2    0.00    0.00      90         parse_element_by_identifier [43]
-                0.00    0.00       1/1           parse_camera [44]
-                0.00    0.00      87/87          parse_sphere [77]
-                0.00    0.00       1/1           parse_ambient [91]
-                0.00    0.00       1/1           parse_light [92]
------------------------------------------------
-                0.00    0.00       1/1           parse_element_by_identifier [43]
-[44]     0.2    0.00    0.00       1         parse_camera [44]
-                0.00    0.00       2/4           vec3_cross [39]
-                0.00    0.00       2/3887952     vec3_normalize [15]
-                0.00    0.00       3/359         get_next_token [65]
-                0.00    0.00       2/90          parse_vec3 [71]
-                0.00    0.00       1/360         parse_double [64]
-                0.00    0.00       1/1312        vec3_new [60]
------------------------------------------------
-                0.00    0.00       1/1           main [34]
-[45]     0.2    0.00    0.00       1         parse_scene [45]
-                0.00    0.00      99/99          parse_line [42]
-                0.00    0.00     100/100         read_file_line [69]
-                0.00    0.00       1/1           validate_scene_with_filename [98]
------------------------------------------------
-                0.00    0.00  132838/132838      calculate_reflection <cycle 1> [41]
-[46]     0.2    0.00    0.00  132838         ray_reflect [46]
-                0.00    0.00  124346/3887952     vec3_normalize [15]
-                0.00    0.00  127811/4073692     vec3_sub [31]
-                0.00    0.00  125491/6649096     vec3_mult [30]
-                0.00    0.00  134606/1738117     vec3_dot [56]
------------------------------------------------
-                0.00    0.00  127419/127419      get_object_normal [48]
-[47]     0.2    0.00    0.00  127419         get_sphere_normal [47]
-                0.00    0.00  137882/3887952     vec3_normalize [15]
-                0.00    0.00  126061/4073692     vec3_sub [31]
------------------------------------------------
-                0.00    0.00  126011/126011      intersect_bvh [6]
-[48]     0.2    0.00    0.00  126011         get_object_normal [48]
-                0.00    0.00  127419/127419      get_sphere_normal [47]
------------------------------------------------
-                0.00    0.00  443649/443649      intersect_bvh [6]
-[49]     0.1    0.00    0.00  443649         intersect_sphere [49]
-                0.00    0.00  445177/4073692     vec3_sub [31]
-                0.00    0.00 1494306/1738117     vec3_dot [56]
-                0.00    0.00  487399/487399      solve_quadratic [57]
------------------------------------------------
-                0.00    0.00  125465/125465      calculate_reflection <cycle 1> [41]
-[50]     0.1    0.00    0.00  125465         color_mult [50]
-                0.00    0.00  119605/4056655     color_clamp [21]
------------------------------------------------
-                0.00    0.00  121447/121447      calculate_lighting [16]
-[51]     0.1    0.00    0.00  121447         calculate_ambient_lighting [51]
-                0.00    0.00  110938/4056655     color_clamp [21]
------------------------------------------------
-                0.00    0.00  124344/124344      intersect_bvh [6]
-[52]     0.0    0.00    0.00  124344         ray_at [52]
-                0.00    0.00  121888/9624084     vec3_add [20]
-                0.00    0.00  123445/6649096     vec3_mult [30]
------------------------------------------------
-                0.00    0.00     655/655         build_bvh_recursive [36]
-[53]     0.0    0.00    0.00     655         get_object_bounds [53]
-                0.00    0.00     655/4073692     vec3_sub [31]
-                0.00    0.00     655/9624084     vec3_add [20]
-                0.00    0.00    1310/1312        vec3_new [60]
------------------------------------------------
-                0.00    0.00       1/1           main [34]
-[54]     0.0    0.00    0.00       1         init_minirt [54]
-                0.00    0.00       1/1           init_scene [55]
-                0.00    0.00       1/1           init_mlx_context [90]
------------------------------------------------
-                0.00    0.00       1/1           init_minirt [54]
-[55]     0.0    0.00    0.00       1         init_scene [55]
-                0.00    0.00       1/3298811     color_new [10]
------------------------------------------------
-                0.00    0.00  109205/1738117     calculate_diffuse_lighting [18]
-                0.00    0.00  134606/1738117     ray_reflect [46]
-                0.00    0.00 1494306/1738117     intersect_sphere [49]
-[56]     0.0    0.00    0.00 1738117         vec3_dot [56]
------------------------------------------------
-                0.00    0.00  487399/487399      intersect_sphere [49]
-[57]     0.0    0.00    0.00  487399         solve_quadratic [57]
-                0.00    0.00  370268/370268      get_closest_root [58]
------------------------------------------------
-                0.00    0.00  370268/370268      solve_quadratic [57]
-[58]     0.0    0.00    0.00  370268         get_closest_root [58]
------------------------------------------------
-                0.00    0.00  107172/107172      mlx_loop [19]
-[59]     0.0    0.00    0.00  107172         handle_loop [59]
------------------------------------------------
-                0.00    0.00       1/1312        parse_camera [44]
-                0.00    0.00       1/1312        setup_camera [28]
-                0.00    0.00    1310/1312        get_object_bounds [53]
-[60]     0.0    0.00    0.00    1312         vec3_new [60]
------------------------------------------------
-                0.00    0.00      89/1165        parse_color [72]
-                0.00    0.00      90/1165        parse_vec3 [71]
-                0.00    0.00     267/1165        parse_int [66]
-                0.00    0.00     359/1165        get_next_token [65]
-                0.00    0.00     360/1165        parse_double [64]
-[61]     0.0    0.00    0.00    1165         skip_whitespace [61]
------------------------------------------------
-                0.00    0.00       1/899         parse_light [92]
-                0.00    0.00       1/899         build_bvh [35]
-                0.00    0.00      87/899         create_sphere [74]
-                0.00    0.00     173/899         build_bvh_recursive [36]
-                0.00    0.00     637/899         safe_strdup [63]
-[62]     0.0    0.00    0.00     899         safe_malloc [62]
------------------------------------------------
-                0.00    0.00      89/637         parse_color [72]
-                0.00    0.00      90/637         parse_vec3 [71]
-                0.00    0.00      99/637         read_file_line [69]
-                0.00    0.00     359/637         get_next_token [65]
-[63]     0.0    0.00    0.00     637         safe_strdup [63]
-                0.00    0.00     637/899         safe_malloc [62]
------------------------------------------------
-                0.00    0.00       1/360         parse_light [92]
-                0.00    0.00       1/360         parse_camera [44]
-                0.00    0.00       1/360         parse_ambient [91]
-                0.00    0.00      87/360         parse_sphere [77]
-                0.00    0.00     270/360         parse_vec3 [71]
-[64]     0.0    0.00    0.00     360         parse_double [64]
-                0.00    0.00     360/1165        skip_whitespace [61]
------------------------------------------------
-                0.00    0.00       2/359         parse_ambient [91]
-                0.00    0.00       3/359         parse_light [92]
-                0.00    0.00       3/359         parse_camera [44]
-                0.00    0.00      90/359         parse_line [42]
-                0.00    0.00     261/359         parse_sphere [77]
-[65]     0.0    0.00    0.00     359         get_next_token [65]
-                0.00    0.00     359/1165        skip_whitespace [61]
-                0.00    0.00     359/637         safe_strdup [63]
------------------------------------------------
-                0.00    0.00     267/267         parse_color [72]
-[66]     0.0    0.00    0.00     267         parse_int [66]
-                0.00    0.00     267/1165        skip_whitespace [61]
------------------------------------------------
-                0.00    0.00      99/198         is_empty_line [70]
-                0.00    0.00      99/198         parse_line [42]
-[67]     0.0    0.00    0.00     198         skip_whitespace [67]
------------------------------------------------
-                0.00    0.00       1/174         build_bvh [35]
-                0.00    0.00     173/174         cleanup_bvh [81]
-[68]     0.0    0.00    0.00     174         safe_free [68]
------------------------------------------------
-                0.00    0.00     100/100         parse_scene [45]
-[69]     0.0    0.00    0.00     100         read_file_line [69]
-                0.00    0.00      99/637         safe_strdup [63]
------------------------------------------------
-                0.00    0.00      99/99          parse_line [42]
-[70]     0.0    0.00    0.00      99         is_empty_line [70]
-                0.00    0.00      99/198         skip_whitespace [67]
------------------------------------------------
-                0.00    0.00       1/90          parse_light [92]
-                0.00    0.00       2/90          parse_camera [44]
-                0.00    0.00      87/90          parse_sphere [77]
-[71]     0.0    0.00    0.00      90         parse_vec3 [71]
-                0.00    0.00     270/360         parse_double [64]
-                0.00    0.00      90/637         safe_strdup [63]
-                0.00    0.00      90/1165        skip_whitespace [61]
------------------------------------------------
-                0.00    0.00       1/89          parse_light [92]
-                0.00    0.00       1/89          parse_ambient [91]
-                0.00    0.00      87/89          parse_sphere [77]
-[72]     0.0    0.00    0.00      89         parse_color [72]
-                0.00    0.00     267/267         parse_int [66]
-                0.00    0.00      89/637         safe_strdup [63]
-                0.00    0.00      89/1165        skip_whitespace [61]
------------------------------------------------
-                0.00    0.00      87/87          parse_sphere [77]
-[73]     0.0    0.00    0.00      87         add_object_to_scene [73]
------------------------------------------------
-                0.00    0.00      87/87          parse_sphere [77]
-[74]     0.0    0.00    0.00      87         create_sphere [74]
-                0.00    0.00      87/899         safe_malloc [62]
-                0.00    0.00      87/87          init_sphere_material [76]
------------------------------------------------
-                0.00    0.00      87/87          parse_sphere [77]
-[75]     0.0    0.00    0.00      87         free_sphere_tokens [75]
------------------------------------------------
-                0.00    0.00      87/87          create_sphere [74]
-[76]     0.0    0.00    0.00      87         init_sphere_material [76]
------------------------------------------------
-                0.00    0.00      87/87          parse_element_by_identifier [43]
-[77]     0.0    0.00    0.00      87         parse_sphere [77]
-                0.00    0.00     261/359         get_next_token [65]
-                0.00    0.00      87/90          parse_vec3 [71]
-                0.00    0.00      87/360         parse_double [64]
-                0.00    0.00      87/89          parse_color [72]
-                0.00    0.00      87/87          validate_sphere_params [78]
-                0.00    0.00      87/87          create_sphere [74]
-                0.00    0.00      87/87          add_object_to_scene [73]
-                0.00    0.00      87/87          free_sphere_tokens [75]
------------------------------------------------
-                0.00    0.00      87/87          parse_sphere [77]
-[78]     0.0    0.00    0.00      87         validate_sphere_params [78]
------------------------------------------------
-                0.00    0.00       1/1           parse_light [92]
-[79]     0.0    0.00    0.00       1         add_light_to_scene [79]
------------------------------------------------
-                0.00    0.00       1/1           exit_success [88]
-[80]     0.0    0.00    0.00       1         cleanup_all [80]
-                0.00    0.00       1/1           cleanup_scene [85]
-                0.00    0.00       1/1           cleanup_mlx [83]
------------------------------------------------
-                                 346             cleanup_bvh [81]
-                0.00    0.00       1/1           cleanup_scene [85]
-[81]     0.0    0.00    0.00       1+346     cleanup_bvh [81]
-                0.00    0.00     173/174         safe_free [68]
-                                 346             cleanup_bvh [81]
------------------------------------------------
-                0.00    0.00       1/1           cleanup_scene [85]
-[82]     0.0    0.00    0.00       1         cleanup_light_list [82]
------------------------------------------------
-                0.00    0.00       1/1           cleanup_all [80]
-[83]     0.0    0.00    0.00       1         cleanup_mlx [83]
------------------------------------------------
-                0.00    0.00       1/1           cleanup_scene [85]
-[84]     0.0    0.00    0.00       1         cleanup_object_list [84]
------------------------------------------------
-                0.00    0.00       1/1           cleanup_all [80]
-[85]     0.0    0.00    0.00       1         cleanup_scene [85]
-                0.00    0.00       1/1           cleanup_light_list [82]
-                0.00    0.00       1/1           cleanup_object_list [84]
-                0.00    0.00       1/1           cleanup_bvh [81]
------------------------------------------------
-                0.00    0.00       1/1           build_bvh [35]
-[86]     0.0    0.00    0.00       1         count_objects [86]
------------------------------------------------
-                0.00    0.00       1/1           render_scene [27]
-[87]     0.0    0.00    0.00       1         display_image [87]
------------------------------------------------
-                0.00    0.00       1/1           handle_keypress [26]
-[88]     0.0    0.00    0.00       1         exit_success [88]
-                0.00    0.00       1/1           cleanup_all [80]
------------------------------------------------
-                0.00    0.00       1/1           main [34]
-[89]     0.0    0.00    0.00       1         init_mlx [89]
------------------------------------------------
-                0.00    0.00       1/1           init_minirt [54]
-[90]     0.0    0.00    0.00       1         init_mlx_context [90]
------------------------------------------------
-                0.00    0.00       1/1           parse_element_by_identifier [43]
-[91]     0.0    0.00    0.00       1         parse_ambient [91]
-                0.00    0.00       2/359         get_next_token [65]
-                0.00    0.00       1/360         parse_double [64]
-                0.00    0.00       1/89          parse_color [72]
------------------------------------------------
-                0.00    0.00       1/1           parse_element_by_identifier [43]
-[92]     0.0    0.00    0.00       1         parse_light [92]
-                0.00    0.00       3/359         get_next_token [65]
-                0.00    0.00       1/90          parse_vec3 [71]
-                0.00    0.00       1/360         parse_double [64]
-                0.00    0.00       1/89          parse_color [72]
-                0.00    0.00       1/899         safe_malloc [62]
-                0.00    0.00       1/1           add_light_to_scene [79]
------------------------------------------------
-                0.00    0.00       1/1           main [34]
-[93]     0.0    0.00    0.00       1         setup_hooks [93]
------------------------------------------------
-                0.00    0.00       1/1           render_scene [27]
-[94]     0.0    0.00    0.00       1         target_area [94]
------------------------------------------------
-                0.00    0.00       1/1           main [34]
-[95]     0.0    0.00    0.00       1         validate_arguments [95]
-                0.00    0.00       1/1           validate_file_extension [97]
-                0.00    0.00       1/1           validate_file_access [96]
------------------------------------------------
-                0.00    0.00       1/1           validate_arguments [95]
-[96]     0.0    0.00    0.00       1         validate_file_access [96]
------------------------------------------------
-                0.00    0.00       1/1           validate_arguments [95]
-[97]     0.0    0.00    0.00       1         validate_file_extension [97]
------------------------------------------------
-                0.00    0.00       1/1           parse_scene [45]
-[98]     0.0    0.00    0.00       1         validate_scene_with_filename [98]
+[50]     0.4    0.01    0.00                 populate_hit_info [50]
+-----------------------------------------------
+                                                 <spontaneous>
+[51]     0.4    0.01    0.00                 _init [51]
+-----------------------------------------------
+                0.00    0.01  168598/168598      get_object_normal [25]
+[52]     0.2    0.00    0.01  168598         get_sphere_normal [52]
+                0.00    0.00  170064/10264788     vec3_normalize [14]
+                0.00    0.00  170909/9183232     vec3_sub [32]
+-----------------------------------------------
+                0.01    0.00 2292490/2292490     get_camera_ray [15]
+[53]     0.2    0.01    0.00 2292490         calculate_viewport_dimensions [53]
+-----------------------------------------------
+                0.00    0.00       1/10          parse_camera [48]
+                0.00    0.00       1/10          setup_camera [46]
+                0.00    0.00       8/10          get_object_bounds [55]
+[54]     0.2    0.01    0.00      10         vec3_new [54]
+-----------------------------------------------
+                0.00    0.00       4/4           build_bvh_recursive [57]
+[55]     0.1    0.00    0.00       4         get_object_bounds [55]
+                0.00    0.00       8/10          vec3_new [54]
+                0.00    0.00       2/9183232     vec3_sub [32]
+                0.00    0.00       2/9674347     vec3_add [33]
+-----------------------------------------------
+                0.00    0.00       1/1           main [40]
+[56]     0.1    0.00    0.00       1         build_bvh [56]
+                0.00    0.00       1/1           build_bvh_recursive [57]
+                0.00    0.00       1/1           count_objects [87]
+                0.00    0.00       1/41          safe_malloc [67]
+                0.00    0.00       1/4           safe_free [77]
+-----------------------------------------------
+                                   2             build_bvh_recursive [57]
+                0.00    0.00       1/1           build_bvh [56]
+[57]     0.1    0.00    0.00       1+2       build_bvh_recursive [57]
+                0.00    0.00       4/4           get_object_bounds [55]
+                0.00    0.00       3/41          safe_malloc [67]
+                0.00    0.00       1/1           aabb_union [79]
+                                   2             build_bvh_recursive [57]
+-----------------------------------------------
+                0.00    0.00       1/1           main [40]
+[58]     0.0    0.00    0.00       1         init_minirt [58]
+                0.00    0.00       1/1           init_scene [59]
+                0.00    0.00       1/1           init_mlx_context [94]
+-----------------------------------------------
+                0.00    0.00       1/1           init_minirt [58]
+[59]     0.0    0.00    0.00       1         init_scene [59]
+                0.00    0.00       1/5514191     color_new [13]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_element_by_identifier [41]
+[60]     0.0    0.00    0.00       1         parse_plane [60]
+                0.00    0.00       1/1           create_plane [61]
+                0.00    0.00       1/1           validate_plane_params [62]
+                0.00    0.00       3/19          get_next_token [70]
+                0.00    0.00       2/6           parse_vec3 [73]
+                0.00    0.00       1/4           parse_color [76]
+                0.00    0.00       1/2           add_object_to_scene [78]
+                0.00    0.00       1/1           free_plane_tokens [91]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_plane [60]
+[61]     0.0    0.00    0.00       1         create_plane [61]
+                0.00    0.00       1/10264788     vec3_normalize [14]
+                0.00    0.00       1/41          safe_malloc [67]
+                0.00    0.00       1/1           init_plane_material [95]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_plane [60]
+[62]     0.0    0.00    0.00       1         validate_plane_params [62]
+                0.00    0.00       1/12525938     vec3_length [18]
+-----------------------------------------------
+                0.00    0.00  497535/497535      intersect_sphere [39]
+[63]     0.0    0.00    0.00  497535         solve_quadratic [63]
+                0.00    0.00  303700/303700      get_closest_root [64]
+-----------------------------------------------
+                0.00    0.00  303700/303700      solve_quadratic [63]
+[64]     0.0    0.00    0.00  303700         get_closest_root [64]
+-----------------------------------------------
+                0.00    0.00  150333/150333      mlx_loop [47]
+[65]     0.0    0.00    0.00  150333         handle_loop [65]
+-----------------------------------------------
+                0.00    0.00       4/63          parse_color [76]
+                0.00    0.00       6/63          parse_vec3 [73]
+                0.00    0.00      12/63          parse_int [71]
+                0.00    0.00      19/63          get_next_token [70]
+                0.00    0.00      22/63          parse_double [69]
+[66]     0.0    0.00    0.00      63         skip_whitespace [66]
+-----------------------------------------------
+                0.00    0.00       1/41          create_sphere [88]
+                0.00    0.00       1/41          create_plane [61]
+                0.00    0.00       1/41          parse_light [98]
+                0.00    0.00       1/41          build_bvh [56]
+                0.00    0.00       3/41          build_bvh_recursive [57]
+                0.00    0.00      34/41          safe_strdup [68]
+[67]     0.0    0.00    0.00      41         safe_malloc [67]
+-----------------------------------------------
+                0.00    0.00       4/34          parse_color [76]
+                0.00    0.00       5/34          read_file_line [74]
+                0.00    0.00       6/34          parse_vec3 [73]
+                0.00    0.00      19/34          get_next_token [70]
+[68]     0.0    0.00    0.00      34         safe_strdup [68]
+                0.00    0.00      34/41          safe_malloc [67]
+-----------------------------------------------
+                0.00    0.00       1/22          parse_sphere [99]
+                0.00    0.00       1/22          parse_light [98]
+                0.00    0.00       1/22          parse_camera [48]
+                0.00    0.00       1/22          parse_ambient [97]
+                0.00    0.00      18/22          parse_vec3 [73]
+[69]     0.0    0.00    0.00      22         parse_double [69]
+                0.00    0.00      22/63          skip_whitespace [66]
+-----------------------------------------------
+                0.00    0.00       2/19          parse_ambient [97]
+                0.00    0.00       3/19          parse_sphere [99]
+                0.00    0.00       3/19          parse_plane [60]
+                0.00    0.00       3/19          parse_light [98]
+                0.00    0.00       3/19          parse_camera [48]
+                0.00    0.00       5/19          parse_line [42]
+[70]     0.0    0.00    0.00      19         get_next_token [70]
+                0.00    0.00      19/63          skip_whitespace [66]
+                0.00    0.00      19/34          safe_strdup [68]
+-----------------------------------------------
+                0.00    0.00      12/12          parse_color [76]
+[71]     0.0    0.00    0.00      12         parse_int [71]
+                0.00    0.00      12/63          skip_whitespace [66]
+-----------------------------------------------
+                0.00    0.00       5/10          is_empty_line [75]
+                0.00    0.00       5/10          parse_line [42]
+[72]     0.0    0.00    0.00      10         skip_whitespace [72]
+-----------------------------------------------
+                0.00    0.00       1/6           parse_sphere [99]
+                0.00    0.00       1/6           parse_light [98]
+                0.00    0.00       2/6           parse_plane [60]
+                0.00    0.00       2/6           parse_camera [48]
+[73]     0.0    0.00    0.00       6         parse_vec3 [73]
+                0.00    0.00      18/22          parse_double [69]
+                0.00    0.00       6/34          safe_strdup [68]
+                0.00    0.00       6/63          skip_whitespace [66]
+-----------------------------------------------
+                0.00    0.00       6/6           parse_scene [43]
+[74]     0.0    0.00    0.00       6         read_file_line [74]
+                0.00    0.00       5/34          safe_strdup [68]
+-----------------------------------------------
+                0.00    0.00       5/5           parse_line [42]
+[75]     0.0    0.00    0.00       5         is_empty_line [75]
+                0.00    0.00       5/10          skip_whitespace [72]
+-----------------------------------------------
+                0.00    0.00       1/4           parse_sphere [99]
+                0.00    0.00       1/4           parse_plane [60]
+                0.00    0.00       1/4           parse_light [98]
+                0.00    0.00       1/4           parse_ambient [97]
+[76]     0.0    0.00    0.00       4         parse_color [76]
+                0.00    0.00      12/12          parse_int [71]
+                0.00    0.00       4/34          safe_strdup [68]
+                0.00    0.00       4/63          skip_whitespace [66]
+-----------------------------------------------
+                0.00    0.00       1/4           build_bvh [56]
+                0.00    0.00       3/4           cleanup_bvh [82]
+[77]     0.0    0.00    0.00       4         safe_free [77]
+-----------------------------------------------
+                0.00    0.00       1/2           parse_sphere [99]
+                0.00    0.00       1/2           parse_plane [60]
+[78]     0.0    0.00    0.00       2         add_object_to_scene [78]
+-----------------------------------------------
+                0.00    0.00       1/1           build_bvh_recursive [57]
+[79]     0.0    0.00    0.00       1         aabb_union [79]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_light [98]
+[80]     0.0    0.00    0.00       1         add_light_to_scene [80]
+-----------------------------------------------
+                0.00    0.00       1/1           exit_success [90]
+[81]     0.0    0.00    0.00       1         cleanup_all [81]
+                0.00    0.00       1/1           cleanup_scene [86]
+                0.00    0.00       1/1           cleanup_mlx [84]
+-----------------------------------------------
+                                   6             cleanup_bvh [82]
+                0.00    0.00       1/1           cleanup_scene [86]
+[82]     0.0    0.00    0.00       1+6       cleanup_bvh [82]
+                0.00    0.00       3/4           safe_free [77]
+                                   6             cleanup_bvh [82]
+-----------------------------------------------
+                0.00    0.00       1/1           cleanup_scene [86]
+[83]     0.0    0.00    0.00       1         cleanup_light_list [83]
+-----------------------------------------------
+                0.00    0.00       1/1           cleanup_all [81]
+[84]     0.0    0.00    0.00       1         cleanup_mlx [84]
+-----------------------------------------------
+                0.00    0.00       1/1           cleanup_scene [86]
+[85]     0.0    0.00    0.00       1         cleanup_object_list [85]
+-----------------------------------------------
+                0.00    0.00       1/1           cleanup_all [81]
+[86]     0.0    0.00    0.00       1         cleanup_scene [86]
+                0.00    0.00       1/1           cleanup_light_list [83]
+                0.00    0.00       1/1           cleanup_object_list [85]
+                0.00    0.00       1/1           cleanup_bvh [82]
+-----------------------------------------------
+                0.00    0.00       1/1           build_bvh [56]
+[87]     0.0    0.00    0.00       1         count_objects [87]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_sphere [99]
+[88]     0.0    0.00    0.00       1         create_sphere [88]
+                0.00    0.00       1/41          safe_malloc [67]
+                0.00    0.00       1/1           init_sphere_material [96]
+-----------------------------------------------
+                0.00    0.00       1/1           render_scene [45]
+[89]     0.0    0.00    0.00       1         display_image [89]
+-----------------------------------------------
+                0.00    0.00       1/1           handle_keypress [44]
+[90]     0.0    0.00    0.00       1         exit_success [90]
+                0.00    0.00       1/1           cleanup_all [81]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_plane [60]
+[91]     0.0    0.00    0.00       1         free_plane_tokens [91]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_sphere [99]
+[92]     0.0    0.00    0.00       1         free_sphere_tokens [92]
+-----------------------------------------------
+                0.00    0.00       1/1           main [40]
+[93]     0.0    0.00    0.00       1         init_mlx [93]
+-----------------------------------------------
+                0.00    0.00       1/1           init_minirt [58]
+[94]     0.0    0.00    0.00       1         init_mlx_context [94]
+-----------------------------------------------
+                0.00    0.00       1/1           create_plane [61]
+[95]     0.0    0.00    0.00       1         init_plane_material [95]
+-----------------------------------------------
+                0.00    0.00       1/1           create_sphere [88]
+[96]     0.0    0.00    0.00       1         init_sphere_material [96]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_element_by_identifier [41]
+[97]     0.0    0.00    0.00       1         parse_ambient [97]
+                0.00    0.00       2/19          get_next_token [70]
+                0.00    0.00       1/22          parse_double [69]
+                0.00    0.00       1/4           parse_color [76]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_element_by_identifier [41]
+[98]     0.0    0.00    0.00       1         parse_light [98]
+                0.00    0.00       3/19          get_next_token [70]
+                0.00    0.00       1/6           parse_vec3 [73]
+                0.00    0.00       1/22          parse_double [69]
+                0.00    0.00       1/4           parse_color [76]
+                0.00    0.00       1/41          safe_malloc [67]
+                0.00    0.00       1/1           add_light_to_scene [80]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_element_by_identifier [41]
+[99]     0.0    0.00    0.00       1         parse_sphere [99]
+                0.00    0.00       3/19          get_next_token [70]
+                0.00    0.00       1/6           parse_vec3 [73]
+                0.00    0.00       1/22          parse_double [69]
+                0.00    0.00       1/4           parse_color [76]
+                0.00    0.00       1/1           validate_sphere_params [106]
+                0.00    0.00       1/1           create_sphere [88]
+                0.00    0.00       1/2           add_object_to_scene [78]
+                0.00    0.00       1/1           free_sphere_tokens [92]
+-----------------------------------------------
+                0.00    0.00       1/1           main [40]
+[100]    0.0    0.00    0.00       1         setup_hooks [100]
+-----------------------------------------------
+                0.00    0.00       1/1           render_scene [45]
+[101]    0.0    0.00    0.00       1         target_area [101]
+-----------------------------------------------
+                0.00    0.00       1/1           main [40]
+[102]    0.0    0.00    0.00       1         validate_arguments [102]
+                0.00    0.00       1/1           validate_file_extension [104]
+                0.00    0.00       1/1           validate_file_access [103]
+-----------------------------------------------
+                0.00    0.00       1/1           validate_arguments [102]
+[103]    0.0    0.00    0.00       1         validate_file_access [103]
+-----------------------------------------------
+                0.00    0.00       1/1           validate_arguments [102]
+[104]    0.0    0.00    0.00       1         validate_file_extension [104]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_scene [43]
+[105]    0.0    0.00    0.00       1         validate_scene_with_filename [105]
+-----------------------------------------------
+                0.00    0.00       1/1           parse_sphere [99]
+[106]    0.0    0.00    0.00       1         validate_sphere_params [106]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -754,35 +812,38 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [33] _init                   [8] get_camera_ray         [52] ray_at
-  [38] aabb_union (bvh.c)     [58] get_closest_root (intersect_sphere.c) [14] ray_new
-  [79] add_light_to_scene (parse_lights.c) [65] get_next_token [46] ray_reflect
-  [73] add_object_to_scene    [53] get_object_bounds (bvh.c) [4] raycast
-  [35] build_bvh              [48] get_object_normal      [69] read_file_line (parse_scene.c)
-  [36] build_bvh_recursive (bvh.c) [47] get_sphere_normal  [1] render_pixel_at_coordinates
-  [51] calculate_ambient_lighting (lighting.c) [26] handle_keypress [27] render_scene
-   [9] calculate_background_color [59] handle_loop        [68] safe_free
-  [18] calculate_diffuse_lighting (lighting.c) [54] init_minirt (main.c) [62] safe_malloc
-  [13] calculate_hit_color    [89] init_mlx               [63] safe_strdup
-  [16] calculate_lighting     [90] init_mlx_context (main.c) [28] setup_camera
-  [11] calculate_pixel_world_position [55] init_scene (main.c) [93] setup_hooks
-  [41] calculate_reflection   [76] init_sphere_material (parse_sphere.c) [67] skip_whitespace (parse_scene.c)
-  [40] calculate_refraction    [7] intersect_aabb (bvh.c) [61] skip_whitespace (parse_utils.c)
-  [17] calculate_viewport_dimensions [6] intersect_bvh    [57] solve_quadratic (intersect_sphere.c)
-  [24] check_limits (colors1.c) [5] intersect_scene       [94] target_area
-  [80] cleanup_all            [49] intersect_sphere       [95] validate_arguments
-  [81] cleanup_bvh            [70] is_empty_line (parse_scene.c) [96] validate_file_access
-  [82] cleanup_light_list     [23] is_in_shadow           [97] validate_file_extension
-  [83] cleanup_mlx            [19] mlx_loop               [98] validate_scene_with_filename (parse_scene.c)
-  [84] cleanup_object_list    [91] parse_ambient          [78] validate_sphere_params (parse_sphere.c)
-  [85] cleanup_scene          [44] parse_camera           [20] vec3_add
-  [29] color_add              [72] parse_color            [39] vec3_cross
-  [21] color_clamp            [64] parse_double           [22] vec3_div
-  [50] color_mult             [43] parse_element_by_identifier (parse_scene.c) [56] vec3_dot
-  [10] color_new              [66] parse_int              [25] vec3_length
-  [32] color_to_int           [92] parse_light            [37] vec3_length_squared
-  [86] count_objects (bvh.c)  [42] parse_line (parse_scene.c) [30] vec3_mult
-  [74] create_sphere (parse_sphere.c) [45] parse_scene    [60] vec3_new
-  [87] display_image          [77] parse_sphere           [15] vec3_normalize
-  [88] exit_success           [71] parse_vec3             [31] vec3_sub
-  [75] free_sphere_tokens (parse_sphere.c) [12] put_pixel  [3] <cycle 1>
+  [51] _init                  [64] get_closest_root (intersect_sphere.c) [35] ray_at
+  [79] aabb_union (bvh.c)     [70] get_next_token         [20] ray_new
+  [80] add_light_to_scene (parse_lights.c) [55] get_object_bounds (bvh.c) [38] ray_reflect
+  [78] add_object_to_scene    [25] get_object_normal       [9] raycast
+  [56] build_bvh              [29] get_plane_normal       [74] read_file_line (parse_scene.c)
+  [57] build_bvh_recursive (bvh.c) [52] get_sphere_normal  [1] render_pixel_at_coordinates
+  [30] calculate_ambient_lighting (lighting.c) [44] handle_keypress [45] render_scene
+  [31] calculate_background_color [65] handle_loop        [77] safe_free
+   [6] calculate_diffuse_lighting (lighting.c) [58] init_minirt (main.c) [67] safe_malloc
+   [4] calculate_hit_color    [93] init_mlx               [68] safe_strdup
+   [5] calculate_lighting     [94] init_mlx_context (main.c) [46] setup_camera
+  [26] calculate_pixel_world_position [95] init_plane_material (parse_plane.c) [100] setup_hooks
+  [16] calculate_reflection   [59] init_scene (main.c)    [72] skip_whitespace (parse_scene.c)
+  [19] calculate_refraction   [96] init_sphere_material (parse_sphere.c) [66] skip_whitespace (parse_utils.c)
+  [53] calculate_viewport_dimensions [11] intersect_aabb (bvh.c) [63] solve_quadratic (intersect_sphere.c)
+  [22] check_limits (colors1.c) [8] intersect_bvh        [101] target_area
+  [81] cleanup_all            [24] intersect_plane       [102] validate_arguments
+  [82] cleanup_bvh             [7] intersect_scene       [103] validate_file_access
+  [83] cleanup_light_list     [39] intersect_sphere      [104] validate_file_extension
+  [84] cleanup_mlx            [75] is_empty_line (parse_scene.c) [62] validate_plane_params (parse_plane.c)
+  [85] cleanup_object_list    [10] is_in_shadow          [105] validate_scene_with_filename (parse_scene.c)
+  [86] cleanup_scene          [97] parse_ambient         [106] validate_sphere_params (parse_sphere.c)
+  [12] color_add              [48] parse_camera           [33] vec3_add
+  [17] color_clamp            [76] parse_color            [37] vec3_cross
+  [49] color_mult             [69] parse_double           [21] vec3_div
+  [13] color_new              [41] parse_element_by_identifier (parse_scene.c) [27] vec3_dot
+  [34] color_to_int           [71] parse_int              [18] vec3_length
+  [87] count_objects (bvh.c)  [98] parse_light            [23] vec3_length_squared
+  [61] create_plane (parse_plane.c) [42] parse_line (parse_scene.c) [36] vec3_mult
+  [88] create_sphere (parse_sphere.c) [60] parse_plane    [54] vec3_new
+  [89] display_image          [43] parse_scene            [14] vec3_normalize
+  [90] exit_success           [99] parse_sphere           [32] vec3_sub
+  [91] free_plane_tokens (parse_plane.c) [73] parse_vec3   [3] <cycle 1>
+  [92] free_sphere_tokens (parse_sphere.c) [50] populate_hit_info (intersections.c)
+  [15] get_camera_ray         [28] put_pixel
