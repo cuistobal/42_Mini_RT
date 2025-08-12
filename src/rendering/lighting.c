@@ -90,7 +90,7 @@ t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_materi
 		return (color_new(0, 0, 0));
 	ambient_color = calculate_ambient_lighting(scene, material);
 	diffuse_color = calculate_diffuse_lighting(point, normal, scene, material);
-	return (color_clamp(color_add(ambient_color, diffuse_color)));
+	return (color_add(ambient_color, diffuse_color));
 }
 
 /*
