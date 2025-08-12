@@ -14,25 +14,25 @@
 
 t_color	color_add(t_color a, t_color b)
 {
-	   return color_clamp((t_color){a.r + b.r, a.g + b.g, a.b + b.b});
+	   return (t_color){a.r + b.r, a.g + b.g, a.b + b.b};
 }
 
 t_color	color_mult(t_color color, double scalar)
 {
-	   return color_clamp((t_color){
+	   return (t_color){
 			   (int)(color.r * scalar),
 			   (int)(color.g * scalar),
 			   (int)(color.b * scalar)
-	   });
+	   };
 }
 
 t_color	color_blend(t_color a, t_color b, double ratio)
 {
-	   return color_clamp((t_color){
+	   return (t_color){
 			   (int)(a.r * (1.0 - ratio) + b.r * ratio),
 			   (int)(a.g * (1.0 - ratio) + b.g * ratio),
 			   (int)(a.b * (1.0 - ratio) + b.b * ratio)
-	   });
+	   };
 }
 
 

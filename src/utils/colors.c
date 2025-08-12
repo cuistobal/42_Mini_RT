@@ -25,16 +25,16 @@ t_color	color_new(int r, int g, int b)
 */
 t_color	color_gamma_correct(t_color color, double gamma)
 {
-	t_color	result;
 	double	inv_gamma;
 
 	if (gamma <= 0.0)
 		return (color);
 	inv_gamma = 1.0 / gamma;
-	result.r = (int)(255.0 * pow((double)color.r / 255.0, inv_gamma));
-	result.g = (int)(255.0 * pow((double)color.g / 255.0, inv_gamma));
-	result.b = (int)(255.0 * pow((double)color.b / 255.0, inv_gamma));
-	return (color_clamp(result));
+	return (t_color){
+		(int)(255.0 * pow((double)color.r / 255.0, inv_gamma)),
+		(int)(255.0 * pow((double)color.g / 255.0, inv_gamma)),
+		(int)(255.0 * pow((double)color.b / 255.0, inv_gamma))
+	};
 }
 
 // Helper
@@ -44,6 +44,7 @@ static double linear_to_srgb_channel(double c)
         return 12.92 * c;
     return 1.055 * pow(c, 1.0 / 2.4) - 0.055;
 }
+
 /*
 ** color_linear_to_srgb - Convert linear RGB to sRGB color space
 ** color: Linear RGB color
@@ -51,20 +52,13 @@ static double linear_to_srgb_channel(double c)
 */
 t_color	color_linear_to_srgb(t_color color)
 {
-	double	r;
-	double	g;
-	double	b;
-    t_color	result;
-    
-	r = (double)color.r / 255.0;
-	g = (double)color.g / 255.0;
-	b = (double)color.b / 255.0;
+    double	r = linear_to_srgb_channel((double)color.r / 255.0);
+    double	g = linear_to_srgb_channel((double)color.g / 255.0);
+    double	b = linear_to_srgb_channel((double)color.b / 255.0);
 
-    r = linear_to_srgb_channel(r);
-    g = linear_to_srgb_channel(g);
-    b = linear_to_srgb_channel(b);
-    result.r = (int)(r * 255.0);
-    result.g = (int)(g * 255.0);
-    result.b = (int)(b * 255.0);
-    return (color_clamp(result));
+    return (t_color){
+        (int)(r * 255.0),
+        (int)(g * 255.0),
+        (int)(b * 255.0)
+    };
 }

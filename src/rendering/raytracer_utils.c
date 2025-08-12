@@ -44,11 +44,11 @@ t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v, double hw
 */
 t_color	calculate_background_color(t_ray ray)
 {
-	   return color_clamp((t_color){
+	   return (t_color){
 			   (int)(135 + ray.direction.y * 50),
 			   (int)(206 + ray.direction.y * 49),
 			   255
-	   });
+	   };
 }
 
 /*
@@ -57,7 +57,7 @@ t_color	calculate_background_color(t_ray ray)
 void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 	double inv_width, double inv_height)
 {
-	   put_pixel(&rt->mlx, x, y, raycast(
-					   get_camera_ray(rt, &rt->scene.camera, (double)x * inv_width, (double)y * inv_height),
-					   &rt->scene, MAX_DEPTH));
+	put_pixel(&rt->mlx, x, y, color_clamp(raycast(
+		get_camera_ray(rt, &rt->scene.camera, (double)x * inv_width, (double)y * inv_height),
+		&rt->scene, MAX_DEPTH)));
 }
