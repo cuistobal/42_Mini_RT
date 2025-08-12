@@ -12,7 +12,7 @@
 
 #include "../../includes/minirt.h"
 
-void	swap(double *t0, double *t1)
+static inline void	swap(double *t0, double *t1)
 {
     double	tmp;
 

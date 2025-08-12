@@ -101,30 +101,6 @@ return found;
 }
 
 /*
-** intersect_bvh - Traverse BVH to find closest intersection
-*/
-/* 
-int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)
-{
-	t_aabb_query query;
-
-	if (!node || !hit)
-		return (0);
-	query.origin = ray.origin;
-	query.dir = ray.direction;
-	query.box = node->bounds;
-	if (!intersect_aabb_query(&query))
-		return (0);
-	if (node->object)
-		return (case_leaf_node(node, hit, ray));
-	return (case_internal_node(node, hit, ray));
-}
- */
-
-#define BVH_STACK_SIZE 64
-
-
-/*
 ** intersect_bvh_iter - Traverse BVH using an explicit stack (iterative)
 ** Push children in order of proximity (tmin)
 */
@@ -145,15 +121,12 @@ int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 		t_aabb_query query = {ray.origin, ray.direction, node->bounds, -INFINITY, INFINITY};
 		if (!intersect_aabb_query(&query))
 			continue;
-			   if (node->objects)
-			   {
-					   if (case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
-					   {
-							   *hit = temp_hit;
-							   closest_t = temp_hit.t;
-							   found = 1;
-					   }
-			   }
+		if (node->objects && case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
+		{
+			*hit = temp_hit;
+			closest_t = temp_hit.t;
+			found = 1;
+		}
 		else
 		{
 			t_aabb_query left_query, right_query;
@@ -179,33 +152,21 @@ int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 			}
 			if (hit_left && hit_right)
 			{
-				if (tmin_left < tmin_right)
+				if (tmin_left < tmin_right && stack_ptr < BVH_STACK_SIZE - 1)
 				{
-					if (stack_ptr < BVH_STACK_SIZE - 1)
-					{
-						stack[stack_ptr++] = node->right;
-						stack[stack_ptr++] = node->left;
-					}
-				}
-				else
-				{
-					if (stack_ptr < BVH_STACK_SIZE - 1)
-					{
-						stack[stack_ptr++] = node->left;
-						stack[stack_ptr++] = node->right;
-					}
-				}
-			}
-			else if (hit_left)
-			{
-				if (stack_ptr < BVH_STACK_SIZE)
-					stack[stack_ptr++] = node->left;
-			}
-			else if (hit_right)
-			{
-				if (stack_ptr < BVH_STACK_SIZE)
 					stack[stack_ptr++] = node->right;
+					stack[stack_ptr++] = node->left;
+				}
+				else if (stack_ptr < BVH_STACK_SIZE - 1)
+				{
+					stack[stack_ptr++] = node->left;
+					stack[stack_ptr++] = node->right;
+				}
 			}
+			else if (hit_left && stack_ptr < BVH_STACK_SIZE)
+				stack[stack_ptr++] = node->left;
+			else if (hit_right && stack_ptr < BVH_STACK_SIZE)
+				stack[stack_ptr++] = node->right;
 		}
 	}
 	return found;

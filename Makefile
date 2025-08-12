@@ -27,7 +27,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -o3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno
+CFLAGS = -Wall -Wextra -Werror -g3  -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno
 PFLAGS = -pg
 INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm

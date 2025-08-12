@@ -47,6 +47,8 @@
 
 # define RED_OFFSET 16
 # define GREEN_OFFSET 8
+# define BVH_STACK_SIZE 64
+#define MAX_OBJECTS_PER_LEAF 4
 
 /* Error codes */
 typedef enum e_error
@@ -300,7 +302,7 @@ t_color	raycast(t_ray ray, t_scene *scene, int depth);
 t_color	raycast_optimized(t_ray ray, t_scene *scene, int depth);
 t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene,
 			t_material *material);
-int		is_in_shadow(t_vec3 point, t_light *light, t_scene *scene);
+int		is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distance, t_scene *scene);
 t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth);
 t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth);
 t_color	render_pixel_antialiased(t_minirt *rt, int x, int y);
