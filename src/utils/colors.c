@@ -14,12 +14,7 @@
 
 t_color	color_new(int r, int g, int b)
 {
-	t_color	color;
-
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	return (color);
+    return (t_color){r, g, b};
 }
 
 /*
