@@ -17,29 +17,46 @@
 */
 static int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
-	t_hit	left_hit;
-	t_hit	right_hit;
-	int		left_intersect;
-	int		right_intersect;
+	t_aabb_query left_query;
+	t_aabb_query right_query;
+	int hit_left, hit_right;
+	t_bvh_node *first, *second;
+	double tmin_first, tmin_second;
+	t_hit hit_first, hit_second;
 
-	left_intersect = 0;
-	right_intersect = 0;
-	if (node->left)
-		left_intersect = intersect_bvh(ray, node->left, &left_hit);
-	if (node->right)
-		right_intersect = intersect_bvh(ray, node->right, &right_hit);
-	if (left_intersect && right_intersect)
+	left_query.origin = ray.origin;
+	left_query.dir = ray.direction;
+	left_query.box = node->left->bounds;
+	hit_left = node->left && intersect_aabb_query(&left_query);
+
+	right_query.origin = ray.origin;
+	right_query.dir = ray.direction;
+	right_query.box = node->right->bounds;
+	hit_right = node->right && intersect_aabb_query(&right_query);
+
+	if (hit_left && (!hit_right || left_query.tmin < right_query.tmin))
 	{
-		if (left_hit.t < right_hit.t)
-			*hit = left_hit;
+		first = node->left; tmin_first = left_query.tmin;
+		second = node->right; tmin_second = right_query.tmin;
+	}
+	else if (hit_right)
+	{
+		first = node->right; tmin_first = right_query.tmin;
+		second = node->left; tmin_second = left_query.tmin;
+	}
+	else
+		return (0);
+
+	if (first && intersect_bvh(ray, first, &hit_first))
+	{
+		if (second && tmin_second < hit_first.t && intersect_bvh(ray, second, &hit_second) && hit_second.t < hit_first.t)
+			*hit = hit_second;
 		else
-			*hit = right_hit;
+			*hit = hit_first;
 		return (1);
 	}
-	else if (left_intersect)
-		return (*hit = left_hit, 1);
-	else if (right_intersect)
-		return (*hit = right_hit, 1);
+	if (second && intersect_bvh(ray, second, hit))
+		return (1);
 	return (0);
 }
 
@@ -75,28 +92,17 @@ static int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 /*
 ** intersect_bvh - Traverse BVH to find closest intersection
 */
+
 int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)
 {
-	double ray_dir[3];
-	double ray_origin[3];
-	double box_min[3];
-	double box_max[3];
+	t_aabb_query query;
 
 	if (!node || !hit)
-		return (0);	
-	ray_dir[0] = ray.direction.x;
-	ray_dir[1] = ray.direction.y;
-	ray_dir[2] = ray.direction.y;
-	ray_origin[0] = ray.origin.x;
-	ray_origin[1] = ray.origin.y;
-	ray_origin[2] = ray.origin.z;
-	box_min[0] = node->bounds.min.x;
-	box_min[1] = node->bounds.min.y;
-	box_min[2] = node->bounds.min.z;
-	box_max[0] = node->bounds.max.x;
-	box_max[1] = node->bounds.max.y;
-	box_max[2] = node->bounds.max.z;
-	if (!intersect_aabb(ray_origin, ray_dir, box_min, box_max))
+		return (0);
+	query.origin = ray.origin;
+	query.dir = ray.direction;
+	query.box = node->bounds;
+	if (!intersect_aabb_query(&query))
 		return (0);
 	if (node->object)
 		return (case_leaf_node(node, hit, ray));

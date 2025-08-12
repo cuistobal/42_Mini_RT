@@ -82,22 +82,18 @@ static void	swap(double *t0, double *t1)
 
 int	intersect_aabb_query(t_aabb_query *q)
 {
-    double	tmin;
-    double	tmax;
-    double	t0;
-    double	t1;
-    double	invD;
-    int		i;
+	int i;
 
+	double	(tmin), (tmax), (t0), (t1), (invD), (orig), (dir), (bmin), bmax;
     tmin = -INFINITY;
     tmax = INFINITY;
     i = 0;
     while (i < 3)
     {
-        double orig = ((double *)&q->origin)[i];
-        double dir = ((double *)&q->dir)[i];
-        double bmin = ((double *)&q->box.min)[i];
-        double bmax = ((double *)&q->box.max)[i];
+        orig = ((double *)&q->origin)[i];
+        dir = ((double *)&q->dir)[i];
+        bmin = ((double *)&q->box.min)[i];
+        bmax = ((double *)&q->box.max)[i];
         if (fabs(dir) < EPSILON)
         {
             if (orig < bmin || orig > bmax)
