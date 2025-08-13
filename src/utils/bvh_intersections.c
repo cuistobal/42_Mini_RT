@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:29:02 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/11 09:51:12 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/13 09:54:21 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Traverses both children node to find the matching leaf
 */
-int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
+int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
 	t_aabb_query (left_query), right_query;
 	int (hit_left), hit_right;

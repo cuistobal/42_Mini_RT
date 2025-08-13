@@ -6,26 +6,25 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/12 11:45:59 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/13 09:55:28 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-
 /*
 ** Computes the surface area of an axis-aligned bounding box (AABB)
 */
-double aabb_surface(t_aabb a)
+double	aabb_surface(t_aabb a)
 {
-	double dx = a.max.x - a.min.x;
-	double dy = a.max.y - a.min.y;
-	double dz = a.max.z - a.min.z;
+	double	dx;
+	double	dy;
+	double	dz;
 
-	if (dx < 0) dx = -dx;
-	if (dy < 0) dy = -dy;
-	if (dz < 0) dz = -dz;
-	return 2.0 * (dx * dy + dx * dz + dy * dz);
+	dx = fabs(a.max.x - a.min.x);
+	dy = fabs(a.max.y - a.min.y);
+	dz = fabs(a.max.z - a.min.z);
+	return (2.0 * (dx * dy + dx * dz + dy * dz));
 }
 
 /*
@@ -61,7 +60,7 @@ static double	sah_cost(double left_area, double right_area,
 /*
 **
 */
-static void allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \
+static void	allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \
 		int count)
 {
 	*left_bounds = safe_malloc(sizeof(t_aabb) * count);

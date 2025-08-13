@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/12 14:59:52 by chrleroy         ###   ########.fr        #
+#    Updated: 2025/08/13 10:07:00 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3  -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno
 PFLAGS = -pg
 INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
