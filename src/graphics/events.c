@@ -6,13 +6,13 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:41:40 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/15 16:40:29 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-/* void	zoom_camera(t_camera *cam, double factor)
+void	zoom_camera(t_camera *cam, double factor)
 {
     if (!cam)
         return;
@@ -21,7 +21,7 @@
         cam->fov = 10.0;
     if (cam->fov > 170.0)
         cam->fov = 170.0;
-} */
+}
 
 /*
 ** handle_keypress - Handle keyboard input events
@@ -54,20 +54,25 @@ int	handle_keypress(int keycode, t_minirt *rt)
 	else if (keycode == KEY_LEFT)
 		rotate_camera(&rt->scene.camera, -rt->scene.camera.rotate_speed, 0);
 	else if (keycode == KEY_RIGHT)
-		rotate_camera(&rt->scene.camera, rt->scene.camera.rotate_speed, 0);
+		rotate_camera(&rt->scene.camera, rt->scene.camera.rotate_speed, 0); 
 	return (render_scene(rt), 0);
 }
 
-/* int	handle_mouse(int keycode, t_minirt *rt)
+int handle_mouse(int keycode, int x, int y, void *param)
 {
+    t_minirt *rt;
+
+	(void) x;
+	(void) y;
+    rt = (t_minirt *)param;
     if (!rt)
         return (1);
     if (keycode == 4)
-        zoom_camera(&rt->scene.camera, 10); 
+        zoom_camera(&rt->scene.camera, -10);
     else if (keycode == 5)
-        zoom_camera(&rt->scene.camera, -10); 
-	return (render_scene(rt), 0);
-} */
+        zoom_camera(&rt->scene.camera, 10);
+    return (render_scene(rt), 0);
+}
 
 /*
 ** handle_close - Handle window close event (X button)
@@ -102,8 +107,9 @@ void	setup_hooks(t_minirt *rt)
 {
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
+	// Mouse hooks
+	mlx_hook(rt->mlx.win_ptr, 4, 1L << 2, handle_mouse, rt);
 	mlx_key_hook(rt->mlx.win_ptr, handle_keypress, rt);
-	// mlx_hook(rt->mlx.win_ptr, 4, 1L << 2, handle_mouse, rt);
 	mlx_hook(rt->mlx.win_ptr, 17, 1L << 17, handle_close, rt);
 	mlx_loop_hook(rt->mlx.mlx_ptr, handle_loop, rt);
 }
