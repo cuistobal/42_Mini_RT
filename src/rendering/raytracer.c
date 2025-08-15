@@ -47,47 +47,95 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 }
 
 // inter thread
+#define NUM_THREAD 4
+
+pthread_mutex_t mutexQueue;
+pthread_cond_t condQueue;
+int ntask = 0;
 
 typedef struct s_intels
 {
 	t_minirt *rt;
 	int xstart;
 	int ystart;
-
+	
 	int xend;
 	int yend;
-
+	
 }	t_intels;
+t_intels directives_rendering[3600];
 
 /*
 ** render_all_pixels - Render all pixels in the scene
 */
 
-void	*render_all_pixels(void *intels)
+void create_directive(t_intels *directives,t_minirt *rt)
 {
-	t_intels intel = *(t_intels *)intels;
-	
+	//int directives = (rt->mlx.width / 32) * (rt->mlx.height / 32);
+	int pwidth = (rt->mlx.width / 32);
+	int pheight = (rt->mlx.height / 32);
+	int i = 0;
+	int y;
+	int index_directive;
+	while (i < pheight)
+	{
+		y = 0;
+		while (y < pwidth)
+		{
+			directives_rendering[index_directive].xstart = y * 32;
+			directives_rendering[index_directive].xend = y * 32 + 32;
+			directives_rendering[index_directive].ystart = i * 32;
+			directives_rendering[index_directive].yend = i * 32 + 32;
+			index_directive++;
+			y++;
+		}
+		i++;
+	}
+}
+static void execute_rendering(void * task)
+{
+	t_intels  *intel = (t_intels*) task;
+
 	int		x;
 	int		y;
 	double	inv_width;
 	double	inv_height;
 
-	//render_all_pixels(intel.rt);
-	inv_width = 1.0 / (double)intel.rt->mlx.width;
-	inv_height = 1.0 / (double)intel.rt->mlx.height;
-	y = intel.ystart;
-	while (y < intel.rt->mlx.height)
+	inv_width = 1.0 / (double)intel->rt->mlx.width;
+	inv_height = 1.0 / (double)intel->rt->mlx.height;
+	y = intel->ystart;
+	while (y < intel->rt->mlx.height) 
 	{
-		x = intel.xstart;
-		while (x < intel.rt->mlx.width)
+		x = intel->xstart;
+		while (x < intel->rt->mlx.width)
 		{
-			render_pixel_at_coordinates(intel.rt, x, y, inv_width, inv_height);
+			render_pixel_at_coordinates(intel->rt, x, y, inv_width, inv_height);
 			x++;
 		}
 		y++;
 	}
+	
+}
+
+void	*render_all_pixels(void *intels)
+{
+	t_intels intel = *(t_intels *)intels;
+	
+
+    pthread_mutex_lock(&mutexQueue);
+    while (ntask == 0)
+	{
+		pthread_cond_wait(&condQueue, &mutexQueue);
+		ntask = 0;
+    }
+
+	
+	pthread_mutex_unlock(&mutexQueue);
+	//  future task // execute_rendering(void * task)
 	return NULL;
 }
+
+
 
 /*
 ** render_scene - Main rendering function
@@ -118,7 +166,8 @@ void target_area(t_intels *intel,t_minirt *rt)
 	intel[3].yend =   rt->mlx.height;
 	intel[3].rt = rt;
 }
-#define NUM_THREAD 4
+
+
 void	render_scene(t_minirt *rt)
 {
 	pthread_t threads[NUM_THREAD];
@@ -130,12 +179,20 @@ void	render_scene(t_minirt *rt)
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
-	
+	pthread_mutex_init(&mutexQueue, NULL); // init mutex for queue
 	while(i < NUM_THREAD)
 	{
 		if (pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]) != 0) // 1. Thread creation
 			perror("Error : Thread creation failde"); // manage error
 		i++;
+	}
+	while (1)
+	{
+		printf("tp = %d\n", ntask);
+		usleep(500000);
+		pthread_mutex_lock(&mutexQueue);
+		pthread_mutex_unlock(&mutexQueue);
+		pthread_cond_signal(&condQueue); // signal a pthread_cond_wait que sa condition a peut etre ete modifie
 	}
 	i = 0;
 	while (i < NUM_THREAD)
