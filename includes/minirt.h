@@ -273,6 +273,7 @@ int		parse_plane(char *line, t_scene *scene);
 int		parse_cylinder(char *line, t_scene *scene);
 int		parse_cone(char *line, t_scene *scene);
 int		parse_cube(char *line, t_scene *scene);
+int		parse_triangle(char *line, t_scene *scene);
 
 /* Parsing utility functions */
 int		parse_double(char *str, double *result);

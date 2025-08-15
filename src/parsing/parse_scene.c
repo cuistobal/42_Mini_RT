@@ -153,6 +153,8 @@ static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *sc
 		return (parse_cone(rest, scene));
 	else if (strcmp(identifier, "cu") == 0)
 		return (parse_cube(rest, scene));
+	else if (strcmp(identifier, "tr") == 0)
+		return (parse_triangle(rest, scene));
 	return (0);
 }
 
@@ -179,17 +181,10 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	rest = trimmed;
 	identifier = get_next_token(&rest);
 	if (!identifier)
-	{
-		printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", 
-			filename ? filename : "unknown", line_num);
-		return (0);
-	}
+		return (printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", filename, line_num), 0); 
 	result = parse_element_by_identifier(identifier, rest, scene);
 	if (!result)
-	{
-		printf("Error\nInvalid %s element in %s at line %d: %s\n", 
-			identifier, filename ? filename : "unknown", line_num, line);
-	}
+		printf("Error\nInvalid %s element in %s at line %d: %s\n", identifier, filename, line_num, line);
 	free(identifier);
 	return (result);
 }
