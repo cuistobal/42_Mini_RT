@@ -359,6 +359,7 @@ handle_file_error	src/utils/error1.c	/^void	handle_file_error(char *filename, ch
 handle_keypress	src/graphics/events.c	/^int	handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
 handle_loop	src/graphics/events.c	/^int	handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
 handle_malloc_error	src/utils/error1.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
+handle_mouse	src/graphics/events.c	/^int handle_mouse(int keycode, int x, int y, void *param)$/;"	f	typeref:typename:int
 handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, \\$/;"	f	typeref:typename:void
 height	includes/minirt.h	/^	double			height;$/;"	m	struct:s_object	typeref:typename:double
 height	includes/minirt.h	/^	int		height;$/;"	m	struct:s_mlx	typeref:typename:int
@@ -562,6 +563,7 @@ parse_line	src/parsing/parse_scene.c	/^static int	parse_line(char *line, t_scene
 parse_plane	src/parsing/parse_plane.c	/^int	parse_plane(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_scene	src/parsing/parse_scene.c	/^int	parse_scene(char *filename, t_scene *scene)$/;"	f	typeref:typename:int
 parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *scene)$/;"	f	typeref:typename:int
+parse_triangle	src/parsing/parse_triangle.c	/^int	parse_triangle(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
 partition	src/utils/bvh.c	/^static int partition(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:int	file:
 pitch_epsilon_helper	src/utils/camera.c	/^static void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void	file:
@@ -836,3 +838,4 @@ yend	src/rendering/raytracer.c	/^	int yend;$/;"	m	struct:s_intels	typeref:typena
 ystart	src/rendering/raytracer.c	/^	int ystart;$/;"	m	struct:s_intels	typeref:typename:int	file:
 z	includes/minirt.h	/^	double	z;$/;"	m	struct:s_vec3	typeref:typename:double
 z	tests/test_cleanup_only.c	/^    double z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
+zoom_camera	src/graphics/events.c	/^void	zoom_camera(t_camera *cam, double factor)$/;"	f	typeref:typename:void

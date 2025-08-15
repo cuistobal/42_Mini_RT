@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:14:49 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/15 17:15:11 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/15 17:19:08 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	parse_triangle(char *line, t_scene *scene)
 {
-
-	return (0);
+	(void)line;
+	(void)scene;
+	return (1);
 }
