@@ -33,7 +33,7 @@ CC	minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
 CC	minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
-CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -g3  -O3 -march=native -funroll-loops -flto -ffast-math -fno-math/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errn/;"	m
 CFLAGS	minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
 COLOR	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
@@ -191,7 +191,7 @@ X_ShmAttach	minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
 YELLOW	Makefile	/^YELLOW = \\033[0;33m$/;"	m
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cone_params	typeref:typename:double
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cylinder_params	typeref:typename:double
-aabb_surface	src/utils/sah.c	/^double aabb_surface(t_aabb a)$/;"	f	typeref:typename:double
+aabb_surface	src/utils/sah.c	/^double	aabb_surface(t_aabb a)$/;"	f	typeref:typename:double
 aabb_union	src/utils/bvh.c	/^t_aabb	aabb_union(t_aabb a, t_aabb b)$/;"	f	typeref:typename:t_aabb
 add_light_to_scene	src/parsing/parse_lights.c	/^static void	add_light_to_scene(t_scene *scene, t_light *light)$/;"	f	typeref:typename:void	file:
 add_object_to_scene	src/parsing/parse_objects.c	/^void	add_object_to_scene(t_scene *scene, t_object *object)$/;"	f	typeref:typename:void
@@ -199,7 +199,7 @@ all	Makefile	/^all: $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 all	minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
 all	minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
-allocate_bounds	src/utils/sah.c	/^static void allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \\$/;"	f	typeref:typename:void	file:
+allocate_bounds	src/utils/sah.c	/^static void	allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \\$/;"	f	typeref:typename:void	file:
 ambient	includes/minirt.h	/^	t_color		ambient;$/;"	m	struct:s_scene	typeref:typename:t_color
 ambient_ratio	includes/minirt.h	/^	double		ambient_ratio;$/;"	m	struct:s_scene	typeref:typename:double
 analyze	Makefile	/^analyze:$/;"	t
@@ -238,7 +238,7 @@ calculate_refraction_ray	src/rendering/reflections.c	/^static t_vec3	calculate_r
 calculate_slab_intersections	src/math/cube_utils.c	/^t_slab_intersections	calculate_slab_intersections(double ray_dir,$/;"	f	typeref:typename:t_slab_intersections
 calculate_viewport_dimensions	src/rendering/raytracer_utils.c	/^void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,$/;"	f	typeref:typename:void
 camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
-case_internal_node	src/utils/bvh_intersections.c	/^int case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
+case_internal_node	src/utils/bvh_intersections.c	/^int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 case_leaf_node	src/utils/bvh_intersections.c	/^int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check_limits	src/utils/colors1.c	/^static void	check_limits(int *color)$/;"	f	typeref:typename:void	file:
@@ -404,7 +404,7 @@ key_win3	minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typere
 left	includes/minirt.h	/^    struct s_bvh_node   *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 left	tests/test_cleanup_only.c	/^    struct s_bvh_node *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
 lights	includes/minirt.h	/^	t_light		*lights;$/;"	m	struct:s_scene	typeref:typename:t_light *
-linear_to_srgb_channel	src/utils/colors.c	/^static double linear_to_srgb_channel(double c)$/;"	f	typeref:typename:double	file:
+linear_to_srgb_channel	src/utils/colors.c	/^static inline double	linear_to_srgb_channel(double c)$/;"	f	typeref:typename:double	file:
 local_endian	minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
 log_error	minilibx-linux/configure	/^log_error(){$/;"	f
 log_error	minilibx-linux/test/run_tests.sh	/^log_error(){$/;"	f

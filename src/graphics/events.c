@@ -12,6 +12,17 @@
 
 #include "../../includes/minirt.h"
 
+/* void	zoom_camera(t_camera *cam, double factor)
+{
+    if (!cam)
+        return;
+    cam->fov += factor;
+    if (cam->fov < 10.0)
+        cam->fov = 10.0;
+    if (cam->fov > 170.0)
+        cam->fov = 170.0;
+} */
+
 /*
 ** handle_keypress - Handle keyboard input events
 ** keycode: Key code from MLX
@@ -47,6 +58,17 @@ int	handle_keypress(int keycode, t_minirt *rt)
 	return (render_scene(rt), 0);
 }
 
+/* int	handle_mouse(int keycode, t_minirt *rt)
+{
+    if (!rt)
+        return (1);
+    if (keycode == 4)
+        zoom_camera(&rt->scene.camera, 10); 
+    else if (keycode == 5)
+        zoom_camera(&rt->scene.camera, -10); 
+	return (render_scene(rt), 0);
+} */
+
 /*
 ** handle_close - Handle window close event (X button)
 ** rt: Main program structure
@@ -81,6 +103,7 @@ void	setup_hooks(t_minirt *rt)
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	mlx_key_hook(rt->mlx.win_ptr, handle_keypress, rt);
+	// mlx_hook(rt->mlx.win_ptr, 4, 1L << 2, handle_mouse, rt);
 	mlx_hook(rt->mlx.win_ptr, 17, 1L << 17, handle_close, rt);
 	mlx_loop_hook(rt->mlx.mlx_ptr, handle_loop, rt);
 }
