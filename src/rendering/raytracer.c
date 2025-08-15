@@ -118,10 +118,10 @@ void target_area(t_intels *intel,t_minirt *rt)
 	intel[3].yend =   rt->mlx.height;
 	intel[3].rt = rt;
 }
-
+#define NUM_THREAD 4
 void	render_scene(t_minirt *rt)
 {
-	pthread_t threads[4];
+	pthread_t threads[NUM_THREAD];
 	t_intels intels[4];
 
 	int i;
@@ -131,15 +131,18 @@ void	render_scene(t_minirt *rt)
 		return ;
 	setup_camera(&rt->scene.camera);
 	
-	while(i < 4)
+	while(i < NUM_THREAD)
 	{
-		pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]);
+		if (pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]) != 0) // 1. Thread creation
+			perror("Error : Thread creation failde"); // manage error
 		i++;
 	}
-	pthread_join(threads[3], NULL);
-	pthread_join(threads[2], NULL);
-	pthread_join(threads[1], NULL);
-	pthread_join(threads[0], NULL);
+	i = 0;
+	while (i < NUM_THREAD)
+	{
+		pthread_join(threads[i], NULL); // End all threads
+		i++;
+	}
 	display_image(&rt->mlx);
 }
 
