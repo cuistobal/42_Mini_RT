@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/16 08:21:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static double	get_object_intersection(t_ray ray, t_object *current)
 		return (intersect_cone(ray, current));
 	else if (current->type == CUBE)
 		return (intersect_cube(ray, current));
+	else if (current->type == TRIANGLE)
+		return (intersect_triangle(ray, current));
 	return (-1.0);
 }
 

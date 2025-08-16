@@ -29,13 +29,11 @@ static inline void	swap(double *t0, double *t1)
 
 int	intersect_aabb_query(t_aabb_query *q)
 {
-    int i;
-
+    int (i) = 0;
     double	(tmin), (tmax), (t0), (t1), (invD), (orig), (dir), (bmin), bmax;
     tmin = -INFINITY;
     tmax = INFINITY;
-    i = 0;
-    while (i < 3)
+    while (i++ < 3)
     {
         orig = ((double *)&q->origin)[i];
         dir = ((double *)&q->dir)[i];
@@ -60,7 +58,6 @@ int	intersect_aabb_query(t_aabb_query *q)
             if (tmin > tmax)
                 return (0);
         }
-        i++;
     }
     q->tmin = tmin;
     q->tmax = tmax;

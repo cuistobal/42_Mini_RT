@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/12 09:44:08 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/16 08:22:01 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define CYLINDER 3
 # define CONE 4
 # define CUBE 5
+# define TRIANGLE 6
 
 /* Key codes */
 # define KEY_ESC 65307
@@ -292,6 +293,7 @@ double	intersect_plane(t_ray ray, t_object *plane);
 double	intersect_cylinder(t_ray ray, t_object *cylinder);
 double	intersect_cone(t_ray ray, t_object *cone);
 double	intersect_cube(t_ray ray, t_object *cube);
+double	intersect_triangle(t_ray ray, t_object *triangle);
 int		intersect_scene(t_ray ray, t_scene *scene, t_hit *hit);
 int		intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit);
 
