@@ -47,99 +47,170 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 }
 
 // inter thread
+#define NUM_THREAD 4
+
+pthread_mutex_t mutexQueue;
+pthread_cond_t condQueue;
+int total_directives = 0;
+int stop = 0;
+int ntask = 0;
+int completed_directives = 0;
 
 typedef struct s_intels
 {
 	t_minirt *rt;
 	int xstart;
 	int ystart;
-
+	
 	int xend;
 	int yend;
-
+	
 }	t_intels;
+t_intels directives_rendering[3600];
 
 /*
 ** render_all_pixels - Render all pixels in the scene
 */
-
-void	*render_all_pixels(void *intels)
+static void send_directive(t_intels directives)
 {
-	t_intels intel = *(t_intels *)intels;
+	pthread_mutex_lock(&mutexQueue);
+    directives_rendering[ntask] = directives;
+    ntask++;
+    pthread_mutex_unlock(&mutexQueue);
+    pthread_cond_signal(&condQueue);
+}
+void create_directive(t_minirt *rt)
+{
+	int pwidth = ((rt->mlx.width + 31) / 32); // init in rt
+	int pheight = ((rt->mlx.height + 31) / 32); // init in rt
+	int i = 0;
+	int y;
+	t_intels directives;
 	
+	total_directives = pwidth * pheight;
+	while (i < pheight)
+	{
+		y = 0;
+		while (y < pwidth)
+		{
+			directives.xstart = y * 32;
+			if (y * 32 + 32 < rt->mlx.width)
+				directives.xend = y * 32 + 32;
+			else 
+				directives.xend = rt->mlx.width;
+			directives.ystart = i * 32;
+			if (i * 32 + 32 < rt->mlx.height)
+				directives.yend = i * 32 + 32;
+			else
+				directives.yend = rt->mlx.height;
+			directives.rt = rt;
+			send_directive(directives);
+			y++;
+		}
+		i++;
+	}
+}
+static void execute_rendering(t_intels* task)
+{
 	int		x;
 	int		y;
 	double	inv_width;
 	double	inv_height;
-
-	//render_all_pixels(intel.rt);
-	inv_width = 1.0 / (double)intel.rt->mlx.width;
-	inv_height = 1.0 / (double)intel.rt->mlx.height;
-	y = intel.ystart;
-	while (y < intel.rt->mlx.height)
+	inv_width = 1.0 / (double)task->rt->mlx.width;
+	inv_height = 1.0 / (double)task->rt->mlx.height;
+	y = task->ystart;
+	while (y < task->yend) 
 	{
-		x = intel.xstart;
-		while (x < intel.rt->mlx.width)
+		x = task->xstart;
+		while (x < task->xend)
 		{
-			render_pixel_at_coordinates(intel.rt, x, y, inv_width, inv_height);
+			render_pixel_at_coordinates(task->rt, x, y, inv_width, inv_height);
 			x++;
 		}
 		y++;
+	}	
+}
+
+void	*render_all_pixels(void *arg)
+{
+	(void)arg;
+	t_intels directive;
+	int i;
+	
+	while (1)
+	{
+		i = 0;
+
+		pthread_mutex_lock(&mutexQueue);
+		while (ntask == 0 && stop == 0)
+		{
+			pthread_cond_wait(&condQueue, &mutexQueue);
+		}
+		if (stop == 1 && ntask == 0)
+		{
+			//write(1,"left",4);
+			pthread_mutex_unlock(&mutexQueue);
+			break;
+		}
+		directive = directives_rendering[0];
+		while (i < ntask - 1)
+		{
+			directives_rendering[i] = directives_rendering[i + 1];
+			i++;
+		}
+		ntask--;
+		pthread_mutex_unlock(&mutexQueue);
+		execute_rendering(&directive);
+		pthread_mutex_lock(&mutexQueue);
+		completed_directives++;
+		if (completed_directives == total_directives)
+		{
+			stop = 1;
+			pthread_cond_broadcast(&condQueue);
+		}
+		//printf("total = %d conplted = %d stop = %d n task = %d\n",total_directives,completed_directives,stop, ntask);
+		pthread_mutex_unlock(&mutexQueue);
 	}
+	completed_directives = 0;
+	//write(1,"left",4);
 	return NULL;
 }
+
+
 
 /*
 ** render_scene - Main rendering function
 */
-void target_area(t_intels *intel,t_minirt *rt)
-{
-	intel[0].xstart = 0;
-	intel[0].xend = rt->mlx.width / 2;
-	intel[0].ystart = 0;
-	intel[0].yend = rt->mlx.height / 2;
-	intel[0].rt = rt;
 
-	intel[1].xstart = rt->mlx.width / 2 + 1;
-	intel[1].xend = rt->mlx.width;
-	intel[1].ystart = 0;
-	intel[1].yend = rt->mlx.height / 2;
-	intel[1].rt = rt;
-
-	intel[2].xstart = 0;
-	intel[2].xend = rt->mlx.width / 2;
-	intel[2].ystart = rt->mlx.height / 2 + 1;
-	intel[2].yend = rt->mlx.height;
-	intel[2].rt = rt;
-
-	intel[3].xstart = rt->mlx.width / 2 + 1;
-	intel[3].xend =   rt->mlx.width;
-	intel[3].ystart = rt->mlx.height / 2 + 1;
-	intel[3].yend =   rt->mlx.height;
-	intel[3].rt = rt;
-}
 
 void	render_scene(t_minirt *rt)
 {
-	pthread_t threads[4];
+	pthread_t threads[NUM_THREAD];
 	t_intels intels[4];
 
 	int i;
 	i = 0;
-	target_area(intels,rt);
+	//printf("Render scene\n");
+
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	setup_camera(&rt->scene.camera);
-	
-	while(i < 4)
+	pthread_mutex_init(&mutexQueue, NULL); // init mutex for queue
+	while(i < NUM_THREAD)
 	{
-		pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]);
+		if (pthread_create(&threads[i], NULL, render_all_pixels, &intels[i]) != 0) // 1. Thread creation
+			perror("Error : Thread creation failde"); // manage error
 		i++;
 	}
-	pthread_join(threads[3], NULL);
-	pthread_join(threads[2], NULL);
-	pthread_join(threads[1], NULL);
-	pthread_join(threads[0], NULL);
+	//printf("Thread creation ok\n");
+	create_directive(rt);
+	i = 0;
+	while (i < NUM_THREAD)
+	{
+		pthread_join(threads[i], NULL); // End all threads
+		i++;
+	}
+	//printf("display\n");
 	display_image(&rt->mlx);
 }
 
