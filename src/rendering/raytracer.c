@@ -47,7 +47,7 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 }
 
 // inter thread
-#define NUM_THREAD 4
+#define NUM_THREAD 16
 
 pthread_mutex_t mutexQueue;
 pthread_cond_t condQueue;
