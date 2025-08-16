@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 16:50:19 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/16 09:13:09 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,17 +179,10 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	rest = trimmed;
 	identifier = get_next_token(&rest);
 	if (!identifier)
-	{
-		printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", 
-			filename ? filename : "unknown", line_num);
-		return (0);
-	}
+		return (printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", filename, line_num), 0); 
 	result = parse_element_by_identifier(identifier, rest, scene);
 	if (!result)
-	{
-		printf("Error\nInvalid %s element in %s at line %d: %s\n", 
-			identifier, filename ? filename : "unknown", line_num, line);
-	}
+		printf("Error\nInvalid %s element in %s at line %d: %s\n", identifier, filename, line_num, line);
 	free(identifier);
 	return (result);
 }

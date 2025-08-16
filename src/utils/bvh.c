@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 16:52:38 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/13 10:04:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 ** integrate SAH instead of creating a box per object. This neglects the whole
 ** point of the bvh.
 */
-static t_aabb	get_object_bounds(t_object *obj)
+t_aabb	get_object_bounds(t_object *obj)
 {
 	double	r;
 	t_aabb	bounds;
@@ -30,35 +30,20 @@ static t_aabb	get_object_bounds(t_object *obj)
 	if (!obj)
 		return ((t_aabb){{INFINITY, INFINITY, INFINITY}, \
 				{-INFINITY, -INFINITY, -INFINITY}});
-	if (obj->type == SPHERE)
+	if (obj->type == SPHERE || obj->type == CUBE)
 	{
 		r = obj->radius;
 		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
 		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
 	}
-	else if (obj->type == CUBE)
+	else if (obj->type == CYLINDER || obj->type == CONE)
 	{
-		r = obj->radius;
-		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
-		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
-	}
-	else if (obj->type == CYLINDER)
-	{
-		// Simplified AABB for cylinder (could be more precise)
-		r = obj->radius + obj->height * 0.5;
-		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
-		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
-	}
-	else if (obj->type == CONE)
-	{
-		// Simplified AABB for cone
 		r = obj->radius + obj->height * 0.5;
 		bounds.min = vec3_sub(obj->position, vec3_new(r, r, r));
 		bounds.max = vec3_add(obj->position, vec3_new(r, r, r));
 	}
 	else if (obj->type == PLANE)
 	{
-		// Planes are infinite, use large bounds
 		bounds.min = vec3_new(-1000, -1000, -1000);
 		bounds.max = vec3_new(1000, 1000, 1000);
 	}
@@ -73,7 +58,7 @@ static t_aabb	get_object_bounds(t_object *obj)
 /*
 ** aabb_union - Combine two AABBs into one that contains both
 */
-static t_aabb	aabb_union(t_aabb a, t_aabb b)
+t_aabb	aabb_union(t_aabb a, t_aabb b)
 {
 	t_aabb	result;
 
@@ -82,80 +67,14 @@ static t_aabb	aabb_union(t_aabb a, t_aabb b)
 	result.min.z = fmin(a.min.z, b.min.z);
 	result.max.x = fmax(a.max.x, b.max.x);
 	result.max.y = fmax(a.max.y, b.max.y);
-	result.max.z = fmax(a.max.z, b.max.z);	
+	result.max.z = fmax(a.max.z, b.max.z);
 	return (result);
-}
-
-/*
-** intersect_aabb - Fast ray-AABB intersection test
-** Returns 1 if ray intersects the bounding box, 0 otherwise
-** We need to split that shit for norminette
-*/
-static int	intersect_aabb(t_ray ray, t_aabb box)
-{
-	double	t_min;
-	double	t_max;
-	double	t1;
-	double	t2;
-	double	temp;
-	int		i;
-	double	ray_dir[3];
-	double	ray_orig[3];
-	double	box_min[3];
-	double	box_max[3];
-
-	// Convert to arrays for easier iteration
-	ray_dir[0] = ray.direction.x;
-	ray_dir[1] = ray.direction.y;
-	ray_dir[2] = ray.direction.z;
-	ray_orig[0] = ray.origin.x;
-	ray_orig[1] = ray.origin.y;
-	ray_orig[2] = ray.origin.z;
-	box_min[0] = box.min.x;
-	box_min[1] = box.min.y;
-	box_min[2] = box.min.z;
-	box_max[0] = box.max.x;
-	box_max[1] = box.max.y;
-	box_max[2] = box.max.z;	
-	t_min = -INFINITY;
-	t_max = INFINITY;
-
-	// Test intersection with each pair of parallel planes
-	i = 0;
-	while (i < 3)
-	{
-		if (fabs(ray_dir[i]) < EPSILON)
-		{
-			// Ray is parallel to the slab
-			if (ray_orig[i] < box_min[i] || ray_orig[i] > box_max[i])
-				return (0);
-		}
-		else
-		{
-			t1 = (box_min[i] - ray_orig[i]) / ray_dir[i];
-			t2 = (box_max[i] - ray_orig[i]) / ray_dir[i];
-			if (t1 > t2)
-			{
-				temp = t1;
-				t1 = t2;
-				t2 = temp;
-			}	
-			if (t1 > t_min)
-				t_min = t1;
-			if (t2 < t_max)
-				t_max = t2;
-			if (t_min > t_max)
-				return (0);
-		}
-		i++;
-	}
-	return (t_max > EPSILON);
 }
 
 /*
 ** count_objects - Count objects in linked list
 */
-static int	count_objects(t_object *objects)
+int	count_objects(t_object *objects)
 {
 	int	count;
 
@@ -171,19 +90,16 @@ static int	count_objects(t_object *objects)
 /*
 ** build_bvh_recursive - Recursively build BVH tree
 */
-static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
+t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 {
 	t_bvh_node	*node;
 	t_aabb		bounds;
-	int			i;
-	int			mid;
-
+	int			(i), (mid), (axis), (split);
 	if (count <= 0)
-		return (NULL);	
+		return (NULL);
 	node = safe_malloc(sizeof(t_bvh_node));
 	if (!node)
 		return (NULL);
-	// Calculate bounding box for all objects
 	bounds = get_object_bounds(objects[0]);
 	i = 1;
 	while (i < count)
@@ -192,19 +108,32 @@ static t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		i++;
 	}
 	node->bounds = bounds;
-	// Leaf node case
-	if (count == 1)
+	   // Leaf node case (seuil fixe)
+	   if (count <= MAX_OBJECTS_PER_LEAF)
+	   {
+			   node->objects = safe_malloc(sizeof(t_object *) * count);
+			   for (i = 0; i < count; i++)
+					   node->objects[i] = objects[i];
+			   node->object_count = count;
+			   node->left = NULL;
+			   node->right = NULL;
+			   return (node);
+	   }
+	   node->objects = NULL;
+	   node->object_count = 0;
+	if (count > 2)
 	{
-		node->object = objects[0];
-		node->left = NULL;
-		node->right = NULL;
-		return (node);
+		find_sah_split(objects, count, &axis, &split);
+		sort_objects_axis(objects, count, axis);
+		node->left = build_bvh_recursive(objects, split);
+		node->right = build_bvh_recursive(objects + split, count - split);
 	}
-	// Internal node case - split objects in half (simple split)
-	node->object = NULL;
-	mid = count / 2;
-	node->left = build_bvh_recursive(objects, mid);
-	node->right = build_bvh_recursive(objects + mid, count - mid);
+	else
+	{
+		mid = count / 2;
+		node->left = build_bvh_recursive(objects, mid);
+		node->right = build_bvh_recursive(objects + mid, count - mid);
+	}
 	return (node);
 }
 
@@ -243,84 +172,6 @@ t_bvh_node	*build_bvh(t_scene *scene)
 }
 
 /*
-** intersect_bvh - Traverse BVH to find closest intersection
-*/
-int	intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit)
-{
-	t_hit	left_hit;
-	t_hit	right_hit;
-	int		left_intersect;
-	int		right_intersect;
-	double	t;
-
-	if (!node || !hit)
-		return (0);
-	
-	// Test ray against bounding box first
-	if (!intersect_aabb(ray, node->bounds))
-		return (0);
-	
-	// Leaf node - test against object
-	if (node->object)
-	{
-		if (node->object->type == SPHERE)
-			t = intersect_sphere(ray, node->object);
-		else if (node->object->type == PLANE)
-			t = intersect_plane(ray, node->object);
-		else if (node->object->type == CYLINDER)
-			t = intersect_cylinder(ray, node->object);
-		else if (node->object->type == CONE)
-			t = intersect_cone(ray, node->object);
-		else if (node->object->type == CUBE)
-			t = intersect_cube(ray, node->object);
-		else
-			t = -1.0;
-		
-		if (t > 0)
-		{
-			hit->t = t;
-			hit->point = ray_at(ray, t);
-			hit->normal = get_object_normal(hit->point, node->object);
-			hit->material = &node->object->material;
-			hit->object = node->object;
-			return (1);
-		}
-		return (0);
-	}
-	
-	// Internal node - test both children
-	left_intersect = 0;
-	right_intersect = 0;
-	
-	if (node->left)
-		left_intersect = intersect_bvh(ray, node->left, &left_hit);
-	if (node->right)
-		right_intersect = intersect_bvh(ray, node->right, &right_hit);
-	
-	// Return closest intersection
-	if (left_intersect && right_intersect)
-	{
-		if (left_hit.t < right_hit.t)
-			*hit = left_hit;
-		else
-			*hit = right_hit;
-		return (1);
-	}
-	else if (left_intersect)
-	{
-		*hit = left_hit;
-		return (1);
-	}
-	else if (right_intersect)
-	{
-		*hit = right_hit;
-		return (1);
-	}
-	
-	return (0);
-}
-
-/*
 ** cleanup_bvh - Free BVH tree memory
 */
 void	cleanup_bvh(t_bvh_node *node)
@@ -330,5 +181,62 @@ void	cleanup_bvh(t_bvh_node *node)
 	
 	cleanup_bvh(node->left);
 	cleanup_bvh(node->right);
+	if (node->objects)
+		safe_free((void **)&node->objects);
 	safe_free((void **)&node);
+}
+
+
+static double get_axis_value(t_object *obj, int axis)
+{
+	if (axis == 0)
+		return (obj->position.x);
+	else if (axis == 1)
+		return (obj->position.y);
+	return (obj->position.z);
+}
+
+static void swap_objects(t_object **a, t_object **b)
+{
+	t_object *tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+static int partition(t_object **arr, int low, int high, int axis)
+{
+	double pivot = get_axis_value(arr[high], axis);
+	int i = low - 1;
+	int j = low;
+	while (j < high)
+	{
+		if (get_axis_value(arr[j], axis) < pivot)
+		{
+			i++;
+			swap_objects(&arr[i], &arr[j]);
+		}
+		j++;
+	}
+	swap_objects(&arr[i + 1], &arr[high]);
+	return (i + 1);
+}
+
+static void quicksort_objects(t_object **arr, int low, int high, int axis)
+{
+	int pivot;
+	if (low < high)
+	{
+		pivot = partition(arr, low, high, axis);
+		quicksort_objects(arr, low, pivot - 1, axis);
+		quicksort_objects(arr, pivot + 1, high, axis);
+	}
+}
+
+/*
+** sort_objects_axis - Naive bubble sort for BVH splitting (axis: 0=x, 1=y, 2=z)
+*/
+void sort_objects_axis(t_object **objects, int count, int axis)
+{
+	if (count > 1)
+		quicksort_objects(objects, 0, count - 1, axis);
 }

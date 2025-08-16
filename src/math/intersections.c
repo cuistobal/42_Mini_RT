@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/16 08:21:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)
 {
 	if (!scene || !hit)
 		return (0);
-	if (scene->bvh_root)
-		return (intersect_bvh(ray, scene->bvh_root, hit));
-	return (intersect_scene_linear(ray, scene, hit));
+	return (intersect_bvh_iter(ray, scene->bvh_root, hit));
 }
 
 int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)

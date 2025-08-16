@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 10:47:46 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/09 12:15:27 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/13 09:44:19 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 
 t_color	color_add(t_color a, t_color b)
 {
-	t_color	result;
-
-	result.r = a.r + b.r;
-	result.g = a.g + b.g;
-	result.b = a.b + b.b;
-	return (color_clamp(result));
+	return ((t_color){a.r + b.r, a.g + b.g, a.b + b.b});
 }
 
 t_color	color_mult(t_color color, double scalar)
 {
-	t_color	result;
-
-	result.r = (int)(color.r * scalar);
-	result.g = (int)(color.g * scalar);
-	result.b = (int)(color.b * scalar);
-	return (color_clamp(result));
+	return ((t_color){
+		(int)(color.r * scalar),
+		(int)(color.g * scalar),
+		(int)(color.b * scalar)
+	});
 }
 
 t_color	color_blend(t_color a, t_color b, double ratio)
 {
-	t_color	result;
-
-	result.r = (int)(a.r * (1.0 - ratio) + b.r * ratio);
-	result.g = (int)(a.g * (1.0 - ratio) + b.g * ratio);
-	result.b = (int)(a.b * (1.0 - ratio) + b.b * ratio);
-	return (color_clamp(result));
+	return ((t_color){
+		(int)(a.r * (1.0 - ratio) + b.r * ratio),
+		(int)(a.g * (1.0 - ratio) + b.g * ratio),
+		(int)(a.b * (1.0 - ratio) + b.b * ratio)
+	});
 }
 
 static void	check_limits(int *color)

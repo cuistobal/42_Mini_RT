@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:15:18 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/13 09:53:51 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 t_color	color_new(int r, int g, int b)
 {
-	t_color	color;
-
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	return (color);
+	return ((t_color){r, g, b});
 }
 
 /*
@@ -30,16 +25,24 @@ t_color	color_new(int r, int g, int b)
 */
 t_color	color_gamma_correct(t_color color, double gamma)
 {
-	t_color	result;
 	double	inv_gamma;
 
 	if (gamma <= 0.0)
 		return (color);
 	inv_gamma = 1.0 / gamma;
-	result.r = (int)(255.0 * pow((double)color.r / 255.0, inv_gamma));
-	result.g = (int)(255.0 * pow((double)color.g / 255.0, inv_gamma));
-	result.b = (int)(255.0 * pow((double)color.b / 255.0, inv_gamma));
-	return (color_clamp(result));
+	return ((t_color){
+		(int)(255.0 * pow((double)color.r / 255.0, inv_gamma)),
+		(int)(255.0 * pow((double)color.g / 255.0, inv_gamma)),
+		(int)(255.0 * pow((double)color.b / 255.0, inv_gamma))
+	});
+}
+
+// Helper
+static inline double	linear_to_srgb_channel(double c)
+{
+	if (c <= 0.0031308)
+		return (12.92 * c);
+	return (1.055 * pow(c, 1.0 / 2.4) - 0.055);
 }
 
 /*
@@ -52,25 +55,13 @@ t_color	color_linear_to_srgb(t_color color)
 	double	r;
 	double	g;
 	double	b;
-	t_color	result;
 
-	r = (double)color.r / 255.0;
-	g = (double)color.g / 255.0;
-	b = (double)color.b / 255.0;
-	if (r <= 0.0031308)
-		r = 12.92 * r;
-	else
-		r = 1.055 * pow(r, 1.0 / 2.4) - 0.055;
-	if (g <= 0.0031308)
-		g = 12.92 * g;
-	else
-		g = 1.055 * pow(g, 1.0 / 2.4) - 0.055;
-	if (b <= 0.0031308)
-		b = 12.92 * b;
-	else
-		b = 1.055 * pow(b, 1.0 / 2.4) - 0.055;
-	result.r = (int)(r * 255.0);
-	result.g = (int)(g * 255.0);
-	result.b = (int)(b * 255.0);
-	return (color_clamp(result));
+	r = linear_to_srgb_channel((double)color.r / 255.0);
+	g = linear_to_srgb_channel((double)color.g / 255.0);
+	b = linear_to_srgb_channel((double)color.b / 255.0);
+    return ((t_color){
+        (int)(r * 255.0),
+        (int)(g * 255.0),
+        (int)(b * 255.0)
+    });
 }

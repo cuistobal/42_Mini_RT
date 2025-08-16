@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:56:43 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/16 08:22:01 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 /* Constants */
 # define EPSILON 1e-6
-# define MAX_DEPTH 5
+# define MAX_DEPTH 3
 
 /* Object types */
 # define SPHERE 1
@@ -47,6 +47,8 @@
 
 # define RED_OFFSET 16
 # define GREEN_OFFSET 8
+# define BVH_STACK_SIZE 64
+# define MAX_OBJECTS_PER_LEAF 4
 
 /* Error codes */
 typedef enum e_error
@@ -181,10 +183,11 @@ typedef struct s_slab_intersections
 /* BVH (Bounding Volume Hierarchy) node structure */
 typedef struct s_bvh_node
 {
-	t_aabb				bounds;
-	t_object			*object;
-	struct s_bvh_node	*left;
-	struct s_bvh_node	*right;
+    t_aabb              bounds;
+    t_object            **objects;
+    int                 object_count;
+    struct s_bvh_node   *left;
+    struct s_bvh_node   *right;
 }	t_bvh_node;
 
 /* Scene structure */
@@ -197,6 +200,16 @@ typedef struct s_scene
 	double		ambient_ratio;
 	t_bvh_node	*bvh_root;
 }	t_scene;
+
+/* BVH intersection query structure */
+typedef struct s_aabb_query
+{
+	t_vec3	origin;
+	t_vec3	dir;
+	t_aabb	box;
+	double	tmin;
+	double	tmax;
+}	t_aabb_query;
 
 /* MLX context structure */
 typedef struct s_mlx
@@ -289,7 +302,7 @@ t_color	raycast(t_ray ray, t_scene *scene, int depth);
 t_color	raycast_optimized(t_ray ray, t_scene *scene, int depth);
 t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene,
 			t_material *material);
-int		is_in_shadow(t_vec3 point, t_light *light, t_scene *scene);
+int		is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distance, t_scene *scene);
 t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth);
 t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth);
 t_color	render_pixel_antialiased(t_minirt *rt, int x, int y);
@@ -383,9 +396,17 @@ void	update_camera_vectors(t_camera *camera);
 /* ************************************************************************** */
 
 t_bvh_node	*build_bvh(t_scene *scene);
-int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+t_aabb		get_object_bounds(t_object *object);
+t_aabb		aabb_union(t_aabb a, t_aabb b);
+double		aabb_surface(t_aabb a);
+int	find_sah_split(t_object **objects, int count, int *best_axis, \
+		int *best_index);
+//int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+int			intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit);
+int			intersect_aabb_query(t_aabb_query *query);
 void		cleanup_bvh(t_bvh_node *node);
 t_vec3		get_object_normal(t_vec3 hit_point, t_object *object);
+void sort_objects_axis(t_object **objects, int count, int axis);
 
 /* ************************************************************************** */
 /*                             CUBE UTILITY FUNCTIONS                        */
