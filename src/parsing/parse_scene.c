@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 16:50:19 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/16 09:13:09 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,6 @@ static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *sc
 		return (parse_cone(rest, scene));
 	else if (strcmp(identifier, "cu") == 0)
 		return (parse_cube(rest, scene));
-	else if (strcmp(identifier, "tr") == 0)
-		return (parse_triangle(rest, scene));
 	return (0);
 }
 

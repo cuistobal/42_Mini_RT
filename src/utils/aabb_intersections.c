@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:44:17 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/12 08:49:27 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/16 09:05:36 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	intersect_aabb_query(t_aabb_query *q)
     double	(tmin), (tmax), (t0), (t1), (invD), (orig), (dir), (bmin), bmax;
     tmin = -INFINITY;
     tmax = INFINITY;
-    while (i++ < 3)
+    while (i < 3)
     {
         orig = ((double *)&q->origin)[i];
         dir = ((double *)&q->dir)[i];
@@ -58,6 +58,7 @@ int	intersect_aabb_query(t_aabb_query *q)
             if (tmin > tmax)
                 return (0);
         }
+		i++;
     }
     q->tmin = tmin;
     q->tmax = tmax;

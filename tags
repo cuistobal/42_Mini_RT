@@ -176,7 +176,6 @@ TEST_EPSILON	tests/test_parsing_comprehensive.c	/^#define TEST_EPSILON /;"	d	fil
 TEST_EPSILON	tests/test_ray.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_vector.c	/^#define TEST_EPSILON /;"	d	file:
 TEST_EPSILON	tests/test_vector_raytracing.c	/^#define TEST_EPSILON /;"	d	file:
-TRIANGLE	includes/minirt.h	/^# define TRIANGLE /;"	d
 UNAME	minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
 WARN_SHM_ATTACH	minilibx-linux/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
@@ -286,7 +285,6 @@ create_sphere	src/parsing/parse_sphere.c	/^static t_object	*create_sphere(t_vec3
 create_test_cylinder	tests/test_intersections.c	/^t_object	create_test_cylinder(t_vec3 center, t_vec3 axis, double radius, double height, t_color /;"	f	typeref:typename:t_object
 create_test_plane	tests/test_intersections.c	/^t_object	create_test_plane(t_vec3 point, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object
 create_test_sphere	tests/test_intersections.c	/^t_object	create_test_sphere(t_vec3 center, double radius, t_color color)$/;"	f	typeref:typename:t_object
-create_triangle	src/parsing/parse_triangle.c	/^static t_object	*create_triangle(t_vec3 position, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object *	file:
 data	minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data1	minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
 data2	minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
@@ -334,7 +332,6 @@ free_cube_tokens	src/parsing/parse_cube.c	/^static void	free_cube_tokens(char *p
 free_cylinder_tokens	src/parsing/parse_cylinder.c	/^static void	free_cylinder_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
 free_plane_tokens	src/parsing/parse_plane.c	/^static void	free_plane_tokens(char *pos, char *norm, char *col)$/;"	f	typeref:typename:void	file:
 free_sphere_tokens	src/parsing/parse_sphere.c	/^static void	free_sphere_tokens(char *pos, char *diam, char *col)$/;"	f	typeref:typename:void	file:
-free_triangle_tokens	src/parsing/parse_triangle.c	/^static void	free_triangle_tokens(char *pos, char *norm, char *col)$/;"	f	typeref:typename:void	file:
 g	includes/minirt.h	/^	int	g;$/;"	m	struct:s_color	typeref:typename:int
 g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_offsets[4][2] = {$/;"	v	typeref:typename:const double[4][2]	file:
 gc	minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
@@ -383,7 +380,6 @@ init_minirt	src/main.c	/^static int	init_minirt(t_minirt *rt, char *filename)$/;
 init_mlx	src/graphics/window.c	/^int	init_mlx(t_mlx *mlx)$/;"	f	typeref:typename:int
 init_mlx_context	src/main.c	/^static void	init_mlx_context(t_mlx *mlx)$/;"	f	typeref:typename:void	file:
 init_plane_material	src/parsing/parse_plane.c	/^static void	init_plane_material(t_object *plane)$/;"	f	typeref:typename:void	file:
-init_plane_material	src/parsing/parse_triangle.c	/^static void	init_plane_material(t_object *plane)$/;"	f	typeref:typename:void	file:
 init_scene	src/main.c	/^static void	init_scene(t_scene *scene)$/;"	f	typeref:typename:void	file:
 init_sphere_material	src/parsing/parse_sphere.c	/^static void	init_sphere_material(t_object *sphere)$/;"	f	typeref:typename:void	file:
 int_to_color	src/graphics/image.c	/^t_color	int_to_color(int color_int)$/;"	f	typeref:typename:t_color
@@ -567,7 +563,6 @@ parse_line	src/parsing/parse_scene.c	/^static int	parse_line(char *line, t_scene
 parse_plane	src/parsing/parse_plane.c	/^int	parse_plane(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_scene	src/parsing/parse_scene.c	/^int	parse_scene(char *filename, t_scene *scene)$/;"	f	typeref:typename:int
 parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *scene)$/;"	f	typeref:typename:int
-parse_triangle	src/parsing/parse_triangle.c	/^int	parse_triangle(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
 partition	src/utils/bvh.c	/^static int partition(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:int	file:
 pitch_epsilon_helper	src/utils/camera.c	/^static void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void	file:
@@ -799,7 +794,6 @@ validate_plane_params	src/parsing/parse_plane.c	/^static int	validate_plane_para
 validate_scene	src/utils/error.c	/^int	validate_scene(t_scene *scene)$/;"	f	typeref:typename:int
 validate_scene_with_filename	src/parsing/parse_scene.c	/^static int	validate_scene_with_filename(t_scene *scene, char *filename)$/;"	f	typeref:typename:int	file:
 validate_sphere_params	src/parsing/parse_sphere.c	/^static int	validate_sphere_params(double diameter)$/;"	f	typeref:typename:int	file:
-validate_triangle_params	src/parsing/parse_triangle.c	/^static int	validate_triangle_params(t_vec3 normal)$/;"	f	typeref:typename:int	file:
 variable_setup	src/utils/sah.c	/^static void	variable_setup(int *axis, int *best_axis, double *best_cost, \\$/;"	f	typeref:typename:void	file:
 vec3_add	src/math/vector1.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 vec3_cross	src/math/vector.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
