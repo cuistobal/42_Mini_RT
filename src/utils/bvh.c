@@ -108,19 +108,21 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		i++;
 	}
 	node->bounds = bounds;
-	   // Leaf node case (seuil fixe)
-	   if (count <= MAX_OBJECTS_PER_LEAF)
-	   {
-			   node->objects = safe_malloc(sizeof(t_object *) * count);
-			   for (i = 0; i < count; i++)
-					   node->objects[i] = objects[i];
-			   node->object_count = count;
-			   node->left = NULL;
-			   node->right = NULL;
-			   return (node);
-	   }
-	   node->objects = NULL;
-	   node->object_count = 0;
+	// Leaf node case (seuil fixe)
+	if (count <= MAX_OBJECTS_PER_LEAF)
+	{
+		node->objects = safe_malloc(sizeof(t_object *) * count);
+		for (i = 0; i < count; i++)
+			node->objects[i] = objects[i];
+		node->object_count = count;
+		node->left = NULL;
+		node->right = NULL;
+		return (node);
+	}
+	node->objects = NULL;
+	node->object_count = 0;
+	// Internal node case
+	// Il faudrait rendre ce 2 modulaire de MAX_OBJECTS_PER_LEAF
 	if (count > 2)
 	{
 		find_sah_split(objects, count, &axis, &split);
@@ -128,6 +130,7 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		node->left = build_bvh_recursive(objects, split);
 		node->right = build_bvh_recursive(objects + split, count - split);
 	}
+	// Smol BVH case
 	else
 	{
 		mid = count / 2;
@@ -178,7 +181,6 @@ void	cleanup_bvh(t_bvh_node *node)
 {
 	if (!node)
 		return ;
-	
 	cleanup_bvh(node->left);
 	cleanup_bvh(node->right);
 	if (node->objects)
