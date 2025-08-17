@@ -68,91 +68,9 @@ t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)
 	}
 	
 	// Average the samples
-	final_color.r = total_r / 4;
-	final_color.g = total_g / 4;
-	final_color.b = total_b / 4;
-	
+	final_color.r = total_r >> 2;
+	final_color.g = total_g >> 2;
+	final_color.b = total_b >> 2;
+
 	return (final_color);
-}
-
-/*
-** detect_edge - Simple edge detection for adaptive sampling
-** rt: Main program structure
-** x, y: Pixel coordinates
-** Returns: 1 if edge detected, 0 otherwise
-*/
-static int	detect_edge(t_minirt *rt, int x, int y)
-{
-	t_color	center_color;
-	t_color	neighbor_color;
-	t_ray	ray;
-	double	u;
-	double	v;
-	int		color_diff;
-
-	if (!rt || x <= 0 || x >= rt->mlx.width - 1 || y <= 0 || y >= rt->mlx.height - 1)
-		return (1); // Treat borders as edges
-	
-	// Get center pixel color
-	u = (double)x / (double)rt->mlx.width;
-	v = (double)y / (double)rt->mlx.height;
-	ray = get_camera_ray(rt, &rt->scene.camera, u, v);
-	center_color = raycast(ray, &rt->scene, MAX_DEPTH);
-	
-	// Check right neighbor
-	u = (double)(x + 1) / (double)rt->mlx.width;
-	ray = get_camera_ray(rt, &rt->scene.camera, u, v);
-	neighbor_color = raycast(ray, &rt->scene, MAX_DEPTH);
-	
-	// Calculate color difference
-	color_diff = abs(center_color.r - neighbor_color.r) +
-				 abs(center_color.g - neighbor_color.g) +
-				 abs(center_color.b - neighbor_color.b);
-	
-	// If significant color difference, it's an edge
-	if (color_diff > 30) // Threshold for edge detection
-		return (1);
-	
-	// Check bottom neighbor
-	u = (double)x / (double)rt->mlx.width;
-	v = (double)(y + 1) / (double)rt->mlx.height;
-	ray = get_camera_ray(rt, &rt->scene.camera, u, v);
-	neighbor_color = raycast(ray, &rt->scene, MAX_DEPTH);
-	
-	color_diff = abs(center_color.r - neighbor_color.r) +
-				 abs(center_color.g - neighbor_color.g) +
-				 abs(center_color.b - neighbor_color.b);
-	
-	return (color_diff > 30);
-}
-
-/*
-** render_pixel_adaptive - Render pixel with adaptive anti-aliasing
-** rt: Main program structure
-** x, y: Pixel coordinates
-** Returns: Color for the pixel (anti-aliased if edge detected)
-*/
-t_color	render_pixel_adaptive(t_minirt *rt, int x, int y)
-{
-	t_ray	ray;
-	double	u;
-	double	v;
-
-	if (!rt)
-		return (color_new(0, 0, 0));
-	
-	// Check if this pixel is on an edge
-	if (detect_edge(rt, x, y))
-	{
-		// Use anti-aliasing for edge pixels
-		return (render_pixel_antialiased(rt, x, y));
-	}
-	else
-	{
-		// Use regular sampling for non-edge pixels
-        u = (double)x / (double)rt->mlx.width;
-		v = (double)y / (double)rt->mlx.height;
-		ray = get_camera_ray(rt, &rt->scene.camera, u, v);
-		return (raycast(ray, &rt->scene, MAX_DEPTH));
-	}
 }
