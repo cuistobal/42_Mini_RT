@@ -28,6 +28,13 @@ void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 		return ;
 	pixel = mlx->img_data + (y * mlx->size_line + x * \
 			(mlx->bits_per_pixel / 8));
+	//Debug
+	if (color.r < 0 || color.r > 255 || \
+		color.g < 0 || color.g > 255 || color.b < 0 || color.b > 255)
+	{
+		printf("%s: %d %d %d\n", __func__, color.r, color.g, color.b);
+	}
+
 	color_int = color_to_int(color);
 	*(unsigned int *)pixel = color_int;
 }

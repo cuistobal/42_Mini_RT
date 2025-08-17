@@ -72,7 +72,7 @@ t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)
 	final_color.g = total_g / 4;
 	final_color.b = total_b / 4;
 	
-	return (color_clamp(final_color));
+	return (final_color);
 }
 
 /*

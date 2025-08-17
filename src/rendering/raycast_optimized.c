@@ -25,6 +25,5 @@ t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 			hit->material);
 	reflection_color = calculate_reflection(ray, hit, scene, depth);
 	refraction_color = calculate_refraction(ray, hit, scene, depth);
-	return color_clamp(color_add(color_add(base_color, reflection_color), \
-		refraction_color));
+	return (color_add(color_add(base_color, reflection_color), refraction_color));
 }
