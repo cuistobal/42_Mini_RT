@@ -22,6 +22,8 @@
 # include <limits.h>
 # include <stdint.h>
 # include "../minilibx-linux/mlx.h"
+# include <pthread.h>
+
 
 /* Constants */
 # define EPSILON 1e-6
@@ -49,6 +51,8 @@
 # define GREEN_OFFSET 8
 # define BVH_STACK_SIZE 64
 # define MAX_OBJECTS_PER_LEAF 4
+# define NUM_THREAD 64
+
 
 /* Error codes */
 typedef enum e_error
@@ -224,13 +228,35 @@ typedef struct s_mlx
 	int		width;
 	int		height;
 }	t_mlx;
+/* Threads manipulation arguments */
+typedef struct s_minirt t_minirt;
+/* Directive draw threads structure */
+typedef struct s_intels
+{
+	t_minirt *rt;
+	int xstart;
+	int ystart;
+	int xend;
+	int yend;
+}	t_intels;
 
+typedef struct s_threadArgs
+{
+	pthread_mutex_t mutexQueue;
+	pthread_cond_t condQueue;
+	int total_directives;
+	int completed_directives;
+	int stop;
+	int ntask;
+	t_intels directives_rendering[3600];
+}	t_threadArgs;
 /* Main structure */
 typedef struct s_minirt
 {
 	t_scene	scene;
 	t_mlx	mlx;
 	char	*filename;
+	t_threadArgs args;
 }	t_minirt;
 
 /* ************************************************************************** */
