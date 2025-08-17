@@ -58,7 +58,7 @@ static void send_directive(t_intels directives)
     directives.rt->args.directives_rendering[directives.rt->args.ntask] = directives;
     directives.rt->args.ntask++;
     pthread_mutex_unlock(&(directives.rt->args.mutexQueue));
-    pthread_cond_signal(&(directives.rt->args.condQueue));
+    pthread_cond_signal(&(directives.rt->args.condQueue)); // 3.1 Ask pthread_cond_wait to check its condition
 }
 void create_directive(t_minirt *rt)
 {
@@ -85,7 +85,7 @@ void create_directive(t_minirt *rt)
 			else
 				directives.yend = rt->mlx.height;
 			directives.rt = rt;
-			send_directive(directives);
+			send_directive(directives); // 3. Send directives
 			y++;
 		}
 		i++;
@@ -97,6 +97,7 @@ static void execute_rendering(t_intels* task)
 	int		y;
 	double	inv_width;
 	double	inv_height;
+
 	inv_width = 1.0 / (double)task->rt->mlx.width;
 	inv_height = 1.0 / (double)task->rt->mlx.height;
 	y = task->ystart;
@@ -125,7 +126,7 @@ void	*render_all_pixels(void *arg)
 		pthread_mutex_lock(&(rt->args.mutexQueue));
 		while (rt->args.ntask == 0 && rt->args.stop == 0)
 		{
-			pthread_cond_wait(&rt->args.condQueue, &(rt->args.mutexQueue));
+			pthread_cond_wait(&rt->args.condQueue, &(rt->args.mutexQueue)); // 1.1 wait until his condition change. Wait for 
 		}
 		if (rt->args.stop == 1 && rt->args.ntask == 0)
 		{
@@ -180,7 +181,7 @@ void	render_scene(t_minirt *rt)
 			perror("Error : Thread creation failde"); // manage error
 		i++;
 	}
-	create_directive(rt);
+	create_directive(rt); // 2. Create directivre
 	i = 0;
 	while (i < NUM_THREAD)
 	{
