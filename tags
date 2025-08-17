@@ -127,6 +127,7 @@ NAME	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
 NAME	minilibx-linux/test/Makefile.mk	/^NAME= mlx-test$/;"	m
 NAME_UNAME	minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
 NC	Makefile	/^NC = \\033[0m$/;"	m
+NUM_THREAD	src/rendering/raytracer.c	/^#define NUM_THREAD /;"	d	file:
 OBJ	minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
 OBJ	minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
 OBJS	Makefile	/^OBJS = $(SRCS:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
@@ -274,12 +275,15 @@ color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int
 color_mult	src/utils/colors1.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
 color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
 color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
+completed_directives	src/rendering/raytracer.c	/^int completed_directives = 0;$/;"	v	typeref:typename:int
+condQueue	src/rendering/raytracer.c	/^pthread_cond_t condQueue;$/;"	v	typeref:typename:pthread_cond_t
 count_objects	src/utils/bvh.c	/^int	count_objects(t_object *objects)$/;"	f	typeref:typename:int
 count_objects	tests/test_scene_parsers.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
 count_objects	tests/test_scene_parsers_simple.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
 create_and_add_cylinder	src/parsing/parse_cylinder.c	/^static int	create_and_add_cylinder(t_scene *scene, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:int	file:
 create_cone	src/parsing/parse_cone.c	/^static t_object	*create_cone(t_vec3 pos, t_vec3 axis, double angle,$/;"	f	typeref:typename:t_object *	file:
 create_cube	src/parsing/parse_cube.c	/^static t_object	*create_cube(t_vec3 position, double size, t_color color)$/;"	f	typeref:typename:t_object *	file:
+create_directive	src/rendering/raytracer.c	/^void create_directive(t_minirt *rt)$/;"	f	typeref:typename:void
 create_plane	src/parsing/parse_plane.c	/^static t_object	*create_plane(t_vec3 position, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object *	file:
 create_sphere	src/parsing/parse_sphere.c	/^static t_object	*create_sphere(t_vec3 position, double diameter, t_color color)$/;"	f	typeref:typename:t_object *	file:
 create_test_cylinder	tests/test_intersections.c	/^t_object	create_test_cylinder(t_vec3 center, t_vec3 axis, double radius, double height, t_color /;"	f	typeref:typename:t_object
@@ -292,10 +296,10 @@ data3	minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
 data4	minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
 decrgb	minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
 depth	minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
-detect_edge	src/rendering/antialiasing.c	/^static int	detect_edge(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:int	file:
 dir	includes/minirt.h	/^	t_vec3	dir;$/;"	m	struct:s_aabb_query	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_ray	typeref:typename:t_vec3
+directives_rendering	src/rendering/raytracer.c	/^t_intels directives_rendering[3600];$/;"	v	typeref:typename:t_intels[3600]
 display	minilibx-linux/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
 display_image	src/graphics/image.c	/^void	display_image(t_mlx *mlx)$/;"	f	typeref:typename:void
 do_configure	minilibx-linux/Makefile	/^do_configure	:$/;"	t
@@ -315,6 +319,7 @@ endian2	minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
 endian3	minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
 endian4	minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
 error_exit	src/utils/error1.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
+execute_rendering	src/rendering/raytracer.c	/^static void execute_rendering(t_intels* task)$/;"	f	typeref:typename:void	file:
 exit_success	src/utils/error1.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
 expose_hook	minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
@@ -529,6 +534,7 @@ mouse_win2	minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, v
 mouse_win3	minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
 move_camera	src/utils/camera.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
 move_speed	includes/minirt.h	/^	double	move_speed;$/;"	m	struct:s_camera	typeref:typename:double
+mutexQueue	src/rendering/raytracer.c	/^pthread_mutex_t mutexQueue;$/;"	v	typeref:typename:pthread_mutex_t
 name	minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
 name	minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
 next	includes/minirt.h	/^	struct s_light	*next;$/;"	m	struct:s_light	typeref:struct:s_light *
@@ -536,6 +542,7 @@ next	includes/minirt.h	/^	struct s_object	*next;$/;"	m	struct:s_object	typeref:s
 next	minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 normal	includes/minirt.h	/^	t_vec3			normal;$/;"	m	struct:s_object	typeref:typename:t_vec3
 normal	includes/minirt.h	/^	t_vec3		normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
+ntask	src/rendering/raytracer.c	/^int ntask = 0;$/;"	v	typeref:typename:int
 object	includes/minirt.h	/^	t_object	*object;$/;"	m	struct:s_hit	typeref:typename:t_object *
 object	tests/test_cleanup_only.c	/^    void *object;$/;"	m	struct:s_bvh_node	typeref:typename:void *	file:
 object_count	includes/minirt.h	/^    int                 object_count;$/;"	m	struct:s_bvh_node	typeref:typename:int
@@ -597,8 +604,7 @@ re	minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
 read_file_line	src/parsing/parse_scene.c	/^static char	*read_file_line(int fd)$/;"	f	typeref:typename:char *	file:
 reflection	includes/minirt.h	/^	double	reflection;$/;"	m	struct:s_material	typeref:typename:double
 refraction_index	includes/minirt.h	/^	double	refraction_index;$/;"	m	struct:s_material	typeref:typename:double
-render_all_pixels	src/rendering/raytracer.c	/^void	*render_all_pixels(void *intels)$/;"	f	typeref:typename:void *
-render_pixel_adaptive	src/rendering/antialiasing.c	/^t_color	render_pixel_adaptive(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
+render_all_pixels	src/rendering/raytracer.c	/^void	*render_all_pixels(void *arg)$/;"	f	typeref:typename:void *
 render_pixel_antialiased	src/rendering/antialiasing.c	/^t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)$/;"	f	typeref:typename:t_color
 render_pixel_at_coordinates	src/rendering/raytracer_utils.c	/^void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,$/;"	f	typeref:typename:void
 render_scene	src/rendering/raytracer.c	/^void	render_scene(t_minirt *rt)$/;"	f	typeref:typename:void
@@ -649,6 +655,7 @@ sah_cost	src/utils/sah.c	/^static double	sah_cost(double left_area, double right
 saved_mode	minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
 scene	includes/minirt.h	/^	t_scene	scene;$/;"	m	struct:s_minirt	typeref:typename:t_scene
 screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
+send_directive	src/rendering/raytracer.c	/^static void send_directive(t_intels directives)$/;"	f	typeref:typename:void	file:
 set_cylinder_properties	src/parsing/parse_cylinder.c	/^static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:void	file:
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
 setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
@@ -670,6 +677,7 @@ solve_quadratic	src/math/intersect_sphere.c	/^static double	solve_quadratic(doub
 solve_quadratic_cone	src/math/intersect_cone.c	/^static double	solve_quadratic_cone(double a, double b, double c)$/;"	f	typeref:typename:double	file:
 solve_quadratic_cylinder	src/math/intersect_cylinder.c	/^static double	solve_quadratic_cylinder(double a, double b, double c)$/;"	f	typeref:typename:double	file:
 sort_objects_axis	src/utils/bvh.c	/^void sort_objects_axis(t_object **objects, int count, int axis)$/;"	f	typeref:typename:void
+stop	src/rendering/raytracer.c	/^int stop = 0;$/;"	v	typeref:typename:int
 strlcpy_is_not_posix	minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
 swap	src/utils/aabb_intersections.c	/^static inline void	swap(double *t0, double *t1)$/;"	f	typeref:typename:void	file:
 swap_objects	src/utils/bvh.c	/^static void swap_objects(t_object **a, t_object **b)$/;"	f	typeref:typename:void	file:
@@ -707,7 +715,6 @@ t_vec3	tests/test_cleanup_only.c	/^} t_vec3;$/;"	t	typeref:struct:s_vec3	file:
 t_win_list	minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_xpm_col	minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xvar	minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
-target_area	src/rendering/raytracer.c	/^void target_area(t_intels *intel,t_minirt *rt)$/;"	f	typeref:typename:void
 test_all_object_types	tests/test_integration.c	/^void	test_all_object_types(void)$/;"	f	typeref:typename:void
 test_camera_fov_effects	tests/test_camera_ray.c	/^void	test_camera_fov_effects(void)$/;"	f	typeref:typename:void
 test_camera_vectors	tests/test_vector_raytracing.c	/^void	test_camera_vectors(void)$/;"	f	typeref:typename:void
@@ -774,6 +781,7 @@ test_vec3_normalize	tests/test_vector.c	/^void	test_vec3_normalize(void)$/;"	f	t
 test_vec3_sub	tests/test_vector.c	/^void	test_vec3_sub(void)$/;"	f	typeref:typename:void
 tmax	includes/minirt.h	/^	double	tmax;$/;"	m	struct:s_aabb_query	typeref:typename:double
 tmin	includes/minirt.h	/^	double	tmin;$/;"	m	struct:s_aabb_query	typeref:typename:double
+total_directives	src/rendering/raytracer.c	/^int total_directives = 0;$/;"	v	typeref:typename:int
 transparency	includes/minirt.h	/^	double	transparency;$/;"	m	struct:s_material	typeref:typename:double
 type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
 type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int

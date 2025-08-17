@@ -41,13 +41,14 @@ t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v, double hw
 
 /*
 ** calculate_background_color - Calculate background color based on ray
+** currently set @ (135, 206, 255) for light sky blue
 */
 t_color	calculate_background_color(t_ray ray)
 {
 	   return (t_color){
-			   (int)(135 + ray.direction.y * 50),
-			   (int)(206 + ray.direction.y * 49),
-			   255
+			   (int)(135 + ray.direction.y * 50), //135
+			   (int)(206 + ray.direction.y * 49), //206
+			   255 //255
 	   };
 }
 
