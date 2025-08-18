@@ -6,13 +6,13 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 08:47:40 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:48:09 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:54:41 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-static double get_axis_value(t_object *obj, int axis)
+static double	get_axis_value(t_object *obj, int axis)
 {
 	if (axis == 0)
 		return (obj->position.x);
@@ -21,14 +21,16 @@ static double get_axis_value(t_object *obj, int axis)
 	return (obj->position.z);
 }
 
-static void swap_objects(t_object **a, t_object **b)
+static void	swap_objects(t_object **a, t_object **b)
 {
-	t_object *tmp = *a;
+	t_object	*tmp;
+
+	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
-static int partition(t_object **arr, int low, int high, int axis)
+static int	partition(t_object **arr, int low, int high, int axis)
 {
 	int		i;
 	int		j;
@@ -50,9 +52,10 @@ static int partition(t_object **arr, int low, int high, int axis)
 	return (i + 1);
 }
 
-static void quicksort_objects(t_object **arr, int low, int high, int axis)
+static void	quicksort_objects(t_object **arr, int low, int high, int axis)
 {
-	int pivot;
+	int	pivot;
+
 	if (low < high)
 	{
 		pivot = partition(arr, low, high, axis);
@@ -64,7 +67,7 @@ static void quicksort_objects(t_object **arr, int low, int high, int axis)
 /*
 ** sort_objects_axis - Naive bubble sort for BVH splitting (axis: 0=x, 1=y, 2=z)
 */
-void sort_objects_axis(t_object **objects, int count, int axis)
+void	sort_objects_axis(t_object **objects, int count, int axis)
 {
 	if (count > 1)
 		quicksort_objects(objects, 0, count - 1, axis);

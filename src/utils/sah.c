@@ -6,26 +6,11 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/13 09:55:28 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:58:05 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-/*
-** Computes the surface area of an axis-aligned bounding box (AABB)
-*/
-double	aabb_surface(t_aabb a)
-{
-	double	dx;
-	double	dy;
-	double	dz;
-
-	dx = fabs(a.max.x - a.min.x);
-	dy = fabs(a.max.y - a.min.y);
-	dz = fabs(a.max.z - a.min.z);
-	return (2.0 * (dx * dy + dx * dz + dy * dz));
-}
 
 /*
 **

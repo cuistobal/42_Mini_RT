@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 08:50:09 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:51:51 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:53:31 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static inline int	count_objects(t_object *objects)
 	}
 	return (count);
 }
- 
 
 /*
 ** build_bvh - Build BVH from scene objects
