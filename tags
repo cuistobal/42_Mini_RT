@@ -125,6 +125,16 @@ INCLUDES	Makefile	/^INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)$/;"	m
 INC_DIR	Makefile	/^INC_DIR = includes$/;"	m
 Installation	README.md	/^Installation$/;"	s	chapter:MiniRT
 KEY_A	includes/minirt.h	/^# define KEY_A /;"	d
+KEY_ACTION_A	includes/minirt.h	/^    KEY_ACTION_A,$/;"	e	enum:e_keyaction
+KEY_ACTION_COUNT	includes/minirt.h	/^    KEY_ACTION_COUNT$/;"	e	enum:e_keyaction
+KEY_ACTION_D	includes/minirt.h	/^    KEY_ACTION_D,$/;"	e	enum:e_keyaction
+KEY_ACTION_DOWN	includes/minirt.h	/^    KEY_ACTION_DOWN,$/;"	e	enum:e_keyaction
+KEY_ACTION_ESC	includes/minirt.h	/^    KEY_ACTION_ESC,$/;"	e	enum:e_keyaction
+KEY_ACTION_LEFT	includes/minirt.h	/^    KEY_ACTION_LEFT,$/;"	e	enum:e_keyaction
+KEY_ACTION_RIGHT	includes/minirt.h	/^    KEY_ACTION_RIGHT,$/;"	e	enum:e_keyaction
+KEY_ACTION_S	includes/minirt.h	/^    KEY_ACTION_S,$/;"	e	enum:e_keyaction
+KEY_ACTION_UP	includes/minirt.h	/^    KEY_ACTION_UP,$/;"	e	enum:e_keyaction
+KEY_ACTION_W	includes/minirt.h	/^    KEY_ACTION_W,$/;"	e	enum:e_keyaction
 KEY_D	includes/minirt.h	/^# define KEY_D /;"	d
 KEY_DOWN	includes/minirt.h	/^# define KEY_DOWN /;"	d
 KEY_ESC	includes/minirt.h	/^# define KEY_ESC /;"	d
@@ -353,6 +363,7 @@ axis	includes/minirt.h	/^	t_vec3			axis;$/;"	m	struct:s_object	typeref:typename:
 b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cone_params	typeref:typename:double
 b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cylinder_params	typeref:typename:double
 b	includes/minirt.h	/^	int	b;$/;"	m	struct:s_color	typeref:typename:int
+back	includes/minirt.h	/^	int back;$/;"	m	struct:s_key_queue	typeref:typename:int
 bits_per_pixel	includes/minirt.h	/^	int		bits_per_pixel;$/;"	m	struct:s_mlx	typeref:typename:int
 bounds	includes/minirt.h	/^    t_aabb              bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
 bounds	tests/test_cleanup_only.c	/^    t_aabb bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb	file:
@@ -388,7 +399,7 @@ calculate_refraction_ray	src/rendering/reflections.c	/^static t_vec3	calculate_r
 calculate_slab_intersections	src/math/cube_utils.c	/^t_slab_intersections	calculate_slab_intersections(double ray_dir,$/;"	f	typeref:typename:t_slab_intersections
 calculate_viewport_dimensions	src/rendering/raytracer_utils.c	/^void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,$/;"	f	typeref:typename:void
 camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
-cap	includes/minirt.h	/^	int cap;$/;"	m	struct:s_key_queue	typeref:typename:int
+cap	includes/minirt.h	/^	int	cap;$/;"	m	struct:s_key_queue	typeref:typename:int
 capacity_threshold_handler	src/graphics/key_queue_handler.c	/^void	capacity_threshold_handler(t_key_queue *queue)$/;"	f	typeref:typename:void
 case_internal_node	src/utils/bvh_intersections_internal_node.c	/^int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 case_leaf_node	src/utils/bvh_intersections_leaf_node.c	/^int	case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
@@ -450,7 +461,6 @@ create_sphere	src/parsing/parse_sphere.c	/^static t_object	*create_sphere(t_vec3
 create_test_cylinder	tests/test_intersections.c	/^t_object	create_test_cylinder(t_vec3 center, t_vec3 axis, double radius, double height, t_color /;"	f	typeref:typename:t_object
 create_test_plane	tests/test_intersections.c	/^t_object	create_test_plane(t_vec3 point, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object
 create_test_sphere	tests/test_intersections.c	/^t_object	create_test_sphere(t_vec3 center, double radius, t_color color)$/;"	f	typeref:typename:t_object
-curr	includes/minirt.h	/^	int	curr;$/;"	m	struct:s_key_queue	typeref:typename:int
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data	minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
@@ -465,7 +475,7 @@ decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
 decrgb	minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
 depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
 depth	minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
-dequeue	src/graphics/key_queue_handler.c	/^void	dequeue(t_key_queue *queue, int key)$/;"	f	typeref:typename:void
+dequeue	src/graphics/key_queue_handler.c	/^int	dequeue(t_key_queue *queue)$/;"	f	typeref:typename:int
 dir	includes/minirt.h	/^	t_vec3	dir;$/;"	m	struct:s_aabb_query	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_ray	typeref:typename:t_vec3
@@ -485,6 +495,7 @@ double_equals	tests/test_vector.c	/^int	double_equals(double a, double b)$/;"	f	
 double_equals	tests/test_vector_raytracing.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
 draw_test_pattern	tests/test_visual_mlx.c	/^void	draw_test_pattern(t_mlx *mlx)$/;"	f	typeref:typename:void
 e_error	includes/minirt.h	/^typedef enum e_error$/;"	g
+e_keyaction	includes/minirt.h	/^typedef enum e_keyaction {$/;"	g
 end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
 end_loop	minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
 endian	includes/minirt.h	/^	int		endian;$/;"	m	struct:s_mlx	typeref:typename:int
@@ -521,6 +532,7 @@ free_cube_tokens	src/parsing/parse_cube.c	/^static void	free_cube_tokens(char *p
 free_cylinder_tokens	src/parsing/parse_cylinder.c	/^static void	free_cylinder_tokens(char **tokens)$/;"	f	typeref:typename:void	file:
 free_plane_tokens	src/parsing/parse_plane.c	/^static void	free_plane_tokens(char *pos, char *norm, char *col)$/;"	f	typeref:typename:void	file:
 free_sphere_tokens	src/parsing/parse_sphere.c	/^static void	free_sphere_tokens(char *pos, char *diam, char *col)$/;"	f	typeref:typename:void	file:
+front	includes/minirt.h	/^	int front;$/;"	m	struct:s_key_queue	typeref:typename:int
 g	includes/minirt.h	/^	int	g;$/;"	m	struct:s_color	typeref:typename:int
 g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_offsets[4][2] = {$/;"	v	typeref:typename:const double[4][2]	file:
 gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
@@ -550,8 +562,9 @@ get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(
 get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handle_close	src/graphics/events.c	/^int	handle_close(t_minirt *rt)$/;"	f	typeref:typename:int
 handle_file_error	src/utils/error1.c	/^void	handle_file_error(char *filename, char *operation, t_minirt *rt)$/;"	f	typeref:typename:void
-handle_keypress	src/graphics/events.c	/^int	handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
-handle_loop	src/graphics/events.c	/^int	handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
+handle_keypress	src/graphics/events.c	/^int handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
+handle_keyrelease	src/graphics/events.c	/^int handle_keyrelease(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
+handle_loop	src/graphics/events.c	/^int handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
 handle_malloc_error	src/utils/error1.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
 handle_mouse	src/graphics/events.c	/^int	handle_mouse(int keycode, int x, int y, void *param)$/;"	f	typeref:typename:int
 handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, \\$/;"	f	typeref:typename:void
@@ -564,7 +577,6 @@ hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_l
 hook	minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
 hooks	minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
-i	includes/minirt.h	/^	int i;$/;"	m	struct:s_key_queue	typeref:typename:int
 im1	includes/minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
 im1	minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
 im2	includes/minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
@@ -607,13 +619,14 @@ key_hook	minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_l
 key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 key_param	minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 key_queue	includes/minirt.h	/^	int	key_queue[MAX_KEYS];$/;"	m	struct:s_key_queue	typeref:typename:int[]
-key_queue	includes/minirt.h	/^	t_key_queue		key_queue;$/;"	m	struct:s_minirt	typeref:typename:t_key_queue
 key_win1	includes/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
 key_win1	minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
 key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win2	minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
+keycode_to_action	src/graphics/events.c	/^int keycode_to_action(int keycode)$/;"	f	typeref:typename:int
+keys	includes/minirt.h	/^	int				keys[KEY_ACTION_COUNT];$/;"	m	struct:s_minirt	typeref:typename:int[]
 leaf_node_case	src/utils/bvh.c	/^static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 left	includes/minirt.h	/^    struct s_bvh_node   *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
 left	tests/test_cleanup_only.c	/^    struct s_bvh_node *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
@@ -978,7 +991,7 @@ screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typ
 send_directive	src/rendering/raytracer.c	/^static void send_directive(t_intels dirs)$/;"	f	typeref:typename:void	file:
 set_cylinder_properties	src/parsing/parse_cylinder.c	/^static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:void	file:
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
-setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
+setup_hooks	src/graphics/events.c	/^void setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
 shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
@@ -1034,6 +1047,7 @@ t_img	includes/minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
 t_img	minilibx-linux/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
 t_intels	includes/minirt.h	/^}	t_intels;$/;"	t	typeref:struct:s_intels
 t_key_queue	includes/minirt.h	/^}	t_key_queue;$/;"	t	typeref:struct:s_key_queue
+t_keyaction	includes/minirt.h	/^} t_keyaction;$/;"	t	typeref:enum:e_keyaction
 t_light	includes/minirt.h	/^}	t_light;$/;"	t	typeref:struct:s_light
 t_material	includes/minirt.h	/^}	t_material;$/;"	t	typeref:struct:s_material
 t_max	includes/minirt.h	/^	double	t_max;$/;"	m	struct:s_slab_result	typeref:typename:double

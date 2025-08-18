@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 12:48:58 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 14:50:07 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 	ray_direction = vec3_sub(pixel_world, camera->position);
 	return (ray_new(camera->position, ray_direction));
 }
-
-// inter thread
-
-//t_intels directives_rendering[3600];
 
 /*
 ** render_all_pixels - Render all pixels in the scene
@@ -177,18 +173,18 @@ void	render_scene(t_minirt *rt)
 	rt->args.ntask = 0;
 	rt->args.completed_directives = 0;
 	setup_camera(&rt->scene.camera);
-	pthread_mutex_init(&(rt->args.mutexQueue), NULL); // init mutex for queue
+	pthread_mutex_init(&(rt->args.mutexQueue), NULL);
 	while(i < NUM_THREAD)
 	{
-		if (pthread_create(&threads[i], NULL, render_all_pixels, rt) != 0) // 1. Thread creation
-			perror("Error : Thread creation failde"); // manage error
+		if (pthread_create(&threads[i], NULL, render_all_pixels, rt) != 0)
+			perror("Error : Thread creation failde");
 		i++;
 	}
-	create_directive(rt); // 2. Create directivre
+	create_directive(rt);
 	i = 0;
 	while (i < NUM_THREAD)
 	{
-		pthread_join(threads[i], NULL); // End all threads
+		pthread_join(threads[i], NULL);
 		i++;
 	}
 	display_image(&rt->mlx);
