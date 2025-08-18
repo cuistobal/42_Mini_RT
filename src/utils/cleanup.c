@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 10:25:51 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/09 10:26:34 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:48:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,18 @@ void	cleanup_object_list(t_object *objects)
 		free(current);
 		current = next;
 	}
+}
+
+/*
+** cleanup_bvh - Free BVH tree memory
+*/
+void	cleanup_bvh(t_bvh_node *node)
+{
+	if (!node)
+		return ;
+	cleanup_bvh(node->left);
+	cleanup_bvh(node->right);
+	if (node->objects)
+		safe_free((void **)&node->objects);
+	safe_free((void **)&node);
 }

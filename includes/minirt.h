@@ -396,6 +396,7 @@ void	update_camera_vectors(t_camera *camera);
 /* ************************************************************************** */
 
 t_bvh_node	*build_bvh(t_scene *scene);
+t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
 t_aabb		get_object_bounds(t_object *object);
 t_aabb		aabb_union(t_aabb a, t_aabb b);
 double		aabb_surface(t_aabb a);
