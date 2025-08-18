@@ -6,60 +6,11 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:29:02 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/13 09:54:21 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:18:09 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-/*
-** Traverses both children node to find the matching leaf
-*/
-int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
-{
-	t_aabb_query (left_query), right_query;
-	int (hit_left), hit_right;
-	t_bvh_node (*first), *second;
-	double tmin_second;
-	t_hit (hit_first), hit_second;
-
-	left_query.origin = ray.origin;
-	left_query.dir = ray.direction;
-	left_query.box = node->left->bounds;
-	hit_left = node->left && intersect_aabb_query(&left_query);
-
-	right_query.origin = ray.origin;
-	right_query.dir = ray.direction;
-	right_query.box = node->right->bounds;
-	hit_right = node->right && intersect_aabb_query(&right_query);
-
-	if (hit_left && (!hit_right || left_query.tmin < right_query.tmin))
-	{
-		first = node->left;
-		second = node->right;
-		tmin_second = right_query.tmin;
-	}
-	else if (hit_right)
-	{
-		first = node->right;
-		second = node->left;
-		tmin_second = left_query.tmin;
-	}
-	else
-		return (0);
-
-	if (first && intersect_bvh_iter(ray, first, &hit_first))
-	{
-		if (second && tmin_second < hit_first.t && intersect_bvh_iter(ray, second, &hit_second) && hit_second.t < hit_first.t)
-			*hit = hit_second;
-		else
-			*hit = hit_first;
-		return (1);
-	}
-	if (second && intersect_bvh_iter(ray, second, hit))
-		return (1);
-	return (0);
-}
 
 /*
 ** Base case -> fills the hit struct with the intersection data

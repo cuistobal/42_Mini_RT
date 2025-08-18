@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:58:05 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:01:49 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	find_sah_split(t_object **objects, int count, int *best_axis, \
 		int *best_index)
 {
 	int (axis), split;
-	t_aabb (*left_bounds), *right_bounds;
+	t_aabb (*left_bounds), (*right_bounds);
 	double (left_area), (right_area), (cost), best_cost;
 	variable_setup(&axis, best_axis, &best_cost, best_index);
 	allocate_bounds(&left_bounds, &right_bounds, count);
