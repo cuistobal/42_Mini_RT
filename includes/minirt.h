@@ -402,7 +402,8 @@ t_aabb		aabb_union(t_aabb a, t_aabb b);
 double		aabb_surface(t_aabb a);
 int	find_sah_split(t_object **objects, int count, int *best_axis, \
 		int *best_index);
-//int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+int			case_internal_node(t_bvh_node *node, t_hit *temp_hit, t_ray ray);	
+int			case_leaf_node(t_bvh_node *node, t_hit *temp_hit, t_ray ray);
 int			intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit);
 int			intersect_aabb_query(t_aabb_query *query);
 void		cleanup_bvh(t_bvh_node *node);

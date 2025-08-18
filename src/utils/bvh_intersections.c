@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:29:02 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 09:18:09 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:56:20 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Base case -> fills the hit struct with the intersection data
 */
-int case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
+int old_case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
 double t, closest_t = INFINITY;
 int found = 0;
