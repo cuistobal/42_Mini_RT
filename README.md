@@ -16,6 +16,8 @@ Main Features
 - Using 42 MiniLibX for graphical display && events management
 - Profiling
 
+- Currently working on textures (chessboard && bump maps) 
+
 Installation
 ------------
 1. Clone the project:
