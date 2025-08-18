@@ -368,6 +368,7 @@ void	cleanup_mlx(t_mlx *mlx);
 /*                             EVENT FUNCTIONS                               */
 /* ************************************************************************** */
 
+void	zoom_camera(t_camera *cam, double factor);
 int		handle_keypress(int keycode, t_minirt *rt);
 int		handle_close(t_minirt *rt);
 int		handle_loop(t_minirt *rt);
@@ -422,12 +423,14 @@ void	update_camera_vectors(t_camera *camera);
 /* ************************************************************************** */
 
 t_bvh_node	*build_bvh(t_scene *scene);
+t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
 t_aabb		get_object_bounds(t_object *object);
 t_aabb		aabb_union(t_aabb a, t_aabb b);
 double		aabb_surface(t_aabb a);
 int	find_sah_split(t_object **objects, int count, int *best_axis, \
 		int *best_index);
-//int			intersect_bvh(t_ray ray, t_bvh_node *node, t_hit *hit);
+int			case_internal_node(t_bvh_node *node, t_hit *temp_hit, t_ray ray);	
+int			case_leaf_node(t_bvh_node *node, t_hit *temp_hit, t_ray ray);
 int			intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit);
 int			intersect_aabb_query(t_aabb_query *query);
 void		cleanup_bvh(t_bvh_node *node);

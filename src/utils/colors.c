@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/13 09:53:51 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:03:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ t_color	color_linear_to_srgb(t_color color)
 	r = linear_to_srgb_channel((double)color.r / 255.0);
 	g = linear_to_srgb_channel((double)color.g / 255.0);
 	b = linear_to_srgb_channel((double)color.b / 255.0);
-    return ((t_color){
-        (int)(r * 255.0),
-        (int)(g * 255.0),
-        (int)(b * 255.0)
-    });
+	return ((t_color){
+		(int)(r * 255.0),
+			(int)(g * 255.0),
+			(int)(b * 255.0)
+			});
 }

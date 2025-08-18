@@ -45,7 +45,7 @@ t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	// Apply reflection intensity
 	final_color = color_mult(reflection_color, reflection_intensity);
 	
-	return (color_clamp(final_color));
+	return (final_color);
 }
 
 /*
@@ -166,5 +166,5 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	// Apply transparency and Fresnel effect
 	final_color = color_mult(refraction_color, transparency * (1.0 - fresnel));
 	
-	return (color_clamp(final_color));
+	return (final_color);
 }
