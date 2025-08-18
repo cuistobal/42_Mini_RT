@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/16 08:22:01 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 12:49:31 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@
 # define GREEN_OFFSET 8
 # define BVH_STACK_SIZE 64
 # define MAX_OBJECTS_PER_LEAF 4
-# define NUM_THREAD 64
 
+# ifndef NUM_THREAD
+# 	define NUM_THREAD 64
+# endif
 
 /* Error codes */
 typedef enum e_error

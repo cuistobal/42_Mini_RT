@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 10:41:21 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 12:48:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	setup_camera(t_camera *camera)
 */
 t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 {
+	double	half_width;
+	double	half_height;
 	t_vec3	pixel_world;
 	t_vec3	ray_direction;
-	double	half_height;
-	double	half_width;
 
 	if (!camera)
 		return (ray_new(vec3_new(0, 0, 0), vec3_new(0, 0, 1)));
@@ -52,29 +52,32 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 /*
 ** render_all_pixels - Render all pixels in the scene
 */
-static void send_directive(t_intels directives)
+static void send_directive(t_intels dirs)
 {
-	pthread_mutex_lock(&(directives.rt->args.mutexQueue));
-    directives.rt->args.directives_rendering[directives.rt->args.ntask] = directives;
-    directives.rt->args.ntask++;
-    pthread_mutex_unlock(&(directives.rt->args.mutexQueue));
-    pthread_cond_signal(&(directives.rt->args.condQueue)); // 3.1 Ask pthread_cond_wait to check its condition
+	pthread_mutex_lock(&(dirs.rt->args.mutexQueue));
+    dirs.rt->args.directives_rendering[dirs.rt->args.ntask] = dirs;
+    dirs.rt->args.ntask++;
+    pthread_mutex_unlock(&(dirs.rt->args.mutexQueue));
+    pthread_cond_signal(&(dirs.rt->args.condQueue));
 }
 
 // J ai modifie ton code -> j ai retire les if/else pour reduire le branching, etant donne
 // que les valeurs seront toujours valide (la resolution est forcement un multiple de 32)
 // J ai utilise << 5 qui equivaut a * 32 (2^5=32) mais en plsu rapide.
 // En tout ca nous fait gagner 100 ms
+// Dailleurs on devrait garder ces valeur la dans la structure de pool_thread plutoit que 
+// de la recalculer 3600 fois par frame.
 void create_directive(t_minirt *rt)
 {
-	// Dailleurs on devrait garder ces valeur la dans la structure de pool_thread plutoit que 
-	// de la recalculer 3600 fois par frame.
-	int pwidth = ((rt->mlx.width + 31) >> 5); // init in rt
-	int pheight = ((rt->mlx.height + 31) >> 5); // init in rt
-	int i = 0;
-	int y;
-	t_intels directives;
+	int			i;
+	int 		y;
+	int 		pwidth;
+	int 		pheight;
+	t_intels	directives;
 
+	i = 0;
+	pwidth = ((rt->mlx.width + 31) >> 5);
+	pheight = ((rt->mlx.height + 31) >> 5);
 	(rt->args.total_directives) = pwidth * pheight;
 	while (i < pheight)
 	{
@@ -86,14 +89,14 @@ void create_directive(t_minirt *rt)
 			directives.ystart = i << 5;
 			directives.yend = (i << 5) + 32;
 			directives.rt = rt;
-			send_directive(directives); // 3. Send directives
+			send_directive(directives);
 			y++;
 		}
 		i++;
 	}
 }
 
-
+//
 static void execute_rendering(t_intels* task)
 {
 	int		x;
@@ -116,11 +119,12 @@ static void execute_rendering(t_intels* task)
 	}	
 }
 
+// The thread's routine to divide redering into smaller chuncks
 void	*render_all_pixels(void *arg)
 {
-	t_minirt *rt;
-	t_intels directive;
-	int i;
+	int			i;
+	t_minirt	*rt;
+	t_intels	directive;
 	
 	rt = (t_minirt *)arg;
 	while (1)
@@ -128,9 +132,7 @@ void	*render_all_pixels(void *arg)
 		i = 0;
 		pthread_mutex_lock(&(rt->args.mutexQueue));
 		while (rt->args.ntask == 0 && rt->args.stop == 0)
-		{
-			pthread_cond_wait(&rt->args.condQueue, &(rt->args.mutexQueue)); // 1.1 wait until his condition change. Wait for 
-		}
+			pthread_cond_wait(&rt->args.condQueue, &(rt->args.mutexQueue));
 		if (rt->args.stop == 1 && rt->args.ntask == 0)
 		{
 			pthread_mutex_unlock(&(rt->args.mutexQueue));
@@ -155,7 +157,7 @@ void	*render_all_pixels(void *arg)
 		pthread_mutex_unlock(&(rt->args.mutexQueue));
 	}
 	rt->args.completed_directives = 0;
-	return NULL;
+	return (NULL);
 }
 
 
@@ -163,12 +165,10 @@ void	*render_all_pixels(void *arg)
 /*
 ** render_scene - Main rendering function
 */
-
-
 void	render_scene(t_minirt *rt)
 {
-	pthread_t threads[NUM_THREAD];
-	int i;
+	int			i;
+	pthread_t	threads[NUM_THREAD];
 
 	i = 0;
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)

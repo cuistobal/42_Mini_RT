@@ -60,6 +60,10 @@ $(MLX_DIR)/libmlx.a:
 	@make -C $(MLX_DIR) > /dev/null 2>&1
 	@echo "$(GREEN)✓ MiniLibX compiled!$(NC)"
 
+threads:
+	@read -p "Enter NUM_THREADS value: " val; \
+    echo "$(BLUE)Compiling with thread pool size of $$val...$(NC)"; \
+    $(MAKE) CFLAGS="$(CFLAGS) -D NUM_THREADS=$$val" re
 
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
