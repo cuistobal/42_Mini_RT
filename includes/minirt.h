@@ -342,6 +342,7 @@ void	cleanup_mlx(t_mlx *mlx);
 /*                             EVENT FUNCTIONS                               */
 /* ************************************************************************** */
 
+void	zoom_camera(t_camera *cam, double factor);
 int		handle_keypress(int keycode, t_minirt *rt);
 int		handle_close(t_minirt *rt);
 int		handle_loop(t_minirt *rt);
