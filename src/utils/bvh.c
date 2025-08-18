@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 08:38:58 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:43:37 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ static void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)
 
 /*
 ** build_bvh_recursive - Recursively build BVH tree
+** i was previously set to 1, count was previously set to 2
 */
 t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 {
@@ -82,26 +83,17 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	node = safe_malloc(sizeof(t_bvh_node));
 	if (!node)
 		return (NULL);
+	i = 0;
 	bounds = get_object_bounds(objects[0]);
-	i = 1;
 	while (i < count)
-	{
-		bounds = aabb_union(bounds, get_object_bounds(objects[i]));
-		i++;
-	}
+		bounds = aabb_union(bounds, get_object_bounds(objects[i++]));
 	node->bounds = bounds;
-
-	// Leaf node case (seuil fixe)
 	if (count <= MAX_OBJECTS_PER_LEAF)
 		return (leaf_node_case(objects, node, count), node);
 	node->objects = NULL;
 	node->object_count = 0;
-
-	// Internal node case
-	// Il faudrait rendre ce 2 modulaire de MAX_OBJECTS_PER_LEAF
-	if (count > 2)
+	if (count > MAX_OBJECTS_PER_LEAF)
 		internal_node_case(objects, node, count);
-	// Smol BVH case
 	else
 		terminal_node_case(objects, node, count);
 	return (node);
