@@ -37,14 +37,14 @@ Installation
 	```
 
 5. In case you have a submodule problem:
-```sh
+	```sh
 	git submodule update --init --recursive
-```
+	```
 
 6. Or want the latest versions of submodules:
-```sh
+	```sh
 	git submodule update --remote --merge
-```
+	```
 
 Usage
 -----
