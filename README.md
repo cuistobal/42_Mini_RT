@@ -5,16 +5,16 @@ MiniRT is a minimalist raytracer project developed at 42. It generates realistic
 
 Main Features
 -------------
-- Supported primitives: sphere, plane, cylinder, cone, cube, triangle
-- Point lights and ambient light
-- Materials: color, reflection, transparency, refraction index
-- Movable camera (translation, rotation, zoom)
-- BVH acceleration (Bounding Volume Hierarchy)
-- Dynamic multi-threading (thread pool, block-based rendering)
+- Supported primitives: sphere, plane, cylinder, cone, cube
+- Multiple light sources and ambient lighting
+- Different materials with their own color, reflection, transparency and refraction index
+- Camera with movements (translation, rotation, zoom)
+- Acceleration structure (Bounding Volume Hierarchy with Surface Area Heuristic)
+- Dynamic multi-threading (thread pool && block-based rendering)
 - Parsing of complex scenes (.rt files)
 - Shadows, reflections, refractions
-- MiniLibX support for graphical display
-- Profiling and optimization (gprof, SIMD, etc.)
+- Using 42 MiniLibX for graphical display && events management
+- Profiling
 
 Installation
 ------------
@@ -35,6 +35,16 @@ Installation
 	```sh
 	make
 	```
+
+5. In case you have a submodule problem:
+```sh
+	git submodule update --init --recursive
+```
+
+6. Or want the latest versions of submodules:
+```sh
+	git submodule update --remote --merge
+```
 
 Usage
 -----
@@ -74,9 +84,14 @@ To compile with profiling support:
 ```sh
 make profile
 ```
-After running, analyze the results:
+After running, get a quick performance recap && analyze the results:
 ```sh
 make analyze
+```
+
+Or the following command to get a full profiling log:
+```sh
+gprof miniRT gmon.out > profiling.log
 ```
 
 Notes
