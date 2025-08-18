@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 12:49:31 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 14:42:32 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 
 /* Constants */
 # define EPSILON 1e-6
-# define MAX_DEPTH 3
+# define MAX_KEYS 256
+# define CAPACITY_THRESHOLD 225 
 
 /* Object types */
 # define SPHERE 1
@@ -47,13 +48,34 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
+typedef enum e_keyaction {
+    KEY_ACTION_W,
+    KEY_ACTION_S,
+    KEY_ACTION_A,
+    KEY_ACTION_D,
+    KEY_ACTION_UP,
+    KEY_ACTION_DOWN,
+    KEY_ACTION_LEFT,
+    KEY_ACTION_RIGHT,
+    KEY_ACTION_ESC,
+    KEY_ACTION_COUNT
+} t_keyaction;
+
 # define RED_OFFSET 16
 # define GREEN_OFFSET 8
 # define BVH_STACK_SIZE 64
 # define MAX_OBJECTS_PER_LEAF 4
 
+// A modifier, etant donne que MAX_DIRS depend de la resolution de la fenetre et
+// du nombre de threads
+# define MAX_DIRS 3600
+
 # ifndef NUM_THREAD
 # 	define NUM_THREAD 64
+# endif
+
+# ifndef MAX_DEPTH
+#  define MAX_DEPTH 3
 # endif
 
 /* Error codes */
@@ -155,7 +177,7 @@ typedef struct s_aabb
 	t_vec3	max;
 }	t_aabb;
 
-/* Cylinder parameters structure */
+/* Cylinder parameters structure */ 
 typedef struct s_cylinder_params
 {
 	double	a;
@@ -250,16 +272,28 @@ typedef struct s_threadArgs
 	int completed_directives;
 	int stop;
 	int ntask;
-	t_intels directives_rendering[3600];
+	t_intels directives_rendering[MAX_DIRS];
 }	t_threadArgs;
+
+typedef struct s_key_queue
+{
+	int	cap;
+	int back;
+	int front;
+	int	key_queue[MAX_KEYS];
+}	t_key_queue;
+
 /* Main structure */
 typedef struct s_minirt
 {
-	t_scene	scene;
-	t_mlx	mlx;
-	char	*filename;
-	t_threadArgs args;
+	t_mlx			mlx;
+	t_scene			scene;
+	char			*filename;
+	int				keys[KEY_ACTION_COUNT];
+	t_threadArgs	args;
 }	t_minirt;
+
+//t_key_queue		key_queue;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
@@ -375,6 +409,9 @@ int		handle_keypress(int keycode, t_minirt *rt);
 int		handle_close(t_minirt *rt);
 int		handle_loop(t_minirt *rt);
 void	setup_hooks(t_minirt *rt);
+void	capacity_threshold_handler(t_key_queue *queue);
+void	enqueue(t_key_queue *queue, int key);
+int		dequeue(t_key_queue *queue);
 
 /* ************************************************************************** */
 /*                             UTILITY FUNCTIONS                             */

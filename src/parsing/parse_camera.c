@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 12:44:54 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 14:46:21 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	parse_camera(char *line, t_scene *scene)
 				scene->camera.up));
 	scene->camera.up = vec3_normalize(vec3_cross(scene->camera.right, \
 				scene->camera.direction));
-	scene->camera.move_speed = 1;
-	scene->camera.rotate_speed = 0.1;
+	scene->camera.move_speed = 0.5;
+	scene->camera.rotate_speed = 0.05;
 	return (free(position_str), free(direction_str), free(fov_str), 1);
 }
 
