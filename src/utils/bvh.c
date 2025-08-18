@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 08:32:49 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/18 08:38:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,38 @@ static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)
 	node->right = NULL;
 }
 
+t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
+
+static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)
+{
+	int axis;
+	int split;
+
+	axis = 0;
+	split = 0;
+	find_sah_split(objects, count, &axis, &split);
+	sort_objects_axis(objects, count, axis);
+	node->left = build_bvh_recursive(objects, split);
+	node->right = build_bvh_recursive(objects + split, count - split);
+}
+
+static void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)
+{
+	int mid;
+
+	mid = count / 2;
+	node->left = build_bvh_recursive(objects, mid);
+	node->right = build_bvh_recursive(objects + mid, count - mid);
+}
+
 /*
 ** build_bvh_recursive - Recursively build BVH tree
 */
 t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 {
+	int			i;
 	t_bvh_node	*node;
 	t_aabb		bounds;
-	int			(i), (mid), (axis), (split);
 
 	if (count <= 0)
 		return (NULL);
@@ -76,19 +100,10 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	// Internal node case
 	// Il faudrait rendre ce 2 modulaire de MAX_OBJECTS_PER_LEAF
 	if (count > 2)
-	{
-		find_sah_split(objects, count, &axis, &split);
-		sort_objects_axis(objects, count, axis);
-		node->left = build_bvh_recursive(objects, split);
-		node->right = build_bvh_recursive(objects + split, count - split);
-	}
+		internal_node_case(objects, node, count);
 	// Smol BVH case
 	else
-	{
-		mid = count / 2;
-		node->left = build_bvh_recursive(objects, mid);
-		node->right = build_bvh_recursive(objects + mid, count - mid);
-	}
+		terminal_node_case(objects, node, count);
 	return (node);
 }
 
