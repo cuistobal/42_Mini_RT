@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 14:42:32 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 08:24:57 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <string.h>
 # include <limits.h>
 # include <stdint.h>
-# include <stdbool.h>
 # include "../minilibx-linux/mlx.h"
 # include <pthread.h>
 

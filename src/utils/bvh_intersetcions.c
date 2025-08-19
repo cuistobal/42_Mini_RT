@@ -12,26 +12,29 @@
 
 #include "../../includes/minirt.h"
 
-//
 static void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)
 {
     query->origin = ray.origin;
     query->dir = ray.direction;
     query->box = bounds;
-    query->tmin = -INFINITY;
-    query->tmax = INFINITY;
+	query->tmin = -INFINITY;
+	query->tmax = INFINITY;
 }
 
 static inline void	handle_single_hit(int hit, t_bvh_node **stack, int *stack_ptr, t_bvh_node *node)
 {
+	if (*stack_ptr >= BVH_STACK_SIZE - 1)
+		return ;
     if (hit & 4)
         stack[(*stack_ptr)++] = node->left;
     else if (hit & 1)
         stack[(*stack_ptr)++] = node->right;
 }
 
-static inline void	handle_multiple_hits(bool condition, t_bvh_node **stack, int *stack_ptr, t_bvh_node *node)
+static inline void	handle_multiple_hits(int condition, t_bvh_node **stack, int *stack_ptr, t_bvh_node *node)
 {
+	if (*stack_ptr >= BVH_STACK_SIZE - 1)
+		return ;
     if (condition)
     {
         stack[(*stack_ptr)++] = node->right;
@@ -59,14 +62,14 @@ static void	handle_internal_node(
     tmin_right = INFINITY;
     if (node->left)
     {
-        setup_aabb_query(&left_query, ray, node->left->bounds);
+		setup_aabb_query(&left_query, ray, node->left->bounds);
         hit_left = intersect_aabb_query(&left_query);
         if (hit_left)
             tmin_left = left_query.tmin;
     }
     if (node->right)
     {
-        setup_aabb_query(&right_query, ray, node->right->bounds);
+		setup_aabb_query(&right_query, ray, node->right->bounds);
         hit_right = intersect_aabb_query(&right_query);
         if (hit_right)
             tmin_right = right_query.tmin;
@@ -94,7 +97,7 @@ int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
     t_hit			temp_hit;
     double			closest_t;
     int				(found), stack_ptr;
-    t_bvh_node		(*stack[BVH_STACK_SIZE]), *node;
+    t_bvh_node		(*node), *stack[BVH_STACK_SIZE];
     t_aabb_query	query;
 
     found = 0;
@@ -105,8 +108,8 @@ int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
     stack[stack_ptr++] = root;
     while (stack_ptr > 0)
     {
-        node = stack[--stack_ptr];
-        setup_aabb_query(&query, ray, node->bounds);
+		node = stack[--stack_ptr];
+		setup_aabb_query(&query, ray, node->bounds);
         if (!intersect_aabb_query(&query))
             continue;
         if (node->objects && case_leaf_node(node, &temp_hit, ray)
