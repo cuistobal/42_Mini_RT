@@ -23,9 +23,9 @@ static void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)
 
 static inline void	handle_single_hit(int hit, t_bvh_node **stack, int *stack_ptr, t_bvh_node *node)
 {
-	if (*stack_ptr >= BVH_STACK_SIZE - 1)
+	if (*stack_ptr >= BVH_STACK_SIZE)
 		return ;
-    if (hit & 4)
+    if (hit & 16)
         stack[(*stack_ptr)++] = node->left;
     else if (hit & 1)
         stack[(*stack_ptr)++] = node->right;
