@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 09:04:51 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 09:55:58 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 08:50:33 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,21 @@ static int	build_queries(t_bvh_node *node, t_aabb_query *query, t_ray ray)
 */
 int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 {
-	t_hit			hit_first;
-	t_bvh_node		*second;
-	t_aabb_query	left_query;
-
-	double (tmin_second);
-	int (hit_left), (hit_right);
-	t_bvh_node (*first);
+	t_hit (hit_first);
 	t_hit (hit_second);
+	t_bvh_node (*first);
+	t_bvh_node (*second);
+	t_aabb_query (left_query);
 	t_aabb_query (right_query);
-	hit_left = build_queries(node, &left_query, ray);
-	hit_right = build_queries(node, &right_query, ray);
+	double (tmin_second);
+	int (hit_left) = build_queries(node, &left_query, ray);
+	int (hit_right) = build_queries(node, &right_query, ray);
 	if (hit_left && (!hit_right || left_query.tmin < right_query.tmin))
-		tmin_second = append_intersected_node(node, &first, &second, right_query);
+		tmin_second = append_intersected_node(\
+				node, &first, &second, right_query);
 	else if (hit_right)
-		tmin_second = append_intersected_node(node, &second, &first, left_query);
+		tmin_second = append_intersected_node(\
+				node, &second, &first, left_query);
 	else
 		return (0);
 	if (first && intersect_bvh_iter(ray, first, &hit_first))
