@@ -18,7 +18,7 @@ $(NAME)	minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
 $(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
 $(OBJ_DIR)/%.o	includes/minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
 $(OBJ_DIR)/%.o	minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
-*.old	.vscode/settings.json	/^        "*.old": "c"$/;"	s	object:files.associations
+*.old	.vscode/settings.json	/^        "*.old": "c",$/;"	s	object:files.associations
 AUTHOR	includes/minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
@@ -356,6 +356,7 @@ analyze	Makefile	/^analyze:$/;"	t
 angle	includes/minirt.h	/^	double			angle;$/;"	m	struct:s_object	typeref:typename:double
 append_intersected_node	src/utils/bvh_intersections_internal_node.c	/^static double	append_intersected_node(t_bvh_node *node, \\$/;"	f	typeref:typename:double	file:
 append_intersection_results	src/utils/bvh_intersections_leaf_node.c	/^static t_hit	append_intersection_results(t_object *obj, t_ray ray, double t)$/;"	f	typeref:typename:t_hit	file:
+append_stack	src/utils/.mods_bvh_intersections.c	/^static inline void	append_stack(t_bvh_node *node, t_bvh_node stack[], int hit)$/;"	f	typeref:typename:void	file:
 args	includes/minirt.h	/^	t_threadArgs	args;$/;"	m	struct:s_minirt	typeref:typename:t_threadArgs
 at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
 at_exit	minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
@@ -400,7 +401,6 @@ calculate_slab_intersections	src/math/cube_utils.c	/^t_slab_intersections	calcul
 calculate_viewport_dimensions	src/rendering/raytracer_utils.c	/^void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,$/;"	f	typeref:typename:void
 camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typename:t_camera
 cap	includes/minirt.h	/^	int	cap;$/;"	m	struct:s_key_queue	typeref:typename:int
-capacity_threshold_handler	src/graphics/key_queue_handler.c	/^void	capacity_threshold_handler(t_key_queue *queue)$/;"	f	typeref:typename:void
 case_internal_node	src/utils/bvh_intersections_internal_node.c	/^int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 case_leaf_node	src/utils/bvh_intersections_leaf_node.c	/^int	case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
@@ -475,7 +475,6 @@ decrgb	includes/minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
 decrgb	minilibx-linux/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
 depth	includes/minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
 depth	minilibx-linux/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
-dequeue	src/graphics/key_queue_handler.c	/^int	dequeue(t_key_queue *queue)$/;"	f	typeref:typename:int
 dir	includes/minirt.h	/^	t_vec3	dir;$/;"	m	struct:s_aabb_query	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 direction	includes/minirt.h	/^	t_vec3	direction;$/;"	m	struct:s_ray	typeref:typename:t_vec3
@@ -507,10 +506,10 @@ endian3	includes/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typenam
 endian3	minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
 endian4	includes/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
 endian4	minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
-enqueue	src/graphics/key_queue_handler.c	/^void	enqueue(t_key_queue *queue, int key)$/;"	f	typeref:typename:void
 error_exit	src/utils/error1.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
 execute_rendering	src/rendering/raytracer.c	/^static void execute_rendering(t_intels* task)$/;"	f	typeref:typename:void	file:
 exit_success	src/utils/error1.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
+explore	src/utils/.mods_bvh_intersections.c	/^static int	explore(t_bvh_node *node, t_ray ray)$/;"	f	typeref:typename:int	file:
 expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_hook	minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
@@ -562,17 +561,21 @@ get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(
 get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handle_close	src/graphics/events.c	/^int	handle_close(t_minirt *rt)$/;"	f	typeref:typename:int
 handle_file_error	src/utils/error1.c	/^void	handle_file_error(char *filename, char *operation, t_minirt *rt)$/;"	f	typeref:typename:void
-handle_keypress	src/graphics/events.c	/^int handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
-handle_keyrelease	src/graphics/events.c	/^int handle_keyrelease(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
-handle_loop	src/graphics/events.c	/^int handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
+handle_internal_node	src/utils/bvh_intersections.c	/^static void	handle_internal_node(t_bvh_node *node, t_ray ray, \\$/;"	f	typeref:typename:void	file:
+handle_keypress	src/graphics/events.c	/^int	handle_keypress(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
+handle_keyrelease	src/graphics/events.c	/^int	handle_keyrelease(int keycode, t_minirt *rt)$/;"	f	typeref:typename:int
+handle_loop	src/graphics/misc.c	/^int	handle_loop(t_minirt *rt)$/;"	f	typeref:typename:int
 handle_malloc_error	src/utils/error1.c	/^void	handle_malloc_error(size_t size, t_minirt *rt)$/;"	f	typeref:typename:void
 handle_mouse	src/graphics/events.c	/^int	handle_mouse(int keycode, int x, int y, void *param)$/;"	f	typeref:typename:int
+handle_multiple_hits	src/utils/bvh_intersections.c	/^static inline void	handle_multiple_hits(int condition, t_bvh_node **stack, \\$/;"	f	typeref:typename:void	file:
 handle_parse_error	src/utils/error.c	/^void	handle_parse_error(char *filename, int line_num, char *message, \\$/;"	f	typeref:typename:void
+handle_single_hit	src/utils/bvh_intersections.c	/^static inline void	handle_single_hit(int hit, t_bvh_node **stack, \\$/;"	f	typeref:typename:void	file:
 height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 height	includes/minirt.h	/^	double			height;$/;"	m	struct:s_object	typeref:typename:double
 height	includes/minirt.h	/^	int		height;$/;"	m	struct:s_mlx	typeref:typename:int
 height	minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 helper	src/utils/aabb_intersections.c	/^static int	helper(double *tmin, double *tmax, double t0, double t1)$/;"	f	typeref:typename:int	file:
+hit_was_found	src/utils/.mods_bvh_intersections.c	/^static inline void	hit_was_found(t_hit *hit, t_hit temp_hit, \\$/;"	f	typeref:typename:void	file:
 hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hook	minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
@@ -602,7 +605,9 @@ int_to_color	src/graphics/image.c	/^t_color	int_to_color(int color_int)$/;"	f	ty
 intensity	includes/minirt.h	/^	double			intensity;$/;"	m	struct:s_light	typeref:typename:double
 internal_node_case	src/utils/bvh.c	/^static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 intersect_aabb_query	src/utils/aabb_intersections.c	/^int	intersect_aabb_query(t_aabb_query *q)$/;"	f	typeref:typename:int
-intersect_bvh_iter	src/utils/bvh_intersections.c	/^int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_bvh_iter	old_intersection.c	/^int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_bvh_iter	src/utils/.mods_bvh_intersections.c	/^int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
+intersect_bvh_iter	src/utils/bvh_intersections.c	/^int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_cone	src/math/intersect_cone.c	/^double	intersect_cone(t_ray ray, t_object *cone)$/;"	f	typeref:typename:double
 intersect_cube	src/math/intersect_cube.c	/^double	intersect_cube(t_ray ray, t_object *cube)$/;"	f	typeref:typename:double
 intersect_cylinder	src/math/intersect_cylinder.c	/^double	intersect_cylinder(t_ray ray, t_object *cylinder)$/;"	f	typeref:typename:double
@@ -625,7 +630,7 @@ key_win2	includes/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"
 key_win2	minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	includes/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
 key_win3	minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
-keycode_to_action	src/graphics/events.c	/^int keycode_to_action(int keycode)$/;"	f	typeref:typename:int
+keycode_to_action	src/graphics/misc.c	/^int	keycode_to_action(int keycode)$/;"	f	typeref:typename:int
 keys	includes/minirt.h	/^	int				keys[KEY_ACTION_COUNT];$/;"	m	struct:s_minirt	typeref:typename:int[]
 leaf_node_case	src/utils/bvh.c	/^static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 left	includes/minirt.h	/^    struct s_bvh_node   *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
@@ -695,6 +700,7 @@ mlx	includes/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:v
 mlx	includes/minirt.h	/^	t_mlx			mlx;$/;"	m	struct:s_minirt	typeref:typename:t_mlx
 mlx	minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
 mlx	minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
+mlx.h	.vscode/settings.json	/^        "mlx.h": "c"$/;"	s	object:files.associations
 mlx_X_error	includes/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
 mlx_X_error	minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
 mlx_clear_window	includes/minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
@@ -990,8 +996,9 @@ screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	ty
 screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
 send_directive	src/rendering/raytracer.c	/^static void send_directive(t_intels dirs)$/;"	f	typeref:typename:void	file:
 set_cylinder_properties	src/parsing/parse_cylinder.c	/^static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:void	file:
+setup_aabb_query	src/utils/aabb_utils.c	/^void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)$/;"	f	typeref:typename:void
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
-setup_hooks	src/graphics/events.c	/^void setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
+setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
 shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
@@ -1146,6 +1153,7 @@ type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typenam
 up	includes/minirt.h	/^	t_vec3	up;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 update_camera_vectors	src/utils/camera.c	/^void	update_camera_vectors(t_camera *camera)$/;"	f	typeref:typename:void
 update_closest_hit	src/math/intersections.c	/^static void	update_closest_hit(double t, t_object *current,$/;"	f	typeref:typename:void	file:
+update_closest_hit	src/utils/bvh_intersections.c	/^static inline void	update_closest_hit(t_hit *hit, t_hit temp_hit, \\$/;"	f	typeref:typename:void	file:
 update_intersection_interval	src/math/cube_utils.c	/^t_slab_result	update_intersection_interval(t_slab_result prev,$/;"	f	typeref:typename:t_slab_result
 use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 use_xshm	minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
@@ -1159,7 +1167,7 @@ validate_file_access	src/parsing/validate_arguments.c	/^int	validate_file_access
 validate_file_extension	src/parsing/validate_arguments.c	/^int	validate_file_extension(char *filename)$/;"	f	typeref:typename:int
 validate_plane_params	src/parsing/parse_plane.c	/^static int	validate_plane_params(t_vec3 normal)$/;"	f	typeref:typename:int	file:
 validate_scene	src/utils/error.c	/^int	validate_scene(t_scene *scene)$/;"	f	typeref:typename:int
-validate_scene_with_filename	src/parsing/parse_scene.c	/^static int	validate_scene_with_filename(t_scene *scene, char *filename)$/;"	f	typeref:typename:int	file:
+validate_scene_with_filename	src/parsing/parse_scene.c	/^static int	validate_scene_with_filename(t_scene *scene)$/;"	f	typeref:typename:int	file:
 validate_sphere_params	src/parsing/parse_sphere.c	/^static int	validate_sphere_params(double diameter)$/;"	f	typeref:typename:int	file:
 variable_setup	src/utils/sah.c	/^static void	variable_setup(int *axis, int *best_axis, double *best_cost, \\$/;"	f	typeref:typename:void	file:
 vec3_add	src/math/vector1.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
