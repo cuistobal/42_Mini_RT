@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 08:38:43 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 09:01:57 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -404,6 +404,8 @@ void	cleanup_mlx(t_mlx *mlx);
 /*                             EVENT FUNCTIONS                               */
 /* ************************************************************************** */
 
+int		keycode_to_action(int keycode);
+void	setup_hooks(t_minirt *rt);
 void	zoom_camera(t_camera *cam, double factor);
 int		handle_keypress(int keycode, t_minirt *rt);
 int		handle_close(t_minirt *rt);

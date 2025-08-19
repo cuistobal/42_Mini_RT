@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/16 09:13:09 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 09:13:55 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static char	*skip_whitespace(char *str)
 {
 	if (!str)
 		return (NULL);
-	while (*str && (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'))
+	while (*str && (*str == ' ' || *str == '\t' || *str == '\n' \
+				|| *str == '\r'))
 		str++;
 	return (str);
 }
@@ -48,13 +49,14 @@ static int	is_empty_line(char *line)
 */
 static char	*read_file_line(int fd)
 {
+	int		i;
 	char	*line;
 	char	buffer[1024];
 	int		bytes_read;
-	int		i;
 
 	i = 0;
-	while ((bytes_read = read(fd, &buffer[i], 1)) > 0)
+	bytes_read = read(fd, &buffer[i], 1);
+	while (bytes_read > 0)
 	{
 		if (buffer[i] == '\n' || i >= 1022)
 		{
@@ -63,6 +65,7 @@ static char	*read_file_line(int fd)
 			return (line);
 		}
 		i++;
+		bytes_read = read(fd, &buffer[i], 1);
 	}
 	if (i > 0)
 	{
@@ -94,37 +97,18 @@ static void	cleanup_scene_on_error(t_scene *scene)
 ** filename: Filename for error reporting
 ** Returns: 1 on success, 0 on error
 */
-static int	validate_scene_with_filename(t_scene *scene, char *filename)
+static int	validate_scene_with_filename(t_scene *scene)
 {
 	if (!scene)
-	{
-		printf("Error\nInvalid scene structure\n");
-		return (0);
-	}
+		return (printf("Error\nInvalid scene structure\n"), 0);
 	if (scene->camera.fov <= 0)
-	{
-		printf("Error\nMissing or invalid camera (C) in %s\n", 
-			filename ? filename : "unknown");
-		return (0);
-	}
+		return (printf("Error\nMissing or invalid camera (C)\n"), 0); 
 	if (scene->ambient_ratio < 0)
-	{
-		printf("Error\nMissing or invalid ambient lighting (A) in %s\n", 
-			filename ? filename : "unknown");
-		return (0);
-	}
+		return (printf("Error\nMissing or invalid ambient lighting (A)\n"), 0);
 	if (!scene->lights)
-	{
-		printf("Error\nMissing light source (L) in %s\n", 
-			filename ? filename : "unknown");
-		return (0);
-	}
+		return (printf("Error\nMissing light source (L)\n"), 0);
 	if (!scene->objects)
-	{
-		printf("Error\nNo objects found in %s\n", 
-			filename ? filename : "unknown");
-		return (0);
-	}
+		return (printf("Error\nNo objects found\n"), 0);
 	return (1);
 }
 
@@ -222,5 +206,5 @@ int	parse_scene(char *filename, t_scene *scene)
 		line = read_file_line(fd);
 	}
 	close(fd);
-	return (validate_scene_with_filename(scene, filename));
+	return (validate_scene_with_filename(scene));
 }

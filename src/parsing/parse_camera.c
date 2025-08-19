@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 14:46:21 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 09:06:21 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	parse_camera(char *line, t_scene *scene)
 	fov_str = get_next_token(&line);
 	if (!position_str || !direction_str || !fov_str)
 		return (0);
-	if (!parse_vec3(position_str, &scene->camera.position) ||
-		!parse_vec3(direction_str, &scene->camera.direction) ||
-		!parse_double(fov_str, &scene->camera.fov))
+	if (!parse_vec3(position_str, &scene->camera.position) || !parse_vec3(\
+				direction_str, &scene->camera.direction) || !parse_double(\
+					fov_str, &scene->camera.fov))
 		return (free(position_str), free(direction_str), free(fov_str), 0);
 	if (scene->camera.fov <= 0 || scene->camera.fov >= 180)
 		return (free(position_str), free(direction_str), free(fov_str), 0);
@@ -66,8 +66,7 @@ int	parse_ambient(char *line, t_scene *scene)
 	color_str = get_next_token(&line);
 	if (!ratio_str || !color_str)
 		return (0);
-	if (!parse_double(ratio_str, &ratio) ||
-		!parse_color(color_str, &color))
+	if (!parse_double(ratio_str, &ratio) || !parse_color(color_str, &color))
 		return (free(ratio_str), free(color_str), 0);
 	if (ratio < 0.0 || ratio > 1.0)
 		return (free(ratio_str), free(color_str), 0);
