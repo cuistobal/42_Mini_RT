@@ -21,6 +21,7 @@
 # include <string.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdbool.h>
 # include "../minilibx-linux/mlx.h"
 # include <pthread.h>
 

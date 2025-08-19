@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bvh_intersections.c                                :+:      :+:    :+:   */
+/*   old_intersection.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:29:02 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 10:05:23 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 07:30:02 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,22 @@
 */
 int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 {
-	t_bvh_node *stack[BVH_STACK_SIZE];
-	int stack_ptr = 0;
-	t_hit temp_hit;
-	int found = 0;
-	double closest_t = INFINITY;
+	t_hit			temp_hit;
+	double			closest_t;
+	int				(found), stack_ptr;
+	t_bvh_node		(*stack[BVH_STACK_SIZE]), *node;
+	t_aabb_query	query;
 
+	found = 0;
+	stack_ptr = 0;
+	closest_t = INFINITY;
 	if (!root || !hit)
 		return 0;
 	stack[stack_ptr++] = root;
 	while (stack_ptr > 0)
 	{
-		t_bvh_node *node = stack[--stack_ptr];
-		t_aabb_query query = {ray.origin, ray.direction, node->bounds, -INFINITY, INFINITY};
+		node = stack[--stack_ptr];
+		query = {ray.origin, ray.direction, node->bounds, -INFINITY, INFINITY};
 		if (!intersect_aabb_query(&query))
 			continue;
 		if (node->objects && case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)

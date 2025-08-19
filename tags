@@ -434,7 +434,6 @@ color	includes/minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	t
 color	includes/minirt.h	/^	t_color			color;$/;"	m	struct:s_light	typeref:typename:t_color
 color	includes/minirt.h	/^	t_color	color;$/;"	m	struct:s_material	typeref:typename:t_color
 color	minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
-color	scenes/gen.py	/^        color = f255,{80 + int(40*math.sin(t))},20\\$/;"	v
 color_add	src/utils/colors1.c	/^t_color	color_add(t_color a, t_color b)$/;"	f	typeref:typename:t_color
 color_blend	src/utils/colors1.c	/^t_color	color_blend(t_color a, t_color b, double ratio)$/;"	f	typeref:typename:t_color
 color_clamp	src/utils/colors1.c	/^t_color	color_clamp(t_color color)$/;"	f	typeref:typename:t_color
@@ -846,7 +845,6 @@ mouse_win3	minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"
 move_camera	src/utils/camera.c	/^void	move_camera(t_camera *camera, t_vec3 direction, double distance)$/;"	f	typeref:typename:void
 move_speed	includes/minirt.h	/^	double	move_speed;$/;"	m	struct:s_camera	typeref:typename:double
 mutexQueue	includes/minirt.h	/^	pthread_mutex_t mutexQueue;$/;"	m	struct:s_threadArgs	typeref:typename:pthread_mutex_t
-n_body	scenes/gen.py	/^    n_body = 1200$/;"	v
 name	includes/minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
 name	includes/minilibx-linux/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
 name	minilibx-linux/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
@@ -911,7 +909,6 @@ pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	t
 put_pixel	src/graphics/image.c	/^void	put_pixel(t_mlx *mlx, int x, int y, t_color color)$/;"	f	typeref:typename:void
 quicksort_objects	src/utils/quicksort.c	/^static void	quicksort_objects(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:void	file:
 r	includes/minirt.h	/^	int	r;$/;"	m	struct:s_color	typeref:typename:int
-r	scenes/gen.py	/^        r = 0.5 + 0.3 * math.sin(t + i\/50)$/;"	v
 radius	includes/minirt.h	/^	double			radius;$/;"	m	struct:s_object	typeref:typename:double
 radius_and_height_based_bounds	src/utils/objects_bounds.c	/^static inline void	radius_and_height_based_bounds(t_object *obj, \\$/;"	f	typeref:typename:void	file:
 radius_based_bounds	src/utils/objects_bounds.c	/^static inline void	radius_based_bounds(t_object *obj, \\$/;"	f	typeref:typename:void	file:
@@ -1031,7 +1028,6 @@ swap	src/utils/aabb_intersections.c	/^static inline void	swap(double *t0, double
 swap_objects	src/utils/quicksort.c	/^static void	swap_objects(t_object **a, t_object **b)$/;"	f	typeref:typename:void	file:
 swap_values	src/math/cube_utils.c	/^void	swap_values(double *t1, double *t2)$/;"	f	typeref:typename:void
 t	includes/minirt.h	/^	double		t;$/;"	m	struct:s_hit	typeref:typename:double
-t	scenes/gen.py	/^        t = i \/ n_body * 6 * math.pi$/;"	v
 t1	includes/minirt.h	/^	double	t1;$/;"	m	struct:s_slab_intersections	typeref:typename:double
 t2	includes/minirt.h	/^	double	t2;$/;"	m	struct:s_slab_intersections	typeref:typename:double
 t_aabb	includes/minirt.h	/^}	t_aabb;$/;"	t	typeref:struct:s_aabb
@@ -1208,7 +1204,6 @@ wm_delete_window	minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struc
 wm_protocols	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
 wm_protocols	minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
 x	includes/minirt.h	/^	double	x;$/;"	m	struct:s_vec3	typeref:typename:double
-x	scenes/gen.py	/^        x = t * math.cos(t) * 0.7$/;"	v
 x	tests/test_cleanup_only.c	/^    double x;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 xend	includes/minirt.h	/^	int xend;$/;"	m	struct:s_intels	typeref:typename:int
 xpm1_x	includes/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
@@ -1217,12 +1212,10 @@ xpm1_y	includes/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:
 xpm1_y	minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
 xstart	includes/minirt.h	/^	int xstart;$/;"	m	struct:s_intels	typeref:typename:int
 y	includes/minirt.h	/^	double	y;$/;"	m	struct:s_vec3	typeref:typename:double
-y	scenes/gen.py	/^        y = t * math.sin(t) * 0.7$/;"	v
 y	tests/test_cleanup_only.c	/^    double y;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 yaw_epsilon_helper	src/utils/camera.c	/^static void	yaw_epsilon_helper(t_camera *camera, double yaw)$/;"	f	typeref:typename:void	file:
 yend	includes/minirt.h	/^	int yend;$/;"	m	struct:s_intels	typeref:typename:int
 ystart	includes/minirt.h	/^	int ystart;$/;"	m	struct:s_intels	typeref:typename:int
 z	includes/minirt.h	/^	double	z;$/;"	m	struct:s_vec3	typeref:typename:double
-z	scenes/gen.py	/^        z = 0.3 * math.sin(2 * t)$/;"	v
 z	tests/test_cleanup_only.c	/^    double z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 zoom_camera	src/graphics/misc.c	/^void	zoom_camera(t_camera *cam, double factor)$/;"	f	typeref:typename:void

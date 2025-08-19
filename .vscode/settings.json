@@ -3,6 +3,7 @@
         "minirt.h": "c",
         "utilities.h": "c",
         "math.h": "c",
-        "*.old": "c"
+        "*.old": "c",
+        "mlx.h": "c"
     }
 }
