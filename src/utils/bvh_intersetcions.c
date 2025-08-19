@@ -25,7 +25,7 @@ static inline void	handle_single_hit(int hit, t_bvh_node **stack, int *stack_ptr
 {
 	if (*stack_ptr >= BVH_STACK_SIZE)
 		return ;
-    if (hit & 16)
+    if (hit & 4)
         stack[(*stack_ptr)++] = node->left;
     else if (hit & 1)
         stack[(*stack_ptr)++] = node->right;
@@ -77,7 +77,7 @@ static void	handle_internal_node(
     if (hit_left && hit_right)
 		handle_multiple_hits(tmin_left < tmin_right, stack, stack_ptr, node);
 	else
-		handle_single_hit(hit_left << 4 | hit_right , stack, stack_ptr, node);
+		handle_single_hit(hit_left << 2 | hit_right , stack, stack_ptr, node);
 }
 
 //
