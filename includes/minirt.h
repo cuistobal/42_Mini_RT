@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 08:24:57 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 08:38:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -465,6 +465,7 @@ t_bvh_node	*build_bvh(t_scene *scene);
 t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
 t_aabb		get_object_bounds(t_object *object);
 t_aabb		aabb_union(t_aabb a, t_aabb b);
+void		setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds);
 double		aabb_surface(t_aabb a);
 int	find_sah_split(t_object **objects, int count, int *best_axis, \
 		int *best_index);

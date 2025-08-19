@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 08:56:16 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:57:03 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/19 08:38:08 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,16 @@ t_aabb	aabb_union(t_aabb a, t_aabb b)
 	result.max.y = fmax(a.max.y, b.max.y);
 	result.max.z = fmax(a.max.z, b.max.z);
 	return (result);
+}
+
+/*
+** Basic setter used in the bvh intersection function
+**/
+void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)
+{
+	query->origin = ray.origin;
+	query->dir = ray.direction;
+	query->box = bounds;
+	query->tmin = -INFINITY;
+	query->tmax = INFINITY;
 }
