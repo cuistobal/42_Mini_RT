@@ -38,6 +38,11 @@ static t_vec3	get_cube_normal(t_vec3 hit_point, t_object *cube)
 	return (vec3_new(0.0, 0.0, -1.0));
 }
 
+static inline t_vec3	get_triangle_normal(t_vec3 v0, t_vec3 v1, t_vec3 v2)
+{
+	return (vec3_normalize(vec3_cross(vec3_sub(v1, v0), vec3_sub(v2, v0))));
+}
+
 t_vec3	get_object_normal(t_vec3 hit_point, t_object *object)
 {
 	if (object->type == SPHERE)
@@ -50,11 +55,7 @@ t_vec3	get_object_normal(t_vec3 hit_point, t_object *object)
 		return (get_cone_normal(hit_point, object));
 	else if (object->type == CUBE)
 		return (get_cube_normal(hit_point, object));
-/*
 	else if (object->type == TRIANGLE)
-		return (vec3_normalize(vec3_cross(
-			vec3_sub(object->triangle[1], object->triangle[0]),
-			vec3_sub(object->triangle[2], object->triangle[0]))));
-*/
+		return (get_triangle_normal(object->position, object->normal, object->axis));
 	return (vec3_new(0, 1, 0));
 }

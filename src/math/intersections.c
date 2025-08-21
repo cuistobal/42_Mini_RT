@@ -51,9 +51,9 @@ static void	populate_hit_info(t_hit *hit, double closest_t,
 
 int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)
 {
-	t_object	*current;
 	double		t;
 	double		closest_t;
+	t_object	*current;
 	t_object	*closest_object;
 
 	closest_t = INFINITY;

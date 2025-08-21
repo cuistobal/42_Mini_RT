@@ -42,10 +42,6 @@ static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)
 	axis = 0;
 	split = 0;
 	
-	for (int i = 0; i < count; i++)
-		printf("%d ", objects[i]->uid);
-	printf("\n");
-	
 	find_sah_split(objects, count, &axis, &split);
 	sort_objects_axis(objects, count, axis);
 	node->left = build_bvh_recursive(objects, split);
@@ -77,14 +73,16 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	if (!node)
 		return (NULL);
 	i = 0;
-	bounds = get_object_bounds(objects[0]);
+	bounds = get_object_bounds(objects[i++]);
 	while (i < count)
-		bounds = aabb_union(bounds, get_object_bounds(objects[i++]));
+	{
+		bounds = aabb_union(bounds, get_object_bounds(objects[i]));
+		i++;
+	}
 	node->bounds = bounds;
 	if (count <= MAX_OBJECTS_PER_LEAF)
 		return (leaf_node_case(objects, node, count), node);
 	node->objects = NULL;
 	node->object_count = 0;
-	internal_node_case(objects, node, count);
-	return (node);
+	return (internal_node_case(objects, node, count), node);
 }

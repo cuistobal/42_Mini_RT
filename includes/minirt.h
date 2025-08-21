@@ -155,7 +155,6 @@ typedef struct s_object
 	t_vec3			position;
 	t_vec3			normal;
 	t_vec3			axis;
-	t_vec3			triangle[3];
 	double			radius;
 	double			height;
 	double			angle;
