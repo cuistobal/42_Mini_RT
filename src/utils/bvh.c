@@ -31,8 +31,6 @@ static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)
 	node->right = NULL;
 }
 
-t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
-
 /*
 **
 */
@@ -49,7 +47,7 @@ static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)
 	node->right = build_bvh_recursive(objects + split, count - split);
 }
 
-static void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)
+static inline void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)
 {
 	int	mid;
 

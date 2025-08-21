@@ -54,6 +54,7 @@ t_color	render_pixel_antialiased(t_minirt *rt, int x, int y)
 		total_r += sample_color.r;
 		total_g += sample_color.g;
 		total_b += sample_color.b;
+		sample++;
 	}
 	final_color.r = total_r >> 2;
 	final_color.g = total_g >> 2;

@@ -32,15 +32,14 @@ double	aabb_surface(t_aabb a)
 */
 t_aabb	aabb_union(t_aabb a, t_aabb b)
 {
-	t_aabb	result;
-
-	result.min.x = fmin(a.min.x, b.min.x);
-	result.min.y = fmin(a.min.y, b.min.y);
-	result.min.z = fmin(a.min.z, b.min.z);
-	result.max.x = fmax(a.max.x, b.max.x);
-	result.max.y = fmax(a.max.y, b.max.y);
-	result.max.z = fmax(a.max.z, b.max.z);
-	return (result);
+	return ((t_aabb){
+		.min.x = fmin(a.min.x, b.min.x),
+		.min.y = fmin(a.min.y, b.min.y),
+		.min.z = fmin(a.min.z, b.min.z),
+		.max.x = fmax(a.max.x, b.max.x),
+		.max.y = fmax(a.max.y, b.max.y),
+		.max.z = fmax(a.max.z, b.max.z)
+	});
 }
 
 /*
