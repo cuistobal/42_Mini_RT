@@ -28,6 +28,19 @@ static inline void	radius_and_height_based_bounds(t_object *obj, \
 	bounds->max = vec3_add(obj->position, vec3_new(*r, *r, *r));
 }
 
+static inline void	triangle_based_bounds(t_object *obj, \
+		t_aabb *bounds)
+{
+	double (minx) = fmin(obj->position.x, fmin(obj->normal.x, obj->axis.x));
+	double (miny) = fmin(obj->position.y, fmin(obj->normal.y, obj->axis.y));
+	double (minz) = fmin(obj->position.z, fmin(obj->normal.z, obj->axis.z));
+	double (maxx) = fmax(obj->position.x, fmax(obj->normal.x, obj->axis.x));
+	double (maxy) = fmax(obj->position.y, fmax(obj->normal.y, obj->axis.y));
+	double (maxz) = fmax(obj->position.z, fmax(obj->normal.z, obj->axis.z));
+	bounds->min = vec3_new(minx, miny, minz);
+	bounds->max = vec3_new(maxx, maxy, maxz);
+}
+
 /*
 ** BVH (Bounding Volume Hierarchy) implementation for spatial acceleration
 ** This significantly reduces intersection tests for complex scenes
@@ -55,6 +68,8 @@ t_aabb	get_object_bounds(t_object *obj)
 		bounds.min = vec3_new(-1000, -1000, -1000);
 		bounds.max = vec3_new(1000, 1000, 1000);
 	}
+	else if (obj->type == TRIANGLE)
+		triangle_based_bounds(obj, &bounds);
 	else
 	{
 		bounds.min = obj->position;

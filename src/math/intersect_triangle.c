@@ -30,7 +30,7 @@ static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, 
 }
 
 // Using the moller trumbore algorithm to define if the tested ray/point is a barycentric point
-double	intersect_triangle(t_object *triangle, t_ray ray)
+double	intersect_triangle(t_ray ray, t_object *triangle)
 {
 	t_vec3	edge1, edge2, h, s, q;
 	double	a, f, u, v, t;

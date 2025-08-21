@@ -24,6 +24,8 @@ static double	get_t(t_object *obj, t_ray ray)
 		return (intersect_cone(ray, obj));
 	else if (obj->type == CUBE)
 		return (intersect_cube(ray, obj));
+	else if (obj->type == TRIANGLE)
+		return (intersect_triangle(ray, obj));
 	return (-1.0);
 }
 
