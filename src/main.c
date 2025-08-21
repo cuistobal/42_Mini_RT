@@ -63,9 +63,9 @@ int	main(int argc, char **argv)
 	// temporary debug -> we need tor ework parsing to integrate uid
 	// within the object's creation.
 
-	t_object *current = rt.scene.objects;
+/* 	t_object *current = rt.scene.objects;
 	for (int i = 0; current; current = current->next, i++)
-		current->uid = i;
+		current->uid = i; */
 
 	rt.scene.bvh_root = build_bvh(&rt.scene);
 	if (init_mlx(&rt.mlx) != 0)

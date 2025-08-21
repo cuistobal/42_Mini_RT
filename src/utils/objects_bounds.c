@@ -31,12 +31,17 @@ static inline void	radius_and_height_based_bounds(t_object *obj, \
 static inline void	triangle_based_bounds(t_object *obj, \
 		t_aabb *bounds)
 {
-	double (minx) = fmin(obj->position.x, fmin(obj->normal.x, obj->axis.x));
-	double (miny) = fmin(obj->position.y, fmin(obj->normal.y, obj->axis.y));
-	double (minz) = fmin(obj->position.z, fmin(obj->normal.z, obj->axis.z));
-	double (maxx) = fmax(obj->position.x, fmax(obj->normal.x, obj->axis.x));
-	double (maxy) = fmax(obj->position.y, fmax(obj->normal.y, obj->axis.y));
-	double (maxz) = fmax(obj->position.z, fmax(obj->normal.z, obj->axis.z));
+	// Ajouter un petit epsilon pour éviter les triangles plats qui causent des problèmes
+	double epsilon = EPSILON * 10;
+	
+	// Calculer les min/max en utilisant les mêmes champs que dans intersect_triangle
+	double (minx) = fmin(obj->position.x, fmin(obj->normal.x, obj->axis.x)) - epsilon;
+	double (miny) = fmin(obj->position.y, fmin(obj->normal.y, obj->axis.y)) - epsilon;
+	double (minz) = fmin(obj->position.z, fmin(obj->normal.z, obj->axis.z)) - epsilon;
+	double (maxx) = fmax(obj->position.x, fmax(obj->normal.x, obj->axis.x)) + epsilon;
+	double (maxy) = fmax(obj->position.y, fmax(obj->normal.y, obj->axis.y)) + epsilon;
+	double (maxz) = fmax(obj->position.z, fmax(obj->normal.z, obj->axis.z)) + epsilon;
+	
 	bounds->min = vec3_new(minx, miny, minz);
 	bounds->max = vec3_new(maxx, maxy, maxz);
 }

@@ -16,19 +16,20 @@
 static inline void	handle_single_hit(int hit, t_bvh_node **stack, \
 		int *stack_ptr, t_bvh_node *node)
 {
-	int 		mask;
-	int 		r_idx;
-	t_bvh_node	*cands[2];
-
 	if (*stack_ptr >= BVH_STACK_SIZE)
 		return ;
-	mask = !!(hit & (4 | 1));
-	if (!mask)
-		return ;
-	r_idx = !!(hit & 1);
-	cands[0] = node->left;
-	cands[1] = node->right;
-	stack[(*stack_ptr)++] = cands[r_idx];
+	
+	// hit: bit 2 (4) = left hit, bit 0 (1) = right hit
+	if (hit & 4) // Si le nœud gauche est touché
+	{
+		if (node->left)
+			stack[(*stack_ptr)++] = node->left;
+	}
+	else if (hit & 1) // Si le nœud droit est touché
+	{
+		if (node->right)
+			stack[(*stack_ptr)++] = node->right;
+	}
 }
 
 static inline void	handle_multiple_hits(int condition, t_bvh_node **stack, \
@@ -100,14 +101,26 @@ int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 	int (found) = 0;
 	int (stack_ptr) = 0;
 	closest_t = INFINITY;
+	
+	// Vérification de validité du root
+	if (!root)
+		return (0);
+		
 	stack[stack_ptr++] = root;
 	while (stack_ptr > 0)
 	{
 		node = stack[--stack_ptr];
-		if (node->objects && case_leaf_node(node, &temp_hit, ray) \
-				&& temp_hit.t < closest_t)
-			update_closest_hit(hit, temp_hit, &closest_t, &found);
-		else
+		
+		// Toujours tester les objets dans un nœud s'il en contient
+		if (node->objects && node->object_count > 0)
+		{
+			if (case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
+				update_closest_hit(hit, temp_hit, &closest_t, &found);
+		}
+		
+		// Si le nœud a des enfants, toujours vérifier l'intersection 
+		// avec leurs bounding boxes, peu importe s'il s'agit aussi d'une feuille
+		if (node->left || node->right)
 			handle_internal_node(node, ray, stack, &stack_ptr);
 	}
 	return (found);

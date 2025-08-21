@@ -46,18 +46,37 @@ int	intersect_aabb_query(t_aabb_query *q)
 		bmn = ((double *)&q->box.min)[i];
 		bmx = ((double *)&q->box.max)[i++];
 		adr = fabs(dir);
-		if (adr < EPSILON && (org < bmn || org > bmx))
-			return (0);
-		else if (adr >= EPSILON)
+		
+		// Si le rayon est parallèle à l'axe (presque zéro dans cette dimension)
+		if (adr < EPSILON)
+		{
+			// Si le point d'origine est en dehors de la boîte, pas d'intersection
+			if (org < bmn - EPSILON || org > bmx + EPSILON)
+				return (0);
+			// Sinon continuer avec les autres axes
+		}
+		else
 		{
 			invD = 1.0 / dir;
 			t0 = (bmn - org) * invD;
 			t1 = (bmx - org) * invD;
 			if (invD < 0.0)
 				swap(&t0, &t1);
-			if (helper(&tmn, &tmx, t0, t1))
+				
+			// Mettre à jour tmn et tmx
+			tmn = fmax(tmn, t0);
+			tmx = fmin(tmx, t1);
+			
+			// Vérifier si le rayon manque la boîte
+			if (tmn > tmx || tmx < 0)
 				return (0);
 		}
 	}
-	return (q->tmin = tmn, q->tmax = tmx, tmx > EPSILON);
+	
+	// Mettre à jour les valeurs tmin et tmax
+	q->tmin = tmn;
+	q->tmax = tmx;
+	
+	// Retourner 1 si l'intersection est valide (devant le rayon)
+	return (tmx > 0);
 }
