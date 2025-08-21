@@ -615,7 +615,6 @@ intersect_cone	src/math/intersect_cone.c	/^double	intersect_cone(t_ray ray, t_ob
 intersect_cube	src/math/intersect_cube.c	/^double	intersect_cube(t_ray ray, t_object *cube)$/;"	f	typeref:typename:double
 intersect_cylinder	src/math/intersect_cylinder.c	/^double	intersect_cylinder(t_ray ray, t_object *cylinder)$/;"	f	typeref:typename:double
 intersect_plane	src/math/intersect_plane.c	/^double	intersect_plane(t_ray ray, t_object *plane)$/;"	f	typeref:typename:double
-intersect_scene	src/math/intersections.c	/^int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_scene_linear	src/math/intersections.c	/^int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_sphere	src/math/intersect_sphere.c	/^double	intersect_sphere(t_ray ray, t_object *sphere)$/;"	f	typeref:typename:double
 intersect_triangle	src/math/intersect_triangle.c	/^double	intersect_triangle(t_ray ray, t_object *triangle)$/;"	f	typeref:typename:double

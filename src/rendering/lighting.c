@@ -21,9 +21,12 @@
 static t_color	calculate_ambient_lighting(t_scene *scene, t_material *material)
 {
 	   return ((t_color){
-			   (int)((scene->ambient.r * scene->ambient_ratio * material->color.r) / 255.0),
-			   (int)((scene->ambient.g * scene->ambient_ratio * material->color.g) / 255.0),
-			   (int)((scene->ambient.b * scene->ambient_ratio * material->color.b) / 255.0)
+			   (int)((scene->ambient.r * scene->ambient_ratio * \
+                    material->color.r) / 255.0),
+			   (int)((scene->ambient.g * scene->ambient_ratio * \
+                    material->color.g) / 255.0),
+			   (int)((scene->ambient.b * scene->ambient_ratio * \
+                    material->color.b) / 255.0)
 	   });
 }
 
@@ -35,7 +38,8 @@ static t_color	calculate_ambient_lighting(t_scene *scene, t_material *material)
 ** material: Material properties of the surface
 ** Returns: Diffuse color contribution from all lights
 */
-static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_material *material)
+/* static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
+    t_scene *scene, t_material *material)
 {
     double	intensity;
     double	dot_product;
@@ -66,6 +70,42 @@ static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, t_scene *
         current_light = current_light->next;
     }
     return (total_diffuse);
+} */
+
+static inline t_color   append_diffuse(t_color total_diffuse, \
+    t_material *material, t_light *light, double intensity)
+{
+    return ((t_color)color_add(total_diffuse, (t_color){
+        (int)((material->color.r * light->color.r * intensity) / 255.0),
+        (int)((material->color.g * light->color.g * intensity) / 255.0),
+        (int)((material->color.b * light->color.b * intensity) / 255.0)
+    }));
+}
+
+static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
+    t_scene *scene, t_material *material)
+{
+    double	(intensity), (dot_product), (light_distance);
+    t_color	(total_diffuse);
+    t_light	(*current_light);
+    t_vec3	(to_light);
+    t_vec3	(dir_to_light);
+    total_diffuse = color_new(0, 0, 0);
+    current_light = scene->lights;
+    while (current_light)
+    {
+        to_light = vec3_sub(current_light->position, point);
+        dir_to_light = vec3_normalize(to_light);
+        light_distance = vec3_length(to_light);
+        dot_product = vec3_dot(normal, dir_to_light);
+        if (dot_product > 0.0 && !is_in_shadow_with_dir(point, dir_to_light, light_distance, scene))
+        {
+            intensity = dot_product * current_light->intensity;
+            total_diffuse = append_diffuse(total_diffuse, material, current_light, intensity);
+        }
+        current_light = current_light->next;
+    }
+    return (total_diffuse);
 }
 
 /*
@@ -78,14 +118,8 @@ static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, t_scene *
 */
 t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_material *material)
 {
-	t_color	ambient_color;
-	t_color	diffuse_color;
-	
-	if (!scene || !material)
-		return (color_new(0, 0, 0));
-	ambient_color = calculate_ambient_lighting(scene, material);
-	diffuse_color = calculate_diffuse_lighting(point, normal, scene, material);
-	return (color_add(ambient_color, diffuse_color));
+	return (color_add(calculate_ambient_lighting(scene, material), \
+        calculate_diffuse_lighting(point, normal, scene, material)));
 }
 
 /*
@@ -104,5 +138,5 @@ int	is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distan
     shadow_origin = vec3_add(point, vec3_mult(dir_to_light, EPSILON));
     shadow_ray = ray_new(shadow_origin, dir_to_light);
     return (intersect_bvh_iter(shadow_ray, scene->bvh_root, &shadow_hit) && \
-    (shadow_hit.t < light_distance - EPSILON));
+        (shadow_hit.t < light_distance - EPSILON));
 }
