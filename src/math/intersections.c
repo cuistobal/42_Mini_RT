@@ -56,10 +56,6 @@ int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)
 	double		closest_t;
 	t_object	*closest_object;
 
-	/*
-	if (!scene || !hit)
-		return (0);
-	*/
 	closest_t = INFINITY;
 	closest_object = NULL;
 	current = scene->objects;

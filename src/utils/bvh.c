@@ -41,12 +41,17 @@ static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)
 
 	axis = 0;
 	split = 0;
+	
+	for (int i = 0; i < count; i++)
+		printf("%d ", objects[i]->uid);
+	printf("\n");
+	
 	find_sah_split(objects, count, &axis, &split);
 	sort_objects_axis(objects, count, axis);
 	node->left = build_bvh_recursive(objects, split);
 	node->right = build_bvh_recursive(objects + split, count - split);
 }
-
+/* 
 static inline void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)
 {
 	int	mid;
@@ -55,7 +60,7 @@ static inline void	terminal_node_case(t_object **objects, t_bvh_node *node, int 
 	node->left = build_bvh_recursive(objects, mid);
 	node->right = build_bvh_recursive(objects + mid, count - mid);
 }
-
+ */
 /*
 ** build_bvh_recursive - Recursively build BVH tree
 ** i was previously set to 1, count was previously set to 2
@@ -80,9 +85,6 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 		return (leaf_node_case(objects, node, count), node);
 	node->objects = NULL;
 	node->object_count = 0;
-	if (count > MAX_OBJECTS_PER_LEAF)
-		internal_node_case(objects, node, count);
-	else
-		terminal_node_case(objects, node, count);
+	internal_node_case(objects, node, count);
 	return (node);
 }

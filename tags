@@ -355,6 +355,7 @@ ambient	includes/minirt.h	/^	t_color		ambient;$/;"	m	struct:s_scene	typeref:type
 ambient_ratio	includes/minirt.h	/^	double		ambient_ratio;$/;"	m	struct:s_scene	typeref:typename:double
 analyze	Makefile	/^analyze:$/;"	t
 angle	includes/minirt.h	/^	double			angle;$/;"	m	struct:s_object	typeref:typename:double
+append_diffuse	src/rendering/lighting.c	/^static inline t_color   append_diffuse(t_color total_diffuse, \\$/;"	f	typeref:typename:t_color	file:
 append_intersected_node	src/utils/bvh_intersections_internal_node.c	/^static double	append_intersected_node(t_bvh_node *node, \\$/;"	f	typeref:typename:double	file:
 append_intersection_results	src/utils/bvh_intersections_leaf_node.c	/^static t_hit	append_intersection_results(t_object *obj, t_ray ray, double t)$/;"	f	typeref:typename:t_hit	file:
 args	includes/minirt.h	/^	t_threadArgs	args;$/;"	m	struct:s_minirt	typeref:typename:t_threadArgs
@@ -389,7 +390,7 @@ calculate_ambient_lighting	src/rendering/lighting.c	/^static t_color	calculate_a
 calculate_background_color	src/rendering/raytracer_utils.c	/^t_color	calculate_background_color(t_ray ray)$/;"	f	typeref:typename:t_color
 calculate_cone_coefficients	src/math/intersect_cone.c	/^static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)$/;"	f	typeref:typename:t_cone_params	file:
 calculate_cylinder_params	src/math/intersect_cylinder.c	/^static t_cylinder_params	calculate_cylinder_params(t_ray ray,$/;"	f	typeref:typename:t_cylinder_params	file:
-calculate_diffuse_lighting	src/rendering/lighting.c	/^static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_materia/;"	f	typeref:typename:t_color	file:
+calculate_diffuse_lighting	src/rendering/lighting.c	/^static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \\$/;"	f	typeref:typename:t_color	file:
 calculate_fresnel	src/rendering/reflections.c	/^static double	calculate_fresnel(double cos_i, double n1, double n2)$/;"	f	typeref:typename:double	file:
 calculate_hit_color	src/rendering/raycast_optimized.c	/^t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)$/;"	f	typeref:typename:t_color
 calculate_lighting	src/rendering/lighting.c	/^t_color	calculate_lighting(t_vec3 point, t_vec3 normal, t_scene *scene, t_material *material)$/;"	f	typeref:typename:t_color
@@ -1005,6 +1006,7 @@ set_edge_vectors	src/math/intersect_triangle.c	/^static inline void	set_edge_vec
 setup_aabb_query	src/utils/aabb_utils.c	/^void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)$/;"	f	typeref:typename:void
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
 setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
+setup_int_variables	src/rendering/antialiasing.c	/^static inline void setup_int_variables(int *sample, int *total_r, int *total_g, int *total_b)$/;"	f	typeref:typename:void	file:
 shm	includes/minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm	minilibx-linux/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
 shm_att_pb	includes/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
@@ -1082,7 +1084,6 @@ t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:stru
 t_xpm_col	minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
 t_xvar	minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
-terminal_node_case	src/utils/bvh.c	/^static void	terminal_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 test_all_object_types	tests/test_integration.c	/^void	test_all_object_types(void)$/;"	f	typeref:typename:void
 test_camera_fov_effects	tests/test_camera_ray.c	/^void	test_camera_fov_effects(void)$/;"	f	typeref:typename:void
 test_camera_vectors	tests/test_vector_raytracing.c	/^void	test_camera_vectors(void)$/;"	f	typeref:typename:void
@@ -1158,6 +1159,7 @@ triangle_based_bounds	src/utils/objects_bounds.c	/^static inline void	triangle_b
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
 type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
 type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
+uid	includes/minirt.h	/^	int				uid;$/;"	m	struct:s_object	typeref:typename:int
 up	includes/minirt.h	/^	t_vec3	up;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 update_camera_vectors	src/utils/camera.c	/^void	update_camera_vectors(t_camera *camera)$/;"	f	typeref:typename:void
 update_closest_hit	src/math/intersections.c	/^static void	update_closest_hit(double t, t_object *current,$/;"	f	typeref:typename:void	file:

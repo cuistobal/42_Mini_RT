@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 09:01:57 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/21 14:01:59 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef enum e_keyaction {
 # endif
 
 # ifndef MAX_DEPTH
-#  define MAX_DEPTH 3
+#  define MAX_DEPTH 5
 # endif
 
 /* Error codes */
@@ -150,6 +150,7 @@ typedef struct s_light
 /* Geometric object structure */
 typedef struct s_object
 {
+	int				uid;
 	int				type;
 	t_vec3			position;
 	t_vec3			normal;

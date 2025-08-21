@@ -163,8 +163,8 @@ void	*render_all_pixels(void *arg)
 */
 void	render_scene(t_minirt *rt)
 {
-	int			i;
-	pthread_t	threads[NUM_THREAD];
+	int				i;
+	pthread_t		threads[NUM_THREAD];
 
 	i = 0;
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
@@ -176,8 +176,8 @@ void	render_scene(t_minirt *rt)
 	pthread_mutex_init(&(rt->args.mutexQueue), NULL);
 	while(i < NUM_THREAD)
 	{
-		if (pthread_create(&threads[i], NULL, render_all_pixels, rt) != 0)
-			perror("Error : Thread creation failde");
+		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))
+			perror("Error : Thread creation failed");
 		i++;
 	}
 	create_directive(rt);

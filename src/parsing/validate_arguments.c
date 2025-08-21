@@ -57,10 +57,6 @@ int	validate_arguments(int argc, char **argv)
 		printf("Error\nEmpty filename provided\n");
 		return (0);
 	}
-	if (!validate_file_extension(argv[1]))
-		return (0);
-	if (!validate_file_access(argv[1]))
-		return (0);
-	return (1);
+	return (validate_file_extension(argv[1]) && \
+		validate_file_access(argv[1]));
 }
-

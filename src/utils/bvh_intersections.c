@@ -12,15 +12,23 @@
 
 #include "../../includes/minirt.h"
 
+/* 0 => left, 1 => right */
 static inline void	handle_single_hit(int hit, t_bvh_node **stack, \
 		int *stack_ptr, t_bvh_node *node)
 {
+	int 		mask;
+	int 		r_idx;
+	t_bvh_node	*cands[2];
+
 	if (*stack_ptr >= BVH_STACK_SIZE)
 		return ;
-	if (hit & 4)
-		stack[(*stack_ptr)++] = node->left;
-	else if (hit & 1)
-		stack[(*stack_ptr)++] = node->right;
+	mask = !!(hit & (4 | 1));
+	if (!mask)
+		return ;
+	r_idx = !!(hit & 1);
+	cands[0] = node->left;
+	cands[1] = node->right;
+	stack[(*stack_ptr)++] = cands[r_idx];
 }
 
 static inline void	handle_multiple_hits(int condition, t_bvh_node **stack, \
@@ -85,22 +93,17 @@ static inline void	update_closest_hit(t_hit *hit, t_hit temp_hit, \
 */
 int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 {
-	t_aabb_query (query);
 	t_hit (temp_hit);
 	double (closest_t);
-	int (found), (stack_ptr);
 	t_bvh_node (*node);
 	t_bvh_node (*stack[BVH_STACK_SIZE]);
-	found = 0;
-	stack_ptr = 0;
+	int (found) = 0;
+	int (stack_ptr) = 0;
 	closest_t = INFINITY;
 	stack[stack_ptr++] = root;
 	while (stack_ptr > 0)
 	{
 		node = stack[--stack_ptr];
-		setup_aabb_query(&query, ray, node->bounds);
-		if (!intersect_aabb_query(&query))
-			continue ;
 		if (node->objects && case_leaf_node(node, &temp_hit, ray) \
 				&& temp_hit.t < closest_t)
 			update_closest_hit(hit, temp_hit, &closest_t, &found);

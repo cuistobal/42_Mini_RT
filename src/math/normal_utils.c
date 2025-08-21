@@ -14,8 +14,8 @@
 
 static t_vec3	get_cube_normal(t_vec3 hit_point, t_object *cube)
 {
-	t_vec3	center_to_hit;
 	t_vec3	abs_diff;
+	t_vec3	center_to_hit;
 
 	center_to_hit = vec3_sub(hit_point, cube->position);
 	abs_diff.x = fabs(center_to_hit.x);
@@ -50,5 +50,11 @@ t_vec3	get_object_normal(t_vec3 hit_point, t_object *object)
 		return (get_cone_normal(hit_point, object));
 	else if (object->type == CUBE)
 		return (get_cube_normal(hit_point, object));
+/*
+	else if (object->type == TRIANGLE)
+		return (vec3_normalize(vec3_cross(
+			vec3_sub(object->triangle[1], object->triangle[0]),
+			vec3_sub(object->triangle[2], object->triangle[0]))));
+*/
 	return (vec3_new(0, 1, 0));
 }

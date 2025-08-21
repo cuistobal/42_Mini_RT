@@ -14,11 +14,8 @@
 
 static double	get_axis_value(t_object *obj, int axis)
 {
-	if (axis == 0)
-		return (obj->position.x);
-	else if (axis == 1)
-		return (obj->position.y);
-	return (obj->position.z);
+	return (obj->position.x * (!!(axis & 1)) + obj->position.y * \
+		(!!(axis & 2)) + obj->position.z * (!!(axis & 4)));
 }
 
 static void	swap_objects(t_object **a, t_object **b)
@@ -69,6 +66,10 @@ static void	quicksort_objects(t_object **arr, int low, int high, int axis)
 */
 void	sort_objects_axis(t_object **objects, int count, int axis)
 {
-	if (count > 1)
-		quicksort_objects(objects, 0, count - 1, axis);
+	int mask;
+
+	if (count <= 1)
+		return ;
+	mask = (1 << axis);
+	quicksort_objects(objects, 0, count - 1, mask);
 }

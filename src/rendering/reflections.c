@@ -27,24 +27,14 @@ t_color	calculate_reflection(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	t_color	final_color;
 	double	reflection_intensity;
 
-	// Check if we should calculate reflections
 	if (!hit || !hit->material || !scene || depth <= 0)
 		return (color_new(0, 0, 0));
-	
-	// Get reflection intensity from material
 	reflection_intensity = hit->material->reflection;
 	if (reflection_intensity <= 0.0)
 		return (color_new(0, 0, 0));
-	
-	// Generate reflected ray
 	reflected_ray = ray_reflect(ray, hit->point, hit->normal);
-	
-	// Recursively trace the reflected ray
 	reflection_color = raycast(reflected_ray, scene, depth - 1);
-	
-	// Apply reflection intensity
 	final_color = color_mult(reflection_color, reflection_intensity);
-	
 	return (final_color);
 }
 
@@ -125,7 +115,6 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	t_vec3	refracted_dir;
 	t_ray	refracted_ray;
 	t_color	refraction_color;
-	t_color	final_color;
 	double	transparency;
 	double	n1;
 	double	n2;
@@ -133,38 +122,20 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	double	fresnel;
 	t_vec3	hit_offset;
 
-	// Check if we should calculate refraction
 	if (!hit || !hit->material || !scene || depth <= 0)
 		return (color_new(0, 0, 0));
-	
 	transparency = hit->material->transparency;
 	if (transparency <= 0.0)
 		return (color_new(0, 0, 0));
-	
-	// Set refractive indices (air = 1.0, material = refraction_index)
-	n1 = 1.0; // Air
+	n1 = 1.0;
 	n2 = hit->material->refraction_index;
 	cos_i = -vec3_dot(ray.direction, hit->normal);
-	
-	// Calculate refracted ray direction using Snell's law
 	refracted_dir = calculate_refraction_ray(ray.direction, hit->normal, n1, n2);
-	
-	// Check for total internal reflection
 	if (vec3_length(refracted_dir) < EPSILON)
 		return (color_new(0, 0, 0));
-	
-	// Create refracted ray slightly offset from surface
 	hit_offset = vec3_add(hit->point, vec3_mult(refracted_dir, EPSILON));
 	refracted_ray = ray_new(hit_offset, refracted_dir);
-	
-	// Recursively trace the refracted ray
 	refraction_color = raycast(refracted_ray, scene, depth - 1);
-	
-	// Calculate Fresnel effect
 	fresnel = calculate_fresnel(fabs(cos_i), n1, n2);
-	
-	// Apply transparency and Fresnel effect
-	final_color = color_mult(refraction_color, transparency * (1.0 - fresnel));
-	
-	return (final_color);
+	return (color_mult(refraction_color, transparency * (1.0 - fresnel)));
 }

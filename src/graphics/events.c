@@ -34,17 +34,15 @@
 int	handle_mouse(int keycode, int x, int y, void *param)
 {
 	t_minirt	*rt;
+	double		factor;
 
 	(void) x;
 	(void) y;
 	rt = (t_minirt *)param;
 	if (!rt)
 		return (1);
-	if (keycode == 4)
-		zoom_camera(&rt->scene.camera, -10);
-	else if (keycode == 5)
-		zoom_camera(&rt->scene.camera, 10);
-	return (render_scene(rt), 0);
+	factor = ((keycode == 5) - (keycode == 4)) * 10.0;
+	return (zoom_camera(&rt->scene.camera, factor), render_scene(rt), 0);
 }
 
 /*
@@ -64,10 +62,11 @@ int	handle_close(t_minirt *rt)
 int	handle_keypress(int keycode, t_minirt *rt)
 {
 	int	idx;
+	int valid;
 
 	idx = keycode_to_action(keycode);
-	if (idx >= 0 && idx < KEY_ACTION_COUNT)
-		rt->keys[idx] = 1;
+	valid = (unsigned)idx < (unsigned)KEY_ACTION_COUNT;
+	valid && (rt->keys[idx] = 1);
 	if (keycode == KEY_ESC)
 		return (exit_success(rt), 1);
 	return (0);

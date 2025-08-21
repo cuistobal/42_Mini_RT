@@ -152,10 +152,10 @@ static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *sc
 */
 static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 {
+	int		res;
+	char	*rest;
 	char	*trimmed;
 	char	*identifier;
-	char	*rest;
-	int		result;
 
 	if (!line || !scene)
 		return (0);
@@ -165,12 +165,11 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	rest = trimmed;
 	identifier = get_next_token(&rest);
 	if (!identifier)
-		return (printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", filename, line_num), 0); 
-	result = parse_element_by_identifier(identifier, rest, scene);
-	if (!result)
+		return (printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", filename, line_num), 0);
+	res = parse_element_by_identifier(identifier, rest, scene);
+	if (!res)
 		printf("Error\nInvalid %s element in %s at line %d: %s\n", identifier, filename, line_num, line);
-	safe_free((void **)&identifier);
-	return (result);
+	return (safe_free((void **)&identifier), res);
 }
 
 /*

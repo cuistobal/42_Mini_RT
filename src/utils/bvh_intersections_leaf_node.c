@@ -56,7 +56,6 @@ int	case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)
 	i = 0;
 	found = 0;
 	closest_t = INFINITY;
-	found = 0;
 	while (i < node->object_count)
 	{
 		t = get_t(node->objects[i], ray);
