@@ -62,8 +62,8 @@ void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 	t_ray	ray;
 	t_color	pixel_color;
 
-	u = (double)x * inv_width; // bit shifting
-	v = (double)y * inv_height; // bit shifting
+	u = (double)x * inv_width;
+	v = (double)y * inv_height;
 	ray = get_camera_ray(rt, &rt->scene.camera, u, v);
 	pixel_color = color_clamp(raycast(ray, &rt->scene, MAX_DEPTH));
 	put_pixel(&rt->mlx, x, y, pixel_color);
