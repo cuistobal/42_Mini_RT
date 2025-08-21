@@ -21,13 +21,11 @@ static inline void	swap(double *t0, double *t1)
 	*t1 = tmp;
 }
 
-static int	helper(double *tmin, double *tmax, double t0, double t1)
+static inline int	helper(double *tmin, double *tmax, double t0, double t1)
 {
-	if (t0 > *tmin)
-		*tmin = t0;
-	if (t1 < *tmax)
-		*tmax = t1;
-	return (*tmin > *tmax);
+	*tmin = fmax(*tmin, t0);
+	*tmax = fmin(*tmax, t1);
+	return ((int)(*tmin > *tmax));
 }
 
 /*
@@ -38,28 +36,28 @@ static int	helper(double *tmin, double *tmax, double t0, double t1)
 int	intersect_aabb_query(t_aabb_query *q)
 {
 	int (i) = 0;
-	double (tmin), (tmax), (t0), (t1), (invD), (orig), (dir), (bmin), (bmax);
-	tmax = INFINITY;
-	tmin = -INFINITY;
+	double (tmn), (tmx), (t0), (t1), (invD), (org), (dir), (bmn), (bmx), (adr);
+	tmx = INFINITY;
+	tmn = -INFINITY;
 	while (i < 3)
 	{
 		dir = ((double *)&q->dir)[i];
-		orig = ((double *)&q->origin)[i];
-		bmin = ((double *)&q->box.min)[i];
-		bmax = ((double *)&q->box.max)[i];
-		if (fabs(dir) < EPSILON && (orig < bmin || orig > bmax))
+		org = ((double *)&q->origin)[i];
+		bmn = ((double *)&q->box.min)[i];
+		bmx = ((double *)&q->box.max)[i++];
+		adr = fabs(dir);
+		if (adr < EPSILON && (org < bmn || org > bmx))
 			return (0);
-		else if (fabs(dir) >= EPSILON)
+		else if (adr >= EPSILON)
 		{
 			invD = 1.0 / dir;
-			t0 = (bmin - orig) * invD;
-			t1 = (bmax - orig) * invD;
+			t0 = (bmn - org) * invD;
+			t1 = (bmx - org) * invD;
 			if (invD < 0.0)
 				swap(&t0, &t1);
-			if (helper(&tmin, &tmax, t0, t1))
+			if (helper(&tmn, &tmx, t0, t1))
 				return (0);
 		}
-		i++;
 	}
-	return (q->tmin = tmin, q->tmax = tmax, tmax > EPSILON);
+	return (q->tmin = tmn, q->tmax = tmx, tmx > EPSILON);
 }

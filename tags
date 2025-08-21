@@ -357,7 +357,6 @@ analyze	Makefile	/^analyze:$/;"	t
 angle	includes/minirt.h	/^	double			angle;$/;"	m	struct:s_object	typeref:typename:double
 append_intersected_node	src/utils/bvh_intersections_internal_node.c	/^static double	append_intersected_node(t_bvh_node *node, \\$/;"	f	typeref:typename:double	file:
 append_intersection_results	src/utils/bvh_intersections_leaf_node.c	/^static t_hit	append_intersection_results(t_object *obj, t_ray ray, double t)$/;"	f	typeref:typename:t_hit	file:
-append_stack	src/utils/.mods_bvh_intersections.c	/^static inline void	append_stack(t_bvh_node *node, t_bvh_node stack[], int hit)$/;"	f	typeref:typename:void	file:
 args	includes/minirt.h	/^	t_threadArgs	args;$/;"	m	struct:s_minirt	typeref:typename:t_threadArgs
 at_exit	includes/minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
 at_exit	minilibx-linux/test/run_tests.sh	/^at_exit() {$/;"	f
@@ -513,7 +512,6 @@ endian4	minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
 error_exit	src/utils/error1.c	/^void	error_exit(char *message, t_minirt *rt)$/;"	f	typeref:typename:void
 execute_rendering	src/rendering/raytracer.c	/^static void execute_rendering(t_intels* task)$/;"	f	typeref:typename:void	file:
 exit_success	src/utils/error1.c	/^void	exit_success(t_minirt *rt)$/;"	f	typeref:typename:void
-explore	src/utils/.mods_bvh_intersections.c	/^static int	explore(t_bvh_node *node, t_ray ray)$/;"	f	typeref:typename:int	file:
 expose_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_hook	minilibx-linux/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 expose_param	includes/minilibx-linux/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
@@ -582,8 +580,7 @@ height	includes/minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	ty
 height	includes/minirt.h	/^	double			height;$/;"	m	struct:s_object	typeref:typename:double
 height	includes/minirt.h	/^	int		height;$/;"	m	struct:s_mlx	typeref:typename:int
 height	minilibx-linux/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
-helper	src/utils/aabb_intersections.c	/^static int	helper(double *tmin, double *tmax, double t0, double t1)$/;"	f	typeref:typename:int	file:
-hit_was_found	src/utils/.mods_bvh_intersections.c	/^static inline void	hit_was_found(t_hit *hit, t_hit temp_hit, \\$/;"	f	typeref:typename:void	file:
+helper	src/utils/aabb_intersections.c	/^static inline int	helper(double *tmin, double *tmax, double t0, double t1)$/;"	f	typeref:typename:int	file:
 hook	includes/minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hook	minilibx-linux/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	includes/minilibx-linux/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
@@ -613,8 +610,6 @@ int_to_color	src/graphics/image.c	/^t_color	int_to_color(int color_int)$/;"	f	ty
 intensity	includes/minirt.h	/^	double			intensity;$/;"	m	struct:s_light	typeref:typename:double
 internal_node_case	src/utils/bvh.c	/^static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 intersect_aabb_query	src/utils/aabb_intersections.c	/^int	intersect_aabb_query(t_aabb_query *q)$/;"	f	typeref:typename:int
-intersect_bvh_iter	old_intersection.c	/^int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
-intersect_bvh_iter	src/utils/.mods_bvh_intersections.c	/^int intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_bvh_iter	src/utils/bvh_intersections.c	/^int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_cone	src/math/intersect_cone.c	/^double	intersect_cone(t_ray ray, t_object *cone)$/;"	f	typeref:typename:double
 intersect_cube	src/math/intersect_cube.c	/^double	intersect_cube(t_ray ray, t_object *cube)$/;"	f	typeref:typename:double
@@ -623,7 +618,7 @@ intersect_plane	src/math/intersect_plane.c	/^double	intersect_plane(t_ray ray, t
 intersect_scene	src/math/intersections.c	/^int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_scene_linear	src/math/intersections.c	/^int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)$/;"	f	typeref:typename:int
 intersect_sphere	src/math/intersect_sphere.c	/^double	intersect_sphere(t_ray ray, t_object *sphere)$/;"	f	typeref:typename:double
-intersect_triangle	src/math/intersect_triangle.c	/^double	intersect_triangle(t_object *triangle, t_ray ray)$/;"	f	typeref:typename:double
+intersect_triangle	src/math/intersect_triangle.c	/^double	intersect_triangle(t_ray ray, t_object *triangle)$/;"	f	typeref:typename:double
 is_degenerate_triangle	src/parsing/parse_triangle.c	/^static int is_degenerate_triangle(t_vec3 v0, t_vec3 v1, t_vec3 v2)$/;"	f	typeref:typename:int	file:
 is_empty_line	src/parsing/parse_scene.c	/^static int	is_empty_line(char *line)$/;"	f	typeref:typename:int	file:
 is_in_shadow_with_dir	src/rendering/lighting.c	/^int	is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distance, t_scene *sce/;"	f	typeref:typename:int
@@ -1160,6 +1155,7 @@ tmin	includes/minirt.h	/^	double	tmin;$/;"	m	struct:s_aabb_query	typeref:typenam
 total_directives	includes/minirt.h	/^	int total_directives;$/;"	m	struct:s_threadArgs	typeref:typename:int
 transparency	includes/minirt.h	/^	double	transparency;$/;"	m	struct:s_material	typeref:typename:double
 triangle	includes/minirt.h	/^	t_vec3			triangle[3];$/;"	m	struct:s_object	typeref:typename:t_vec3[3]
+triangle_based_bounds	src/utils/objects_bounds.c	/^static inline void	triangle_based_bounds(t_object *obj, \\$/;"	f	typeref:typename:void	file:
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
 type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
 type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int

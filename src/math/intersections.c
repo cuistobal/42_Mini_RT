@@ -51,8 +51,8 @@ static void	populate_hit_info(t_hit *hit, double closest_t,
 
 int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)
 {
-	if (!scene || !hit)
-		return (0);
+/* 	if (!scene || !hit)
+		return (0); */
 	return (intersect_bvh_iter(ray, scene->bvh_root, hit));
 }
 

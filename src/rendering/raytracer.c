@@ -199,7 +199,7 @@ t_color	raycast(t_ray ray, t_scene *scene, int depth)
 
 	if (!scene || depth <= 0)
 		return (color_new(0, 0, 0));
-	if (intersect_scene(ray, scene, &hit))
+	if (intersect_bvh_iter(ray, scene->bvh_root, &hit))
 		return (calculate_hit_color(ray, &hit, scene, depth));
 	return (calculate_background_color(ray));
 }

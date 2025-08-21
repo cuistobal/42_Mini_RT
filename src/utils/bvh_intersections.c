@@ -94,8 +94,6 @@ int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 	found = 0;
 	stack_ptr = 0;
 	closest_t = INFINITY;
-	if (!root || !hit)
-		return (0);
 	stack[stack_ptr++] = root;
 	while (stack_ptr > 0)
 	{
