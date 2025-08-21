@@ -53,7 +53,7 @@ static t_object	*create_cone(t_vec3 pos, t_vec3 axis, double angle,
 static int	parse_cone_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,
 	double *angle, double *height, t_color *color)
 {
-	if (!parse_vec3(tokens[0], pos) ||
+ 	if (!parse_vec3(tokens[0], pos) ||
 		!parse_vec3(tokens[1], axis) ||
 		!parse_double(tokens[2], angle) ||
 		!parse_double(tokens[3], height) ||
@@ -79,6 +79,7 @@ int	parse_cone(char *line, t_scene *scene)
 	tokens[2] = get_next_token(&line);
 	tokens[3] = get_next_token(&line);
 	tokens[4] = get_next_token(&line);
+	printf("CCone's tokens: %s %s %s %s %s\n", tokens[0], tokens[1], tokens[2], tokens[3], tokens[4]);
 	if (!tokens[0] || !tokens[1] || !tokens[2] || !tokens[3] || !tokens[4])
 		return (free_cone_tokens(tokens), 0);
 	if (!parse_cone_tokens(tokens, &position, &axis, &angle, &height, &color))

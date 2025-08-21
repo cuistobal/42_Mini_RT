@@ -137,5 +137,7 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 	refracted_ray = ray_new(hit_offset, refracted_dir);
 	refraction_color = raycast(refracted_ray, scene, depth - 1);
 	fresnel = calculate_fresnel(fabs(cos_i), n1, n2);
+	if (depth <= 0)
+		printf("aled\n");
 	return (color_mult(refraction_color, transparency * (1.0 - fresnel)));
 }

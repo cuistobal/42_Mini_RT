@@ -20,16 +20,10 @@
 void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 {
 	char	*pixel;
-	int		color_int;
 
-	if (!mlx || !mlx->img_data)
-		return ;
-	if (x < 0 || x >= mlx->width || y < 0 || y >= mlx->height)
-		return ;
 	pixel = mlx->img_data + (y * mlx->size_line + x * \
 			(mlx->bits_per_pixel / 8));
-	color_int = color_to_int(color);
-	*(unsigned int *)pixel = color_int;
+	*(unsigned int *)pixel = color_to_int(color);;
 }
 
 /*
@@ -38,26 +32,7 @@ void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 */
 int	color_to_int(t_color color)
 {
-	int	r;
-	int	g;
-	int	b;
-
-	r = color.r;
-	if (r > 255)
-		r = 255;
-	else if (r < 0)
-		r = 0;
-	g = color.g;
-	if (g > 255)
-		g = 255;
-	else if (g < 0)
-		g = 0;
-	b = color.b;
-	if (b > 255)
-		b = 255;
-	else if (b < 0)
-		b = 0;
-	return ((r << RED_OFFSET) | (g << GREEN_OFFSET) | b);
+	return ((color.r << RED_OFFSET) | (color.g << GREEN_OFFSET) | color.b);
 }
 
 /*
@@ -67,12 +42,11 @@ int	color_to_int(t_color color)
 */
 t_color	int_to_color(int color_int)
 {
-	t_color	color;
-
-	color.r = (color_int >> RED_OFFSET) & 0xFF;
-	color.g = (color_int >> GREEN_OFFSET) & 0xFF;
-	color.b = color_int & 0xFF;
-	return (color);
+	return ((t_color){
+		.r = color_int >> RED_OFFSET & 0xFF,
+		.g = color_int >> GREEN_OFFSET & 0xFF,
+		.b = color_int & 0xFF
+	});
 }
 
 /*
@@ -80,7 +54,5 @@ t_color	int_to_color(int color_int)
 */
 void	display_image(t_mlx *mlx)
 {
-	if (!mlx || !mlx->mlx_ptr || !mlx->win_ptr || !mlx->img_ptr)
-		return ;
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 }
