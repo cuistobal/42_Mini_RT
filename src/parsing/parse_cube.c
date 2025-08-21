@@ -12,11 +12,6 @@
 
 #include "../../includes/minirt.h"
 
-static int	validate_cube_params(double size)
-{
-	return (size > 0);
-}
-
 static void	init_cube_material(t_object *cube)
 {
 	cube->material.reflection = 0.0;
@@ -26,9 +21,9 @@ static void	init_cube_material(t_object *cube)
 
 static void	free_cube_tokens(char *pos, char *size, char *col)
 {
-	free(pos);
-	free(size);
-	free(col);
+	safe_free((void **)&pos);
+	safe_free((void **)&size);
+	safe_free((void **)&col);
 }
 
 static t_object	*create_cube(t_vec3 position, double size, t_color color)
@@ -62,7 +57,7 @@ int	parse_cube(char *line, t_scene *scene)
 	if (!parse_vec3(tokens[0], &position) || !parse_double(tokens[1], &size) \
 			|| !parse_color(tokens[2], &color))
 		return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 0);
-	if (!validate_cube_params(size))
+	if (size <= 0)
 		return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 0);
 	add_object_to_scene(scene, create_cube(position, size, color));
 	return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 1);

@@ -36,6 +36,7 @@
 # define CYLINDER 3
 # define CONE 4
 # define CUBE 5
+# define TRIANGLE 6
 
 /* Key codes */
 # define KEY_ESC 65307
@@ -153,6 +154,7 @@ typedef struct s_object
 	t_vec3			position;
 	t_vec3			normal;
 	t_vec3			axis;
+	t_vec3			triangle[3];
 	double			radius;
 	double			height;
 	double			angle;
@@ -335,6 +337,7 @@ int		parse_plane(char *line, t_scene *scene);
 int		parse_cylinder(char *line, t_scene *scene);
 int		parse_cone(char *line, t_scene *scene);
 int		parse_cube(char *line, t_scene *scene);
+int		parse_triangle(char *line, t_scene *scene);
 
 /* Parsing utility functions */
 int		parse_double(char *str, double *result);
@@ -353,6 +356,7 @@ double	intersect_plane(t_ray ray, t_object *plane);
 double	intersect_cylinder(t_ray ray, t_object *cylinder);
 double	intersect_cone(t_ray ray, t_object *cone);
 double	intersect_cube(t_ray ray, t_object *cube);
+double	intersect_triangle(t_object *triangle, t_ray ray);
 int		intersect_scene(t_ray ray, t_scene *scene, t_hit *hit);
 int		intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit);
 

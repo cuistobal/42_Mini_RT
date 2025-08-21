@@ -30,11 +30,11 @@ static void	init_cylinder_material(t_object *cylinder)
 
 static void	free_cylinder_tokens(char **tokens)
 {
-	free(tokens[0]);
-	free(tokens[1]);
-	free(tokens[2]);
-	free(tokens[3]);
-	free(tokens[4]);
+	safe_free((void **)&tokens[0]);
+	safe_free((void **)&tokens[1]);
+	safe_free((void **)&tokens[2]);
+	safe_free((void **)&tokens[3]);
+	safe_free((void **)&tokens[4]);
 }
 
 static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,

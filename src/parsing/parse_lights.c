@@ -34,6 +34,13 @@ static void	add_light_to_scene(t_scene *scene, t_light *light)
 	current->next = light;
 }
 
+static inline void	free_light_tokens(char *pos, char *bright, char *col)
+{
+	safe_free((void **)&pos);
+	safe_free((void **)&bright);
+	safe_free((void **)&col);
+}
+
 /*
 ** parse_light - Parse light element from line (L x,y,z brightness r,g,b)
 ** line: Line to parse
@@ -60,27 +67,14 @@ int	parse_light(char *line, t_scene *scene)
 	if (!parse_vec3(position_str, &position) ||
 		!parse_double(brightness_str, &brightness) ||
 		!parse_color(color_str, &color))
-	{
-		free(position_str);
-		free(brightness_str);
-		free(color_str);
-		return (0);
-	}
+		return (free_light_tokens(position_str, brightness_str, color_str), 0);
 	if (brightness < 0.0 || brightness > 1.0)
-	{
-		free(position_str);
-		free(brightness_str);
-		free(color_str);
-		return (0);
-	}
+		return (free_light_tokens(position_str, brightness_str, color_str), 0);
 	light = safe_malloc(sizeof(t_light));
 	light->position = position;
 	light->intensity = brightness;
 	light->color = color;
 	light->next = NULL;
 	add_light_to_scene(scene, light);
-	free(position_str);
-	free(brightness_str);
-	free(color_str);
-	return (1);
+	return (free_light_tokens(position_str, brightness_str, color_str), 1);
 }

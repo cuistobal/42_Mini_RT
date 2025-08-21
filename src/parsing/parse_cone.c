@@ -26,11 +26,11 @@ static void	init_cone_material(t_object *cone)
 
 static void	free_cone_tokens(char **tokens)
 {
-	free(tokens[0]);
-	free(tokens[1]);
-	free(tokens[2]);
-	free(tokens[3]);
-	free(tokens[4]);
+	safe_free((void **)&tokens[0]);
+	safe_free((void **)&tokens[1]);
+	safe_free((void **)&tokens[2]);
+	safe_free((void **)&tokens[3]);
+	safe_free((void **)&tokens[4]);
 }
 
 static t_object	*create_cone(t_vec3 pos, t_vec3 axis, double angle,

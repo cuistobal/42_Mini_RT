@@ -101,17 +101,14 @@ int	parse_vec3(char *str, t_vec3 *result)
 		if (next)
 			*next = '\0';
 		if (!parse_double(token, &values[i]))
-		{
-			free(str_copy);
-			return (0);
-		}
+			return (safe_free((void **)&str_copy), 0);
 		if (next)
 			token = next + 1;
 		else
 			token = NULL;
 		i++;
 	}
-	free(str_copy);
+	safe_free((void **)&str_copy);
 	if (i != 3)
 		return (0);
 	result->x = values[0];
@@ -146,22 +143,16 @@ int	parse_color(char *str, t_color *result)
 		if (next)
 			*next = '\0';
 		if (!parse_int(token, &values[i]))
-		{
-			free(str_copy);
-			return (0);
-		}
+			return (safe_free((void **)&str_copy), 0);
 		if (values[i] < 0 || values[i] > 255)
-		{
-			free(str_copy);
-			return (0);
-		}
+			return (safe_free((void **)&str_copy), 0);
 		if (next)
 			token = next + 1;
 		else
 			token = NULL;
 		i++;
 	}
-	free(str_copy);
+	safe_free((void **)&str_copy);
 	if (i != 3)
 		return (0);
 	result->r = values[0];

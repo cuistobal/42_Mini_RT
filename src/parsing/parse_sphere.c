@@ -26,9 +26,9 @@ static void	init_sphere_material(t_object *sphere)
 
 static void	free_sphere_tokens(char *pos, char *diam, char *col)
 {
-	free(pos);
-	free(diam);
-	free(col);
+	safe_free((void **)&pos);
+	safe_free((void **)&diam);
+	safe_free((void **)&col);
 }
 
 static t_object	*create_sphere(t_vec3 position, double diameter, t_color color)

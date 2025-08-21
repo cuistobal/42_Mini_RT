@@ -26,9 +26,9 @@ static void	init_plane_material(t_object *plane)
 
 static void	free_plane_tokens(char *pos, char *norm, char *col)
 {
-	free(pos);
-	free(norm);
-	free(col);
+	safe_free((void **)&pos);
+	safe_free((void **)&norm);
+	safe_free((void **)&col);
 }
 
 static t_object	*create_plane(t_vec3 position, t_vec3 normal, t_color color)

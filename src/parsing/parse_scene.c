@@ -137,6 +137,8 @@ static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *sc
 		return (parse_cone(rest, scene));
 	else if (strcmp(identifier, "cu") == 0)
 		return (parse_cube(rest, scene));
+	else if (strcmp(identifier, "tr") == 0)
+		return (parse_triangle(rest, scene));
 	return (0);
 }
 
@@ -167,7 +169,7 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	result = parse_element_by_identifier(identifier, rest, scene);
 	if (!result)
 		printf("Error\nInvalid %s element in %s at line %d: %s\n", identifier, filename, line_num, line);
-	free(identifier);
+	safe_free((void **)&identifier);
 	return (result);
 }
 
@@ -196,15 +198,9 @@ int	parse_scene(char *filename, t_scene *scene)
 		line_number++;
 		parse_result = parse_line(line, scene, line_number, filename);
 		if (!parse_result)
-		{
-			free(line);
-			close(fd);
-			cleanup_scene_on_error(scene);
-			return (0);
-		}
-		free(line);
+			return (safe_free((void **)&line), close(fd), cleanup_scene_on_error(scene), 0);
+		safe_free((void **)&line);
 		line = read_file_line(fd);
 	}
-	close(fd);
-	return (validate_scene_with_filename(scene));
+	return (close(fd), validate_scene_with_filename(scene));
 }

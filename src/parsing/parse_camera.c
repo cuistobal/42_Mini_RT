@@ -12,6 +12,13 @@
 
 #include "../../includes/minirt.h"
 
+static inline void	free_camera_tokens(char *pos, char *dir, char *fov)
+{
+	safe_free((void **)&pos);
+	safe_free((void **)&dir);
+	safe_free((void **)&fov);
+}
+
 /*
 ** parse_camera - Parse camera element from line (C x,y,z nx,ny,nz fov)
 ** line: Line to parse
@@ -34,9 +41,9 @@ int	parse_camera(char *line, t_scene *scene)
 	if (!parse_vec3(position_str, &scene->camera.position) || !parse_vec3(\
 				direction_str, &scene->camera.direction) || !parse_double(\
 					fov_str, &scene->camera.fov))
-		return (free(position_str), free(direction_str), free(fov_str), 0);
+		return (free_camera_tokens(position_str, direction_str, fov_str), 0);
 	if (scene->camera.fov <= 0 || scene->camera.fov >= 180)
-		return (free(position_str), free(direction_str), free(fov_str), 0);
+		return (free_camera_tokens(position_str, direction_str, fov_str), 0);
 	scene->camera.up = vec3_new(0, 1, 0);
 	scene->camera.right = vec3_normalize(vec3_cross(scene->camera.direction, \
 				scene->camera.up));
@@ -44,7 +51,13 @@ int	parse_camera(char *line, t_scene *scene)
 				scene->camera.direction));
 	scene->camera.move_speed = 0.5;
 	scene->camera.rotate_speed = 0.05;
-	return (free(position_str), free(direction_str), free(fov_str), 1);
+	return (free_camera_tokens(position_str, direction_str, fov_str), 1);
+}
+
+static inline void	free_ambient_tokens(char *ratio, char *color)
+{
+	safe_free((void **)&ratio);
+	safe_free((void **)&color);
 }
 
 /*
@@ -67,10 +80,10 @@ int	parse_ambient(char *line, t_scene *scene)
 	if (!ratio_str || !color_str)
 		return (0);
 	if (!parse_double(ratio_str, &ratio) || !parse_color(color_str, &color))
-		return (free(ratio_str), free(color_str), 0);
+		return (free_ambient_tokens(ratio_str, color_str), 0);
 	if (ratio < 0.0 || ratio > 1.0)
-		return (free(ratio_str), free(color_str), 0);
+		return (free_ambient_tokens(ratio_str, color_str), 0);
 	scene->ambient_ratio = ratio;
 	scene->ambient = color;
-	return (free(ratio_str), free(color_str), 1);
+	return (free_ambient_tokens(ratio_str, color_str), 1);
 }
