@@ -14,10 +14,7 @@
 
 t_vec3	get_sphere_normal(t_vec3 hit_point, t_object *sphere)
 {
-	t_vec3	normal;
-
-	normal = vec3_sub(hit_point, sphere->position);
-	return (vec3_normalize(normal));
+	return (vec3_normalize(vec3_sub(hit_point, sphere->position)));
 }
 
 t_vec3	get_plane_normal(t_vec3 hit_point, t_object *plane)

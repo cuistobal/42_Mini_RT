@@ -103,7 +103,6 @@ int	is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distan
 
     shadow_origin = vec3_add(point, vec3_mult(dir_to_light, EPSILON));
     shadow_ray = ray_new(shadow_origin, dir_to_light);
-    if (intersect_scene(shadow_ray, scene, &shadow_hit) && (shadow_hit.t < light_distance - EPSILON))
-        return (1);
-    return (0);
+    return (intersect_bvh_iter(shadow_ray, scene->bvh_root, &shadow_hit) && \
+    (shadow_hit.t < light_distance - EPSILON));
 }

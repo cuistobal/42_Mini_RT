@@ -49,13 +49,6 @@ static void	populate_hit_info(t_hit *hit, double closest_t,
 	hit->object = closest_object;
 }
 
-int	intersect_scene(t_ray ray, t_scene *scene, t_hit *hit)
-{
-/* 	if (!scene || !hit)
-		return (0); */
-	return (intersect_bvh_iter(ray, scene->bvh_root, hit));
-}
-
 int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)
 {
 	t_object	*current;
@@ -63,8 +56,10 @@ int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)
 	double		closest_t;
 	t_object	*closest_object;
 
+	/*
 	if (!scene || !hit)
 		return (0);
+	*/
 	closest_t = INFINITY;
 	closest_object = NULL;
 	current = scene->objects;
@@ -75,9 +70,6 @@ int	intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit)
 		current = current->next;
 	}
 	if (closest_object)
-	{
-		populate_hit_info(hit, closest_t, closest_object, ray);
-		return (1);
-	}
+		return (populate_hit_info(hit, closest_t, closest_object, ray), 1);
 	return (0);
 }

@@ -17,12 +17,11 @@
 */
 t_vec3	vec3_new(double x, double y, double z)
 {
-	t_vec3	result;
-
-	result.x = x;
-	result.y = y;
-	result.z = z;
-	return (result);
+	return ((t_vec3){
+		.x = x,
+		.y = y,
+		.z = z
+	});
 }
 
 /*
@@ -30,12 +29,11 @@ t_vec3	vec3_new(double x, double y, double z)
 */
 t_vec3	vec3_add(t_vec3 a, t_vec3 b)
 {
-	t_vec3	result;
-
-	result.x = a.x + b.x;
-	result.y = a.y + b.y;
-	result.z = a.z + b.z;
-	return (result);
+	return ((t_vec3){
+		.x = a.x + b.x,
+		.y = a.y + b.y,
+		.z = a.z + b.z
+	});
 }
 
 /*
@@ -43,12 +41,11 @@ t_vec3	vec3_add(t_vec3 a, t_vec3 b)
 */
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
 {
-	t_vec3	result;
-
-	result.x = a.x - b.x;
-	result.y = a.y - b.y;
-	result.z = a.z - b.z;
-	return (result);
+	return ((t_vec3){
+		.x = a.x - b.x,
+		.y = a.y - b.y,
+		.z = a.z - b.z
+	});
 }
 
 /*
@@ -56,12 +53,11 @@ t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
 */
 t_vec3	vec3_mult(t_vec3 v, double scalar)
 {
-	t_vec3	result;
-
-	result.x = v.x * scalar;
-	result.y = v.y * scalar;
-	result.z = v.z * scalar;
-	return (result);
+	return ((t_vec3){
+		.x = v.x * scalar,
+		.y = v.y * scalar,
+		.z = v.z * scalar
+	});
 }
 
 /*
@@ -69,12 +65,11 @@ t_vec3	vec3_mult(t_vec3 v, double scalar)
 */
 t_vec3	vec3_div(t_vec3 v, double scalar)
 {
-	t_vec3	result;
-
 	if (fabs(scalar) < EPSILON)
 		return (vec3_new(0, 0, 0));
-	result.x = v.x / scalar;
-	result.y = v.y / scalar;
-	result.z = v.z / scalar;
-	return (result);
+	return ((t_vec3){
+		.x = v.x / scalar,
+		.y = v.y / scalar,
+		.z = v.z / scalar
+	});
 }

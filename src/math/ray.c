@@ -18,11 +18,10 @@
 */
 t_ray	ray_new(t_vec3 origin, t_vec3 direction)
 {
-	t_ray	ray;
-
-	ray.origin = origin;
-	ray.direction = vec3_normalize(direction);
-	return (ray);
+	return ((t_ray){
+		.origin = origin,
+		.direction = vec3_normalize(direction)
+	});
 }
 
 /*
@@ -32,10 +31,7 @@ t_ray	ray_new(t_vec3 origin, t_vec3 direction)
 */
 t_vec3	ray_at(t_ray ray, double t)
 {
-	t_vec3	point;
-
-	point = vec3_add(ray.origin, vec3_mult(ray.direction, t));
-	return (point);
+	return (vec3_add(ray.origin, vec3_mult(ray.direction, t)));
 }
 
 /*
@@ -44,11 +40,10 @@ t_vec3	ray_at(t_ray ray, double t)
 */
 t_ray	ray_transform(t_ray ray, t_vec3 translation)
 {
-	t_ray	transformed;
-
-	transformed.origin = vec3_add(ray.origin, translation);
-	transformed.direction = ray.direction;
-	return (transformed);
+	return ((t_ray){
+		.origin = vec3_add(ray.origin, translation), 
+		.direction = ray.direction
+	});
 }
 
 /*
@@ -57,16 +52,16 @@ t_ray	ray_transform(t_ray ray, t_vec3 translation)
 */
 t_ray	ray_reflect(t_ray incident, t_vec3 hit_point, t_vec3 normal)
 {
-	t_ray	reflected;
 	double	dot_product;
 	t_vec3	reflection_dir;
 
 	dot_product = vec3_dot(incident.direction, normal);
 	reflection_dir = vec3_sub(incident.direction, \
 			vec3_mult(normal, 2.0 * dot_product));
-	reflected.origin = hit_point;
-	reflected.direction = vec3_normalize(reflection_dir);
-	return (reflected);
+	return ((t_ray){
+		.origin = hit_point,
+		.direction = vec3_normalize(reflection_dir)
+	});
 }
 
 /*
@@ -75,10 +70,5 @@ t_ray	ray_reflect(t_ray incident, t_vec3 hit_point, t_vec3 normal)
 */
 double	ray_distance_to_point(t_ray ray, t_vec3 point)
 {
-	t_vec3	to_point;
-	double	t;
-
-	to_point = vec3_sub(point, ray.origin);
-	t = vec3_dot(to_point, ray.direction);
-	return (t);
+	return (vec3_dot(vec3_sub(point, ray.origin), ray.direction));
 }

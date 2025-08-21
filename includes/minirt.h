@@ -357,7 +357,6 @@ double	intersect_cylinder(t_ray ray, t_object *cylinder);
 double	intersect_cone(t_ray ray, t_object *cone);
 double	intersect_cube(t_ray ray, t_object *cube);
 double	intersect_triangle(t_ray ray, t_object *triangle);
-int		intersect_scene(t_ray ray, t_scene *scene, t_hit *hit);
 int		intersect_scene_linear(t_ray ray, t_scene *scene, t_hit *hit);
 
 /* ************************************************************************** */
