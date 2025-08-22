@@ -46,6 +46,7 @@ int	parse_cube(char *line, t_scene *scene)
 	t_vec3		position;
 	double		size;
 	t_color		color;
+	t_object	*cube;
 
 	if (!line || !scene)
 		return (0);
@@ -59,6 +60,16 @@ int	parse_cube(char *line, t_scene *scene)
 		return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 0);
 	if (size <= 0)
 		return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 0);
-	add_object_to_scene(scene, create_cube(position, size, color));
+	cube = create_cube(position, size, color);
+	
+	// Calculer le centroïde 3D du cube (milieu du cube)
+	cube->centroid = vec3_new(
+		position.x + size / 2.0,
+		position.y + size / 2.0,
+		position.z + size / 2.0
+	);
+	
+	cube->type = CUBE;
+	add_object_to_scene(scene, cube);
 	return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 1);
 }

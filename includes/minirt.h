@@ -152,9 +152,10 @@ typedef struct s_object
 {
 	int				uid;
 	int				type;
-	t_vec3			position;
-	t_vec3			normal;
 	t_vec3			axis;
+	t_vec3			normal;
+	t_vec3			position;
+	t_vec3			centroid;
 	double			radius;
 	double			height;
 	double			angle;
@@ -469,7 +470,9 @@ void	update_camera_vectors(t_camera *camera);
 t_bvh_node	*build_bvh(t_scene *scene);
 t_bvh_node	*build_bvh_recursive(t_object **objects, int count);
 t_aabb		get_object_bounds(t_object *object);
+t_vec3		get_object_centroid(t_object *object);
 t_aabb		aabb_union(t_aabb a, t_aabb b);
+t_aabb		create_empty_aabb(void);
 void		setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds);
 double		aabb_surface(t_aabb a);
 int	find_sah_split(t_object **objects, int count, int *best_axis, \

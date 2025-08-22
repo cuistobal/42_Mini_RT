@@ -20,9 +20,9 @@ static void	fill_bounds(t_object **objects, int count,
 {
 	int	i;
 
-	left[0] = get_object_bounds(objects[0]);
 	i = 1;
-	while (i < count)
+	left[0] = get_object_bounds(objects[0]);
+	while (i < count )
 	{
 		left[i] = aabb_union(left[i - 1], get_object_bounds(objects[i]));
 		i++;
@@ -70,31 +70,43 @@ static void	variable_setup(int *axis, int *best_axis, double *best_cost, \
 ** norminette. We could have created a specific struct in this regard.
 */
 int	find_sah_split(t_object **objects, int count, int *best_axis, \
-		int *best_index)
+		int *best_split)
 {
-	int (axis), (split) = 1;
+	int (axis), (split);
 	t_aabb (*left_bounds);
 	t_aabb (*right_bounds);
 	double (left_area), (right_area), (cost), best_cost;
-	variable_setup(&axis, best_axis, &best_cost, best_index);
+	variable_setup(&axis, best_axis, &best_cost, best_split);
 	allocate_bounds(&left_bounds, &right_bounds, count);
+
+
+	// Calculer les centroids pour chaque object etudie -> inclus dans la structure
+
+	// Choisir l'axe le plus long
+
+	// Repartir les objects en fonction de la position de leur centroid au 
+	// centroid de la box
+
+
 	while (axis++ < 3)
 	{
-		sort_objects_axis(objects, count, axis);
+		split = 1;
+		// sort_objects_axis(objects, count, axis);
 		fill_bounds(objects, count, left_bounds, right_bounds);
 		while (split++ < count)
 		{
 			left_area = aabb_surface(left_bounds[split - 1]);
 			right_area = aabb_surface(right_bounds[split]);
+			// printf("%f vs %f\n", left_area, right_area);
 			cost = sah_cost(left_area, right_area, split, count - split);
 			if (cost < best_cost)
 			{
 				best_cost = cost;
 				*best_axis = axis;
-				*best_index = split;
+				*best_split = split;
 			}
 		}
 	}
 	return (safe_free((void **)&left_bounds), \
-			safe_free((void **)&right_bounds), *best_index);
+			safe_free((void **)&right_bounds), *best_split);
 }

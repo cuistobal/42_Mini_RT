@@ -18,7 +18,7 @@ static inline void	handle_single_hit(int hit, t_bvh_node **stack, \
 {
 	if (*stack_ptr >= BVH_STACK_SIZE)
 		return ;
-	if (hit & 4 && (node->left))
+	if (hit & 2 && (node->left))
 		stack[(*stack_ptr)++] = node->left;
 	else if (hit & 1 && node->right)
 		stack[(*stack_ptr)++] = node->right;
@@ -68,7 +68,7 @@ static void	handle_internal_node(t_bvh_node *node, t_ray ray, \
 	if (hit_left && hit_right)
 		handle_multiple_hits(tmin_left < tmin_right, stack, stack_ptr, node);
 	else
-		handle_single_hit(hit_left << 2 | hit_right, stack, stack_ptr, node);
+		handle_single_hit(hit_left << 1 | hit_right, stack, stack_ptr, node);
 }
 
 //
@@ -94,26 +94,18 @@ int	intersect_bvh_iter(t_ray ray, t_bvh_node *root, t_hit *hit)
 	int (stack_ptr) = 0;
 	closest_t = INFINITY;
 	
-	// Vérification de validité du root
 	if (!root)
 		return (0);
-		
 	stack[stack_ptr++] = root;
 	while (stack_ptr > 0)
 	{
 		node = stack[--stack_ptr];
-		
-		// Toujours tester les objets dans un nœud s'il en contient
 		if (node->objects && node->object_count > 0)
 		{
 			if (case_leaf_node(node, &temp_hit, ray) && temp_hit.t < closest_t)
 				update_closest_hit(hit, temp_hit, &closest_t, &found);
 		}
-		
-		// Si le nœud a des enfants, toujours vérifier l'intersection 
-		// avec leurs bounding boxes, peu importe s'il s'agit aussi d'une feuille
-		if (node->left || node->right)
-			handle_internal_node(node, ray, stack, &stack_ptr);
+		handle_internal_node(node, ray, stack, &stack_ptr);
 	}
 	return (found);
 }

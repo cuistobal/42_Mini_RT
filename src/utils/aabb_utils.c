@@ -13,6 +13,23 @@
 #include "../../includes/minirt.h"
 
 /*
+** create_empty_aabb - Create an empty AABB with infinite bounds
+** Used as a starting point for AABB computations
+*/
+t_aabb	create_empty_aabb(void)
+{
+	t_aabb	aabb;
+
+	aabb.min.x = INFINITY;
+	aabb.min.y = INFINITY;
+	aabb.min.z = INFINITY;
+	aabb.max.x = -INFINITY;
+	aabb.max.y = -INFINITY;
+	aabb.max.z = -INFINITY;
+	return (aabb);
+}
+
+/*
 ** Computes the surface area of an axis-aligned bounding box (AABB)
 */
 double	aabb_surface(t_aabb a)

@@ -4,6 +4,7 @@
         "utilities.h": "c",
         "math.h": "c",
         "*.old": "c",
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "*.temp": "c"
     }
 }

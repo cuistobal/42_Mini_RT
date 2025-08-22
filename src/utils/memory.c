@@ -24,12 +24,10 @@ void	*safe_malloc(size_t size)
 	if (size == 0)
 		return (NULL);
 	ptr = malloc(size);
-	if (!ptr)
-	{
-		printf("Error\nMemory allocation failed\n");
-		exit(1);
-	}
-	return (ptr);
+	if (ptr)
+		return (ptr);
+	perror("Error\nMemory allocation failed\n");
+	exit(1);
 }
 
 /*

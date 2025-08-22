@@ -174,6 +174,7 @@ void	render_scene(t_minirt *rt)
 	rt->args.completed_directives = 0;
 	setup_camera(&rt->scene.camera);
 	pthread_mutex_init(&(rt->args.mutexQueue), NULL);
+	pthread_cond_init(&(rt->args.condQueue), NULL);
 	while(i < NUM_THREAD)
 	{
 		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))

@@ -19,6 +19,7 @@ $(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
 $(OBJ_DIR)/%.o	includes/minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
 $(OBJ_DIR)/%.o	minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
 *.old	.vscode/settings.json	/^        "*.old": "c",$/;"	s	object:files.associations
+*.temp	.vscode/settings.json	/^        "*.temp": "c"$/;"	s	object:files.associations
 AUTHOR	includes/minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
@@ -304,12 +305,6 @@ SYNOPSYS	minilibx-linux/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
 SYNOPSYS	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
-TEST_EPSILON	tests/test_camera_ray.c	/^#define TEST_EPSILON /;"	d	file:
-TEST_EPSILON	tests/test_intersections.c	/^#define TEST_EPSILON /;"	d	file:
-TEST_EPSILON	tests/test_parsing_comprehensive.c	/^#define TEST_EPSILON /;"	d	file:
-TEST_EPSILON	tests/test_ray.c	/^#define TEST_EPSILON /;"	d	file:
-TEST_EPSILON	tests/test_vector.c	/^#define TEST_EPSILON /;"	d	file:
-TEST_EPSILON	tests/test_vector_raytracing.c	/^#define TEST_EPSILON /;"	d	file:
 TRIANGLE	includes/minirt.h	/^# define TRIANGLE /;"	d
 UNAME	includes/minilibx-linux/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	includes/minilibx-linux/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
@@ -368,7 +363,6 @@ b	includes/minirt.h	/^	int	b;$/;"	m	struct:s_color	typeref:typename:int
 back	includes/minirt.h	/^	int back;$/;"	m	struct:s_key_queue	typeref:typename:int
 bits_per_pixel	includes/minirt.h	/^	int		bits_per_pixel;$/;"	m	struct:s_mlx	typeref:typename:int
 bounds	includes/minirt.h	/^    t_aabb              bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
-bounds	tests/test_cleanup_only.c	/^    t_aabb bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb	file:
 box	includes/minirt.h	/^	t_aabb	box;$/;"	m	struct:s_aabb_query	typeref:typename:t_aabb
 bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
 bpp	minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
@@ -404,6 +398,7 @@ camera	includes/minirt.h	/^	t_camera	camera;$/;"	m	struct:s_scene	typeref:typena
 cap	includes/minirt.h	/^	int	cap;$/;"	m	struct:s_key_queue	typeref:typename:int
 case_internal_node	src/utils/bvh_intersections_internal_node.c	/^int	case_internal_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
 case_leaf_node	src/utils/bvh_intersections_leaf_node.c	/^int	case_leaf_node(t_bvh_node *node, t_hit *hit, t_ray ray)$/;"	f	typeref:typename:int
+centroid	includes/minirt.h	/^	t_vec3			centroid;$/;"	m	struct:s_object	typeref:typename:t_vec3
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check_barycentric_coords	src/math/intersect_triangle.c	/^static inline int	check_barycentric_coords(double u, double v)$/;"	f	typeref:typename:int	file:
@@ -420,10 +415,8 @@ clean	minilibx-linux/test/Makefile.mk	/^clean:$/;"	t
 clean_profile	Makefile	/^clean_profile:$/;"	t
 cleanup_all	src/utils/error.c	/^void	cleanup_all(t_minirt *rt)$/;"	f	typeref:typename:void
 cleanup_bvh	src/utils/cleanup.c	/^void	cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
-cleanup_bvh	tests/test_cleanup_only.c	/^void cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
 cleanup_light_list	src/utils/cleanup.c	/^void	cleanup_light_list(t_light *lights)$/;"	f	typeref:typename:void
 cleanup_mlx	src/graphics/window.c	/^void	cleanup_mlx(t_mlx *mlx)$/;"	f	typeref:typename:void
-cleanup_mlx	tests/test_scene_parsers_simple.c	/^void cleanup_mlx(t_mlx *mlx) { (void)mlx; }$/;"	f	typeref:typename:void
 cleanup_object_list	src/utils/cleanup.c	/^void	cleanup_object_list(t_object *objects)$/;"	f	typeref:typename:void
 cleanup_scene	src/utils/error.c	/^void	cleanup_scene(t_scene *scene)$/;"	f	typeref:typename:void
 cleanup_scene_on_error	src/parsing/parse_scene.c	/^static void	cleanup_scene_on_error(t_scene *scene)$/;"	f	typeref:typename:void	file:
@@ -439,7 +432,6 @@ color	minilibx-linux/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:ty
 color_add	src/utils/colors1.c	/^t_color	color_add(t_color a, t_color b)$/;"	f	typeref:typename:t_color
 color_blend	src/utils/colors1.c	/^t_color	color_blend(t_color a, t_color b, double ratio)$/;"	f	typeref:typename:t_color
 color_clamp	src/utils/colors1.c	/^t_color	color_clamp(t_color color)$/;"	f	typeref:typename:t_color
-color_equals	tests/test_parsing_comprehensive.c	/^int	color_equals(t_color a, t_color b)$/;"	f	typeref:typename:int
 color_gamma_correct	src/utils/colors.c	/^t_color	color_gamma_correct(t_color color, double gamma)$/;"	f	typeref:typename:t_color
 color_linear_to_srgb	src/utils/colors.c	/^t_color	color_linear_to_srgb(t_color color)$/;"	f	typeref:typename:t_color
 color_map_1	includes/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
@@ -450,21 +442,13 @@ color_mult	src/utils/colors1.c	/^t_color	color_mult(t_color color, double scalar
 color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
 color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
 completed_directives	includes/minirt.h	/^	int completed_directives;$/;"	m	struct:s_threadArgs	typeref:typename:int
+compute_centroid	src/parsing/parse_triangle.c	/^static inline t_vec3 compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)$/;"	f	typeref:typename:t_vec3	file:
 compute_h_return_a	src/math/intersect_triangle.c	/^static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, t_vec3 *h)$/;"	f	typeref:typename:double	file:
 condQueue	includes/minirt.h	/^	pthread_cond_t condQueue;$/;"	m	struct:s_threadArgs	typeref:typename:pthread_cond_t
 count_objects	src/utils/build_bvh.c	/^static inline int	count_objects(t_object *objects)$/;"	f	typeref:typename:int	file:
-count_objects	tests/test_scene_parsers.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
-count_objects	tests/test_scene_parsers_simple.c	/^int count_objects(t_scene *scene)$/;"	f	typeref:typename:int
-create_and_add_cylinder	src/parsing/parse_cylinder.c	/^static int	create_and_add_cylinder(t_scene *scene, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:int	file:
-create_cone	src/parsing/parse_cone.c	/^static t_object	*create_cone(t_vec3 pos, t_vec3 axis, double angle,$/;"	f	typeref:typename:t_object *	file:
 create_cube	src/parsing/parse_cube.c	/^static t_object	*create_cube(t_vec3 position, double size, t_color color)$/;"	f	typeref:typename:t_object *	file:
 create_directive	src/rendering/raytracer.c	/^void create_directive(t_minirt *rt)$/;"	f	typeref:typename:void
-create_plane	src/parsing/parse_plane.c	/^static t_object	*create_plane(t_vec3 position, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object *	file:
-create_sphere	src/parsing/parse_sphere.c	/^static t_object	*create_sphere(t_vec3 position, double diameter, t_color color)$/;"	f	typeref:typename:t_object *	file:
-create_test_cylinder	tests/test_intersections.c	/^t_object	create_test_cylinder(t_vec3 center, t_vec3 axis, double radius, double height, t_color /;"	f	typeref:typename:t_object
-create_test_plane	tests/test_intersections.c	/^t_object	create_test_plane(t_vec3 point, t_vec3 normal, t_color color)$/;"	f	typeref:typename:t_object
-create_test_sphere	tests/test_intersections.c	/^t_object	create_test_sphere(t_vec3 center, double radius, t_color color)$/;"	f	typeref:typename:t_object
-create_triangle	src/parsing/parse_triangle.c	/^static t_object *create_triangle(t_vec3 v0, t_vec3 v1, t_vec3 v2, t_color color)$/;"	f	typeref:typename:t_object *	file:
+create_empty_aabb	src/utils/aabb_utils.c	/^t_aabb	create_empty_aabb(void)$/;"	f	typeref:typename:t_aabb
 data	includes/minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data	minilibx-linux/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
 data1	includes/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
@@ -490,13 +474,6 @@ do_configure	includes/minilibx-linux/Makefile	/^do_configure	:$/;"	t
 do_configure	minilibx-linux/Makefile	/^do_configure	:$/;"	t
 do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
 do_flush	minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
-double_equals	tests/test_camera_ray.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-double_equals	tests/test_intersections.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-double_equals	tests/test_parsing_comprehensive.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-double_equals	tests/test_ray.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-double_equals	tests/test_vector.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-double_equals	tests/test_vector_raytracing.c	/^int	double_equals(double a, double b)$/;"	f	typeref:typename:int
-draw_test_pattern	tests/test_visual_mlx.c	/^void	draw_test_pattern(t_mlx *mlx)$/;"	f	typeref:typename:void
 e_error	includes/minirt.h	/^typedef enum e_error$/;"	g
 e_keyaction	includes/minirt.h	/^typedef enum e_keyaction {$/;"	g
 end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
@@ -564,6 +541,7 @@ get_object_normal	src/math/normal_utils.c	/^t_vec3	get_object_normal(t_vec3 hit_
 get_plane_normal	src/math/object_normals.c	/^t_vec3	get_plane_normal(t_vec3 hit_point, t_object *plane)$/;"	f	typeref:typename:t_vec3
 get_sphere_normal	src/math/object_normals.c	/^t_vec3	get_sphere_normal(t_vec3 hit_point, t_object *sphere)$/;"	f	typeref:typename:t_vec3
 get_t	src/utils/bvh_intersections_leaf_node.c	/^static double	get_t(t_object *obj, t_ray ray)$/;"	f	typeref:typename:double	file:
+get_triangle_normal	src/math/normal_utils.c	/^static inline t_vec3	get_triangle_normal(t_vec3 v0, t_vec3 v1, t_vec3 v2)$/;"	f	typeref:typename:t_vec3	file:
 get_xlib_include_path	includes/minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 get_xlib_include_path	minilibx-linux/configure	/^get_xlib_include_path(){$/;"	f
 handle_close	src/graphics/events.c	/^int	handle_close(t_minirt *rt)$/;"	f	typeref:typename:int
@@ -598,15 +576,11 @@ image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	t
 image	minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
 img_data	includes/minirt.h	/^	char	*img_data;$/;"	m	struct:s_mlx	typeref:typename:char *
 img_ptr	includes/minirt.h	/^	void	*img_ptr;$/;"	m	struct:s_mlx	typeref:typename:void *
-init_cone_material	src/parsing/parse_cone.c	/^static void	init_cone_material(t_object *cone)$/;"	f	typeref:typename:void	file:
 init_cube_material	src/parsing/parse_cube.c	/^static void	init_cube_material(t_object *cube)$/;"	f	typeref:typename:void	file:
-init_cylinder_material	src/parsing/parse_cylinder.c	/^static void	init_cylinder_material(t_object *cylinder)$/;"	f	typeref:typename:void	file:
 init_minirt	src/main.c	/^static int	init_minirt(t_minirt *rt, char *filename)$/;"	f	typeref:typename:int	file:
 init_mlx	src/graphics/window.c	/^int	init_mlx(t_mlx *mlx)$/;"	f	typeref:typename:int
 init_mlx_context	src/main.c	/^static void	init_mlx_context(t_mlx *mlx)$/;"	f	typeref:typename:void	file:
-init_plane_material	src/parsing/parse_plane.c	/^static void	init_plane_material(t_object *plane)$/;"	f	typeref:typename:void	file:
 init_scene	src/main.c	/^static void	init_scene(t_scene *scene)$/;"	f	typeref:typename:void	file:
-init_sphere_material	src/parsing/parse_sphere.c	/^static void	init_sphere_material(t_object *sphere)$/;"	f	typeref:typename:void	file:
 int_to_color	src/graphics/image.c	/^t_color	int_to_color(int color_int)$/;"	f	typeref:typename:t_color
 intensity	includes/minirt.h	/^	double			intensity;$/;"	m	struct:s_light	typeref:typename:double
 internal_node_case	src/utils/bvh.c	/^static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
@@ -639,7 +613,6 @@ keycode_to_action	src/graphics/misc.c	/^int	keycode_to_action(int keycode)$/;"	f
 keys	includes/minirt.h	/^	int				keys[KEY_ACTION_COUNT];$/;"	m	struct:s_minirt	typeref:typename:int[]
 leaf_node_case	src/utils/bvh.c	/^static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)$/;"	f	typeref:typename:void	file:
 left	includes/minirt.h	/^    struct s_bvh_node   *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
-left	tests/test_cleanup_only.c	/^    struct s_bvh_node *left;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
 lights	includes/minirt.h	/^	t_light		*lights;$/;"	m	struct:s_scene	typeref:typename:t_light *
 linear_to_srgb_channel	src/utils/colors.c	/^static inline double	linear_to_srgb_channel(double c)$/;"	f	typeref:typename:double	file:
 local_endian	includes/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
@@ -669,43 +642,20 @@ main	minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
 main	minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
 main	minilibx-linux/test/run_tests.sh	/^main(){$/;"	f
 main	src/main.c	/^int	main(int argc, char **argv)$/;"	f	typeref:typename:int
-main	tests/test_camera_ray.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_cleanup_only.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_cylinder.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_events.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_events_simple.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_integration.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_intersections.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_mlx_graphics.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_object_parsing.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_object_parsing_final.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_object_parsing_simple.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_parsing.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_parsing_comprehensive.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_parsing_simple.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_ray.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_scene_parsers.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_scene_parsers_simple.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_simple.c	/^int main(void)$/;"	f	typeref:typename:int
-main	tests/test_vector.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_vector_raytracing.c	/^int	main(void)$/;"	f	typeref:typename:int
-main	tests/test_visual_mlx.c	/^int	main(void)$/;"	f	typeref:typename:int
 mask	includes/minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
 mask	minilibx-linux/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
 material	includes/minirt.h	/^	t_material		material;$/;"	m	struct:s_object	typeref:typename:t_material
 material	includes/minirt.h	/^	t_material	*material;$/;"	m	struct:s_hit	typeref:typename:t_material *
 math.h	.vscode/settings.json	/^        "math.h": "c",$/;"	s	object:files.associations
 max	includes/minirt.h	/^	t_vec3	max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
-max	tests/test_cleanup_only.c	/^    t_vec3 max;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
 min	includes/minirt.h	/^	t_vec3	min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3
-min	tests/test_cleanup_only.c	/^    t_vec3 min;$/;"	m	struct:s_aabb	typeref:typename:t_vec3	file:
 minirt.h	.vscode/settings.json	/^        "minirt.h": "c",$/;"	s	object:files.associations
 mlx	includes/minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
 mlx	includes/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
 mlx	includes/minirt.h	/^	t_mlx			mlx;$/;"	m	struct:s_minirt	typeref:typename:t_mlx
 mlx	minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
 mlx	minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
-mlx.h	.vscode/settings.json	/^        "mlx.h": "c"$/;"	s	object:files.associations
+mlx.h	.vscode/settings.json	/^        "mlx.h": "c",$/;"	s	object:files.associations
 mlx_X_error	includes/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
 mlx_X_error	minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
 mlx_clear_window	includes/minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
@@ -868,7 +818,6 @@ normal	includes/minirt.h	/^	t_vec3			normal;$/;"	m	struct:s_object	typeref:typen
 normal	includes/minirt.h	/^	t_vec3		normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
 ntask	includes/minirt.h	/^	int ntask;$/;"	m	struct:s_threadArgs	typeref:typename:int
 object	includes/minirt.h	/^	t_object	*object;$/;"	m	struct:s_hit	typeref:typename:t_object *
-object	tests/test_cleanup_only.c	/^    void *object;$/;"	m	struct:s_bvh_node	typeref:typename:void *	file:
 object_count	includes/minirt.h	/^    int                 object_count;$/;"	m	struct:s_bvh_node	typeref:typename:int
 objects	includes/minirt.h	/^	t_object	*objects;$/;"	m	struct:s_scene	typeref:typename:t_object *
 objects	includes/minirt.h	/^    t_object            **objects;$/;"	m	struct:s_bvh_node	typeref:typename:t_object **
@@ -882,10 +831,8 @@ parse_args	minilibx-linux/configure	/^parse_args(){$/;"	f
 parse_camera	src/parsing/parse_camera.c	/^int	parse_camera(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_color	src/parsing/parse_utils.c	/^int	parse_color(char *str, t_color *result)$/;"	f	typeref:typename:int
 parse_cone	src/parsing/parse_cone.c	/^int	parse_cone(char *line, t_scene *scene)$/;"	f	typeref:typename:int
-parse_cone	tests/test_scene_parsers_simple.c	/^int parse_cone(char *line, t_scene *scene) { (void)line; (void)scene; return 0; }$/;"	f	typeref:typename:int
 parse_cone_tokens	src/parsing/parse_cone.c	/^static int	parse_cone_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,$/;"	f	typeref:typename:int	file:
 parse_cube	src/parsing/parse_cube.c	/^int	parse_cube(char *line, t_scene *scene)$/;"	f	typeref:typename:int
-parse_cube	tests/test_scene_parsers_simple.c	/^int parse_cube(char *line, t_scene *scene) { (void)line; (void)scene; return 0; }$/;"	f	typeref:typename:int
 parse_cylinder	src/parsing/parse_cylinder.c	/^int	parse_cylinder(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_cylinder_tokens	src/parsing/parse_cylinder.c	/^static int	parse_cylinder_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,$/;"	f	typeref:typename:int	file:
 parse_double	src/parsing/parse_utils.c	/^int	parse_double(char *str, double *result)$/;"	f	typeref:typename:int
@@ -944,18 +891,14 @@ render_pixel_at_coordinates	src/rendering/raytracer_utils.c	/^void	render_pixel_
 render_scene	src/rendering/raytracer.c	/^void	render_scene(t_minirt *rt)$/;"	f	typeref:typename:void
 right	includes/minirt.h	/^	t_vec3	right;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 right	includes/minirt.h	/^    struct s_bvh_node   *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *
-right	tests/test_cleanup_only.c	/^    struct s_bvh_node *right;$/;"	m	struct:s_bvh_node	typeref:struct:s_bvh_node *	file:
 root	includes/minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
 rotate_camera	src/utils/camera.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
 rotate_speed	includes/minirt.h	/^	double	rotate_speed;$/;"	m	struct:s_camera	typeref:typename:double
 rt	includes/minirt.h	/^	t_minirt *rt;$/;"	m	struct:s_intels	typeref:typename:t_minirt *
-run_test	tests/run_tests.sh	/^run_test() {$/;"	f
 s_aabb	includes/minirt.h	/^typedef struct s_aabb$/;"	s
-s_aabb	tests/test_cleanup_only.c	/^typedef struct s_aabb$/;"	s	file:
 s_aabb_query	includes/minirt.h	/^typedef struct s_aabb_query$/;"	s
 s_bvh_node	includes/minirt.h	/^typedef struct s_bvh_node$/;"	s
-s_bvh_node	tests/test_cleanup_only.c	/^typedef struct s_bvh_node$/;"	s	file:
 s_camera	includes/minirt.h	/^typedef struct s_camera$/;"	s
 s_col_name	includes/minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
 s_col_name	minilibx-linux/mlx_int.h	/^struct	s_col_name$/;"	s
@@ -980,7 +923,6 @@ s_slab_intersections	includes/minirt.h	/^typedef struct s_slab_intersections$/;"
 s_slab_result	includes/minirt.h	/^typedef struct s_slab_result$/;"	s
 s_threadArgs	includes/minirt.h	/^typedef struct s_threadArgs$/;"	s
 s_vec3	includes/minirt.h	/^typedef struct s_vec3$/;"	s
-s_vec3	tests/test_cleanup_only.c	/^typedef struct s_vec3$/;"	s	file:
 s_win_list	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_win_list$/;"	s
 s_win_list	minilibx-linux/mlx_int.h	/^typedef struct	s_win_list$/;"	s
 s_xpm_col	includes/minilibx-linux/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
@@ -989,9 +931,7 @@ s_xvar	includes/minilibx-linux/mlx_int.h	/^typedef struct	s_xvar$/;"	s
 s_xvar	minilibx-linux/mlx_int.h	/^typedef struct	s_xvar$/;"	s
 safe_calloc	src/utils/memory.c	/^void	*safe_calloc(size_t count, size_t size)$/;"	f	typeref:typename:void *
 safe_free	src/utils/memory.c	/^void	safe_free(void **ptr)$/;"	f	typeref:typename:void
-safe_free	tests/test_cleanup_only.c	/^void safe_free(void **ptr)$/;"	f	typeref:typename:void
 safe_malloc	src/utils/memory.c	/^void	*safe_malloc(size_t size)$/;"	f	typeref:typename:void *
-safe_malloc	tests/test_cleanup_only.c	/^void *safe_malloc(size_t size)$/;"	f	typeref:typename:void *
 safe_realloc	src/utils/memory.c	/^void	*safe_realloc(void *ptr, size_t size)$/;"	f	typeref:typename:void *
 safe_strdup	src/utils/memory.c	/^char	*safe_strdup(char *str)$/;"	f	typeref:typename:char *
 sah_cost	src/utils/sah.c	/^static double	sah_cost(double left_area, double right_area,$/;"	f	typeref:typename:double	file:
@@ -1001,7 +941,6 @@ scene	includes/minirt.h	/^	t_scene			scene;$/;"	m	struct:s_minirt	typeref:typena
 screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
 screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
 send_directive	src/rendering/raytracer.c	/^static void send_directive(t_intels dirs)$/;"	f	typeref:typename:void	file:
-set_cylinder_properties	src/parsing/parse_cylinder.c	/^static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,$/;"	f	typeref:typename:void	file:
 set_edge_vectors	src/math/intersect_triangle.c	/^static inline void	set_edge_vectors(t_vec3 *edge1, t_vec3 *edge2, t_vec3 v0, t_vec3 v1, t_vec3 v/;"	f	typeref:typename:void	file:
 setup_aabb_query	src/utils/aabb_utils.c	/^void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)$/;"	f	typeref:typename:void
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
@@ -1046,10 +985,8 @@ t	includes/minirt.h	/^	double		t;$/;"	m	struct:s_hit	typeref:typename:double
 t1	includes/minirt.h	/^	double	t1;$/;"	m	struct:s_slab_intersections	typeref:typename:double
 t2	includes/minirt.h	/^	double	t2;$/;"	m	struct:s_slab_intersections	typeref:typename:double
 t_aabb	includes/minirt.h	/^}	t_aabb;$/;"	t	typeref:struct:s_aabb
-t_aabb	tests/test_cleanup_only.c	/^} t_aabb;$/;"	t	typeref:struct:s_aabb	file:
 t_aabb_query	includes/minirt.h	/^}	t_aabb_query;$/;"	t	typeref:struct:s_aabb_query
 t_bvh_node	includes/minirt.h	/^}	t_bvh_node;$/;"	t	typeref:struct:s_bvh_node
-t_bvh_node	tests/test_cleanup_only.c	/^} t_bvh_node;$/;"	t	typeref:struct:s_bvh_node	file:
 t_camera	includes/minirt.h	/^}	t_camera;$/;"	t	typeref:struct:s_camera
 t_color	includes/minirt.h	/^}	t_color;$/;"	t	typeref:struct:s_color
 t_cone_params	includes/minirt.h	/^}	t_cone_params;$/;"	t	typeref:struct:s_cone_params
@@ -1077,85 +1014,21 @@ t_slab_intersections	includes/minirt.h	/^}	t_slab_intersections;$/;"	t	typeref:s
 t_slab_result	includes/minirt.h	/^}	t_slab_result;$/;"	t	typeref:struct:s_slab_result
 t_threadArgs	includes/minirt.h	/^}	t_threadArgs;$/;"	t	typeref:struct:s_threadArgs
 t_vec3	includes/minirt.h	/^}	t_vec3;$/;"	t	typeref:struct:s_vec3
-t_vec3	tests/test_cleanup_only.c	/^} t_vec3;$/;"	t	typeref:struct:s_vec3	file:
 t_win_list	includes/minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_win_list	minilibx-linux/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_xpm_col	includes/minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xpm_col	minilibx-linux/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xvar	includes/minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
 t_xvar	minilibx-linux/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
-test_all_object_types	tests/test_integration.c	/^void	test_all_object_types(void)$/;"	f	typeref:typename:void
-test_camera_fov_effects	tests/test_camera_ray.c	/^void	test_camera_fov_effects(void)$/;"	f	typeref:typename:void
-test_camera_vectors	tests/test_vector_raytracing.c	/^void	test_camera_vectors(void)$/;"	f	typeref:typename:void
-test_close_handler	tests/test_visual_mlx.c	/^int	test_close_handler(t_mlx *mlx)$/;"	f	typeref:typename:int
-test_color_conversion	tests/test_mlx_graphics.c	/^void	test_color_conversion(void)$/;"	f	typeref:typename:void
-test_complete_scene_parsing	tests/test_scene_parsers.c	/^void test_complete_scene_parsing(void)$/;"	f	typeref:typename:void
-test_complete_scene_parsing	tests/test_scene_parsers_simple.c	/^void test_complete_scene_parsing(void)$/;"	f	typeref:typename:void
-test_cylinder_intersection_basic	tests/test_intersections.c	/^void	test_cylinder_intersection_basic(void)$/;"	f	typeref:typename:void
 test_default_main	includes/minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
 test_default_main	minilibx-linux/test/run_tests.sh	/^test_default_main(){$/;"	f
-test_edge_cases	tests/test_object_parsing_final.c	/^void test_edge_cases(void)$/;"	f	typeref:typename:void
-test_error_handling_integration	tests/test_integration.c	/^void	test_error_handling_integration(void)$/;"	f	typeref:typename:void
-test_get_next_token	tests/test_parsing_comprehensive.c	/^void	test_get_next_token(void)$/;"	f	typeref:typename:void
-test_intersect_scene	tests/test_intersections.c	/^void	test_intersect_scene(void)$/;"	f	typeref:typename:void
-test_intersection_accuracy	tests/test_intersections.c	/^void	test_intersection_accuracy(void)$/;"	f	typeref:typename:void
-test_intersection_performance	tests/test_intersections.c	/^void	test_intersection_performance(void)$/;"	f	typeref:typename:void
-test_key_handler	tests/test_visual_mlx.c	/^int	test_key_handler(int keycode, t_mlx *mlx)$/;"	f	typeref:typename:int
-test_lighting_scenarios	tests/test_integration.c	/^void	test_lighting_scenarios(void)$/;"	f	typeref:typename:void
-test_memory_management	tests/test_integration.c	/^void	test_memory_management(void)$/;"	f	typeref:typename:void
-test_mlx_init	tests/test_mlx_graphics.c	/^void	test_mlx_init(void)$/;"	f	typeref:typename:void
-test_multiple_objects	tests/test_object_parsing.c	/^void test_multiple_objects(void)$/;"	f	typeref:typename:void
-test_multiple_objects	tests/test_object_parsing_final.c	/^void test_multiple_objects(void)$/;"	f	typeref:typename:void
-test_object_parsing	tests/test_parsing_comprehensive.c	/^void	test_object_parsing(void)$/;"	f	typeref:typename:void
-test_object_validation	tests/test_object_parsing.c	/^void test_object_validation(void)$/;"	f	typeref:typename:void
-test_object_validation	tests/test_object_parsing_final.c	/^void test_object_validation(void)$/;"	f	typeref:typename:void
-test_parse_color	tests/test_parsing_comprehensive.c	/^void	test_parse_color(void)$/;"	f	typeref:typename:void
-test_parse_cylinder	tests/test_object_parsing.c	/^void test_parse_cylinder(void)$/;"	f	typeref:typename:void
-test_parse_cylinder	tests/test_object_parsing_final.c	/^void test_parse_cylinder(void)$/;"	f	typeref:typename:void
-test_parse_double	tests/test_parsing_comprehensive.c	/^void	test_parse_double(void)$/;"	f	typeref:typename:void
-test_parse_int	tests/test_parsing_comprehensive.c	/^void	test_parse_int(void)$/;"	f	typeref:typename:void
-test_parse_plane	tests/test_object_parsing.c	/^void test_parse_plane(void)$/;"	f	typeref:typename:void
-test_parse_plane	tests/test_object_parsing_final.c	/^void test_parse_plane(void)$/;"	f	typeref:typename:void
-test_parse_sphere	tests/test_object_parsing.c	/^void test_parse_sphere(void)$/;"	f	typeref:typename:void
-test_parse_sphere	tests/test_object_parsing_final.c	/^void test_parse_sphere(void)$/;"	f	typeref:typename:void
-test_parse_vec3	tests/test_parsing_comprehensive.c	/^void	test_parse_vec3(void)$/;"	f	typeref:typename:void
-test_parsing_error_cases	tests/test_parsing_comprehensive.c	/^void	test_parsing_error_cases(void)$/;"	f	typeref:typename:void
-test_performance_complex_scene	tests/test_integration.c	/^void	test_performance_complex_scene(void)$/;"	f	typeref:typename:void
-test_pixel_operations	tests/test_mlx_graphics.c	/^void	test_pixel_operations(void)$/;"	f	typeref:typename:void
-test_plane_intersection_angled	tests/test_intersections.c	/^void	test_plane_intersection_angled(void)$/;"	f	typeref:typename:void
-test_plane_intersection_basic	tests/test_intersections.c	/^void	test_plane_intersection_basic(void)$/;"	f	typeref:typename:void
-test_ray_at	tests/test_ray.c	/^void	test_ray_at(void)$/;"	f	typeref:typename:void
-test_ray_distance_to_point	tests/test_ray.c	/^void	test_ray_distance_to_point(void)$/;"	f	typeref:typename:void
-test_ray_from_camera	tests/test_camera_ray.c	/^void	test_ray_from_camera(void)$/;"	f	typeref:typename:void
-test_ray_new	tests/test_ray.c	/^void	test_ray_new(void)$/;"	f	typeref:typename:void
-test_ray_reflect	tests/test_ray.c	/^void	test_ray_reflect(void)$/;"	f	typeref:typename:void
-test_ray_tracing_scenarios	tests/test_ray.c	/^void	test_ray_tracing_scenarios(void)$/;"	f	typeref:typename:void
-test_ray_transform	tests/test_ray.c	/^void	test_ray_transform(void)$/;"	f	typeref:typename:void
-test_raytracing_scenarios	tests/test_vector_raytracing.c	/^void	test_raytracing_scenarios(void)$/;"	f	typeref:typename:void
-test_rendering_pipeline	tests/test_integration.c	/^void	test_rendering_pipeline(void)$/;"	f	typeref:typename:void
-test_scene_element_parsing	tests/test_parsing_comprehensive.c	/^void	test_scene_element_parsing(void)$/;"	f	typeref:typename:void
-test_scene_parsing_integration	tests/test_integration.c	/^void	test_scene_parsing_integration(void)$/;"	f	typeref:typename:void
-test_scene_validation	tests/test_parsing_comprehensive.c	/^void	test_scene_validation(void)$/;"	f	typeref:typename:void
 test_slab_intersection	src/math/cube_utils.c	/^int	test_slab_intersection(double ray_dir, double ray_orig,$/;"	f	typeref:typename:int
-test_sphere_intersection_basic	tests/test_intersections.c	/^void	test_sphere_intersection_basic(void)$/;"	f	typeref:typename:void
-test_sphere_intersection_edge_cases	tests/test_intersections.c	/^void	test_sphere_intersection_edge_cases(void)$/;"	f	typeref:typename:void
-test_vec3_add	tests/test_vector.c	/^void	test_vec3_add(void)$/;"	f	typeref:typename:void
-test_vec3_cross	tests/test_vector.c	/^void	test_vec3_cross(void)$/;"	f	typeref:typename:void
-test_vec3_div	tests/test_vector.c	/^void	test_vec3_div(void)$/;"	f	typeref:typename:void
-test_vec3_dot	tests/test_vector.c	/^void	test_vec3_dot(void)$/;"	f	typeref:typename:void
-test_vec3_length	tests/test_vector.c	/^void	test_vec3_length(void)$/;"	f	typeref:typename:void
-test_vec3_length_squared	tests/test_vector.c	/^void	test_vec3_length_squared(void)$/;"	f	typeref:typename:void
-test_vec3_mult	tests/test_vector.c	/^void	test_vec3_mult(void)$/;"	f	typeref:typename:void
-test_vec3_new	tests/test_vector.c	/^void	test_vec3_new(void)$/;"	f	typeref:typename:void
-test_vec3_normalize	tests/test_vector.c	/^void	test_vec3_normalize(void)$/;"	f	typeref:typename:void
-test_vec3_sub	tests/test_vector.c	/^void	test_vec3_sub(void)$/;"	f	typeref:typename:void
 threads	Makefile	/^threads:$/;"	t
 tmax	includes/minirt.h	/^	double	tmax;$/;"	m	struct:s_aabb_query	typeref:typename:double
 tmin	includes/minirt.h	/^	double	tmin;$/;"	m	struct:s_aabb_query	typeref:typename:double
 total_directives	includes/minirt.h	/^	int total_directives;$/;"	m	struct:s_threadArgs	typeref:typename:int
 transparency	includes/minirt.h	/^	double	transparency;$/;"	m	struct:s_material	typeref:typename:double
-triangle	includes/minirt.h	/^	t_vec3			triangle[3];$/;"	m	struct:s_object	typeref:typename:t_vec3[3]
-triangle_based_bounds	src/utils/objects_bounds.c	/^static inline void	triangle_based_bounds(t_object *obj, \\$/;"	f	typeref:typename:void	file:
+triangle_based_bounds	src/utils/objects_bounds.c	/^static inline void	triangle_based_bounds(t_object *obj, t_aabb *bounds)$/;"	f	typeref:typename:void	file:
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
 type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
 type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
@@ -1183,11 +1056,6 @@ vec3_add	src/math/vector1.c	/^t_vec3	vec3_add(t_vec3 a, t_vec3 b)$/;"	f	typeref:
 vec3_cross	src/math/vector.c	/^t_vec3	vec3_cross(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
 vec3_div	src/math/vector1.c	/^t_vec3	vec3_div(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
 vec3_dot	src/math/vector.c	/^double	vec3_dot(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:double
-vec3_equals	tests/test_camera_ray.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
-vec3_equals	tests/test_parsing_comprehensive.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
-vec3_equals	tests/test_ray.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
-vec3_equals	tests/test_vector.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
-vec3_equals	tests/test_vector_raytracing.c	/^int	vec3_equals(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:int
 vec3_length	src/math/vector.c	/^double	vec3_length(t_vec3 v)$/;"	f	typeref:typename:double
 vec3_length_squared	src/math/vector.c	/^double	vec3_length_squared(t_vec3 v)$/;"	f	typeref:typename:double
 vec3_mult	src/math/vector1.c	/^t_vec3	vec3_mult(t_vec3 v, double scalar)$/;"	f	typeref:typename:t_vec3
@@ -1221,7 +1089,6 @@ wm_delete_window	minilibx-linux/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struc
 wm_protocols	includes/minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
 wm_protocols	minilibx-linux/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
 x	includes/minirt.h	/^	double	x;$/;"	m	struct:s_vec3	typeref:typename:double
-x	tests/test_cleanup_only.c	/^    double x;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 xend	includes/minirt.h	/^	int xend;$/;"	m	struct:s_intels	typeref:typename:int
 xpm1_x	includes/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
 xpm1_x	minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
@@ -1229,10 +1096,8 @@ xpm1_y	includes/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:
 xpm1_y	minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
 xstart	includes/minirt.h	/^	int xstart;$/;"	m	struct:s_intels	typeref:typename:int
 y	includes/minirt.h	/^	double	y;$/;"	m	struct:s_vec3	typeref:typename:double
-y	tests/test_cleanup_only.c	/^    double y;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 yaw_epsilon_helper	src/utils/camera.c	/^static void	yaw_epsilon_helper(t_camera *camera, double yaw)$/;"	f	typeref:typename:void	file:
 yend	includes/minirt.h	/^	int yend;$/;"	m	struct:s_intels	typeref:typename:int
 ystart	includes/minirt.h	/^	int ystart;$/;"	m	struct:s_intels	typeref:typename:int
 z	includes/minirt.h	/^	double	z;$/;"	m	struct:s_vec3	typeref:typename:double
-z	tests/test_cleanup_only.c	/^    double z;$/;"	m	struct:s_vec3	typeref:typename:double	file:
 zoom_camera	src/graphics/misc.c	/^void	zoom_camera(t_camera *cam, double factor)$/;"	f	typeref:typename:void
