@@ -4,7 +4,7 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/chrleroy/Desktop/repos/Github/42_Mini_RT/	//
+!_TAG_PROC_CWD	/home/cuistobal/Code/42_Mini_RT/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
@@ -15,9 +15,11 @@ $(NAME)	includes/minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
 $(NAME)	includes/minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
 $(NAME)	minilibx-linux/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
 $(NAME)	minilibx-linux/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
+$(NAME)	sources/utilities/Libft/Makefile	/^$(NAME): $(MLX_LIB) $(OBJ)$/;"	t
 $(OBJ_DIR)/%.o	Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
 $(OBJ_DIR)/%.o	includes/minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
 $(OBJ_DIR)/%.o	minilibx-linux/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
+$(OBJ_DIR)/%.o	sources/utilities/Libft/Makefile	/^$(OBJ_DIR)\/%.o: $(SRC_DIR)\/%.c$/;"	t
 *.old	.vscode/settings.json	/^        "*.old": "c",$/;"	s	object:files.associations
 *.temp	.vscode/settings.json	/^        "*.temp": "c"$/;"	s	object:files.associations
 AUTHOR	includes/minilibx-linux/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
@@ -41,6 +43,7 @@ AUTHOR	minilibx-linux/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 AUTHOR	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
 BLUE	Makefile	/^BLUE = \\033[0;34m$/;"	m
+BUFFER_SIZE	sources/utilities/Libft/includes/get_next_line.h	/^#  define BUFFER_SIZE /;"	d
 BVH_STACK_SIZE	includes/minirt.h	/^# define BVH_STACK_SIZE /;"	d
 CAPACITY_THRESHOLD	includes/minirt.h	/^# define CAPACITY_THRESHOLD /;"	d
 CC	Makefile	/^CC = gcc$/;"	m
@@ -52,11 +55,13 @@ CC	minilibx-linux/Makefile.mk	/^	CC = clang$/;"	m
 CC	minilibx-linux/Makefile.mk	/^CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC	= gcc$/;"	m
 CC	minilibx-linux/test/Makefile.mk	/^	CC = clang$/;"	m
+CC	sources/utilities/Libft/Makefile	/^CC 		= cc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errn/;"	m
 CFLAGS	includes/minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	includes/minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
 CFLAGS	minilibx-linux/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	minilibx-linux/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+CHAR_OCTET	sources/utilities/Libft/includes/get_next_line.h	/^#  define CHAR_OCTET /;"	d
 COLOR	includes/minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
 COLOR	includes/minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
 COLOR	minilibx-linux/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
@@ -65,6 +70,7 @@ CONE	includes/minirt.h	/^# define CONE /;"	d
 CUBE	includes/minirt.h	/^# define CUBE /;"	d
 CYLINDER	includes/minirt.h	/^# define CYLINDER /;"	d
 Creating a Scene	README.md	/^Creating a Scene$/;"	s	chapter:MiniRT
+DEPS	sources/utilities/Libft/Makefile	/^DEPS	= $(OBJ:.o=.d)$/;"	m
 DESCRIPTION	includes/minilibx-linux/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
 DESCRIPTION	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
@@ -98,6 +104,8 @@ ERROR_NONE	includes/minirt.h	/^	ERROR_NONE = 0,$/;"	e	enum:e_error
 ERROR_PARSE	includes/minirt.h	/^	ERROR_PARSE = 3,$/;"	e	enum:e_error
 ERR_NO_TRUECOLOR	includes/minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
 ERR_NO_TRUECOLOR	minilibx-linux/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
+FLAGS	sources/utilities/Libft/Makefile	/^FLAGS 	= -Werror -Wextra -Wall -g3 -I.\/include$/;"	m
+GET_NEXT_LINE_H	sources/utilities/Libft/includes/get_next_line.h	/^# define GET_NEXT_LINE_H$/;"	d
 GOING	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
 GOING	includes/minilibx-linux/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
 GOING	minilibx-linux/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
@@ -124,6 +132,7 @@ INCLUDE	minilibx-linux/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
 INCLUDE	minilibx-linux/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
 INCLUDES	Makefile	/^INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)$/;"	m
 INC_DIR	Makefile	/^INC_DIR = includes$/;"	m
+INC_DIR	sources/utilities/Libft/Makefile	/^INC_DIR	= includes$/;"	m
 Installation	README.md	/^Installation$/;"	s	chapter:MiniRT
 KEY_A	includes/minirt.h	/^# define KEY_A /;"	d
 KEY_ACTION_A	includes/minirt.h	/^    KEY_ACTION_A,$/;"	e	enum:e_keyaction
@@ -146,6 +155,7 @@ KEY_UP	includes/minirt.h	/^# define KEY_UP /;"	d
 KEY_W	includes/minirt.h	/^# define KEY_W /;"	d
 LFLAGS	includes/minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
 LFLAGS	minilibx-linux/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
+LIBFT_H	sources/utilities/Libft/includes/libft.h	/^# define LIBFT_H$/;"	d
 LIBRARY	includes/minilibx-linux/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
 LIBRARY	includes/minilibx-linux/man/man3/mlx.3	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
 LIBRARY	minilibx-linux/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
@@ -222,6 +232,7 @@ NAME	minilibx-linux/man/man3/mlx_new_image.3	/^.SH NAME$/;"	s	title:MiniLibX
 NAME	minilibx-linux/man/man3/mlx_new_window.3	/^.SH NAME$/;"	s	title:MiniLibX
 NAME	minilibx-linux/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
 NAME	minilibx-linux/test/Makefile.mk	/^NAME= mlx-test$/;"	m
+NAME	sources/utilities/Libft/Makefile	/^NAME 	= libft.a$/;"	m
 NAME_UNAME	includes/minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
 NAME_UNAME	minilibx-linux/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
 NC	Makefile	/^NC = \\033[0m$/;"	m
@@ -231,12 +242,15 @@ OBJ	includes/minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%
 OBJ	includes/minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
 OBJ	minilibx-linux/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
 OBJ	minilibx-linux/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
+OBJ	sources/utilities/Libft/Makefile	/^OBJ		= $(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJS	Makefile	/^OBJS = $(SRCS:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJ_DIR	Makefile	/^OBJ_DIR = obj$/;"	m
 OBJ_DIR	includes/minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
 OBJ_DIR	minilibx-linux/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+OBJ_DIR	sources/utilities/Libft/Makefile	/^OBJ_DIR	= objects$/;"	m
 PFLAGS	Makefile	/^PFLAGS = -pg$/;"	m
 PLANE	includes/minirt.h	/^# define PLANE /;"	d
+PRINTF_FD_H	sources/utilities/Libft/includes/printf_fd.h	/^# define PRINTF_FD_H$/;"	d
 Profiling & Optimization	README.md	/^Profiling & Optimization$/;"	s	chapter:MiniRT
 RED	Makefile	/^RED = \\033[0;31m$/;"	m
 RED_OFFSET	includes/minirt.h	/^# define RED_OFFSET /;"	d
@@ -254,6 +268,7 @@ RETURN	minilibx-linux/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
 RETURN	minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
+RM	sources/utilities/Libft/Makefile	/^RM		= rm -f$/;"	m
 SEE	includes/minilibx-linux/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
 SEE	includes/minilibx-linux/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
 SEE	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
@@ -279,8 +294,10 @@ SRC	includes/minilibx-linux/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_
 SRC	includes/minilibx-linux/test/Makefile.mk	/^SRC = main.c$/;"	m
 SRC	minilibx-linux/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
 SRC	minilibx-linux/test/Makefile.mk	/^SRC = main.c$/;"	m
+SRC	sources/utilities/Libft/Makefile	/^SRC		= $(shell find $(SRC_DIR) -name "*.c")$/;"	m
 SRCS	Makefile	/^SRCS = $(wildcard $(SRC_DIR)\/*.c) $(wildcard $(SRC_DIR)\/**\/*.c)$/;"	m
 SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
+SRC_DIR	sources/utilities/Libft/Makefile	/^SRC_DIR	= sources$/;"	m
 STORING	includes/minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
 STORING	includes/minilibx-linux/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
 STORING	minilibx-linux/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
@@ -345,6 +362,7 @@ all	includes/minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
 all	minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
 all	minilibx-linux/test/Makefile.mk	/^all: $(NAME)$/;"	t
+all	sources/utilities/Libft/Makefile	/^all: $(NAME)$/;"	t
 allocate_bounds	src/utils/sah.c	/^static void	allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \\$/;"	f	typeref:typename:void	file:
 ambient	includes/minirt.h	/^	t_color		ambient;$/;"	m	struct:s_scene	typeref:typename:t_color
 ambient_ratio	includes/minirt.h	/^	double		ambient_ratio;$/;"	m	struct:s_scene	typeref:typename:double
@@ -402,6 +420,7 @@ centroid	includes/minirt.h	/^	t_vec3			centroid;$/;"	m	struct:s_object	typeref:t
 check	includes/minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check	minilibx-linux/Makefile.mk	/^check: all$/;"	t
 check_barycentric_coords	src/math/intersect_triangle.c	/^static inline int	check_barycentric_coords(double u, double v)$/;"	f	typeref:typename:int	file:
+check_format	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^static int	check_format( int fd, char format, va_list arg)$/;"	f	typeref:typename:int	file:
 check_limits	src/utils/colors1.c	/^static void	check_limits(int *color)$/;"	f	typeref:typename:void	file:
 clean	Makefile	/^clean:$/;"	t
 clean	includes/minilibx-linux/Makefile	/^clean	:$/;"	t
@@ -412,6 +431,7 @@ clean	minilibx-linux/Makefile	/^clean	:$/;"	t
 clean	minilibx-linux/Makefile.mk	/^clean	:$/;"	t
 clean	minilibx-linux/configure	/^clean(){$/;"	f
 clean	minilibx-linux/test/Makefile.mk	/^clean:$/;"	t
+clean	sources/utilities/Libft/Makefile	/^clean:$/;"	t
 clean_profile	Makefile	/^clean_profile:$/;"	t
 cleanup_all	src/utils/error.c	/^void	cleanup_all(t_minirt *rt)$/;"	f	typeref:typename:void
 cleanup_bvh	src/utils/cleanup.c	/^void	cleanup_bvh(t_bvh_node *node)$/;"	f	typeref:typename:void
@@ -445,6 +465,7 @@ completed_directives	includes/minirt.h	/^	int completed_directives;$/;"	m	struct
 compute_centroid	src/parsing/parse_triangle.c	/^static inline t_vec3 compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)$/;"	f	typeref:typename:t_vec3	file:
 compute_h_return_a	src/math/intersect_triangle.c	/^static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, t_vec3 *h)$/;"	f	typeref:typename:double	file:
 condQueue	includes/minirt.h	/^	pthread_cond_t condQueue;$/;"	m	struct:s_threadArgs	typeref:typename:pthread_cond_t
+content	sources/utilities/Libft/includes/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
 count_objects	src/utils/build_bvh.c	/^static inline int	count_objects(t_object *objects)$/;"	f	typeref:typename:int	file:
 create_cube	src/parsing/parse_cube.c	/^static t_object	*create_cube(t_vec3 position, double size, t_color color)$/;"	f	typeref:typename:t_object *	file:
 create_directive	src/rendering/raytracer.c	/^void create_directive(t_minirt *rt)$/;"	f	typeref:typename:void
@@ -499,10 +520,12 @@ expose_win1	minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:
 expose_win2	includes/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 expose_win2	minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
 fclean	Makefile	/^fclean: clean$/;"	t
+fclean	sources/utilities/Libft/Makefile	/^fclean: clean$/;"	t
 filename	includes/minirt.h	/^	char			*filename;$/;"	m	struct:s_minirt	typeref:typename:char *
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
 fill_bounds	src/utils/sah.c	/^static void	fill_bounds(t_object **objects, int count,$/;"	f	typeref:typename:void	file:
-find_sah_split	src/utils/sah.c	/^int	find_sah_split(t_object **objects, int count, int *best_axis, \\$/;"	f	typeref:typename:int
+fill_line_buffer	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*fill_line_buffer(int fd, char *overread, char *buffer)$/;"	f	typeref:typename:char *
+find_sah_split	src/utils/sah.c	/^int	find_sah_split(t_object **objects, int count, int *best_axis)$/;"	f	typeref:typename:int
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 format	minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 fov	includes/minirt.h	/^	double	fov;$/;"	m	struct:s_camera	typeref:typename:double
@@ -516,6 +539,69 @@ free_plane_tokens	src/parsing/parse_plane.c	/^static void	free_plane_tokens(char
 free_sphere_tokens	src/parsing/parse_sphere.c	/^static void	free_sphere_tokens(char *pos, char *diam, char *col)$/;"	f	typeref:typename:void	file:
 free_triangle_tokens	src/parsing/parse_triangle.c	/^static inline void	free_triangle_tokens(char *t0, char *t1, char *t2, char *t3)$/;"	f	typeref:typename:void	file:
 front	includes/minirt.h	/^	int front;$/;"	m	struct:s_key_queue	typeref:typename:int
+ft_atoi	sources/utilities/Libft/sources/mandatory/ft_convert/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
+ft_base_attribution	sources/utilities/Libft/sources/printf_fd/utilities/ft_base_attribution.c	/^char	*ft_base_attribution(char format)$/;"	f	typeref:typename:char *
+ft_bzero	sources/utilities/Libft/sources/mandatory/ft_mem/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
+ft_calloc	sources/utilities/Libft/sources/mandatory/ft_heap/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
+ft_countword	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static int	ft_countword(char const *s, char c)$/;"	f	typeref:typename:int	file:
+ft_fill	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	*ft_fill(const char *s, char c)$/;"	f	typeref:typename:char *	file:
+ft_free	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^static char	**ft_free(char **dest, int words)$/;"	f	typeref:typename:char **	file:
+ft_isalnum	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
+ft_isalpha	sources/utilities/Libft/sources/mandatory/ft_is/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
+ft_isascii	sources/utilities/Libft/sources/mandatory/ft_is/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
+ft_isdigit	sources/utilities/Libft/sources/mandatory/ft_is/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
+ft_isprint	sources/utilities/Libft/sources/mandatory/ft_is/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
+ft_itoa	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_lstadd_back	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_back_bonus.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstadd_front	sources/utilities/Libft/sources/bonus/ft_list/ft_lstadd_front_bonus.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstclear	sources/utilities/Libft/sources/bonus/ft_list/ft_lstclear_bonus.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstdelone	sources/utilities/Libft/sources/bonus/ft_list/ft_lstdelone_bonus.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f	typeref:typename:void
+ft_lstiter	sources/utilities/Libft/sources/bonus/ft_list/ft_lstiter_bonus.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
+ft_lstlast	sources/utilities/Libft/sources/bonus/ft_list/ft_lstlast_bonus.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
+ft_lstmap	sources/utilities/Libft/sources/bonus/ft_list/ft_lstmap_bonus.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
+ft_lstnew	sources/utilities/Libft/sources/bonus/ft_list/ft_lstnew_bonus.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
+ft_lstsize	sources/utilities/Libft/sources/bonus/ft_list/ft_lstsize_bonus.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
+ft_memchr	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_memcmp	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
+ft_memcpy	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memmove	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memset	sources/utilities/Libft/sources/mandatory/ft_mem/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_num_len	sources/utilities/Libft/sources/printf_fd/utilities/ft_num_len.c	/^int	ft_num_len(unsigned	int num, char *base)$/;"	f	typeref:typename:int
+ft_pointer_len	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_pointer_len(uintptr_t num)$/;"	f	typeref:typename:int
+ft_print_char	sources/utilities/Libft/sources/printf_fd/src/ft_print_char.c	/^int	ft_print_char(int c, int fd)$/;"	f	typeref:typename:int
+ft_print_hexa	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^int	ft_print_hexa(unsigned int num, char format, int fd)$/;"	f	typeref:typename:int
+ft_print_number_base	sources/utilities/Libft/sources/printf_fd/src/ft_print_number_base.c	/^int	ft_print_number_base(int num, char format, int fd)$/;"	f	typeref:typename:int
+ft_print_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^int	ft_print_pointer(unsigned long long num, int fd)$/;"	f	typeref:typename:int
+ft_print_string	sources/utilities/Libft/sources/printf_fd/src/ft_print_string.c	/^int	ft_print_string(char *s, int fd)$/;"	f	typeref:typename:int
+ft_print_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^int	ft_print_unsigned(unsigned long long num, char format, int fd)$/;"	f	typeref:typename:int
+ft_printf_fd	sources/utilities/Libft/sources/printf_fd/src/ft_printf_fd.c	/^int	ft_printf_fd(int fd, char *toprint, ...)$/;"	f	typeref:typename:int
+ft_put_pointer	sources/utilities/Libft/sources/printf_fd/src/ft_print_pointer.c	/^void	ft_put_pointer(uintptr_t num, int fd)$/;"	f	typeref:typename:void
+ft_putchar_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_base	sources/utilities/Libft/sources/printf_fd/utilities/ft_putnbr_base.c	/^void	ft_putnbr_base(long long int num, char format, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_hex	sources/utilities/Libft/sources/printf_fd/src/ft_print_hexa.c	/^static void	ft_putnbr_hex(unsigned int num, const char format, int fd)$/;"	f	typeref:typename:void	file:
+ft_putstr_fd	sources/utilities/Libft/sources/mandatory/ft_fd/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_size	sources/utilities/Libft/sources/mandatory/ft_convert/ft_itoa.c	/^int	ft_size(int n)$/;"	f	typeref:typename:int
+ft_split	sources/utilities/Libft/sources/mandatory/ft_heap/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
+ft_strchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strchr.c	/^char	*ft_strchr(const char *string, int c)$/;"	f	typeref:typename:char *
+ft_strcmp	sources/utilities/Libft/sources/mandatory/misc/ft_strcmp.c	/^int	ft_strcmp(const char *source, const char *comp)$/;"	f	typeref:typename:int
+ft_strdup	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strdup.c	/^char	*ft_strdup(const char *string)$/;"	f	typeref:typename:char *
+ft_striteri	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f	typeref:typename:void
+ft_strjoin	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*ft_strjoin(const char *s1, const char *s2)$/;"	f	typeref:typename:char *
+ft_strlcat	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
+ft_strlcpy	sources/utilities/Libft/sources/mandatory/ft_copy/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t siz)$/;"	f	typeref:typename:size_t
+ft_strlen	sources/utilities/Libft/sources/mandatory/misc/ft_strlen.c	/^int	ft_strlen(const char *string)$/;"	f	typeref:typename:int
+ft_strmapi	sources/utilities/Libft/sources/mandatory/ft_funcptr/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
+ft_strncmp	sources/utilities/Libft/sources/mandatory/misc/ft_strncmp.c	/^int	ft_strncmp(const char *source, const char *comp, size_t n)$/;"	f	typeref:typename:int
+ft_strnstr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
+ft_strrchr	sources/utilities/Libft/sources/mandatory/ft_search/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strtok_r	sources/utilities/Libft/sources/additional/ft_strtok_r.c	/^char	*ft_strtok_r(char *str, const char *delim, char **saveptr)$/;"	f	typeref:typename:char *
+ft_strtrim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_substr	sources/utilities/Libft/sources/mandatory/ft_heap/ft_substr.c	/^char	*ft_substr(const char *string, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
+ft_tolower	sources/utilities/Libft/sources/mandatory/misc/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
+ft_toupper	sources/utilities/Libft/sources/mandatory/misc/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+ft_trim	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strtrim.c	/^int	ft_trim(char c, char const *set)$/;"	f	typeref:typename:int
 g	includes/minirt.h	/^	int	g;$/;"	m	struct:s_color	typeref:typename:int
 g_sample_offsets	src/rendering/antialiasing.c	/^static const double g_sample_offsets[4][2] = {$/;"	v	typeref:typename:const double[4][2]	file:
 gc	includes/minilibx-linux/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
@@ -534,6 +620,7 @@ get_cube_bounds	src/math/cube_utils.c	/^void	get_cube_bounds(t_object *cube, t_v
 get_cube_normal	src/math/normal_utils.c	/^static t_vec3	get_cube_normal(t_vec3 hit_point, t_object *cube)$/;"	f	typeref:typename:t_vec3	file:
 get_cylinder_normal	src/math/object_normals.c	/^t_vec3	get_cylinder_normal(t_vec3 hit_point, t_object *cylinder)$/;"	f	typeref:typename:t_vec3
 get_cylinder_root	src/math/intersect_cylinder.c	/^static double	get_cylinder_root(double a, double b, double discriminant)$/;"	f	typeref:typename:double	file:
+get_next_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_next_token	src/parsing/parse_utils.c	/^char	*get_next_token(char **str)$/;"	f	typeref:typename:char *
 get_object_bounds	src/utils/objects_bounds.c	/^t_aabb	get_object_bounds(t_object *obj)$/;"	f	typeref:typename:t_aabb
 get_object_intersection	src/math/intersections.c	/^static double	get_object_intersection(t_ray ray, t_object *current)$/;"	f	typeref:typename:double	file:
@@ -598,6 +685,8 @@ is_empty_line	src/parsing/parse_scene.c	/^static int	is_empty_line(char *line)$/
 is_in_shadow_with_dir	src/rendering/lighting.c	/^int	is_in_shadow_with_dir(t_vec3 point, t_vec3 dir_to_light, double light_distance, t_scene *sce/;"	f	typeref:typename:int
 is_within_cone_height	src/math/intersect_cone.c	/^static int	is_within_cone_height(t_vec3 hit_point, t_object *cone)$/;"	f	typeref:typename:int	file:
 is_within_cylinder_height	src/math/intersect_cylinder.c	/^static int	is_within_cylinder_height(t_vec3 hit_point, t_object *cylinder)$/;"	f	typeref:typename:int	file:
+join_s1	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s1(const char *s1, char *joined)$/;"	f	typeref:typename:char *
+join_s2	sources/utilities/Libft/sources/mandatory/ft_heap/ft_strjoin.c	/^char	*join_s2(const char *s2, char *joined)$/;"	f	typeref:typename:char *
 key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 key_hook	minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
@@ -814,6 +903,7 @@ next	includes/minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:
 next	includes/minirt.h	/^	struct s_light	*next;$/;"	m	struct:s_light	typeref:struct:s_light *
 next	includes/minirt.h	/^	struct s_object	*next;$/;"	m	struct:s_object	typeref:struct:s_object *
 next	minilibx-linux/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
+next	sources/utilities/Libft/includes/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 normal	includes/minirt.h	/^	t_vec3			normal;$/;"	m	struct:s_object	typeref:typename:t_vec3
 normal	includes/minirt.h	/^	t_vec3		normal;$/;"	m	struct:s_hit	typeref:typename:t_vec3
 ntask	includes/minirt.h	/^	int ntask;$/;"	m	struct:s_threadArgs	typeref:typename:int
@@ -866,6 +956,7 @@ profile	Makefile	/^profile: fclean $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 put_pixel	src/graphics/image.c	/^void	put_pixel(t_mlx *mlx, int x, int y, t_color color)$/;"	f	typeref:typename:void
+putnbr_unsigned	sources/utilities/Libft/sources/printf_fd/src/ft_print_unsigned.c	/^void	putnbr_unsigned(unsigned int num, char format, int fd)$/;"	f	typeref:typename:void
 quicksort_objects	src/utils/quicksort.c	/^static void	quicksort_objects(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:void	file:
 r	includes/minirt.h	/^	int	r;$/;"	m	struct:s_color	typeref:typename:int
 radius	includes/minirt.h	/^	double			radius;$/;"	m	struct:s_object	typeref:typename:double
@@ -882,6 +973,7 @@ re	includes/minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	includes/minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
 re	minilibx-linux/Makefile	/^re	: clean all$/;"	t
 re	minilibx-linux/test/Makefile.mk	/^re: clean all$/;"	t
+re	sources/utilities/Libft/Makefile	/^re: fclean all$/;"	t
 read_file_line	src/parsing/parse_scene.c	/^static char	*read_file_line(int fd)$/;"	f	typeref:typename:char *	file:
 reflection	includes/minirt.h	/^	double	reflection;$/;"	m	struct:s_material	typeref:typename:double
 refraction_index	includes/minirt.h	/^	double	refraction_index;$/;"	m	struct:s_material	typeref:typename:double
@@ -913,6 +1005,7 @@ s_img	minilibx-linux/mlx_int.h	/^typedef struct	s_img$/;"	s
 s_intels	includes/minirt.h	/^typedef struct s_intels$/;"	s
 s_key_queue	includes/minirt.h	/^typedef struct s_key_queue$/;"	s
 s_light	includes/minirt.h	/^typedef struct s_light$/;"	s
+s_list	sources/utilities/Libft/includes/libft.h	/^typedef struct s_list$/;"	s
 s_material	includes/minirt.h	/^typedef struct s_material$/;"	s
 s_minirt	includes/minirt.h	/^typedef struct s_minirt$/;"	s
 s_mlx	includes/minirt.h	/^typedef struct s_mlx$/;"	s
@@ -942,6 +1035,7 @@ screen	includes/minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	ty
 screen	minilibx-linux/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
 send_directive	src/rendering/raytracer.c	/^static void send_directive(t_intels dirs)$/;"	f	typeref:typename:void	file:
 set_edge_vectors	src/math/intersect_triangle.c	/^static inline void	set_edge_vectors(t_vec3 *edge1, t_vec3 *edge2, t_vec3 v0, t_vec3 v1, t_vec3 v/;"	f	typeref:typename:void	file:
+set_line	sources/utilities/Libft/sources/GNL/get_next_line.c	/^char	*set_line(char *line)$/;"	f	typeref:typename:char *
 setup_aabb_query	src/utils/aabb_utils.c	/^void	setup_aabb_query(t_aabb_query *query, t_ray ray, t_aabb bounds)$/;"	f	typeref:typename:void
 setup_camera	src/rendering/raytracer.c	/^void	setup_camera(t_camera *camera)$/;"	f	typeref:typename:void
 setup_hooks	src/graphics/events.c	/^void	setup_hooks(t_minirt *rt)$/;"	f	typeref:typename:void
@@ -1001,6 +1095,7 @@ t_intels	includes/minirt.h	/^}	t_intels;$/;"	t	typeref:struct:s_intels
 t_key_queue	includes/minirt.h	/^}	t_key_queue;$/;"	t	typeref:struct:s_key_queue
 t_keyaction	includes/minirt.h	/^} t_keyaction;$/;"	t	typeref:enum:e_keyaction
 t_light	includes/minirt.h	/^}	t_light;$/;"	t	typeref:struct:s_light
+t_list	sources/utilities/Libft/includes/libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
 t_material	includes/minirt.h	/^}	t_material;$/;"	t	typeref:struct:s_material
 t_max	includes/minirt.h	/^	double	t_max;$/;"	m	struct:s_slab_result	typeref:typename:double
 t_min	includes/minirt.h	/^	double	t_min;$/;"	m	struct:s_slab_result	typeref:typename:double
