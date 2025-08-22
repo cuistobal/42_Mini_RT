@@ -36,13 +36,13 @@ static void	leaf_node_case(t_object **objects, t_bvh_node *node, int count)
 */
 static void	internal_node_case(t_object **objects, t_bvh_node *node, int count)
 {
-	int	axis;
+	//int	axis;
 	int	split;
 
-	axis = 0;
-	split = 0;
-	find_sah_split(objects, count, &axis, &split);
-	sort_objects_axis(objects, count, axis);
+	//axis = 0;
+	split = count >> 1; 
+	//find_sah_split(objects, count, &axis);
+	//sort_objects_axis(objects, count, axis);
 	node->left = build_bvh_recursive(objects, split);
 	node->right = build_bvh_recursive(objects + split, count - split);
 }
@@ -72,7 +72,9 @@ t_bvh_node	*build_bvh_recursive(t_object **objects, int count)
 	if (!node)
 		return (NULL);
 	i = 0;
-	bounds = get_object_bounds(objects[i + 1]);
+	/* Initialize bounds with the first object to avoid out-of-bounds access when count == 1 */
+	bounds = get_object_bounds(objects[0]);
+	i = 1;
 	while (i < count)
 	{
 		bounds = aabb_union(bounds, get_object_bounds(objects[i]));
