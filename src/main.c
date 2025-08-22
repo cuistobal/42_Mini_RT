@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 16:50:37 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/22 14:18:36 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,6 @@ int	main(int argc, char **argv)
 		cleanup_all(&rt);
 		return (ERROR_PARSE);
 	}
-
-	// temporary debug -> we need tor ework parsing to integrate uid
-	// within the object's creation.
-
-	t_object *current = rt.scene.objects;
-	for (int i = 0; current; current = current->next, i++) {
-		printf("%d: %f %f %f\n", current->uid, current->centroid.x, current->centroid.y, current->centroid.z);
-	}
-
-
 	rt.scene.bvh_root = build_bvh(&rt.scene);
 	if (init_mlx(&rt.mlx) != 0)
 	{
