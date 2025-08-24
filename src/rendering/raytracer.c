@@ -92,7 +92,7 @@ void create_directive(t_minirt *rt)
 	}
 }
 
-//
+// function executed by a thread. It draw all pixex according to the data contained in task structure
 static void execute_rendering(t_intels* task)
 {
 	int		x;
@@ -115,17 +115,41 @@ static void execute_rendering(t_intels* task)
 	}	
 }
 
+t_intels update_directives(t_minirt	*rt)
+{
+	t_intels	directive;
+	int	i;
+	
+	directive = rt->args.directives_rendering[0];
+	i = 0;
+	while (i < rt->args.ntask - 1)
+	{
+		rt->args.directives_rendering[i] = rt->args.directives_rendering[i + 1];
+		i++;
+	}
+	rt->args.ntask--;
+	return (directive);
+}
+/*
+*  Check if all directives are finished;
+*/
+void check_directives(t_minirt	*rt)
+{
+	if (rt->args.completed_directives == (rt->args.total_directives))
+	{
+		rt->args.stop = 1;
+		pthread_cond_broadcast(&(rt->args.condQueue));
+	}
+}
 // The thread's routine to divide redering into smaller chuncks
 void	*render_all_pixels(void *arg)
 {
-	int			i;
 	t_minirt	*rt;
 	t_intels	directive;
 	
 	rt = (t_minirt *)arg;
 	while (1)
 	{
-		i = 0;
 		pthread_mutex_lock(&(rt->args.mutexQueue));
 		while (rt->args.ntask == 0 && rt->args.stop == 0)
 			pthread_cond_wait(&rt->args.condQueue, &(rt->args.mutexQueue));
@@ -134,60 +158,79 @@ void	*render_all_pixels(void *arg)
 			pthread_mutex_unlock(&(rt->args.mutexQueue));
 			break;
 		}
-		directive = rt->args.directives_rendering[0];
-		while (i < rt->args.ntask - 1)
-		{
-			rt->args.directives_rendering[i] = rt->args.directives_rendering[i + 1];
-			i++;
-		}
-		rt->args.ntask--;
+		directive  = update_directives(rt);
 		pthread_mutex_unlock(&(rt->args.mutexQueue));
 		execute_rendering(&directive);
 		pthread_mutex_lock(&(rt->args.mutexQueue));
 		rt->args.completed_directives++;
-		if (rt->args.completed_directives == (rt->args.total_directives))
-		{
-			rt->args.stop = 1;
-			pthread_cond_broadcast(&(rt->args.condQueue));
-		}
+		check_directives(rt);
 		pthread_mutex_unlock(&(rt->args.mutexQueue));
 	}
 	rt->args.completed_directives = 0;
 	return (NULL);
 }
 
-
-
 /*
 ** render_scene - Main rendering function
 */
-void	render_scene(t_minirt *rt)
+
+int kill_threads_rsc(t_minirt *rt, pthread_t threads[], int verror)
 {
-	int				i;
-	pthread_t		threads[NUM_THREAD];
+
+	int	i;
+
+	i = 0; 
+	while (i < NUM_THREAD)
+	{
+		pthread_join(threads[i], NULL);
+		i++;
+	}
+	pthread_mutex_destroy(&(rt->args.mutexQueue));
+    pthread_cond_destroy(&(rt->args.condQueue));
+	if (verror)
+	{
+		cleanup_all(rt);
+		exit (verror);
+	}
+	return (0);
+}
+
+void init_multi_thread(t_minirt *rt, pthread_t threads[])
+{
+	int	i;
 
 	i = 0;
+	while (i < NUM_THREAD)
+	{
+		threads[i] = 0;
+		i++;
+	}
+	if (pthread_mutex_init(&(rt->args.mutexQueue), NULL) || pthread_cond_init(&(rt->args.condQueue), NULL))
+		kill_threads_rsc(rt,threads,1);
+	i = 0;
+	while(i < NUM_THREAD)
+	{
+		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))
+		{
+			perror("Error : Thread creation failed");
+			kill_threads_rsc(rt,threads,1);
+		}
+		i++;
+	}
+}
+void	render_scene(t_minirt *rt)
+{
+	pthread_t		threads[NUM_THREAD];
+
 	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
 		return ;
 	rt->args.stop = 0;
 	rt->args.ntask = 0;
 	rt->args.completed_directives = 0;
 	setup_camera(&rt->scene.camera);
-	pthread_mutex_init(&(rt->args.mutexQueue), NULL);
-	pthread_cond_init(&(rt->args.condQueue), NULL);
-	while(i < NUM_THREAD)
-	{
-		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))
-			perror("Error : Thread creation failed");
-		i++;
-	}
+	init_multi_thread(rt,threads);
 	create_directive(rt);
-	i = 0;
-	while (i < NUM_THREAD)
-	{
-		pthread_join(threads[i], NULL);
-		i++;
-	}
+	kill_threads_rsc(rt,threads,0);
 	display_image(&rt->mlx);
 }
 
