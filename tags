@@ -334,10 +334,12 @@ X_ShmAttach	minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
 YELLOW	Makefile	/^YELLOW = \\033[0;33m$/;"	m
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cone_params	typeref:typename:double
 a	includes/minirt.h	/^	double	a;$/;"	m	struct:s_cylinder_params	typeref:typename:double
+a	tools/find_triangle_holes.py	/^        a = key_of(verts[i])$/;"	v
 aabb_surface	src/utils/aabb_utils.c	/^double	aabb_surface(t_aabb a)$/;"	f	typeref:typename:double
 aabb_union	src/utils/aabb_utils.c	/^t_aabb	aabb_union(t_aabb a, t_aabb b)$/;"	f	typeref:typename:t_aabb
 add_light_to_scene	src/parsing/parse_lights.c	/^static void	add_light_to_scene(t_scene *scene, t_light *light)$/;"	f	typeref:typename:void	file:
 add_object_to_scene	src/parsing/parse_objects.c	/^void	add_object_to_scene(t_scene *scene, t_object *object)$/;"	f	typeref:typename:void
+adj	tools/find_triangle_holes.py	/^adj = defaultdict(list)$/;"	v
 all	Makefile	/^all: $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 all	includes/minilibx-linux/Makefile	/^all	: do_configure$/;"	t
 all	includes/minilibx-linux/Makefile.mk	/^all	: $(NAME)$/;"	t
@@ -360,8 +362,10 @@ axis	includes/minirt.h	/^	t_vec3			axis;$/;"	m	struct:s_object	typeref:typename:
 b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cone_params	typeref:typename:double
 b	includes/minirt.h	/^	double	b;$/;"	m	struct:s_cylinder_params	typeref:typename:double
 b	includes/minirt.h	/^	int	b;$/;"	m	struct:s_color	typeref:typename:int
+b	tools/find_triangle_holes.py	/^        b = key_of(verts[(i+1)%3])$/;"	v
 back	includes/minirt.h	/^	int back;$/;"	m	struct:s_key_queue	typeref:typename:int
 bits_per_pixel	includes/minirt.h	/^	int		bits_per_pixel;$/;"	m	struct:s_mlx	typeref:typename:int
+boundary_edges	tools/find_triangle_holes.py	/^boundary_edges = [e for e,c in edge_count.items() if c == 1]$/;"	v
 bounds	includes/minirt.h	/^    t_aabb              bounds;$/;"	m	struct:s_bvh_node	typeref:typename:t_aabb
 box	includes/minirt.h	/^	t_aabb	box;$/;"	m	struct:s_aabb_query	typeref:typename:t_aabb
 bpp	includes/minilibx-linux/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
@@ -441,6 +445,7 @@ color_map_2	minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int
 color_mult	src/utils/colors1.c	/^t_color	color_mult(t_color color, double scalar)$/;"	f	typeref:typename:t_color
 color_new	src/utils/colors.c	/^t_color	color_new(int r, int g, int b)$/;"	f	typeref:typename:t_color
 color_to_int	src/graphics/image.c	/^int	color_to_int(t_color color)$/;"	f	typeref:typename:int
+comp	tools/find_triangle_holes.py	/^    comp = []$/;"	v
 completed_directives	includes/minirt.h	/^	int completed_directives;$/;"	m	struct:s_threadArgs	typeref:typename:int
 compute_centroid	src/parsing/parse_triangle.c	/^static inline t_vec3 compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)$/;"	f	typeref:typename:t_vec3	file:
 compute_h_return_a	src/math/intersect_triangle.c	/^static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, t_vec3 *h)$/;"	f	typeref:typename:double	file:
@@ -476,6 +481,9 @@ do_flush	includes/minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xva
 do_flush	minilibx-linux/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
 e_error	includes/minirt.h	/^typedef enum e_error$/;"	g
 e_keyaction	includes/minirt.h	/^typedef enum e_keyaction {$/;"	g
+edge	tools/find_triangle_holes.py	/^        edge = tuple(sorted((a,b)))$/;"	v
+edge_count	tools/find_triangle_holes.py	/^edge_count = defaultdict(int)$/;"	v
+edge_to_tri	tools/find_triangle_holes.py	/^edge_to_tri = defaultdict(list)$/;"	v
 end_loop	includes/minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
 end_loop	minilibx-linux/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
 endian	includes/minirt.h	/^	int		endian;$/;"	m	struct:s_mlx	typeref:typename:int
@@ -502,7 +510,7 @@ fclean	Makefile	/^fclean: clean$/;"	t
 filename	includes/minirt.h	/^	char			*filename;$/;"	m	struct:s_minirt	typeref:typename:char *
 files.associations	.vscode/settings.json	/^    "files.associations": {$/;"	o
 fill_bounds	src/utils/sah.c	/^static void	fill_bounds(t_object **objects, int count,$/;"	f	typeref:typename:void	file:
-find_sah_split	src/utils/sah.c	/^int	find_sah_split(t_object **objects, int count, int *best_axis, \\$/;"	f	typeref:typename:int
+find_sah_split	src/utils/sah.c	/^int	find_sah_split(t_object **objects, int count, int *best_axis)$/;"	f	typeref:typename:int
 format	includes/minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 format	minilibx-linux/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 fov	includes/minirt.h	/^	double	fov;$/;"	m	struct:s_camera	typeref:typename:double
@@ -576,6 +584,7 @@ image	includes/minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	t
 image	minilibx-linux/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
 img_data	includes/minirt.h	/^	char	*img_data;$/;"	m	struct:s_mlx	typeref:typename:char *
 img_ptr	includes/minirt.h	/^	void	*img_ptr;$/;"	m	struct:s_mlx	typeref:typename:void *
+infile	tools/find_triangle_holes.py	/^infile = sys.argv[1]$/;"	v
 init_cube_material	src/parsing/parse_cube.c	/^static void	init_cube_material(t_object *cube)$/;"	f	typeref:typename:void	file:
 init_minirt	src/main.c	/^static int	init_minirt(t_minirt *rt, char *filename)$/;"	f	typeref:typename:int	file:
 init_mlx	src/graphics/window.c	/^int	init_mlx(t_mlx *mlx)$/;"	f	typeref:typename:int
@@ -600,6 +609,7 @@ is_within_cone_height	src/math/intersect_cone.c	/^static int	is_within_cone_heig
 is_within_cylinder_height	src/math/intersect_cylinder.c	/^static int	is_within_cylinder_height(t_vec3 hit_point, t_object *cylinder)$/;"	f	typeref:typename:int	file:
 key_hook	includes/minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
 key_hook	minilibx-linux/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+key_of	tools/find_triangle_holes.py	/^def key_of(v):$/;"	f
 key_param	includes/minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 key_param	minilibx-linux/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 key_queue	includes/minirt.h	/^	int	key_queue[MAX_KEYS];$/;"	m	struct:s_key_queue	typeref:typename:int[]
@@ -633,6 +643,7 @@ loop_hook	includes/minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struc
 loop_hook	minilibx-linux/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
 loop_param	includes/minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
 loop_param	minilibx-linux/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
+loops	tools/find_triangle_holes.py	/^loops = []$/;"	v
 main	includes/minilibx-linux/configure	/^main(){$/;"	f
 main	includes/minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int
 main	includes/minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
@@ -846,6 +857,7 @@ parse_sphere	src/parsing/parse_sphere.c	/^int	parse_sphere(char *line, t_scene *
 parse_triangle	src/parsing/parse_triangle.c	/^int parse_triangle(char *line, t_scene *scene)$/;"	f	typeref:typename:int
 parse_vec3	src/parsing/parse_utils.c	/^int	parse_vec3(char *str, t_vec3 *result)$/;"	f	typeref:typename:int
 partition	src/utils/quicksort.c	/^static int	partition(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:int	file:
+parts	tools/find_triangle_holes.py	/^            parts = s.split()$/;"	v
 pitch_epsilon_helper	src/utils/camera.c	/^static void	pitch_epsilon_helper(t_camera *camera, double pitch)$/;"	f	typeref:typename:void	file:
 pix	includes/minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
 pix	minilibx-linux/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
@@ -866,6 +878,7 @@ profile	Makefile	/^profile: fclean $(MLX_DIR)\/libmlx.a $(NAME)$/;"	t
 pshm_format	includes/minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 pshm_format	minilibx-linux/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
 put_pixel	src/graphics/image.c	/^void	put_pixel(t_mlx *mlx, int x, int y, t_color color)$/;"	f	typeref:typename:void
+q	tools/find_triangle_holes.py	/^    q = deque([start])$/;"	v
 quicksort_objects	src/utils/quicksort.c	/^static void	quicksort_objects(t_object **arr, int low, int high, int axis)$/;"	f	typeref:typename:void	file:
 r	includes/minirt.h	/^	int	r;$/;"	m	struct:s_color	typeref:typename:int
 radius	includes/minirt.h	/^	double			radius;$/;"	m	struct:s_object	typeref:typename:double
@@ -896,6 +909,7 @@ root	minilibx-linux/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typen
 rotate_camera	src/utils/camera.c	/^void	rotate_camera(t_camera *camera, double yaw, double pitch)$/;"	f	typeref:typename:void
 rotate_speed	includes/minirt.h	/^	double	rotate_speed;$/;"	m	struct:s_camera	typeref:typename:double
 rt	includes/minirt.h	/^	t_minirt *rt;$/;"	m	struct:s_intels	typeref:typename:t_minirt *
+s	tools/find_triangle_holes.py	/^        s = line.strip()$/;"	v
 s_aabb	includes/minirt.h	/^typedef struct s_aabb$/;"	s
 s_aabb_query	includes/minirt.h	/^typedef struct s_aabb_query$/;"	s
 s_bvh_node	includes/minirt.h	/^typedef struct s_bvh_node$/;"	s
@@ -1029,9 +1043,11 @@ tmin	includes/minirt.h	/^	double	tmin;$/;"	m	struct:s_aabb_query	typeref:typenam
 total_directives	includes/minirt.h	/^	int total_directives;$/;"	m	struct:s_threadArgs	typeref:typename:int
 transparency	includes/minirt.h	/^	double	transparency;$/;"	m	struct:s_material	typeref:typename:double
 triangle_based_bounds	src/utils/objects_bounds.c	/^static inline void	triangle_based_bounds(t_object *obj, t_aabb *bounds)$/;"	f	typeref:typename:void	file:
+triangles	tools/find_triangle_holes.py	/^triangles = []$/;"	v
 type	includes/minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
 type	includes/minirt.h	/^	int				type;$/;"	m	struct:s_object	typeref:typename:int
 type	minilibx-linux/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
+u	tools/find_triangle_holes.py	/^        u = q.popleft()$/;"	v
 uid	includes/minirt.h	/^	int				uid;$/;"	m	struct:s_object	typeref:typename:int
 up	includes/minirt.h	/^	t_vec3	up;$/;"	m	struct:s_camera	typeref:typename:t_vec3
 update_camera_vectors	src/utils/camera.c	/^void	update_camera_vectors(t_camera *camera)$/;"	f	typeref:typename:void
@@ -1041,6 +1057,9 @@ update_intersection_interval	src/math/cube_utils.c	/^t_slab_result	update_inters
 use_xshm	includes/minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 use_xshm	minilibx-linux/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
 utilities.h	.vscode/settings.json	/^        "utilities.h": "c",$/;"	s	object:files.associations
+v0	tools/find_triangle_holes.py	/^            v0 = tuple(map(float, parts[1].split(',')))$/;"	v
+v1	tools/find_triangle_holes.py	/^            v1 = tuple(map(float, parts[2].split(',')))$/;"	v
+v2	tools/find_triangle_holes.py	/^            v2 = tuple(map(float, parts[3].split(',')))$/;"	v
 valid	includes/minirt.h	/^	int		valid;$/;"	m	struct:s_slab_result	typeref:typename:int
 validate_arguments	src/parsing/validate_arguments.c	/^int	validate_arguments(int argc, char **argv)$/;"	f	typeref:typename:int
 validate_cone_params	src/parsing/parse_cone.c	/^static int	validate_cone_params(double angle, double height, t_vec3 axis)$/;"	f	typeref:typename:int	file:
@@ -1062,6 +1081,8 @@ vec3_mult	src/math/vector1.c	/^t_vec3	vec3_mult(t_vec3 v, double scalar)$/;"	f	t
 vec3_new	src/math/vector1.c	/^t_vec3	vec3_new(double x, double y, double z)$/;"	f	typeref:typename:t_vec3
 vec3_normalize	src/math/vector.c	/^t_vec3	vec3_normalize(t_vec3 v)$/;"	f	typeref:typename:t_vec3
 vec3_sub	src/math/vector1.c	/^t_vec3	vec3_sub(t_vec3 a, t_vec3 b)$/;"	f	typeref:typename:t_vec3
+verts	tools/find_triangle_holes.py	/^    verts = [v0, v1, v2]$/;"	v
+visited	tools/find_triangle_holes.py	/^visited = set()$/;"	v
 visual	includes/minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
 visual	minilibx-linux/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
 width	includes/minilibx-linux/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
