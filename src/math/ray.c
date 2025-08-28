@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 10:23:17 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/28 16:01:05 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_vec3	ray_at(t_ray ray, double t)
 t_ray	ray_transform(t_ray ray, t_vec3 translation)
 {
 	return ((t_ray){
-		.origin = vec3_add(ray.origin, translation), 
+		.origin = vec3_add(ray.origin, translation),
 		.direction = ray.direction
 	});
 }

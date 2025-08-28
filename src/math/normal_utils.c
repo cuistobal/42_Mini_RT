@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/28 15:59:06 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_vec3	get_object_normal(t_vec3 hit_point, t_object *object)
 	else if (object->type == CUBE)
 		return (get_cube_normal(hit_point, object));
 	else if (object->type == TRIANGLE)
-		return (get_triangle_normal(object->position, object->normal, object->axis));
+		return (get_triangle_normal(object->position, object->normal, \
+					object->axis));
 	return (vec3_new(0, 1, 0));
 }

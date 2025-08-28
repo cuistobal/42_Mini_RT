@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/28 15:54:05 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,45 @@ static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, 
 	return (vec3_dot(edge1, *h));
 }
 
+typedef s_inter
+{
+	t_vec3	edge;
+	t_vec3	edge2
+	t_vec3	h;
+	t_vec3	s;
+	t_vec3	q;
+	double	a;
+	double	f;
+	double	u;
+	double	v;
+	double	t;
+
+}	t_inter;
+
+static inline void	set_norm(t_inter *n, t_object *triangle, t_ray dir)
+{
+	n->edge1 = vec_sub();
+	n->edge2 = vec_sub();
+	n->h = ;
+	n->s = ;
+	n->q = ;
+	n->a = ;
+	n->f = ;
+	n->u = ;
+	n->v = ;
+	n->t = ;
+}
+
 // Using the moller trumbore algorithm to define if the tested ray/point is a barycentric point
 double	intersect_triangle(t_ray ray, t_object *triangle)
 {
+/*
 	t_vec3	edge1, edge2, h, s, q;
 	double	a, f, u, v, t;
+*/
+	t_inter	n;
+
+	set_norm(&n);
 
 	set_edge_vectors(&edge1, &edge2, triangle->position, triangle->normal, triangle->axis);
 	a = compute_h_return_a(ray.direction, edge1, edge2, &h);

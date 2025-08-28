@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/07/30 07:33:02 by cuistobal        ###   ########.fr       */
+/*   Updated: 2025/08/28 16:02:13 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ static inline void setup_int_variables(int *sample, int *total_r, int *total_g, 
 	*total_g = 0;
 	*total_b = 0;
 }
+
+typedef s_antial
+{
+	t_color	final_color;
+	t_color	sample_color;
+	t_ray (ray);
+	double (u), (v);
+}	t_antial;
 
 /*
 ** render_pixel_antialiased - Render a single pixel with anti-aliasing
