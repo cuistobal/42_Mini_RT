@@ -6,7 +6,7 @@
 #    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/13 10:07:00 by chrleroy         ###   ########.fr        #
+#    Updated: 2025/08/28 15:35:40 by chrleroy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno
-PFLAGS = -pg
+CFLAGS = -Wall -Wextra -Werror -g3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno -fsanitize=address PFLAGS = -pg
 INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
@@ -60,10 +59,6 @@ $(MLX_DIR)/libmlx.a:
 	@make -C $(MLX_DIR) > /dev/null 2>&1
 	@echo "$(GREEN)✓ MiniLibX compiled!$(NC)"
 
-threads:
-	@read -p "Enter NUM_THREADS value: " val; \
-    echo "$(BLUE)Compiling with thread pool size of $$val...$(NC)"; \
-    $(MAKE) CFLAGS="$(CFLAGS) -D NUM_THREADS=$$val" re
 
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
@@ -78,6 +73,9 @@ fclean: clean
 
 re: fclean all
 
+init: fclean
+	@echo "$(GREEN)Getting submodules...$(NC)"
+	@git submodule update --init --recursive --remote
 
 # Profile target
 profile: CFLAGS += $(PFLAGS)
