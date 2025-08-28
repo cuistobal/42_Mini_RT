@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#              #
-#    Updated: 2025/08/28 15:35:40 by chrleroy         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = miniRT
 
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
 INC_DIR = includes
-MLX_DIR = minilibx-linux
-
+MLX_DIR = includes/minilibx-linux
 
 # Source files (wildcard, récursif)
 SRCS = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/**/*.c)
@@ -27,7 +14,8 @@ OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno -fsanitize=address PFLAGS = -pg
+PFLAGS = -pg
+CFLAGS = -Wall -Wextra -Werror -g3 -march=native -funroll-loops -flto -ffast-math -fno-math-errno -fsanitize=address
 INCLUDES = -I$(INC_DIR) -I$(MLX_DIR)
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
