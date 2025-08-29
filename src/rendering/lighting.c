@@ -18,15 +18,15 @@
 ** material: Material properties of the surface
 ** Returns: Ambient color contribution
 */
-static t_color	calculate_ambient_lighting(t_scene *scene, t_material *material)
+static t_color	calculate_ambient_lighting(t_scene *scene, t_material *mat)
 {
 	   return ((t_color){
 			   (int)((scene->ambient.r * scene->ambient_ratio * \
-                    material->color.r) / 255.0),
+                    mat->color.r) / 255.0),
 			   (int)((scene->ambient.g * scene->ambient_ratio * \
-                    material->color.g) / 255.0),
+                    mat->color.g) / 255.0),
 			   (int)((scene->ambient.b * scene->ambient_ratio * \
-                    material->color.b) / 255.0)
+                    mat->color.b) / 255.0)
 	   });
 }
 
@@ -48,6 +48,50 @@ static inline t_color   append_diffuse(t_color total_diffuse, \
     }));
 }
 
+
+
+typedef struct s_lightning
+{
+    double  dot;
+    double  dist;
+    t_color total_diffuse;
+    t_light *current_light;
+    t_vec3  to_light;
+    t_vec3  dir_to_light;
+}   t_lightning;
+
+static void set_lightning(t_lightning *l, t_scene *scene)
+{
+    l->dot = 0.0;
+    l->dist = 0.0;
+    l->total_diffuse = color_new(0, 0, 0);
+    l->current_light = scene->lights;
+    l->to_light = (t_vec3){0, 0, 0};
+    l->dir_to_light = (t_vec3){0, 0, 0};
+}
+
+static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
+    t_scene *scene, t_material *material)
+{
+    t_lightning l;
+
+    set_lightning(&l, scene);
+    while (l.current_light)
+    {
+        l.to_light = vec3_sub(l.current_light->position, point);
+        l.dir_to_light = vec3_normalize(l.to_light);
+        l.dist = vec3_length(l.to_light);
+        l.dot = vec3_dot(normal, l.dir_to_light);
+        if (l.dot > 0.0 && \
+            !is_in_shadow_with_dir(point, l.dir_to_light, l.dist, scene))
+            l.total_diffuse = append_diffuse(l.total_diffuse, material\
+                , l.current_light, l.dot * l.current_light->intensity);
+        l.current_light = l.current_light->next;
+    }
+    return (l.total_diffuse);
+}
+
+/* OLD VERSION
 static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
     t_scene *scene, t_material *material)
 {
@@ -72,6 +116,7 @@ static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
     }
     return (total_diffuse);
 }
+ */
 
 /*
 ** calculate_lighting - Main lighting calculation function
