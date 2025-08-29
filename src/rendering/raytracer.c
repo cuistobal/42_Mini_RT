@@ -51,10 +51,13 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 static void send_directive(t_intels dirs)
 {
 	pthread_mutex_lock(&(dirs.rt->args.mutexQueue));
-    dirs.rt->args.directives_rendering[dirs.rt->args.ntask] = dirs;
-    dirs.rt->args.ntask++;
-    pthread_mutex_unlock(&(dirs.rt->args.mutexQueue));
-    pthread_cond_signal(&(dirs.rt->args.condQueue));
+	if (dirs.rt->args.ntask < MAX_TASKS)
+	{
+		dirs.rt->args.directives_rendering[dirs.rt->args.ntask] = dirs;
+		dirs.rt->args.ntask++;
+	}
+	pthread_mutex_unlock(&(dirs.rt->args.mutexQueue));
+	pthread_cond_signal(&(dirs.rt->args.condQueue));
 }
 
 // J ai modifie ton code -> j ai retire les if/else pour reduire le branching, etant donne

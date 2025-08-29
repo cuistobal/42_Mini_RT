@@ -70,6 +70,7 @@ typedef enum e_keyaction {
 // A modifier, etant donne que MAX_DIRS depend de la resolution de la fenetre et
 // du nombre de threads
 # define MAX_DIRS 3600
+# define MAX_TASKS 1024
 
 # ifndef NUM_THREAD
 # 	define NUM_THREAD 64
