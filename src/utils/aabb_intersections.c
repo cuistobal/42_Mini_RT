@@ -6,19 +6,21 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:44:17 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 10:20:42 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:54:44 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-static inline void	swap(double *t0, double *t1)
+static inline void	update_intersection_vars(t_aabb_query_vars *vars)
 {
-	double	tmp;
-
-	tmp = *t0;
-	*t0 = *t1;
-	*t1 = tmp;
+	vars->invD = 1.0 / vars->dir;
+	vars->t0 = (vars->bmn - vars->org) * vars->invD;
+	vars->t1 = (vars->bmx - vars->org) * vars->invD;
+	if (vars->invD < 0.0)
+		swap(&vars->t0, &vars->t1);
+	vars->tmn = fmax(vars->tmn, vars->t0);
+	vars->tmx = fmin(vars->tmx, vars->t1);
 }
 
 static inline int	helper(double *tmin, double *tmax, double t0, double t1)
@@ -35,7 +37,7 @@ static inline void	init_vars(t_aabb_query_vars *vars)
 	vars->tmn = -INFINITY;
 }
 
-static inline void update_vars(t_aabb_query_vars *vars, t_aabb_query *q)
+static inline void	update_vars(t_aabb_query_vars *vars, t_aabb_query *q)
 {
 	vars->dir = ((double *)&q->dir)[vars->i];
 	vars->org = ((double *)&q->origin)[vars->i];
@@ -51,7 +53,7 @@ static inline void update_vars(t_aabb_query_vars *vars, t_aabb_query *q)
 */
 int	intersect_aabb_query(t_aabb_query *q)
 {
-	t_aabb_query_vars vars;
+	t_aabb_query_vars	vars;
 
 	init_vars(&vars);
 	while (vars.i < 3)
@@ -64,13 +66,7 @@ int	intersect_aabb_query(t_aabb_query *q)
 		}
 		else
 		{
-			vars.invD = 1.0 / vars.dir;
-			vars.t0 = (vars.bmn - vars.org) * vars.invD;
-			vars.t1 = (vars.bmx - vars.org) * vars.invD;
-			if (vars.invD < 0.0)
-				swap(&vars.t0, &vars.t1);
-			vars.tmn = fmax(vars.tmn, vars.t0);
-			vars.tmx = fmin(vars.tmx, vars.t1);
+			update_intersection_vars(&vars);
 			if (vars.tmn > vars.tmx || vars.tmx < 0)
 				return (0);
 		}

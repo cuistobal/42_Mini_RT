@@ -639,4 +639,11 @@ t_vec3	get_plane_normal(t_vec3 hit_point, t_object *plane);
 t_vec3	get_cylinder_normal(t_vec3 hit_point, t_object *cylinder);
 t_vec3	get_cone_normal(t_vec3 hit_point, t_object *cone);
 
+/* ************************************************************************** */
+/*                            	MISC  FUNCTIONS                               */
+/* ************************************************************************** */
+
+void	swap(double *t0, double *t1);
+
+	
 #endif
