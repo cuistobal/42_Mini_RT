@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 09:04:20 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 08:14:33 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	handle_close(t_minirt *rt)
 int	handle_keypress(int keycode, t_minirt *rt)
 {
 	int	idx;
-	int valid;
+	int	valid;
 
 	idx = keycode_to_action(keycode);
 	valid = (unsigned)idx < (unsigned)KEY_ACTION_COUNT;
