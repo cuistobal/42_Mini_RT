@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/30 09:17:56 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:31:56 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	variable_setup(int *axis, int *best_axis, double *best_cost, \
 */
 int	find_sah_split(t_object **objects, int count, int *best_axis)
 {
-	t_sah_split_vars vars;
+	t_sah_split_vars	vars;
 
 	variable_setup(&vars.axis, best_axis, &vars.best_cost, &vars.best_split);
 	allocate_bounds(&vars.left_bounds, &vars.right_bounds, count);
@@ -84,7 +84,8 @@ int	find_sah_split(t_object **objects, int count, int *best_axis)
 		{
 			vars.left_area = aabb_surface(vars.left_bounds[vars.split - 1]);
 			vars.right_area = aabb_surface(vars.right_bounds[vars.split]);
-			vars.cost = sah_cost(vars.left_area, vars.right_area, vars.split, count - vars.split);
+			vars.cost = sah_cost(vars.left_area, vars.right_area, \
+					vars.split, count - vars.split);
 			if (vars.cost < vars.best_cost)
 			{
 				vars.best_cost = vars.cost;

@@ -386,12 +386,12 @@ typedef struct s_bvh_iter_vars
 
 typedef struct s_internal_node_vars
 {
-	int hit_left;
-	int hit_right;
-	double tmin_left;
-	double tmin_right;
-	t_aabb_query left_query;
-	t_aabb_query right_query;
+	int hl;
+	int hr;
+	double tl;
+	double tr;
+	t_aabb_query l_query;
+	t_aabb_query r_query;
 } t_internal_node_vars;
 
 /* ************************************************************************** */
