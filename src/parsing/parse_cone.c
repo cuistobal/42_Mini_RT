@@ -6,12 +6,11 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/22 12:51:45 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 08:32:37 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
 
 static int	validate_cone_params(double angle, double height, t_vec3 axis)
 {
@@ -27,14 +26,13 @@ static void	free_cone_tokens(char **tokens)
 	safe_free((void **)&tokens[4]);
 }
 
-static int	parse_cone_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,
-	double *angle, double *height, t_color *color)
+static int	parse_cone_tokens(char **tokens, t_object *c)
 {
- 	if (!parse_vec3(tokens[0], pos) ||
-		!parse_vec3(tokens[1], axis) ||
-		!parse_double(tokens[2], angle) ||
-		!parse_double(tokens[3], height) ||
-		!parse_color(tokens[4], color))
+	if (!parse_vec3(tokens[0], &c->position)
+		|| !parse_vec3(tokens[1], &c->axis)
+		|| !parse_double(tokens[2], &c->radius)
+		|| !parse_double(tokens[3], &c->height)
+		|| !parse_color(tokens[4], &c->material.color))
 		return (0);
 	return (1);
 }
@@ -55,7 +53,7 @@ int	parse_cone(char *line, t_scene *scene)
 	if (!tokens[0] || !tokens[1] || !tokens[2] || !tokens[3] || !tokens[4])
 		return (free_cone_tokens(tokens), 0);
 	cone = safe_malloc(sizeof(t_object));
-	if (!parse_cone_tokens(tokens, &cone->position, &cone->axis, &cone->angle, &cone->height, &cone->material.color))
+	if (!parse_cone_tokens(tokens, cone))
 		return (safe_free((void **)&cone), free_cone_tokens(tokens), 0);
 	if (!validate_cone_params(cone->angle, cone->height, cone->axis))
 		return (safe_free((void **)&cone), free_cone_tokens(tokens), 0);

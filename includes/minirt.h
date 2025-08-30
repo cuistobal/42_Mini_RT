@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/21 14:01:59 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 08:39:15 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -396,6 +396,10 @@ int		parse_vec3(char *str, t_vec3 *result);
 int		parse_color(char *str, t_color *result);
 char	*get_next_token(char **str);
 void	add_object_to_scene(t_scene *scene, t_object *object);
+
+int		is_empty_line(char *line);
+char	*skip_whitespace(char *str);
+void	cleanup_scene_on_error(t_scene *scene);
 
 /* ************************************************************************** */
 /*                           INTERSECTION FUNCTIONS                          */

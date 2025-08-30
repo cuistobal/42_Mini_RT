@@ -6,41 +6,11 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 09:13:55 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 08:38:07 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-/*
-** skip_whitespace - Skip whitespace characters in a string
-** str: String to process
-** Returns: Pointer to first non-whitespace character
-*/
-static char	*skip_whitespace(char *str)
-{
-	if (!str)
-		return (NULL);
-	while (*str && (*str == ' ' || *str == '\t' || *str == '\n' \
-				|| *str == '\r'))
-		str++;
-	return (str);
-}
-
-/*
-** is_empty_line - Check if line is empty or contains only whitespace
-** line: Line to check
-** Returns: 1 if empty, 0 otherwise
-*/
-static int	is_empty_line(char *line)
-{
-	char	*trimmed;
-
-	if (!line)
-		return (1);
-	trimmed = skip_whitespace(line);
-	return (*trimmed == '\0' || *trimmed == '#');
-}
 
 /*
 ** read_file_line - Read a single line from file
@@ -77,21 +47,6 @@ static char	*read_file_line(int fd)
 }
 
 /*
-** cleanup_scene_on_error - Clean up partially parsed scene on error
-** scene: Scene structure to clean up
-*/
-static void	cleanup_scene_on_error(t_scene *scene)
-{
-	if (!scene)
-		return ;
-	cleanup_light_list(scene->lights);
-	cleanup_object_list(scene->objects);
-	scene->lights = NULL;
-	scene->objects = NULL;
-	scene->bvh_root = NULL;
-}
-
-/*
 ** validate_scene_with_filename - Validate scene with better error messages
 ** scene: Scene structure to validate
 ** filename: Filename for error reporting
@@ -102,7 +57,7 @@ static int	validate_scene_with_filename(t_scene *scene)
 	if (!scene)
 		return (printf("Error\nInvalid scene structure\n"), 0);
 	if (scene->camera.fov <= 0)
-		return (printf("Error\nMissing or invalid camera (C)\n"), 0); 
+		return (printf("Error\nMissing or invalid camera (C)\n"), 0);
 	if (scene->ambient_ratio < 0)
 		return (printf("Error\nMissing or invalid ambient lighting (A)\n"), 0);
 	if (!scene->lights)
@@ -119,7 +74,8 @@ static int	validate_scene_with_filename(t_scene *scene)
 ** scene: Scene structure to populate
 ** Returns: 1 on success, 0 on error
 */
-static int	parse_element_by_identifier(char *identifier, char *rest, t_scene *scene)
+static int	parse_element_by_identifier(char *identifier, char *rest, \
+		t_scene *scene)
 {
 	if (strcmp(identifier, "A") == 0)
 		return (parse_ambient(rest, scene));
@@ -165,10 +121,12 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	rest = trimmed;
 	identifier = get_next_token(&rest);
 	if (!identifier)
-		return (printf("Error\nInvalid syntax in %s at line %d: missing identifier\n", filename, line_num), 0);
+		return (printf("Error\nInvalid syntax in %s at line %d: \
+					missing identifier\n", filename, line_num), 0);
 	res = parse_element_by_identifier(identifier, rest, scene);
 	if (!res)
-		printf("Error\nInvalid %s element in %s at line %d: %s\n", identifier, filename, line_num, line);
+		printf("Error\nInvalid %s element in %s at line %d: \
+				%s\n", identifier, filename, line_num, line);
 	return (safe_free((void **)&identifier), res);
 }
 
@@ -197,7 +155,8 @@ int	parse_scene(char *filename, t_scene *scene)
 		line_number++;
 		parse_result = parse_line(line, scene, line_number, filename);
 		if (!parse_result)
-			return (safe_free((void **)&line), close(fd), cleanup_scene_on_error(scene), 0);
+			return (safe_free((void **)&line), close(fd), \
+					cleanup_scene_on_error(scene), 0);
 		safe_free((void **)&line);
 		line = read_file_line(fd);
 	}
