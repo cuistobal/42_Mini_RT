@@ -359,6 +359,20 @@ typedef struct s_plight
 	t_light	*light;
 }	t_plight;
 
+
+typedef struct s_sah_split_vars
+{
+	int axis;
+	int split;
+	int best_split;
+	t_aabb *left_bounds;
+	t_aabb *right_bounds;
+	double left_area;
+	double right_area;
+	double cost;
+	double best_cost;
+} t_sah_split_vars;
+
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
 /* ************************************************************************** */
