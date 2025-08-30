@@ -14,7 +14,7 @@
 
 static inline int	check_barycentric_coords(double u, double v)
 {
-    return !(u < 0.0 || u > 1.0 || v < 0.0 || (u + v) > 1.0);
+    return (!(u < 0.0 || u > 1.0 || v < 0.0 || (u + v) > 1.0));
 }
 
 static inline void	set_edge_vectors(t_vec3 *edge1, t_vec3 *edge2, t_vec3 v0, t_vec3 v1, t_vec3 v2)
