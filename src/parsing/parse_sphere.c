@@ -17,33 +17,12 @@ static int	validate_sphere_params(double diameter)
 	return (diameter > 0);
 }
 
-/* static void	init_sphere_material(t_object *sphere)
-{
-	sphere->material.reflection = 0.3;
-	sphere->material.transparency = 0.0;
-	sphere->material.refraction_index = 1.5;
-} */
-
 static void	free_sphere_tokens(char *pos, char *diam, char *col)
 {
 	safe_free((void **)&pos);
 	safe_free((void **)&diam);
 	safe_free((void **)&col);
 }
-
-/* static t_object	*create_sphere(t_vec3 position, double diameter, t_color color)
-{
-	t_object	*sphere;
-
-	sphere = safe_malloc(sizeof(t_object));
-	sphere->type = SPHERE;
-	sphere->position = position;
-	sphere->radius = diameter / 2.0;
-	sphere->material.color = color;
-	sphere->next = NULL;
-	init_sphere_material(sphere);
-	return (sphere);
-} */
 
 int	parse_sphere(char *line, t_scene *scene)
 {
@@ -64,7 +43,7 @@ int	parse_sphere(char *line, t_scene *scene)
 		return (free_sphere_tokens(tokens[0], tokens[1], tokens[2]), 0);
 	if (!validate_sphere_params(sphere->radius / 2.0))
 		return (free_sphere_tokens(tokens[0], tokens[1], tokens[2]), 0);
-	sphere->centroid = sphere->position; // Le centroïde d'une sphère est sa position
+	sphere->centroid = sphere->position;
 	sphere->type = SPHERE;
 	add_object_to_scene(scene, sphere);
 	return (free_sphere_tokens(tokens[0], tokens[1], tokens[2]), 1);

@@ -18,13 +18,6 @@ static int	validate_cone_params(double angle, double height, t_vec3 axis)
 	return (angle > 0 && angle < 90 && height > 0 && vec3_length(axis) != 0);
 }
 
-// static void	init_cone_material(t_object *cone)
-// {
-// 	cone->material.reflection = 0.0;
-// 	cone->material.transparency = 0.0;
-// 	cone->material.refraction_index = 1.0;
-// }
-
 static void	free_cone_tokens(char **tokens)
 {
 	safe_free((void **)&tokens[0]);

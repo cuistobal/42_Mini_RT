@@ -48,18 +48,6 @@ static inline t_color   append_diffuse(t_color total_diffuse, \
     }));
 }
 
-
-
-typedef struct s_lightning
-{
-    double  dot;
-    double  dist;
-    t_color total_diffuse;
-    t_light *current_light;
-    t_vec3  to_light;
-    t_vec3  dir_to_light;
-}   t_lightning;
-
 static void set_lightning(t_lightning *l, t_scene *scene)
 {
     l->dot = 0.0;
@@ -90,33 +78,6 @@ static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
     }
     return (l.total_diffuse);
 }
-
-/* OLD VERSION
-static t_color	calculate_diffuse_lighting(t_vec3 point, t_vec3 normal, \
-    t_scene *scene, t_material *material)
-{
-    double (dot_product), (light_distance);
-    t_color (total_diffuse);
-    t_light (*current_light);
-    t_vec3 (to_light);
-    t_vec3 (dir_to_light);
-    total_diffuse = color_new(0, 0, 0);
-    current_light = scene->lights;
-    while (current_light)
-    {
-        to_light = vec3_sub(current_light->position, point);
-        dir_to_light = vec3_normalize(to_light);
-        light_distance = vec3_length(to_light);
-        dot_product = vec3_dot(normal, dir_to_light);
-        if (dot_product > 0.0 && !is_in_shadow_with_dir(point, dir_to_light, \
-                light_distance, scene))
-            total_diffuse = append_diffuse(total_diffuse, material, \
-                current_light, dot_product * current_light->intensity);
-        current_light = current_light->next;
-    }
-    return (total_diffuse);
-}
- */
 
 /*
 ** calculate_lighting - Main lighting calculation function

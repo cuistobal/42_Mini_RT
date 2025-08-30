@@ -29,20 +29,6 @@ static inline double	compute_h_return_a(t_vec3 dir, t_vec3 edge1, t_vec3 edge2, 
 	return (vec3_dot(edge1, *h));
 }
 
-typedef struct s_inter
-{
-    t_vec3	edge1;
-    t_vec3	edge2;
-    t_vec3	h;
-    t_vec3	s;
-    t_vec3	q;
-    double	a;
-    double	f;
-    double	u;
-    double	v;
-    double	t;
-}	t_inter;
-
 static inline void	set_norm(t_inter *n, t_object *triangle, t_ray ray)
 {
     // Utilise les membres de t_object pour les sommets du triangle

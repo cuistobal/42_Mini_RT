@@ -30,7 +30,7 @@ void	cleanup_mlx(t_mlx *mlx)
 ** init_mlx - Initialize MLX library, create window and image buffer
 ** Returns 0 on success, -1 on error
 */
-int	init_mlx(t_mlx *mlx)
+int	init_mlx(t_mlx *mlx, char *name)
 {
 	if (!mlx)
 		return (-1);
@@ -39,7 +39,7 @@ int	init_mlx(t_mlx *mlx)
 		return (-1);
 	mlx_get_screen_size(mlx->mlx_ptr, &mlx->width, &mlx->height);
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->width, \
-			mlx->height, "miniRT");
+			mlx->height, name);
 	if (!mlx->win_ptr)
 		return (cleanup_mlx(mlx), -1);
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->width, mlx->height);

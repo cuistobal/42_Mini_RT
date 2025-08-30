@@ -14,19 +14,8 @@
 
 static int	validate_cylinder_params(double diameter, double height, t_vec3 axis)
 {
-	if (diameter <= 0 || height <= 0)
-		return (0);
-	if (vec3_length(axis) == 0)
-		return (0);
-	return (1);
-}
-
-/* static void	init_cylinder_material(t_object *cylinder)
-{
-	cylinder->material.reflection = 0.0;
-	cylinder->material.transparency = 0.0;
-	cylinder->material.refraction_index = 1.0;
-} */
+	return (diameter > 0 && height > 0 && vec3_length(axis) != 0);
+}	
 
 static void	free_cylinder_tokens(char **tokens)
 {
@@ -37,19 +26,6 @@ static void	free_cylinder_tokens(char **tokens)
 	safe_free((void **)&tokens[4]);
 }
 
-/* static void	set_cylinder_properties(t_object *cyl, t_vec3 pos, t_vec3 axis,
-	double diam, double height, t_color color)
-{
-	cyl->type = CYLINDER;
-	cyl->position = pos;
-	cyl->axis = vec3_normalize(axis);
-	cyl->radius = diam / 2.0;
-	cyl->height = height;
-	cyl->material.color = color;
-	cyl->next = NULL;
-	init_cylinder_material(cyl);
-}
- */
 static int	parse_cylinder_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,
 	double *diam, double *height, t_color *color)
 {
@@ -61,17 +37,6 @@ static int	parse_cylinder_tokens(char **tokens, t_vec3 *pos, t_vec3 *axis,
 		return (0);
 	return (1);
 }
-/* 
-static int	create_and_add_cylinder(t_scene *scene, t_vec3 pos, t_vec3 axis,
-	double diam, double height, t_color color)
-{
-	t_object	*cylinder;
-
-	cylinder = safe_malloc(sizeof(t_object));
-	set_cylinder_properties(cylinder, pos, axis, diam, height, color);
-	add_object_to_scene(scene, cylinder);
-	return (1);
-} */
 
 int	parse_cylinder(char *line, t_scene *scene)
 {
@@ -93,11 +58,8 @@ int	parse_cylinder(char *line, t_scene *scene)
 		return (safe_free((void **)&cylinder), free_cylinder_tokens(tokens), 0);
 	if (!validate_cylinder_params(cylinder->radius / 2.0, cylinder->height, cylinder->axis))
 		return (safe_free((void **)&cylinder), free_cylinder_tokens(tokens), 0);
-	
-	// Calculer le vrai centroïde 3D du cylindre (milieu de l'axe)
 	t_vec3 end_point = vec3_add(cylinder->position, vec3_mult(cylinder->axis, cylinder->height));
 	cylinder->centroid = vec3_mult(vec3_add(cylinder->position, end_point), 0.5);
-	
 	cylinder->type = CYLINDER;
 	free_cylinder_tokens(tokens);
 	return (add_object_to_scene(scene, cylinder), 1);

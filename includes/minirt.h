@@ -297,7 +297,55 @@ typedef struct s_minirt
 	t_threadArgs	args;
 }	t_minirt;
 
-//t_key_queue		key_queue;
+/* Triangle intersection norminette structure*/
+typedef struct s_inter
+{
+    t_vec3	edge1;
+    t_vec3	edge2;
+    t_vec3	h;
+    t_vec3	s;
+    t_vec3	q;
+    double	a;
+    double	f;
+    double	u;
+    double	v;
+    double	t;
+}	t_inter;
+
+/* Antialiasing norminette structure */
+typedef struct s_antial
+{
+	double	u;
+	double	v;
+	t_ray	ray;
+	t_color	final_color;
+	t_color	sample_color;
+}	t_antial;
+
+/* Lightning calculation norminette structure */
+typedef struct s_lightning
+{
+    double  dot;
+    double  dist;
+    t_color total_diffuse;
+    t_light *current_light;
+    t_vec3  to_light;
+    t_vec3  dir_to_light;
+}   t_lightning;
+
+/* Refraction calculation norminette structure */
+typedef struct s_refraction
+{
+	double	n1;
+	double	n2;
+	double	cos_i;
+	double	fresnel;
+	double	transparency;
+	t_vec3	hit_offset;
+	t_vec3	refracted_dir;
+	t_ray	refracted_ray;
+	t_color	refraction_color;
+}	t_refraction;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
@@ -398,7 +446,7 @@ void	render_progressive_step(t_minirt *rt, int step,
 /*                            GRAPHICS FUNCTIONS                             */
 /* ************************************************************************** */
 
-int		init_mlx(t_mlx *mlx);
+int		init_mlx(t_mlx *mlx, char *name);
 void	put_pixel(t_mlx *mlx, int x, int y, t_color color);
 int		color_to_int(t_color color);
 t_color	int_to_color(int color);

@@ -45,6 +45,7 @@ static int	init_minirt(t_minirt *rt, char *filename)
 	return (1);
 }
 
+// *argv +2 stands for argv[0] without the starting "./"
 int	main(int argc, char **argv)
 {
 	t_minirt	rt;
@@ -60,7 +61,7 @@ int	main(int argc, char **argv)
 		return (ERROR_PARSE);
 	}
 	rt.scene.bvh_root = build_bvh(&rt.scene);
-	if (init_mlx(&rt.mlx) != 0)
+	if (init_mlx(&rt.mlx, *argv + 2) != 0)
 	{
 		printf("Error\nFailed to initialize graphics\n");
 		cleanup_all(&rt);

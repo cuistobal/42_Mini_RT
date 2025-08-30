@@ -17,33 +17,12 @@ static int	validate_plane_params(t_vec3 normal)
 	return (vec3_length(normal) != 0);
 }
 
-/* static void	init_plane_material(t_object *plane)
-{
-	plane->material.reflection = 0.0;
-	plane->material.transparency = 0.0;
-	plane->material.refraction_index = 1.0;
-}
- */
 static void	free_plane_tokens(char *pos, char *norm, char *col)
 {
 	safe_free((void **)&pos);
 	safe_free((void **)&norm);
 	safe_free((void **)&col);
 }
-
-/* static t_object	*create_plane(t_vec3 position, t_vec3 normal, t_color color)
-{
-	t_object	*plane;
-
-	plane = safe_malloc(sizeof(t_object));
-	plane->type = PLANE;
-	plane->position = position;
-	plane->normal = vec3_normalize(normal);
-	plane->material.color = color;
-	plane->next = NULL;
-	init_plane_material(plane);
-	return (plane);
-} */
 
 int	parse_plane(char *line, t_scene *scene)
 {
@@ -64,7 +43,7 @@ int	parse_plane(char *line, t_scene *scene)
 		return (free_plane_tokens(tokens[0], tokens[1], tokens[2]), 0);
 	if (!validate_plane_params(plane->normal))
 		return (safe_free((void **)&plane), free_plane_tokens(tokens[0], tokens[1], tokens[2]), 0);
-	plane->centroid = plane->position; // Pour un plan, on utilise sa position comme centroïde
+	plane->centroid = plane->position; 
 	plane->type = PLANE;
 	add_object_to_scene(scene, plane);
 	return (free_plane_tokens(tokens[0], tokens[1], tokens[2]), 1);

@@ -74,9 +74,10 @@ int	parse_int(char *str, int *result)
 		return (0);
 	*result = (int)value;
 	return (1);
-}/*
-** par
-se_vec3 - Parse a 3D vector from string (format: x,y,z)
+}
+
+/*
+** parse_vec3 - Parse a 3D vector from string (format: x,y,z)
 ** str: String to parse
 ** result: Pointer to store result
 ** Returns: 1 on success, 0 on error

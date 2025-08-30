@@ -25,23 +25,8 @@ static inline void	free_triangle_tokens(char *t0, char *t1, char *t2, char *t3)
 	safe_free((void **)&t3);
 }
 
-/* static t_object *create_triangle(t_vec3 v0, t_vec3 v1, t_vec3 v2, t_color color)
-{
-    t_object *tri;
-
-    tri = safe_malloc(sizeof(t_object));
-    tri->type = TRIANGLE;
-    tri->position = v0;
-    tri->normal = v1;
-    tri->axis = v2;
-    tri->material.color = color;
-    tri->next = NULL;
-    return (tri);
-} */
-
 static inline t_vec3 compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)
 {
-    // Calculer le centroïde 3D complet
     return (vec3_new(
         (v0.x + v1.x + v2.x) / 3.0,
         (v0.y + v1.y + v2.y) / 3.0,

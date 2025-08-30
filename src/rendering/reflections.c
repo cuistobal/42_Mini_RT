@@ -93,19 +93,14 @@ static double	calculate_fresnel(double cos_i, double n1, double n2)
 	return ((r_s * r_s + r_p * r_p) * 0.5);
 }
 
-typedef struct s_refraction
-{
-	double	n1;
-	double	n2;
-	double	cos_i;
-	double	fresnel;
-	double	transparency;
-	t_vec3	hit_offset;
-	t_vec3	refracted_dir;
-	t_ray	refracted_ray;
-	t_color	refraction_color;
-}	t_refraction;
-
+/*
+** calculate_refraction - Calculate refraction color contribution
+** ray: Incident ray that hit the surface
+** hit: Hit information containing point, normal, and material
+** scene: Scene containing objects and lights
+** depth: Current recursion depth for ray tracing
+** Returns: Refraction color contribution
+*/
 t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 {
     t_refraction r;
@@ -113,8 +108,6 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
     if (!hit || !hit->material || !scene || depth <= 0 || hit->material->transparency <= 0.0)
         return (color_new(0, 0, 0));
     r.transparency = hit->material->transparency;
-/*     if (r.transparency <= 0.0)
-        return (color_new(0, 0, 0)); */
     r.n1 = 1.0;
     r.n2 = hit->material->refraction_index;
     r.cos_i = -vec3_dot(ray.direction, hit->normal);
@@ -127,45 +120,3 @@ t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
     r.fresnel = calculate_fresnel(fabs(r.cos_i), r.n1, r.n2);
     return (color_mult(r.refraction_color, r.transparency * (1.0 - r.fresnel)));
 }
-
-/*
-** calculate_refraction - Calculate refraction color contribution
-** ray: Incident ray that hit the surface
-** hit: Hit information containing point, normal, and material
-** scene: Scene containing objects and lights
-** depth: Current recursion depth for ray tracing
-** Returns: Refraction color contribution
-*/
-
-/* OLD
-t_color	calculate_refraction(t_ray ray, t_hit *hit, t_scene *scene, int depth)
-{
-	t_vec3	refracted_dir;
-	t_ray	refracted_ray;
-	t_color	refraction_color;
-	double	transparency;
-	double	n1;
-	double	n2;
-	double	cos_i;
-	double	fresnel;
-	t_vec3	hit_offset;
-
-	if (!hit || !hit->material || !scene || depth <= 0)
-		return (color_new(0, 0, 0));
-	transparency = hit->material->transparency;
-	if (transparency <= 0.0)
-		return (color_new(0, 0, 0));
-	n1 = 1.0;
-	n2 = hit->material->refraction_index;
-	cos_i = -vec3_dot(ray.direction, hit->normal);
-	refracted_dir = calculate_refraction_ray(ray.direction, hit->normal, n1, n2);
-	if (vec3_length(refracted_dir) < EPSILON)
-		return (color_new(0, 0, 0));
-	hit_offset = vec3_add(hit->point, vec3_mult(refracted_dir, EPSILON));
-	refracted_ray = ray_new(hit_offset, refracted_dir);
-	refraction_color = raycast(refracted_ray, scene, depth - 1);
-	fresnel = calculate_fresnel(fabs(cos_i), n1, n2);
-	if (depth <= 0)
-		printf("aled\n");
-	return (color_mult(refraction_color, transparency * (1.0 - fresnel)));
-} */
