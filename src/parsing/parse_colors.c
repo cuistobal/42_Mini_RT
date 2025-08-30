@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 08:41:20 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/30 08:47:18 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 08:59:03 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,3 @@ int	parse_color(char *str, t_color *result)
 	result->b = values[2];
 	return (1);
 }
-
