@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 08:47:40 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:54:41 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:24:39 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	quicksort_objects(t_object **arr, int low, int high, int axis)
 */
 void	sort_objects_axis(t_object **objects, int count, int axis)
 {
-	int mask;
+	int	mask;
 
 	if (count <= 1)
 		return ;

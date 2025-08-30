@@ -1,4 +1,3 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
@@ -79,6 +78,8 @@ typedef enum e_keyaction {
 # ifndef MAX_DEPTH
 #  define MAX_DEPTH 5
 # endif
+
+# define BVH_STACK_SIZE 64
 
 /* Error codes */
 typedef enum e_error
@@ -372,6 +373,18 @@ typedef struct s_sah_split_vars
 	double cost;
 	double best_cost;
 } t_sah_split_vars;
+
+# define BVH_STACK_SIZE 64
+
+typedef struct s_bvh_iter_vars
+{
+	t_hit temp_hit;
+	double closest_t;
+	t_bvh_node *node;
+	t_bvh_node *stack[BVH_STACK_SIZE];
+	int found;
+	int stack_ptr;
+} t_bvh_iter_vars;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
