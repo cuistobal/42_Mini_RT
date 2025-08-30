@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 09:04:04 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:11:30 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static inline t_vec3	compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)
 				(v0.z + v1.z + v2.z) / 3.0));
 }
 
-int	parse_tr(char *line, t_scene *scene)
+int	parse_triangle(char *line, t_scene *scene)
 {
 	char		*t[4];
 	t_object	*tr;

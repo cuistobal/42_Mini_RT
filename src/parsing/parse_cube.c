@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 09:05:28 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:05:04 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,8 @@ int	parse_cube(char *line, t_scene *scene)
 	if (size <= 0)
 		return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 0);
 	cube = create_cube(position, size, color);
-	cube->centroid = vec3_new(
-		position.x + size / 2.0,
-		position.y + size / 2.0,
-		position.z + size / 2.0
-	);
+	cube->centroid = vec3_new(position.x + size / 2.0, position.y + size \
+			/ 2.0, position.z + size / 2.0);
 	cube->type = CUBE;
 	add_object_to_scene(scene, cube);
 	return (free_cube_tokens(tokens[0], tokens[1], tokens[2]), 1);

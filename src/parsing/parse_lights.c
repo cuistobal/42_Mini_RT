@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/08/30 09:12:03 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ static inline void	free_light_tokens(char *pos, char *bright, char *col)
 	safe_free((void **)&col);
 }
 
+static inline void	set_parse_light(t_plight *plight, char **line)
+{
+	plight->position_str = get_next_token(line);
+	plight->brightness_str = get_next_token(line);
+	plight->color_str = get_next_token(line);
+}
+
 /*
 ** parse_light - Parse light element from line (L x,y,z brightness r,g,b)
 ** line: Line to parse
@@ -49,32 +56,27 @@ static inline void	free_light_tokens(char *pos, char *bright, char *col)
 */
 int	parse_light(char *line, t_scene *scene)
 {
-	char	*position_str;
-	char	*brightness_str;
-	char	*color_str;
-	t_vec3	position;
-	double	brightness;
-	t_color	color;
-	t_light	*light;
+	t_plight	pl;
 
 	if (!line || !scene)
 		return (0);
-	position_str = get_next_token(&line);
-	brightness_str = get_next_token(&line);
-	color_str = get_next_token(&line);
-	if (!position_str || !brightness_str || !color_str)
+	set_parse_light(&pl, &line);
+	if (!pl.position_str || !pl.brightness_str || !pl.color_str)
 		return (0);
-	if (!parse_vec3(position_str, &position) ||
-		!parse_double(brightness_str, &brightness) ||
-		!parse_color(color_str, &color))
-		return (free_light_tokens(position_str, brightness_str, color_str), 0);
-	if (brightness < 0.0 || brightness > 1.0)
-		return (free_light_tokens(position_str, brightness_str, color_str), 0);
-	light = safe_malloc(sizeof(t_light));
-	light->position = position;
-	light->intensity = brightness;
-	light->color = color;
-	light->next = NULL;
-	add_light_to_scene(scene, light);
-	return (free_light_tokens(position_str, brightness_str, color_str), 1);
+	if (!parse_vec3(pl.position_str, &pl.position)
+		|| !parse_double(pl.brightness_str, &pl.brightness)
+		|| !parse_color(pl.color_str, &pl.color))
+		return (free_light_tokens(pl.position_str, pl.brightness_str, \
+					pl.color_str), 0);
+	if (pl.brightness < 0.0 || pl.brightness > 1.0)
+		return (free_light_tokens(pl.position_str, pl.brightness_str, \
+					pl.color_str), 0);
+	pl.light = safe_malloc(sizeof(t_light));
+	pl.light->position = pl.position;
+	pl.light->intensity = pl.brightness;
+	pl.light->color = pl.color;
+	pl.light->next = NULL;
+	add_light_to_scene(scene, pl.light);
+	return (free_light_tokens(pl.position_str, pl.brightness_str, \
+				pl.color_str), 1);
 }

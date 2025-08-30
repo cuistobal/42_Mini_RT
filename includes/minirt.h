@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 08:39:15 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:07:33 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -346,6 +346,18 @@ typedef struct s_refraction
 	t_ray	refracted_ray;
 	t_color	refraction_color;
 }	t_refraction;
+
+/* Parse light norminette structure*/
+typedef struct s_plight
+{
+	char	*position_str;
+	char	*brightness_str;
+	char	*color_str;
+	t_vec3	position;
+	double	brightness;
+	t_color	color;
+	t_light	*light;
+}	t_plight;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
