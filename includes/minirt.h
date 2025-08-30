@@ -374,8 +374,6 @@ typedef struct s_sah_split_vars
 	double best_cost;
 } t_sah_split_vars;
 
-# define BVH_STACK_SIZE 64
-
 typedef struct s_bvh_iter_vars
 {
 	t_hit temp_hit;
@@ -385,6 +383,16 @@ typedef struct s_bvh_iter_vars
 	int found;
 	int stack_ptr;
 } t_bvh_iter_vars;
+
+typedef struct s_internal_node_vars
+{
+	int hit_left;
+	int hit_right;
+	double tmin_left;
+	double tmin_right;
+	t_aabb_query left_query;
+	t_aabb_query right_query;
+} t_internal_node_vars;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */

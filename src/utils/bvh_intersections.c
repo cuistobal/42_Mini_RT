@@ -45,30 +45,31 @@ static inline void	handle_multiple_hits(int condition, t_bvh_node **stack, \
 static void	handle_internal_node(t_bvh_node *node, t_ray ray, \
 	 t_bvh_iter_vars *vars)
 {
-	 int hit_left = 0;
-	 int hit_right = 0;
-	 double tmin_left = INFINITY;
-	 double tmin_right = INFINITY;
-	 t_aabb_query left_query;
-	 t_aabb_query right_query;
-	 if (node->left)
-	 {
-	 setup_aabb_query(&left_query, ray, node->left->bounds);
-	 hit_left = intersect_aabb_query(&left_query);
-	 if (hit_left)
-	 tmin_left = left_query.tmin;
-	 }
-	 if (node->right)
-	 {
-	 setup_aabb_query(&right_query, ray, node->right->bounds);
-	 hit_right = intersect_aabb_query(&right_query);
-	 if (hit_right)
-	 tmin_right = right_query.tmin;
-	 }
-	 if (hit_left && hit_right)
-	 handle_multiple_hits(tmin_left < tmin_right, vars->stack, &vars->stack_ptr, node);
-	 else
-	 handle_single_hit(hit_left << 1 | hit_right, vars->stack, &vars->stack_ptr, node);
+	t_internal_node_vars ivars;
+
+	ivars.hit_left = 0;
+	ivars.hit_right = 0;
+	ivars.tmin_left = INFINITY;
+	ivars.tmin_right = INFINITY;
+
+	if (node->left)
+	{
+		setup_aabb_query(&ivars.left_query, ray, node->left->bounds);
+		ivars.hit_left = intersect_aabb_query(&ivars.left_query);
+		if (ivars.hit_left)
+			ivars.tmin_left = ivars.left_query.tmin;
+	}
+	if (node->right)
+	{
+		setup_aabb_query(&ivars.right_query, ray, node->right->bounds);
+		ivars.hit_right = intersect_aabb_query(&ivars.right_query);
+		if (ivars.hit_right)
+			ivars.tmin_right = ivars.right_query.tmin;
+	}
+	if (ivars.hit_left && ivars.hit_right)
+		handle_multiple_hits(ivars.tmin_left < ivars.tmin_right, vars->stack, &vars->stack_ptr, node);
+	else
+		handle_single_hit(ivars.hit_left << 1 | ivars.hit_right, vars->stack, &vars->stack_ptr, node);
 }
 
 //
