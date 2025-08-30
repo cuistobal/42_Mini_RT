@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 08:27:19 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:56:45 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/08/30 09:46:01 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,23 @@ static inline void	radius_and_height_based_bounds(t_object *obj, \
 
 static inline void	triangle_based_bounds(t_object *obj, t_aabb *bounds)
 {
-	double epsilon = EPSILON * 10;
-	
-	double (minx) = fmin(obj->position.x, fmin(obj->normal.x, obj->axis.x)) \
-		- epsilon;
-	double (miny) = fmin(obj->position.y, fmin(obj->normal.y, obj->axis.y)) \
-		- epsilon;
-	double (minz) = fmin(obj->position.z, fmin(obj->normal.z, obj->axis.z)) \
-		- epsilon;
-	double (maxx) = fmax(obj->position.x, fmax(obj->normal.x, obj->axis.x)) \
-		+ epsilon;
-	double (maxy) = fmax(obj->position.y, fmax(obj->normal.y, obj->axis.y)) \
-		+ epsilon;
-	double (maxz) = fmax(obj->position.z, fmax(obj->normal.z, obj->axis.z)) \
-		+ epsilon;
-	bounds->min = vec3_new(minx, miny, minz);
-	bounds->max = vec3_new(maxx, maxy, maxz);
+	t_triangle_bounds_vars	vars;
+
+	vars.epsilon = EPSILON * 10;
+	vars.minx = fmin(obj->position.x, fmin(obj->normal.x, obj->axis.x)) \
+				- vars.epsilon;
+	vars.miny = fmin(obj->position.y, fmin(obj->normal.y, obj->axis.y)) \
+				- vars.epsilon;
+	vars.minz = fmin(obj->position.z, fmin(obj->normal.z, obj->axis.z)) \
+				- vars.epsilon;
+	vars.maxx = fmax(obj->position.x, fmax(obj->normal.x, obj->axis.x)) \
+				+ vars.epsilon;
+	vars.maxy = fmax(obj->position.y, fmax(obj->normal.y, obj->axis.y)) \
+				+ vars.epsilon;
+	vars.maxz = fmax(obj->position.z, fmax(obj->normal.z, obj->axis.z)) \
+				+ vars.epsilon;
+	bounds->min = vec3_new(vars.minx, vars.miny, vars.minz);
+	bounds->max = vec3_new(vars.maxx, vars.maxy, vars.maxz);
 }
 
 /*

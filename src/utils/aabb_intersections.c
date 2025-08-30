@@ -28,6 +28,22 @@ static inline int	helper(double *tmin, double *tmax, double t0, double t1)
 	return ((int)(*tmin > *tmax));
 }
 
+static inline void	init_vars(t_aabb_query_vars *vars)
+{
+	vars->i = 0;
+	vars->tmx = INFINITY;
+	vars->tmn = -INFINITY;
+}
+
+static inline void update_vars(t_aabb_query_vars *vars, t_aabb_query *q)
+{
+	vars->dir = ((double *)&q->dir)[vars->i];
+	vars->org = ((double *)&q->origin)[vars->i];
+	vars->bmn = ((double *)&q->box.min)[vars->i];
+	vars->bmx = ((double *)&q->box.max)[vars->i++];
+	vars->adr = fabs(vars->dir);
+}
+
 /*
 ** intersect_aabb - Fast ray-AABB intersection test
 ** Returns 1 if ray intersects the bounding box, 0 otherwise
@@ -35,48 +51,31 @@ static inline int	helper(double *tmin, double *tmax, double t0, double t1)
 */
 int	intersect_aabb_query(t_aabb_query *q)
 {
-	int (i) = 0;
-	double (tmn), (tmx), (t0), (t1), (invD), (org), (dir), (bmn), (bmx), (adr);
-	tmx = INFINITY;
-	tmn = -INFINITY;
-	while (i < 3)
+	t_aabb_query_vars vars;
+
+	init_vars(&vars);
+	while (vars.i < 3)
 	{
-		dir = ((double *)&q->dir)[i];
-		org = ((double *)&q->origin)[i];
-		bmn = ((double *)&q->box.min)[i];
-		bmx = ((double *)&q->box.max)[i++];
-		adr = fabs(dir);
-		
-		// Si le rayon est parallèle à l'axe (presque zéro dans cette dimension)
-		if (adr < EPSILON)
+		update_vars(&vars, q);
+		if (vars.adr < EPSILON)
 		{
-			// Si le point d'origine est en dehors de la boîte, pas d'intersection
-			if (org < bmn - EPSILON || org > bmx + EPSILON)
+			if (vars.org < vars.bmn - EPSILON || vars.org > vars.bmx + EPSILON)
 				return (0);
-			// Sinon continuer avec les autres axes
 		}
 		else
 		{
-			invD = 1.0 / dir;
-			t0 = (bmn - org) * invD;
-			t1 = (bmx - org) * invD;
-			if (invD < 0.0)
-				swap(&t0, &t1);
-				
-			// Mettre à jour tmn et tmx
-			tmn = fmax(tmn, t0);
-			tmx = fmin(tmx, t1);
-			
-			// Vérifier si le rayon manque la boîte
-			if (tmn > tmx || tmx < 0)
+			vars.invD = 1.0 / vars.dir;
+			vars.t0 = (vars.bmn - vars.org) * vars.invD;
+			vars.t1 = (vars.bmx - vars.org) * vars.invD;
+			if (vars.invD < 0.0)
+				swap(&vars.t0, &vars.t1);
+			vars.tmn = fmax(vars.tmn, vars.t0);
+			vars.tmx = fmin(vars.tmx, vars.t1);
+			if (vars.tmn > vars.tmx || vars.tmx < 0)
 				return (0);
 		}
 	}
-	
-	// Mettre à jour les valeurs tmin et tmax
-	q->tmin = tmn;
-	q->tmax = tmx;
-	
-	// Retourner 1 si l'intersection est valide (devant le rayon)
-	return (tmx > 0);
+	q->tmin = vars.tmn;
+	q->tmax = vars.tmx;
+	return (vars.tmx > 0);
 }

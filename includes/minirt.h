@@ -372,7 +372,7 @@ typedef struct s_sah_split_vars
 	double right_area;
 	double cost;
 	double best_cost;
-} t_sah_split_vars;
+}	t_sah_split_vars;
 
 typedef struct s_bvh_iter_vars
 {
@@ -382,7 +382,7 @@ typedef struct s_bvh_iter_vars
 	t_bvh_node *stack[BVH_STACK_SIZE];
 	int found;
 	int stack_ptr;
-} t_bvh_iter_vars;
+}	t_bvh_iter_vars;
 
 typedef struct s_internal_node_vars
 {
@@ -392,7 +392,33 @@ typedef struct s_internal_node_vars
 	double tr;
 	t_aabb_query l_query;
 	t_aabb_query r_query;
-} t_internal_node_vars;
+}	t_internal_node_vars;
+
+typedef struct s_triangle_bounds_vars
+{
+	double epsilon;
+	double minx;
+	double miny;
+	double minz;
+	double maxx;
+	double maxy;
+	double maxz;
+}	t_triangle_bounds_vars;
+
+typedef struct s_aabb_query_vars
+{
+	int i;
+	double tmn;
+	double tmx;
+	double t0;
+	double t1;
+	double invD;
+	double org;
+	double dir;
+	double bmn;
+	double bmx;
+	double adr;
+}	t_aabb_query_vars;
 
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
