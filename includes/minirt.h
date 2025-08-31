@@ -105,12 +105,23 @@ typedef struct s_camera
 }	t_camera;
 
 /* Material structure (bonus) */
+
+// mise en place de la textue
+typedef struct s_texture { //
+    int             width;
+    int             height;
+    unsigned int    *data;
+} t_texture;
+
 typedef struct s_material
 {
-	t_color	color;
+	t_color	color;	
 	double	reflection;
 	double	transparency;
 	double	refraction_index;
+	int         use_chessboard;
+    int         use_texture;    // <- active/désactive la texture
+    t_texture   *texture;       // <- pointeur vers l'image chargée
 }	t_material;
 
 /* Light source structure */
@@ -135,16 +146,23 @@ typedef struct s_object
 	t_material		material;
 	struct s_object	*next;
 }	t_object;
+/* */
+typedef struct s_uv
+{
+    double u;
+    double v;
+}   t_uv;
 
 /* Hit information structure */
 typedef struct s_hit
 {
-	double		t;
-	t_vec3		point;
-	t_vec3		normal;
-	t_material	*material;
-	t_object	*object;
-}	t_hit;
+    double      t;
+    t_vec3      point;
+    t_vec3      normal;
+    t_material  *material;
+    t_object    *object;
+    t_uv        uv;
+}   t_hit;
 
 /* Axis-Aligned Bounding Box structure */
 typedef struct s_aabb
