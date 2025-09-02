@@ -138,6 +138,9 @@ typedef struct s_material
 	double	reflection;
 	double	transparency;
 	double	refraction_index;
+	int		bump;
+	int		chess;
+	void	*texture_addr;
 }	t_material;
 
 /* Light source structure */
