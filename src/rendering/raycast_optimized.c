@@ -6,7 +6,7 @@
 // /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 // /*                                                +#+#+#+#+#+   +#+           */
 // /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/02 15:25:16 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/02 15:48:23 by chrleroy         ###   ########.fr       */
 // /*                                                                            */
 // /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_color calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
     t_color reflection_color;
     t_color refraction_color;
 
-    int scale = 16;
+    int scale = 1;
 
     int x = (int)floor(hit->point.x / scale);
     int y = (int)floor(hit->point.y / scale);
