@@ -31,24 +31,26 @@ static int	parse_cylinder_tokens(char **tokens, t_object *c)
 
 int	parse_cylinder(char *line, t_scene *scene)
 {
-	char		*tokens[5];
+	int 		i;
+	char		*tokens[CYLINDER_TOKEN + MATERIAL_TOKEN];
 	t_object	*cylinder;
 	t_vec3		end;
 
+	i = CYLINDER_TOKEN + MATERIAL_TOKEN;
 	if (!line || !scene)
 		return (0);
-	if (!get_tokens(&line, tokens, 5))
-		return (free_tokens(tokens, 5), 0);
+	if (!get_tokens(&line, tokens, CYLINDER_TOKEN) || !get_material_tokens(&line, \
+		tokens + CYLINDER_TOKEN, MATERIAL_TOKEN))
+		return (free_tokens(tokens, i), 0);
 	cylinder = safe_malloc(sizeof(t_object));
 	if (!parse_cylinder_tokens(tokens, cylinder))
-		return (safe_free((void **)&cylinder), free_tokens(tokens, 5), 0);
+		return (safe_free((void **)&cylinder), free_tokens(tokens, i), 0);
 	if (!validate_cylinder_params(cylinder->radius / 2.0, \
 				cylinder->height, cylinder->axis))
-		return (safe_free((void **)&cylinder), free_tokens(tokens, 5), 0);
+		return (safe_free((void **)&cylinder), free_tokens(tokens, i), 0);
 	end = vec3_add(cylinder->position, \
 			vec3_mult(cylinder->axis, cylinder->height));
 	cylinder->centroid = vec3_mult(vec3_add(cylinder->position, end), 0.5);
 	cylinder->type = CYLINDER;
-	free_tokens(tokens, 5);
-	return (add_object_to_scene(scene, cylinder), 1);
+	return (free_tokens(tokens, i), add_object_to_scene(scene, cylinder), 1);
 }

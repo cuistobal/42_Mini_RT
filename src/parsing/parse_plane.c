@@ -19,22 +19,24 @@ static int	validate_plane_params(t_vec3 normal)
 
 int	parse_plane(char *line, t_scene *scene)
 {
-	char		*t[3];
+	char		*t[PLANE_TOKEN + MATERIAL_TOKEN];
 	t_object	*plane;
 
 	if (!line || !scene)
 		return (0);
-	if (!get_tokens(&line, t, 3))
-		return (0);	
+	if (!get_tokens(&line, t, PLANE_TOKEN) || !get_material_tokens(&line, \
+		t + PLANE_TOKEN, MATERIAL_TOKEN))
+		return (free_tokens(t, PLANE_TOKEN + MATERIAL_TOKEN), 0);
 	plane = safe_malloc(sizeof(t_object));
 	if (!parse_vec3(t[0], &plane->position)
 		|| !parse_vec3(t[1], &plane->normal)
 		|| !parse_color(t[2], &plane->material.color))
-		return (free_tokens(t, 3), 0);
+		return (free_tokens(t, PLANE_TOKEN + MATERIAL_TOKEN), 0);
 	if (!validate_plane_params(plane->normal))
-		return (safe_free((void **)&plane), free_tokens(t, 3), 0);
+		return (safe_free((void **)&plane), free_tokens(t, \
+			PLANE_TOKEN + MATERIAL_TOKEN), 0);
 	plane->centroid = plane->position;
 	plane->type = PLANE;
 	add_object_to_scene(scene, plane);
-	return (free_tokens(t, 3), 1);
+	return (free_tokens(t, PLANE_TOKEN + MATERIAL_TOKEN), 1);
 }

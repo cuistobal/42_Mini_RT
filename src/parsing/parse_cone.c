@@ -31,21 +31,24 @@ static int	parse_cone_tokens(char **tokens, t_object *c)
 //Add the object to pass its elements by reference instead of local vartiables
 int	parse_cone(char *line, t_scene *scene)
 {
-	char		*tokens[5];
+	int 		i;
+	char		*tokens[CONE_TOKEN + MATERIAL_TOKEN];
 	t_object	*cone;
 
+	i = CONE_TOKEN + MATERIAL_TOKEN;
 	if (!line || !scene)
 		return (0);
-	if (!get_tokens(&line, tokens, 5))
-		return (free_tokens(tokens, 5), 0);
+	if (!get_tokens(&line, tokens, CONE_TOKEN) || !get_material_tokens(&line, \
+		tokens + CONE_TOKEN, MATERIAL_TOKEN))
+		return (free_tokens(tokens, i), 0);
 	cone = safe_malloc(sizeof(t_object));
 	if (!parse_cone_tokens(tokens, cone))
-		return (safe_free((void **)&cone), free_tokens(tokens, 5), 0);
+		return (safe_free((void **)&cone), free_tokens(tokens, i), 0);
 	if (!validate_cone_params(cone->angle, cone->height, cone->axis))
-		return (safe_free((void **)&cone), free_tokens(tokens, 5), 0);
+		return (safe_free((void **)&cone), free_tokens(tokens, i), 0);
 	cone->centroid = vec3_add(cone->position, vec3_mult(cone->axis, \
 				cone->height * 0.25));
 	cone->type = CONE;
 	add_object_to_scene(scene, cone);
-	return (free_tokens(tokens, 5), 1);
+	return (free_tokens(tokens, i), 1);
 }

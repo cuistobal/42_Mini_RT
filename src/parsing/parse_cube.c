@@ -35,7 +35,7 @@ static t_object	*create_cube(t_vec3 position, double size, t_color color)
 
 int	parse_cube(char *line, t_scene *scene)
 {
-	char		*tokens[3];
+	char		*tokens[CUBE_TOKEN + MATERIAL_TOKEN];
 	t_vec3		position;
 	double		size;
 	t_color		color;
@@ -43,17 +43,18 @@ int	parse_cube(char *line, t_scene *scene)
 
 	if (!line || !scene)
 		return (0);
-	if (!get_tokens(&line, tokens, 3))
-		return (free_tokens(tokens, 3), 0);
+	if (!get_tokens(&line, tokens, CUBE_TOKEN) || !get_material_tokens(&line, \
+		tokens + CUBE_TOKEN, MATERIAL_TOKEN))
+		return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 0);
 	if (!parse_vec3(tokens[0], &position) || !parse_double(tokens[1], &size) \
 			|| !parse_color(tokens[2], &color))
-		return (free_tokens(tokens, 3), 0);
+		return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 0);
 	if (size <= 0)
-		return (free_tokens(tokens, 3), 0);
+		return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 0);
 	cube = create_cube(position, size, color);
 	cube->centroid = vec3_new(position.x + size / 2.0, position.y + size \
 			/ 2.0, position.z + size / 2.0);
 	cube->type = CUBE;
 	add_object_to_scene(scene, cube);
-	return (free_tokens(tokens, 3), 1);	
+	return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 1);
 }

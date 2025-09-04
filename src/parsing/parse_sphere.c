@@ -19,25 +19,24 @@ static int	validate_sphere_params(double diameter)
 
 int	parse_sphere(char *line, t_scene *scene)
 {
-	char		*tokens[3];
+	char		*tokens[SPHERE_TOKEN + MATERIAL_TOKEN];
 	t_object	*sphere;
 
 	if (!line || !scene)
 		return (0);
-	tokens[0] = get_next_token(&line);
-	tokens[1] = get_next_token(&line);
-	tokens[2] = get_next_token(&line);
-	if (!tokens[0] || !tokens[1] || !tokens[2])
-		return (0);
+	if (!get_tokens(&line, tokens, SPHERE_TOKEN) || !get_material_tokens(&line, \
+		tokens + SPHERE_TOKEN, MATERIAL_TOKEN))
+		return (free_tokens(tokens, SPHERE_TOKEN + MATERIAL_TOKEN), 0);
+
 	sphere = safe_malloc(sizeof(t_object));
 	if (!parse_vec3(tokens[0], &sphere->position)
 		|| !parse_double(tokens[1], &sphere->radius)
 		|| !parse_color(tokens[2], &sphere->material.color))
-		return (free_tokens(tokens, 3), 0);
+		return (free_tokens(tokens, SPHERE_TOKEN + MATERIAL_TOKEN), 0);
 	if (!validate_sphere_params(sphere->radius / 2.0))
-		return (free_tokens(tokens, 3), 0);
+		return (free_tokens(tokens, SPHERE_TOKEN + MATERIAL_TOKEN), 0);
 	sphere->centroid = sphere->position;
 	sphere->type = SPHERE;
 	add_object_to_scene(scene, sphere);
-	return (free_tokens(tokens, 3), 1);
+	return (free_tokens(tokens, SPHERE_TOKEN + MATERIAL_TOKEN), 1);
 }

@@ -37,6 +37,16 @@
 # define CUBE 5
 # define TRIANGLE 6
 
+/* Object tokens*/
+# define SPHERE_TOKEN 3
+# define PLANE_TOKEN 3
+# define CYLINDER_TOKEN 5
+# define CONE_TOKEN 5
+# define CUBE_TOKEN 3
+# define TRIANGLE_TOKEN 4
+
+#define MATERIAL_TOKEN 6
+
 /* Key codes */
 # define KEY_ESC 65307
 # define KEY_W 119
