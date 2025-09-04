@@ -37,11 +37,19 @@ static void	init_mlx_context(t_mlx *mlx)
 
 static int	init_minirt(t_minirt *rt, char *filename)
 {
+	int	i;
+
+	i = 0;
 	if (!rt || !filename)
 		return (0);
 	rt->filename = filename;
 	init_scene(&rt->scene);
 	init_mlx_context(&rt->mlx);
+	while (i < MAX_KEYS)
+	{
+		rt->keys[i] = 0;
+		i++;
+	}
 	return (1);
 }
 
