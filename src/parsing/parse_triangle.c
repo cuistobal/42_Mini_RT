@@ -44,12 +44,13 @@ int	parse_triangle(char *line, t_scene *scene)
 		|| !parse_vec3(t[1], &tr->normal)
 		|| !parse_vec3(t[2], &tr->axis)
 		|| !parse_color(t[3], &tr->material.color))
-		return (safe_free((void **)&tr), free_tokens(t, i), 0);
+		return (error_helper(tr, t, i));
 	if (is_degenerate_tr(tr->position, tr->normal, tr->axis))
-		return (safe_free((void **)&tr), free_tokens(t, i), 0);
+		return (error_helper(tr, t, i));
 	if (!parse_material(&tr->material, t + 4))
-		return (safe_free((void **)&tr), free_tokens(t, i), 0);
+		return (error_helper(tr, t, i));
 	tr->centroid = compute_centroid(tr->position, tr->normal, tr->axis);
 	tr->type = TRIANGLE;
+	tr->next = NULL;
 	return (add_object_to_scene(scene, tr), free_tokens(t, i), 1);
 }

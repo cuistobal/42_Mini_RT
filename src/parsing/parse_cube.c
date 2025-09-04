@@ -55,6 +55,7 @@ int	parse_cube(char *line, t_scene *scene)
 	cube->centroid = vec3_new(position.x + size / 2.0, position.y + size \
 			/ 2.0, position.z + size / 2.0);
 	cube->type = CUBE;
+	cube->next = NULL;
 	add_object_to_scene(scene, cube);
 	return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 1);
 }

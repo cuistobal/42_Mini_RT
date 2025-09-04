@@ -54,3 +54,10 @@ void free_tokens(char *tokens[], int tcount)
 		i++;
 	}
 }
+
+int error_helper(t_object *obj, char *tokens[], int tcount)
+{
+	safe_free((void **)&obj);
+	free_tokens(tokens, tcount);
+	return (0);
+}

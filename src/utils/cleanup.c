@@ -64,7 +64,7 @@ void	cleanup_object_list(t_object *objects)
 	while (current)
 	{
 		next = current->next;
-		free(current);
+		safe_free((void **)&current);	
 		current = next;
 	}
 }

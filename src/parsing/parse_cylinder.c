@@ -44,13 +44,14 @@ int	parse_cylinder(char *line, t_scene *scene)
 		return (free_tokens(tokens, i), 0);
 	cylinder = safe_malloc(sizeof(t_object));
 	if (!parse_cylinder_tokens(tokens, cylinder))
-		return (safe_free((void **)&cylinder), free_tokens(tokens, i), 0);
+		return (error_helper(cylinder, tokens, i));
 	if (!validate_cylinder_params(cylinder->radius / 2.0, \
 				cylinder->height, cylinder->axis))
-		return (safe_free((void **)&cylinder), free_tokens(tokens, i), 0);
+		return (error_helper(cylinder, tokens, i));
 	end = vec3_add(cylinder->position, \
 			vec3_mult(cylinder->axis, cylinder->height));
 	cylinder->centroid = vec3_mult(vec3_add(cylinder->position, end), 0.5);
 	cylinder->type = CYLINDER;
+	cylinder->next = NULL;
 	return (free_tokens(tokens, i), add_object_to_scene(scene, cylinder), 1);
 }

@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 09:12:03 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/04 09:03:05 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	parse_light(char *line, t_scene *scene)
 	if (pl.brightness < 0.0 || pl.brightness > 1.0)
 		return (free_light_tokens(pl.position_str, pl.brightness_str, \
 					pl.color_str), 0);
-	// Possible leak here if parsing fails;
 	pl.light = safe_malloc(sizeof(t_light));
 	pl.light->position = pl.position;
 	pl.light->intensity = pl.brightness;

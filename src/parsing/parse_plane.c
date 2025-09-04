@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 09:12:40 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/04 09:07:25 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	parse_plane(char *line, t_scene *scene)
 	if (!parse_vec3(t[0], &plane->position)
 		|| !parse_vec3(t[1], &plane->normal)
 		|| !parse_color(t[2], &plane->material.color))
-		return (free_tokens(t, PLANE_TOKEN + MATERIAL_TOKEN), 0);
+		return (error_helper(plane, t, PLANE_TOKEN + MATERIAL_TOKEN));
 	if (!validate_plane_params(plane->normal))
-		return (safe_free((void **)&plane), free_tokens(t, \
-			PLANE_TOKEN + MATERIAL_TOKEN), 0);
+		return (error_helper(plane, t, PLANE_TOKEN + MATERIAL_TOKEN));
 	plane->centroid = plane->position;
 	plane->type = PLANE;
+	plane->next = NULL;
 	add_object_to_scene(scene, plane);
 	return (free_tokens(t, PLANE_TOKEN + MATERIAL_TOKEN), 1);
 }
