@@ -12,6 +12,7 @@
 
 #include "../../includes/minirt.h"
 
+// Worst way of inserting a new element to a linked list
 void	add_object_to_scene(t_scene *scene, t_object *object)
 {
 	t_object	*current;

@@ -450,6 +450,9 @@ double	ray_distance_to_point(t_ray ray, t_vec3 point);
 /*                            PARSING FUNCTIONS                              */
 /* ************************************************************************** */
 
+int		get_tokens(char **line, char *tokens[], int tcount);
+void	free_tokens(char *tokens[], int tcount);
+
 int		validate_file_extension(char *filename);
 int		validate_file_access(char *filename);
 int		validate_arguments(int argc, char **argv);

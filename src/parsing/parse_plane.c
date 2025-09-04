@@ -17,13 +17,6 @@ static int	validate_plane_params(t_vec3 normal)
 	return (vec3_length(normal) != 0);
 }
 
-static void	free_plane_t(char *pos, char *norm, char *col)
-{
-	safe_free((void **)&pos);
-	safe_free((void **)&norm);
-	safe_free((void **)&col);
-}
-
 int	parse_plane(char *line, t_scene *scene)
 {
 	char		*t[3];
@@ -40,11 +33,11 @@ int	parse_plane(char *line, t_scene *scene)
 	if (!parse_vec3(t[0], &plane->position)
 		|| !parse_vec3(t[1], &plane->normal)
 		|| !parse_color(t[2], &plane->material.color))
-		return (free_plane_t(t[0], t[1], t[2]), 0);
+		return (free_tokens(t, 3), 0);
 	if (!validate_plane_params(plane->normal))
-		return (safe_free((void **)&plane), free_plane_t(t[0], t[1], t[2]), 0);
+		return (safe_free((void **)&plane), free_tokens(t, 3), 0);
 	plane->centroid = plane->position;
 	plane->type = PLANE;
 	add_object_to_scene(scene, plane);
-	return (free_plane_t(t[0], t[1], t[2]), 1);
+	return (free_tokens(t, 3), 1);
 }
