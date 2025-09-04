@@ -24,6 +24,17 @@ static inline t_vec3	compute_centroid(t_vec3 v0, t_vec3 v1, t_vec3 v2)
 				(v0.z + v1.z + v2.z) / 3.0));
 }
 
+int parse_triangle_tokens(char **tokens, t_object *tr)
+{
+	if (!parse_vec3(tokens[0], &tr->position)
+		|| !parse_vec3(tokens[1], &tr->normal)
+		|| !parse_vec3(tokens[2], &tr->axis)
+		|| !parse_color(tokens[3], &tr->material.color)
+		|| is_degenerate_tr(tr->position, tr->normal, tr->axis))
+		return (0);
+	return (parse_material(&tr->material, tokens + TRIANGLE_TOKEN));
+}
+
 // 4 tokens + 6 material tokens
 int	parse_triangle(char *line, t_scene *scene)
 {
@@ -38,16 +49,7 @@ int	parse_triangle(char *line, t_scene *scene)
 		t + TRIANGLE_TOKEN, MATERIAL_TOKEN))
 		return (free_tokens(t, i), 0);
 	tr = safe_malloc(sizeof(t_object));
-	if (!tr)
-		return (free_tokens(t, i), 0);
-	if (!parse_vec3(t[0], &tr->position)
-		|| !parse_vec3(t[1], &tr->normal)
-		|| !parse_vec3(t[2], &tr->axis)
-		|| !parse_color(t[3], &tr->material.color))
-		return (error_helper(tr, t, i));
-	if (is_degenerate_tr(tr->position, tr->normal, tr->axis))
-		return (error_helper(tr, t, i));
-	if (!parse_material(&tr->material, t + 4))
+	if (!tr || !parse_triangle_tokens(t, tr))
 		return (error_helper(tr, t, i));
 	tr->centroid = compute_centroid(tr->position, tr->normal, tr->axis);
 	tr->type = TRIANGLE;

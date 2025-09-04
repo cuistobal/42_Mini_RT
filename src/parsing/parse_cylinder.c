@@ -26,7 +26,7 @@ static int	parse_cylinder_tokens(char **tokens, t_object *c)
 		|| !parse_double(tokens[3], &c->height)
 		|| !parse_color(tokens[4], &c->material.color))
 		return (0);
-	return (1);
+	return (parse_material(&c->material, tokens + CYLINDER_TOKEN));
 }
 
 int	parse_cylinder(char *line, t_scene *scene)

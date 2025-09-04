@@ -25,7 +25,8 @@ static int	parse_cone_tokens(char **tokens, t_object *c)
 		|| !parse_double(tokens[3], &c->height)
 		|| !parse_color(tokens[4], &c->material.color))
 		return (0);
-	return (1);
+	c->angle = atan(c->radius / c->height) * (180.0 / M_PI);
+	return (parse_material(&c->material, tokens + CONE_TOKEN));
 }
 
 //Add the object to pass its elements by reference instead of local vartiables
@@ -49,6 +50,7 @@ int	parse_cone(char *line, t_scene *scene)
 	cone->centroid = vec3_add(cone->position, vec3_mult(cone->axis, \
 				cone->height * 0.25));
 	cone->type = CONE;
+	cone->next = NULL;
 	add_object_to_scene(scene, cone);
 	return (free_tokens(tokens, i), 1);
 }

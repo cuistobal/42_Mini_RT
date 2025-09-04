@@ -12,13 +12,6 @@
 
 #include "../../includes/minirt.h"
 
-static void	init_cube_material(t_object *cube)
-{
-	cube->material.reflection = 0.0;
-	cube->material.transparency = 0.0;
-	cube->material.refraction_index = 1.0;
-}
-
 static t_object	*create_cube(t_vec3 position, double size, t_color color)
 {
 	t_object	*cube;
@@ -29,7 +22,6 @@ static t_object	*create_cube(t_vec3 position, double size, t_color color)
 	cube->radius = size / 2.0;
 	cube->material.color = color;
 	cube->next = NULL;
-	init_cube_material(cube);
 	return (cube);
 }
 
@@ -56,6 +48,7 @@ int	parse_cube(char *line, t_scene *scene)
 			/ 2.0, position.z + size / 2.0);
 	cube->type = CUBE;
 	cube->next = NULL;
-	add_object_to_scene(scene, cube);
-	return (free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 1);
+	parse_material(&cube->material, tokens + CUBE_TOKEN);
+	return (add_object_to_scene(scene, cube), \
+		free_tokens(tokens, CUBE_TOKEN + MATERIAL_TOKEN), 1);
 }

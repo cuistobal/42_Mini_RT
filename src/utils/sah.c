@@ -48,6 +48,8 @@ static double	sah_cost(double left_area, double right_area,
 static void	allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \
 		int count)
 {
+	if (count <= 0)
+		return ;
 	*left_bounds = safe_malloc(sizeof(t_aabb) * count);
 	*right_bounds = safe_malloc(sizeof(t_aabb) * count);
 }
@@ -75,12 +77,12 @@ int	find_sah_split(t_object **objects, int count, int *best_axis)
 
 	variable_setup(&vars.axis, best_axis, &vars.best_cost, &vars.best_split);
 	allocate_bounds(&vars.left_bounds, &vars.right_bounds, count);
-	while (vars.axis++ < 3)
+	while (vars.axis < 3)
 	{
 		vars.split = 1;
 		sort_objects_axis(objects, count, vars.axis);
 		fill_bounds(objects, count, vars.left_bounds, vars.right_bounds);
-		while (vars.split++ < count)
+		while (vars.split < count)
 		{
 			vars.left_area = aabb_surface(vars.left_bounds[vars.split - 1]);
 			vars.right_area = aabb_surface(vars.right_bounds[vars.split]);
@@ -92,7 +94,9 @@ int	find_sah_split(t_object **objects, int count, int *best_axis)
 				*best_axis = vars.axis;
 				vars.best_split = vars.split;
 			}
+			vars.split++;
 		}
+		vars.axis++;
 	}
 	return (safe_free((void **)&vars.left_bounds), \
 			safe_free((void **)&vars.right_bounds), vars.best_split);

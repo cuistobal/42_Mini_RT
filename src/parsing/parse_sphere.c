@@ -12,9 +12,14 @@
 
 #include "../../includes/minirt.h"
 
-static int	validate_sphere_params(double diameter)
+int parse_sphere_tokens(char **tokens, t_object *s)
 {
-	return (diameter > 0);
+	if (!parse_vec3(tokens[0], &s->position)
+		|| !parse_double(tokens[1], &s->radius)
+		|| !parse_color(tokens[2], &s->material.color)
+		|| s->radius <= 0)
+		return (0);
+	return (parse_material(&s->material, tokens + SPHERE_TOKEN));
 }
 
 int	parse_sphere(char *line, t_scene *scene)
@@ -28,13 +33,7 @@ int	parse_sphere(char *line, t_scene *scene)
 		tokens + SPHERE_TOKEN, MATERIAL_TOKEN))
 		return (free_tokens(tokens, SPHERE_TOKEN + MATERIAL_TOKEN), 0);
 	sphere = safe_malloc(sizeof(t_object));
-	if (!parse_vec3(tokens[0], &sphere->position)
-		|| !parse_double(tokens[1], &sphere->radius)
-		|| !parse_color(tokens[2], &sphere->material.color))
-		return (error_helper(sphere, tokens, SPHERE_TOKEN + MATERIAL_TOKEN));
-	if (!parse_material(&sphere->material, tokens + SPHERE_TOKEN))
-		return (error_helper(sphere, tokens, SPHERE_TOKEN + MATERIAL_TOKEN));
-	if (!validate_sphere_params(sphere->radius / 2.0))
+	if (!sphere || !parse_sphere_tokens(tokens, sphere))
 		return (error_helper(sphere, tokens, SPHERE_TOKEN + MATERIAL_TOKEN));
 	sphere->centroid = sphere->position;
 	sphere->type = SPHERE;
