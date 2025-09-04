@@ -45,8 +45,6 @@ int	parse_cube(char *line, t_scene *scene)
 		return (0);
 	if (!get_tokens(&line, tokens, 3))
 		return (free_tokens(tokens, 3), 0);
-	if (!tokens[0] || !tokens[1] || !tokens[2])
-		return (0);
 	if (!parse_vec3(tokens[0], &position) || !parse_double(tokens[1], &size) \
 			|| !parse_color(tokens[2], &color))
 		return (free_tokens(tokens, 3), 0);

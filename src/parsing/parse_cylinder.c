@@ -39,8 +39,6 @@ int	parse_cylinder(char *line, t_scene *scene)
 		return (0);
 	if (!get_tokens(&line, tokens, 5))
 		return (free_tokens(tokens, 5), 0);
-	if (!tokens[0] || !tokens[1] || !tokens[2] || !tokens[3] || !tokens[4])
-		return (free_tokens(tokens, 5), 0);
 	cylinder = safe_malloc(sizeof(t_object));
 	if (!parse_cylinder_tokens(tokens, cylinder))
 		return (safe_free((void **)&cylinder), free_tokens(tokens, 5), 0);

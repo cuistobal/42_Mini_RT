@@ -71,6 +71,7 @@ int	parse_light(char *line, t_scene *scene)
 	if (pl.brightness < 0.0 || pl.brightness > 1.0)
 		return (free_light_tokens(pl.position_str, pl.brightness_str, \
 					pl.color_str), 0);
+	// Possible leak here if parsing fails;
 	pl.light = safe_malloc(sizeof(t_light));
 	pl.light->position = pl.position;
 	pl.light->intensity = pl.brightness;

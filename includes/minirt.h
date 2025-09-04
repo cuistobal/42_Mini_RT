@@ -451,7 +451,10 @@ double	ray_distance_to_point(t_ray ray, t_vec3 point);
 /* ************************************************************************** */
 
 int		get_tokens(char **line, char *tokens[], int tcount);
+int		get_material_tokens(char **line, char *tokens[], int tcount);
 void	free_tokens(char *tokens[], int tcount);
+
+int		parse_material(t_material *material, char *tokens[]);
 
 int		validate_file_extension(char *filename);
 int		validate_file_access(char *filename);

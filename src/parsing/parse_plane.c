@@ -24,11 +24,8 @@ int	parse_plane(char *line, t_scene *scene)
 
 	if (!line || !scene)
 		return (0);
-	t[0] = get_next_token(&line);
-	t[1] = get_next_token(&line);
-	t[2] = get_next_token(&line);
-	if (!t[0] || !t[1] || !t[2])
-		return (0);
+	if (!get_tokens(&line, t, 3))
+		return (0);	
 	plane = safe_malloc(sizeof(t_object));
 	if (!parse_vec3(t[0], &plane->position)
 		|| !parse_vec3(t[1], &plane->normal)
