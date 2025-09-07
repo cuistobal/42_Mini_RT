@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/04 17:34:46 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/04 08:00:02 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	parse_cone_tokens(char **tokens, t_object *c)
 		|| !parse_double(tokens[3], &c->height)
 		|| !parse_color(tokens[4], &c->material.color))
 		return (0);
-	c->angle = fabs(atan(c->radius / c->height) * (180.0 / M_PI));	
+	c->angle = atan(c->radius / c->height) * (180.0 / M_PI);
 	return (parse_material(&c->material, tokens + CONE_TOKEN));
 }
 
