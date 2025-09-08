@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 10:22:48 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/08 12:12:15 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static double	get_cone_discriminant_root(double a, double b,
 	double discriminant)
 {
-	double	sqrt_discriminant;
 	double	t1;
 	double	t2;
 	double	inv_2a;
+	double	sqrt_discriminant;
 
 	inv_2a = 1.0 / (2.0 * a);
 	sqrt_discriminant = sqrt(discriminant);
