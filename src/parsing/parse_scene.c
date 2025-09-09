@@ -75,26 +75,26 @@ static int	validate_scene_with_filename(t_scene *scene)
 ** Returns: 1 on success, 0 on error
 */
 static int	parse_element_by_identifier(char *identifier, char *rest, \
-		t_scene *scene)
+		t_minirt *rt)
 {
 	if (strcmp(identifier, "A") == 0)
-		return (parse_ambient(rest, scene));
+		return (parse_ambient(rest, rt));
 	else if (strcmp(identifier, "C") == 0)
-		return (parse_camera(rest, scene));
+		return (parse_camera(rest, rt));
 	else if (strcmp(identifier, "L") == 0)
-		return (parse_light(rest, scene));
+		return (parse_light(rest, rt));
 	else if (strcmp(identifier, "sp") == 0)
-		return (parse_sphere(rest, scene));
+		return (parse_sphere(rest, rt));
 	else if (strcmp(identifier, "pl") == 0)
-		return (parse_plane(rest, scene));
+		return (parse_plane(rest, rt));
 	else if (strcmp(identifier, "cy") == 0)
-		return (parse_cylinder(rest, scene));
+		return (parse_cylinder(rest, rt));
 	else if (strcmp(identifier, "co") == 0)
-		return (parse_cone(rest, scene));
+		return (parse_cone(rest, rt));
 	else if (strcmp(identifier, "cu") == 0)
-		return (parse_cube(rest, scene));
+		return (parse_cube(rest, rt));
 	else if (strcmp(identifier, "tr") == 0)
-		return (parse_triangle(rest, scene));
+		return (parse_triangle(rest, rt));
 	return (0);
 }
 
@@ -106,14 +106,14 @@ static int	parse_element_by_identifier(char *identifier, char *rest, \
 ** filename: Filename for error reporting
 ** Returns: 1 on success, 0 on error
 */
-static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
+static int	parse_line(t_minirt *rt, char *line, int line_num)
 {
 	int		res;
 	char	*rest;
 	char	*trimmed;
 	char	*identifier;
 
-	if (!line || !scene)
+	if (!line || !rt)
 		return (0);
 	trimmed = skip_whitespace(line);
 	if (is_empty_line(trimmed))
@@ -122,11 +122,11 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 	identifier = get_next_token(&rest);
 	if (!identifier)
 		return (printf("Error\nInvalid syntax in %s at line %d: \
-					missing identifier\n", filename, line_num), 0);
-	res = parse_element_by_identifier(identifier, rest, scene);
+					missing identifier\n", rt->filename, line_num), 0);
+	res = parse_element_by_identifier(identifier, rest, rt);
 	if (!res)
 		printf("Error\nInvalid %s element in %s at line %d: \
-				%s\n", identifier, filename, line_num, line);
+				%s\n", identifier, rt->filename, line_num, line);
 	return (safe_free((void **)&identifier), res);
 }
 
@@ -136,29 +136,29 @@ static int	parse_line(char *line, t_scene *scene, int line_num, char *filename)
 ** scene: Scene structure to populate
 ** Returns: 1 on success, 0 on error
 */
-int	parse_scene(char *filename, t_scene *scene)
+int	parse_scene(t_minirt *rt)
 {
 	int		fd;
 	char	*line;
 	int		line_number;
 	int		parse_result;
 
-	if (!filename || !scene)
+	if (!rt || !rt->filename)
 		return (printf("Error\nInvalid parameters for scene parsing\n"), 0);
-	fd = open(filename, O_RDONLY);
+	fd = open(rt->filename, O_RDONLY);
 	if (fd < 0)
-		return (printf("Error\nCannot open file: %s\n", filename), 0);
+		return (printf("Error\nCannot open file: %s\n", rt->filename), 0);
 	line_number = 0;
 	line = read_file_line(fd);
 	while (line)
 	{
 		line_number++;
-		parse_result = parse_line(line, scene, line_number, filename);
+		parse_result = parse_line(rt, line, line_number);
 		if (!parse_result)
 			return (safe_free((void **)&line), close(fd), \
-					cleanup_scene_on_error(scene), 0);
+					cleanup_scene_on_error(&rt->scene), 0);
 		safe_free((void **)&line);
 		line = read_file_line(fd);
 	}
-	return (close(fd), validate_scene_with_filename(scene));
+	return (close(fd), validate_scene_with_filename(&rt->scene));
 }

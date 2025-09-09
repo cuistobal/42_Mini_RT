@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/22 14:18:36 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/09 08:56:47 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 		return (ERROR_ARGS);
 	if (!init_minirt(&rt, argv[1]))
 		return (ERROR_MEMORY);
-	if (!parse_scene(rt.filename, &rt.scene))
+	if (!parse_scene(&rt))
 	{
 		printf("Error\nFailed to parse scene file\n");
 		cleanup_all(&rt);

@@ -29,3 +29,27 @@ void	add_object_to_scene(t_scene *scene, t_object *object)
 		current = current->next;
 	current->next = object;
 }
+
+void	object_initializer(t_object *obj)
+{
+	obj = safe_malloc(sizeof(t_object));
+	if (!obj)
+		return ;
+	obj->uid = -1;
+	obj->type = -1;
+	obj->axis = vec3_new(0, 0, 0);
+	obj->normal = vec3_new(0, 0, 0);
+	obj->position = vec3_new(0, 0, 0);
+	obj->centroid = vec3_new(0, 0, 0);
+	obj->radius = 0;
+	obj->height = 0;
+	obj->angle = 0;
+	obj->material.color = color_new(0, 0, 0);
+	obj->material.reflection = 0;
+	obj->material.transparency = 0;
+	obj->material.refraction_index = 1.0;
+	obj->material.bump = 0;
+	obj->material.chess = 0;
+	obj->material.texture_addr = NULL;
+	obj->next = NULL;
+}

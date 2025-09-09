@@ -54,11 +54,11 @@ static inline void	set_parse_light(t_plight *plight, char **line)
 ** scene: Scene structure to populate
 ** Returns: 1 on success, 0 on error
 */
-int	parse_light(char *line, t_scene *scene)
+int	parse_light(char *line, t_minirt *rt)
 {
 	t_plight	pl;
 
-	if (!line || !scene)
+	if (!line || !rt)
 		return (0);
 	set_parse_light(&pl, &line);
 	if (!pl.position_str || !pl.brightness_str || !pl.color_str)
@@ -76,7 +76,7 @@ int	parse_light(char *line, t_scene *scene)
 	pl.light->intensity = pl.brightness;
 	pl.light->color = pl.color;
 	pl.light->next = NULL;
-	add_light_to_scene(scene, pl.light);
+	add_light_to_scene(&rt->scene, pl.light);
 	return (free_light_tokens(pl.position_str, pl.brightness_str, \
 				pl.color_str), 1);
 }

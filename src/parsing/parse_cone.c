@@ -17,7 +17,7 @@ static int	validate_cone_params(double angle, double height, t_vec3 axis)
 	return (angle >= 0 && angle <= 90 && height > 0 && vec3_length(axis) != 0);
 }
 
-static int	parse_cone_tokens(char **tokens, t_object *c)
+static int	parse_cone_tokens(char **tokens, t_object *c, t_minirt *rt)
 {
 	if (!parse_vec3(tokens[0], &c->position)
 		|| !parse_vec3(tokens[1], &c->axis)
@@ -26,24 +26,26 @@ static int	parse_cone_tokens(char **tokens, t_object *c)
 		|| !parse_color(tokens[4], &c->material.color))
 		return (0);
 	c->angle = atan(c->radius / c->height) * (180.0 / M_PI);
-	return (parse_material(&c->material, tokens + CONE_TOKEN));
+	return (parse_material(rt, &c->material, tokens + CONE_TOKEN));
 }
 
 //Add the object to pass its elements by reference instead of local vartiables
-int	parse_cone(char *line, t_scene *scene)
+int	parse_cone(char *line, t_minirt *rt)
 {
 	int 		i;
 	char		*tokens[CONE_TOKEN + MATERIAL_TOKEN];
 	t_object	*cone;
 
 	i = CONE_TOKEN + MATERIAL_TOKEN;
-	if (!line || !scene)
+	if (!line || !rt)
 		return (0);
 	if (!get_tokens(&line, tokens, CONE_TOKEN) || !get_material_tokens(&line, \
 		tokens + CONE_TOKEN, MATERIAL_TOKEN))
 		return (free_tokens(tokens, i), 0);
 	cone = safe_malloc(sizeof(t_object));
-	if (!parse_cone_tokens(tokens, cone))
+	if (!cone)
+		return (free_tokens(tokens, i), 0);
+	if (!parse_cone_tokens(tokens, cone, rt))
 		return (safe_free((void **)&cone), free_tokens(tokens, i), 0);
 	if (!validate_cone_params(cone->angle, cone->height, cone->axis))
 		return (safe_free((void **)&cone), free_tokens(tokens, i), 0);
@@ -51,6 +53,6 @@ int	parse_cone(char *line, t_scene *scene)
 				cone->height * 0.25));
 	cone->type = CONE;
 	cone->next = NULL;
-	add_object_to_scene(scene, cone);
+	add_object_to_scene(&rt->scene, cone);
 	return (free_tokens(tokens, i), 1);
 }

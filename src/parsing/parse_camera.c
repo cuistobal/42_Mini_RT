@@ -25,32 +25,32 @@ static inline void	free_camera_tokens(char *pos, char *dir, char *fov)
 ** scene: Scene structure to populate
 ** Returns: 1 on success, 0 on error
 */
-int	parse_camera(char *line, t_scene *scene)
+int	parse_camera(char *line, t_minirt *rt)
 {
 	char	*fov_str;
 	char	*position_str;
 	char	*direction_str;
 
-	if (!line || !scene)
+	if (!line || !rt)
 		return (0);
 	position_str = get_next_token(&line);
 	direction_str = get_next_token(&line);
 	fov_str = get_next_token(&line);
 	if (!position_str || !direction_str || !fov_str)
 		return (0);
-	if (!parse_vec3(position_str, &scene->camera.position) || !parse_vec3(\
-				direction_str, &scene->camera.direction) || !parse_double(\
-					fov_str, &scene->camera.fov))
+	if (!parse_vec3(position_str, &rt->scene.camera.position) || !parse_vec3(\
+				direction_str, &rt->scene.camera.direction) || !parse_double(\
+					fov_str, &rt->scene.camera.fov))
 		return (free_camera_tokens(position_str, direction_str, fov_str), 0);
-	if (scene->camera.fov <= 0 || scene->camera.fov >= 180)
+	if (rt->scene.camera.fov <= 0 || rt->scene.camera.fov >= 180)
 		return (free_camera_tokens(position_str, direction_str, fov_str), 0);
-	scene->camera.up = vec3_new(0, 1, 0);
-	scene->camera.right = vec3_normalize(vec3_cross(scene->camera.direction, \
-				scene->camera.up));
-	scene->camera.up = vec3_normalize(vec3_cross(scene->camera.right, \
-				scene->camera.direction));
-	scene->camera.move_speed = 0.5;
-	scene->camera.rotate_speed = 0.05;
+	rt->scene.camera.up = vec3_new(0, 1, 0);
+	rt->scene.camera.right = vec3_normalize(vec3_cross(rt->scene.camera.direction, \
+				rt->scene.camera.up));
+	rt->scene.camera.up = vec3_normalize(vec3_cross(rt->scene.camera.right, \
+				rt->scene.camera.direction));
+	rt->scene.camera.move_speed = 0.5;
+	rt->scene.camera.rotate_speed = 0.05;
 	return (free_camera_tokens(position_str, direction_str, fov_str), 1);
 }
 
@@ -66,14 +66,14 @@ static inline void	free_ambient_tokens(char *ratio, char *color)
 ** scene: Scene structure to populate
 ** Returns: 1 on success, 0 on error
 */
-int	parse_ambient(char *line, t_scene *scene)
+int	parse_ambient(char *line, t_minirt *rt)
 {
 	t_color	color;
 	double	ratio;
 	char	*ratio_str;
 	char	*color_str;
 
-	if (!line || !scene)
+	if (!line || !rt)
 		return (0);
 	ratio_str = get_next_token(&line);
 	color_str = get_next_token(&line);
@@ -83,7 +83,7 @@ int	parse_ambient(char *line, t_scene *scene)
 		return (free_ambient_tokens(ratio_str, color_str), 0);
 	if (ratio < 0.0 || ratio > 1.0)
 		return (free_ambient_tokens(ratio_str, color_str), 0);
-	scene->ambient_ratio = ratio;
-	scene->ambient = color;
+	rt->scene.ambient_ratio = ratio;
+	rt->scene.ambient = color;
 	return (free_ambient_tokens(ratio_str, color_str), 1);
 }

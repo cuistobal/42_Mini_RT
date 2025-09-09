@@ -270,8 +270,10 @@ typedef struct s_mlx
 	int		width;
 	int		height;
 }	t_mlx;
+
 /* Threads manipulation arguments */
 typedef struct s_minirt t_minirt;
+
 /* Directive draw threads structure */
 typedef struct s_intels
 {
@@ -464,23 +466,24 @@ int		get_tokens(char **line, char *tokens[], int tcount);
 int		get_material_tokens(char **line, char *tokens[], int tcount);
 void	free_tokens(char *tokens[], int tcount);
 int		error_helper(t_object *obj, char *tokens[], int tcount);
+void	object_initializer(t_object *obj);
 
-int		parse_material(t_material *material, char *tokens[]);
+int		parse_material(t_minirt *rt, t_material *material, char *material_tokens[]);
 
 int		validate_file_extension(char *filename);
 int		validate_file_access(char *filename);
 int		validate_arguments(int argc, char **argv);
 
-int		parse_scene(char *filename, t_scene *scene);
-int		parse_ambient(char *line, t_scene *scene);
-int		parse_camera(char *line, t_scene *scene);
-int		parse_light(char *line, t_scene *scene);
-int		parse_sphere(char *line, t_scene *scene);
-int		parse_plane(char *line, t_scene *scene);
-int		parse_cylinder(char *line, t_scene *scene);
-int		parse_cone(char *line, t_scene *scene);
-int		parse_cube(char *line, t_scene *scene);
-int		parse_triangle(char *line, t_scene *scene);
+int		parse_scene(t_minirt *rt);
+int		parse_ambient(char *line, t_minirt *rt);
+int		parse_camera(char *line, t_minirt *rt);
+int		parse_light(char *line, t_minirt *rt);
+int		parse_sphere(char *line, t_minirt *rt);
+int		parse_plane(char *line, t_minirt *rt);
+int		parse_cylinder(char *line, t_minirt *rt);
+int		parse_cone(char *line, t_minirt *rt);
+int		parse_cube(char *line, t_minirt *rt);
+int		parse_triangle(char *line, t_minirt *rt);
 
 /* Parsing utility functions */
 int		parse_double(char *str, double *result);
