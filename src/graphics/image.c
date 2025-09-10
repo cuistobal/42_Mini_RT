@@ -17,14 +17,15 @@
 ** x, y: pixel coordinates (0,0 is top-left)
 ** color: RGB color to set
 */
-void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
+void put_pixel(t_mlx *mlx, int x, int y, t_color color)
 {
-	char	*pixel;
+    if (x < 0 || x >= mlx->width || y < 0 || y >= mlx->height)
+        return; // on ignore les pixels hors image
 
-	pixel = mlx->img_data + (y * mlx->size_line + x * \
-			(mlx->bits_per_pixel / 8));
-	*(unsigned int *)pixel = color_to_int(color);
+    char *pixel = mlx->img_data + (y * mlx->size_line + x * (mlx->bits_per_pixel / 8));
+    *(unsigned int *)pixel = color_to_int(color);
 }
+
 
 /*
 ** color_to_int - Convert RGB color structure to integer format
