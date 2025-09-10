@@ -21,6 +21,11 @@ void	put_pixel(t_mlx *mlx, int x, int y, t_color color)
 {
 	char	*pixel;
 
+	// Vérification supplémentaire pour éviter le segfault
+	if (!mlx || !mlx->img_data || x < 0 || y < 0 || 
+		x >= mlx->width || y >= mlx->height)
+		return;
+
 	pixel = mlx->img_data + (y * mlx->size_line + x * \
 			(mlx->bits_per_pixel / 8));
 	*(unsigned int *)pixel = color_to_int(color);
