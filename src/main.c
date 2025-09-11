@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/09 08:56:47 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:38:55 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ int	main(int argc, char **argv)
 		return (ERROR_ARGS);
 	if (!init_minirt(&rt, argv[1]))
 		return (ERROR_MEMORY);
-	if (!parse_scene(&rt))
-	{
-		printf("Error\nFailed to parse scene file\n");
-		cleanup_all(&rt);
-		return (ERROR_PARSE);
-	}
 	rt.scene.bvh_root = build_bvh(&rt.scene);
 	if (init_mlx(&rt.mlx, *argv + 2) != 0)
 	{
 		printf("Error\nFailed to initialize graphics\n");
 		cleanup_all(&rt);
 		return (ERROR_MLX);
+	}
+	if (!parse_scene(&rt))
+	{
+		printf("Error\nFailed to parse scene file\n");
+		cleanup_all(&rt);
+		return (ERROR_PARSE);
 	}
 	setup_hooks(&rt);
 	mlx_loop(rt.mlx.mlx_ptr);

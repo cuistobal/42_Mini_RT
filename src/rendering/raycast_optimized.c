@@ -6,7 +6,7 @@
 // /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 // /*                                                +#+#+#+#+#+   +#+           */
 // /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/02 15:48:23 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:42:27 by chrleroy         ###   ########.fr       */
 // /*                                                                            */
 // /* ************************************************************************** */
 
@@ -45,11 +45,9 @@ t_color calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
         hit->material->color = color_new(255, 255, 255);
     else
         hit->material->color = color_new(0, 0, 0);       
-
     base_color = calculate_lighting(hit->point, hit->normal, scene, hit->material);
     reflection_color = calculate_reflection(ray, hit, scene, depth);
     refraction_color = calculate_refraction(ray, hit, scene, depth);
-
     return color_add(color_add(base_color, reflection_color), refraction_color);
 }
 

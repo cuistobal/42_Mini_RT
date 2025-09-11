@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/10 14:30:14 by cuistobal        ###   ########.fr       */
+/*   Updated: 2025/09/10 17:42:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 static void send_directive(t_intels dirs)
 {
 	pthread_mutex_lock(&(dirs.rt->args.mutexQueue));
-	if (dirs.rt->args.ntask < MAX_TASKS)
-    {
+//	if (dirs.rt->args.ntask < MAX_TASKS)
+  //  {
 		dirs.rt->args.directives_rendering[dirs.rt->args.ntask] = dirs;
 		dirs.rt->args.ntask++;
-	}
+//	}
 	pthread_mutex_unlock(&(dirs.rt->args.mutexQueue));
 	pthread_cond_signal(&(dirs.rt->args.condQueue));
 }
