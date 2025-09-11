@@ -62,6 +62,12 @@ int	main(int argc, char **argv)
 		return (ERROR_ARGS);
 	if (!init_minirt(&rt, argv[1]))
 		return (ERROR_MEMORY);
+	if (init_mlx(&rt.mlx, *argv + 2) != 0)
+	{
+		printf("Error\nFailed to initialize graphics\n");
+		cleanup_all(&rt);
+		return (ERROR_MLX); 
+	}
 	if (!parse_scene(&rt))
 	{
 		printf("Error\nFailed to parse scene file\n");
@@ -69,12 +75,6 @@ int	main(int argc, char **argv)
 		return (ERROR_PARSE);
 	}
 	rt.scene.bvh_root = build_bvh(&rt.scene);
-	if (init_mlx(&rt.mlx, *argv + 2) != 0)
-	{
-		printf("Error\nFailed to initialize graphics\n");
-		cleanup_all(&rt);
-		return (ERROR_MLX);
-	}
 	setup_hooks(&rt);
 	mlx_loop(rt.mlx.mlx_ptr);
 	return (cleanup_all(&rt), ERROR_NONE);

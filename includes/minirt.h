@@ -141,6 +141,13 @@ typedef struct s_camera
 	double	rotate_speed;
 }	t_camera;
 
+/* Textures informations */
+typedef struct s_texture {
+    int             width;
+    int             height;
+    unsigned int    *data;
+}   t_texture;
+
 /* Material structure (bonus) */
 typedef struct s_material
 {
