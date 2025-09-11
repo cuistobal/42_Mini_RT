@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/08 12:12:15 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/11 08:03:41 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,26 @@ static double	solve_quadratic_cone(double a, double b, double c)
 	double	inv_2a;
 
 	if (fabs(a) < EPSILON)
+	{
+		if (fabs(b) < EPSILON)
+			return (-1.0);
+		t1 = -c / b;
+		return (t1 > EPSILON ? t1 : -1.0);
+	}
+	discriminant = b * b - 4.0 * a * c;
+	if (discriminant < -EPSILON)
+		return (-1.0);
+	if (fabs(discriminant) < EPSILON)
+	{
+		inv_2a = 1.0 / (2.0 * a);
+		t1 = -b * inv_2a;
+		return (t1 > EPSILON ? t1 : -1.0);
+	}
+	return (get_cone_discriminant_root(a, b, discriminant));
+/*
+	double	inv_2a;
+
+	if (fabs(a) < EPSILON)
 		return (-1.0);
 	discriminant = b * b - 4 * a * c;
 	if (discriminant < 0)
@@ -51,6 +71,7 @@ static double	solve_quadratic_cone(double a, double b, double c)
 		return (-1.0);
 	}
 	return (get_cone_discriminant_root(a, b, discriminant));
+*/
 }
 
 static int	is_within_cone_height(t_vec3 hit_point, t_object *cone)
@@ -60,9 +81,11 @@ static int	is_within_cone_height(t_vec3 hit_point, t_object *cone)
 
 	center_to_hit = vec3_sub(hit_point, cone->position);
 	projection = vec3_dot(center_to_hit, cone->axis);
-	return (projection >= 0 && projection <= cone->height);
+	return (projection >= -EPSILON && projection <= cone->height + EPSILON);
+//	return (projection >= 0 && projection <= cone->height);
 }
 
+/*
 static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)
 {
 	t_vec3			oc;
@@ -83,6 +106,29 @@ static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)
 	params.c = vec3_dot(projected_oc, projected_oc)
 		- tan_angle_sq * vec3_dot(oc, cone->axis)
 		* vec3_dot(oc, cone->axis);
+	return (params);
+}
+*/
+
+static t_cone_params	calculate_cone_coefficients(t_ray ray, t_object *cone)
+{
+	t_vec3			oc;
+	double			cos_angle_sq;
+	double			dot_rd_axis;
+	double			dot_oc_axis;
+	t_cone_params	params;
+
+	cos_angle_sq = cos(cone->angle * M_PI / 180.0);
+	cos_angle_sq = cos_angle_sq * cos_angle_sq;
+	oc = vec3_sub(ray.origin, cone->position);
+	dot_rd_axis = vec3_dot(ray.direction, cone->axis);
+	dot_oc_axis = vec3_dot(oc, cone->axis);
+	params.a = vec3_dot(ray.direction, ray.direction) * cos_angle_sq
+		- dot_rd_axis * dot_rd_axis;
+	params.b = 2.0 * (vec3_dot(ray.direction, oc) * cos_angle_sq
+		- dot_rd_axis * dot_oc_axis);
+	params.c = vec3_dot(oc, oc) * cos_angle_sq
+		- dot_oc_axis * dot_oc_axis;
 	return (params);
 }
 
