@@ -1,0 +1,18 @@
+A 0.2 255,255,255
+C 0,0,-30 0,0,1 70
+L 0,10,0 0.7 255,255,255
+
+# Atome Oxygène (O) au centre
+sp 0,0,0 4 0,0,255
+
+# Atome Hydrogène (H) à gauche
+sp -6,-2,0 2 255,255,255
+
+# Atome Hydrogène (H) à droite
+sp 6,-2,0 2 255,255,255
+
+# Liaison O-H gauche
+cy -6,-2,0 0.894,0.447,0 0.5 6.5 150,150,150
+
+# Liaison O-H droite
+cy 6,-2,0 -0.894,0.447,0 0.5 6.5 150,150,150
