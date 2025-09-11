@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/11 07:34:38 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/10 17:42:58 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void send_directive(t_intels dirs)
 {
 	pthread_mutex_lock(&(dirs.rt->args.mutexQueue));
 //	if (dirs.rt->args.ntask < MAX_TASKS)
-//	{
+  //  {
 		dirs.rt->args.directives_rendering[dirs.rt->args.ntask] = dirs;
 		dirs.rt->args.ntask++;
 //	}
@@ -84,9 +84,9 @@ void create_directive(t_minirt *rt)
 		while (y < pwidth)
 		{
 			directives.xstart = y << 5;
-			directives.xend = (y << 5) + 32;
+			directives.xend = ((y << 5) + 32 < rt->mlx.width) ? (y << 5) + 32 : rt->mlx.width;
 			directives.ystart = i << 5;
-			directives.yend = (i << 5) + 32;
+			directives.yend = ((i << 5) + 32 < rt->mlx.height) ? (i << 5) + 32 : rt->mlx.height;
 			directives.rt = rt;
 			send_directive(directives);
 			y++;
