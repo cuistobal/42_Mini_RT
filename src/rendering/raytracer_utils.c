@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/10 17:37:26 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/11 07:33:25 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 	t_ray	ray;
 	t_color	pixel_color;
 
-	// Vérification pour éviter les accès hors limites
 	if (x < 0 || x >= rt->mlx.width || y < 0 || y >= rt->mlx.height)
 		return;
 	u = (double)x * inv_width;
