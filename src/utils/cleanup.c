@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 10:25:51 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/18 08:48:58 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/12 09:36:17 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	cleanup_light_list(t_light *lights)
 ** cleanup_object_list - Free linked list of objects
 ** objects: Pointer to first object in list
 */
-void	cleanup_object_list(t_object *objects)
+void	cleanup_object_list(t_mlx mlx, t_object *objects)
 {
 	t_object	*current;
 	t_object	*next;
@@ -63,6 +63,8 @@ void	cleanup_object_list(t_object *objects)
 	current = objects;
 	while (current)
 	{
+		if (current->material.texture.img_ptr)
+			mlx_destroy_image(mlx.mlx_ptr, current->material.texture.img_ptr);
 		next = current->next;
 		safe_free((void **)&current);	
 		current = next;

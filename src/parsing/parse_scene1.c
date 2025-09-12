@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 08:37:17 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/30 08:38:23 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/12 09:33:56 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int	is_empty_line(char *line)
 ** cleanup_scene_on_error - Clean up partially parsed scene on error
 ** scene: Scene structure to clean up
 */
-void	cleanup_scene_on_error(t_scene *scene)
+void	cleanup_scene_on_error(t_mlx mlx, t_scene *scene)
 {
 	if (!scene)
 		return ;
 	cleanup_light_list(scene->lights);
-	cleanup_object_list(scene->objects);
+	cleanup_object_list(mlx, scene->objects);
 	scene->lights = NULL;
 	scene->objects = NULL;
 	scene->bvh_root = NULL;

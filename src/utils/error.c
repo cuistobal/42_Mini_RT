@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/09 10:33:31 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/12 09:37:19 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	handle_parse_error(char *filename, int line_num, char *message, \
 	exit(1);
 }
 
-void	cleanup_scene(t_scene *scene)
+void	cleanup_scene(t_mlx mlx, t_scene *scene)
 {
 	if (!scene)
 		return ;
 	cleanup_light_list(scene->lights);
-	cleanup_object_list(scene->objects);
+	cleanup_object_list(mlx, scene->objects);
 	cleanup_bvh(scene->bvh_root);
 	scene->lights = NULL;
 	scene->objects = NULL;
@@ -49,7 +49,7 @@ void	cleanup_all(t_minirt *rt)
 {
 	if (!rt)
 		return ;
-	cleanup_scene(&rt->scene);
+	cleanup_scene(rt->mlx, &rt->scene);
 	cleanup_mlx(&rt->mlx);
 }
 

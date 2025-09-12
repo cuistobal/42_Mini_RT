@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/04 07:30:57 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/12 09:35:40 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ int	parse_scene(t_minirt *rt)
 		parse_result = parse_line(rt, line, line_number);
 		if (!parse_result)
 			return (safe_free((void **)&line), close(fd), \
-					cleanup_scene_on_error(&rt->scene), 0);
+					cleanup_scene_on_error(rt->mlx, &rt->scene), 0);
 		safe_free((void **)&line);
 		line = read_file_line(fd);
 	}
