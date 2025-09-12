@@ -6,7 +6,7 @@
 /*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 07:42:33 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/11 17:03:03 by idioumas         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:12:11 by idioumas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	parse_material(t_minirt *rt, t_material *material, char *material_tokens[])
 	if (!parse_double(material_tokens[i + 5], &material->refraction_index))
 		material->refraction_index = 1.0;
 	material->texture_addr = load_texture(rt->mlx.mlx_ptr, "./bump.xpm");
-	if (material->texture_addr!= NULL)
-		printf("ok");
+	// hard coded path to xpm
 	return (1);
 }
