@@ -12,6 +12,11 @@
 
 #include "../../includes/minirt.h"
 
+static inline int invalid_path(char *path)
+{
+	return (!path || path[0] == '\0' || strncmp(path + strlen(path - 4), ".xpm", 4));
+}
+
 t_texture *load_texture(void *mlx_ptr, char *path)
 {
     t_texture   *tex;
@@ -20,6 +25,8 @@ t_texture *load_texture(void *mlx_ptr, char *path)
     int         line_length;
     int         endian;
 
+	if (invalid_path(path))
+		return (NULL);
     tex = malloc(sizeof(t_texture));
     if (!tex)
         return (NULL);
@@ -33,18 +40,14 @@ t_texture *load_texture(void *mlx_ptr, char *path)
 int	parse_material(t_minirt *rt, t_material *material, char *material_tokens[])
 {	
 	int i;
-	// int	w;
-	// int h;
 
 	i = 0;
-	// w = 0;
-	// h = 0;
 	if (!rt || !material || !material_tokens)
 		return (0);
-	material->texture_addr = NULL;
-    if (material_tokens[i] && material_tokens[i][0] != '\0')
-		material->texture_addr = load_texture(rt->mlx.mlx_ptr, material_tokens[i]);
-	else if (!parse_int(material_tokens[i + 1], &material->bump))
+//	material->texture_addr = NULL;
+  //  if (material_tokens[i] && material_tokens[i][0] != '\0')
+	material->texture_addr = load_texture(rt->mlx.mlx_ptr, material_tokens[i]);
+	if (!parse_int(material_tokens[i + 1], &material->bump))
 		material->bump = 0;
 	if (!parse_int(material_tokens[i + 2], &material->chess))
 		material->chess = 0;
