@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/12 08:20:42 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/04 09:20:09 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	object_initializer(t_object *obj)
 	obj->material.refraction_index = 1.0;
 	obj->material.bump = 0;
 	obj->material.chess = 0;
-	obj->material.bump_addr = NULL;
+	obj->material.texture_addr = NULL;
 	obj->next = NULL;
 }
