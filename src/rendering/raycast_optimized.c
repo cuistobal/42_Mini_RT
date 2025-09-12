@@ -100,7 +100,7 @@ t_color calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
         else
             hit->material->color = color_new(0, 0, 0); 
     }
-    hit->material->color = apply_texture(hit);
+    hit->material->color = apply_texture(hit); 
 
 
     base_color = calculate_lighting(hit->point, hit->normal, scene, hit->material);
