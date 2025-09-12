@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/12 07:54:54 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/12 08:20:08 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,10 @@ static t_vec3	apply_bump_map_if_present(t_hit *hit,
 
     if (!hit || !hit->material)
         return (normal);
-#ifdef MATERIAL_BUMP_ADDR
-    bump = (t_texture *)hit->material->bump_addr;
-#else
+    /* bump_addr is stored in material; NULL means no bump map loaded */
     bump = NULL;
-#endif
+    if (hit->material->bump_addr)
+        bump = (t_texture *)hit->material->bump_addr;
     if (!bump || !bump->data)
         return (normal);
     c = sample_texture(bump, u, v);
@@ -141,7 +140,7 @@ t_color	apply_texture(t_hit *hit)
 
     if (!hit || !hit->material)
         return (t_color){ .r = 0, .g = 0, .b = 0 };
-    tex = (t_texture *)hit->material->texture_addr;
+    tex = (t_texture *)hit->material->bump_addr;
     if (!tex || !tex->data)
         return (hit->material->color);
     get_uv_for_hit(hit, &u, &v);
