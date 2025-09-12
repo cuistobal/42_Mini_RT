@@ -48,6 +48,19 @@ Installation
 	git submodule update --remote --merge
 	```
 
+7. Run with docker image:
+
+	```sh
+	docker build -t minirt42 .
+
+	xhost +local:docker
+
+	docker run -it --rm \
+	-e DISPLAY=$DISPLAY \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	minirt42
+	```
+
 Usage
 -----
 Run the raytracer with a scene:
