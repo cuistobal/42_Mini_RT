@@ -37,12 +37,9 @@ static void	get_uv_for_hit(t_hit *hit, double *u, double *v)
 {
     t_vec3	p;
 
-    if (!hit || !u || !v)
-        return;
     if (hit->object->type == SPHERE)
     {
-        p = vec3_sub(hit->point, hit->object->position);
-        p = vec3_normalize(p);
+        p = vec3_normalize(vec3_sub(hit->point, hit->object->position));
         *u = 0.5 + atan2(p.z, p.x) / (2 * M_PI);
         *v = 0.5 - asin(p.y) / M_PI;
         return;
@@ -90,11 +87,8 @@ static t_color	chess_color_from_uv(double u, double v, int scale)
     return (t_color){ .r = 0, .g = 0, .b = 0 };
 }
 
-/* Bump via heightmap (best-effort). Uses MATERIAL_BUMP_ADDR define if available */
-static t_vec3	apply_bump_map_if_present(t_hit *hit,
-                                         t_vec3 normal,
-                                         double u,
-                                         double v)
+/* Bump via heightmap (best-effort). Uses MATERIAL_texture_addr define if available */
+static t_vec3	apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, double v)
 {
     t_texture	*bump;
     t_color	c;
@@ -111,11 +105,9 @@ static t_vec3	apply_bump_map_if_present(t_hit *hit,
 
     if (!hit || !hit->material)
         return (normal);
-#ifdef MATERIAL_BUMP_ADDR
-    bump = (t_texture *)hit->material->bump_addr;
-#else
     bump = NULL;
-#endif
+    if (hit->material->texture_addr != NULL)
+        bump = (t_texture *)hit->material->texture_addr;
     if (!bump || !bump->data)
         return (normal);
     c = sample_texture(bump, u, v);
@@ -124,7 +116,10 @@ static t_vec3	apply_bump_map_if_present(t_hit *hit,
     h = (c.r + c.g + c.b) / (3.0 * 255.0);
     hx = ((cx.r + cx.g + cx.b) / (3.0 * 255.0)) - h;
     hy = ((cy.r + cy.g + cy.b) / (3.0 * 255.0)) - h;
-    up = (fabs(normal.y) < 0.99) ? vec3_new(0, 1, 0) : vec3_new(1, 0, 0);
+    if (fabs(normal.y) < 0.99)
+        up = vec3_new(0, 1, 0);
+    else
+        up = vec3_new(1, 0, 0);
     tangent = vec3_normalize(vec3_cross(up, normal));
     bitangent = vec3_cross(normal, tangent);
     pert = vec3_add(vec3_mult(tangent, hx * 10.0),
@@ -153,6 +148,7 @@ t_color	apply_texture(t_hit *hit)
  */
 t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 {
+    int	scale;
     t_color	base_color;
     t_color	reflection_color;
     t_color	refraction_color;
@@ -168,20 +164,11 @@ t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
     u = 0.0;
     v = 0.0;
     get_uv_for_hit(hit, &u, &v);
-    normal = hit->normal;
-    normal = apply_bump_map_if_present(hit, normal, u, v);
+    normal = apply_bump_map_if_present(hit, hit->normal, u, v);
     albedo = apply_texture(hit);
-    if (hit->material->chess == 66)
-    {
-        int	scale;
-
-#ifdef MATERIAL_CHESS_SCALE
-        scale = hit->material->chess_scale > 0 ? hit->material->chess_scale : 1;
-#else
-        scale = 1;
-#endif
+    scale = hit->material->chess > 0 * hit->material->chess;
+    if (hit->material->chess > 0)
         albedo = chess_color_from_uv(u, v, scale);
-    }
     tmp_mat = *hit->material;
     tmp_mat.color = albedo;
     tmp_hit = *hit;
