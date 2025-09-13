@@ -693,4 +693,13 @@ t_vec3		get_cone_normal(t_vec3 hit_point, t_object *cone);
 
 void		swap(double *t0, double *t1);
 
+/* ************************************************************************** */
+/*                            	DIRECTIVE  FUNCTIONS                          */
+/* ************************************************************************** */
+void		send_directive(t_intels dirs);
+void		create_directive(t_minirt *rt);
+void		update_directives_queue(t_minirt *rt);
+void		check_completed_directives(t_minirt *rt);
+void		execute_rendering(t_intels *task);
+
 #endif
