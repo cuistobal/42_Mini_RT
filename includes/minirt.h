@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+# include <float.h>
 # include <fcntl.h>
 # include <string.h>
 # include <limits.h>
@@ -141,6 +142,14 @@ typedef struct s_camera
 	double	rotate_speed;
 }	t_camera;
 
+/* Textures informations */
+typedef struct s_texture {
+    int             width;
+    int             height;
+	void            *img_ptr;
+	unsigned int    *data;
+}   t_texture;
+
 /* Material structure (bonus) */
 typedef struct s_material
 {
@@ -150,6 +159,7 @@ typedef struct s_material
 	double	refraction_index;
 	int		bump;
 	int		chess;
+	t_texture	texture;
 	void	*texture_addr;
 }	t_material;
 
@@ -375,7 +385,6 @@ typedef struct s_plight
 	t_light	*light;
 }	t_plight;
 
-
 typedef struct s_sah_split_vars
 {
 	int axis;
@@ -495,7 +504,7 @@ void	add_object_to_scene(t_scene *scene, t_object *object);
 
 int		is_empty_line(char *line);
 char	*skip_whitespace(char *str);
-void	cleanup_scene_on_error(t_scene *scene);
+void	cleanup_scene_on_error(t_mlx mlx, t_scene *scene);
 
 /* ************************************************************************** */
 /*                           INTERSECTION FUNCTIONS                          */
@@ -535,6 +544,13 @@ t_color	calculate_background_color(t_ray ray);
 void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 			double inv_width, double inv_height);
 t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth);
+
+/* Texture / bump / chess helpers (non-static helpers implemented in rendering/) */
+void		get_uv_for_hit(t_hit *hit, double *u, double *v);
+t_color		sample_texture(t_texture *tex, double u, double v);
+t_color		apply_texture(t_hit *hit);
+t_vec3		apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, double v);
+t_color		color_lerp(t_color a, t_color b, double t);
 
 /* Progressive rendering functions */
 void	fill_pixel_block(t_minirt *rt, int x, int y, int step,
@@ -578,7 +594,7 @@ void	print_error(char *message);
 void	handle_malloc_error(size_t size, t_minirt *rt);
 void	handle_file_error(char *filename, char *operation, t_minirt *rt);
 void	handle_parse_error(char *filename, int line_num, char *message, t_minirt *rt);
-void	cleanup_scene(t_scene *scene);
+void	cleanup_scene(t_mlx mlx, t_scene *scene);
 void	cleanup_all(t_minirt *rt);
 int		validate_scene(t_scene *scene);
 void	*safe_malloc(size_t size);
@@ -588,7 +604,7 @@ void	*safe_calloc(size_t count, size_t size);
 void	*safe_realloc(void *ptr, size_t size);
 void	cleanup_string_array(char **array, int count);
 void	cleanup_light_list(t_light *lights);
-void	cleanup_object_list(t_object *objects);
+void	cleanup_object_list(t_mlx mlx, t_object *objects);
 
 /* ************************************************************************** */
 /*                             COLOR FUNCTIONS                               */
