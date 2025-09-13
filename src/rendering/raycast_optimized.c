@@ -135,6 +135,7 @@ static t_vec3 compute_height_deltas(t_texture *bump, double u, double v)
     };
 }
 
+/* Looks for unregularities in the bump map -> this is the magic trick to produce the relief*/
 static t_vec3 compute_perturbation(t_vec3 normal, double u, double v, t_texture *bump)
 {
     t_vec3    pert;
@@ -149,7 +150,7 @@ static t_vec3 compute_perturbation(t_vec3 normal, double u, double v, t_texture 
     return (pert);
 }
 
-/* Bump via heightmap (best-effort). Uses MATERIAL_texture_addr define if available */
+/* Height map approach bumping */
 static t_vec3	apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, double v)
 {
     t_vec3    pert;
@@ -164,7 +165,7 @@ static t_vec3	apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, dou
     return (vec3_normalize(vec3_add(normal, pert)));
 }
 
-/* apply_texture returns color, does not mutate material */
+/* Returns the color resulting from texture sampling */
 t_color	apply_texture(t_hit *hit)
 {
     double	u;
