@@ -6,7 +6,7 @@
 /*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 07:42:33 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/11 17:03:03 by idioumas         ###   ########.fr       */
+/*   Updated: 2025/09/13 09:29:59 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int	parse_material(t_minirt *rt, t_material *material, char *material_tokens[])
 		load_texture(rt->mlx.mlx_ptr, material_tokens[i], &material->texture);
 		if (material->texture.data)
 			material->texture_addr = &material->texture;
-		else
-			return 0;
 	}
 	else if (!parse_int(material_tokens[i + 1], &material->bump))
 		material->bump = 0;

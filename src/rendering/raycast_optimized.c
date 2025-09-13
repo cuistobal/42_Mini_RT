@@ -11,7 +11,22 @@
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-#include <math.h>
+
+// Local constant colors for chess pattern
+static const t_color	g_colors[2] = {
+    (t_color){ .r = 0, .g = 0, .b = 0 },
+    (t_color){ .r = 255, .g = 255, .b = 255 }
+};
+
+// Allows color blending in cases when we have both texture and chess pattern
+static inline t_color color_lerp(t_color a, t_color b, double t)
+{
+    return ((t_color){
+        .r = (int)(a.r * (1.0 - t) + b.r * t),
+        .g = (int)(a.g * (1.0 - t) + b.g * t),
+        .b = (int)(a.b * (1.0 - t) + b.b * t)
+    });
+}
 
 /* Safe pixel read (wrap) */
 static t_color	xpm_get_pixel_safe(t_texture *tex, int x, int y)
@@ -21,11 +36,9 @@ static t_color	xpm_get_pixel_safe(t_texture *tex, int x, int y)
     if (!tex || !tex->data || tex->width <= 0 || tex->height <= 0)
         return (t_color){ .r = 0, .g = 0, .b = 0 };
     x = x % tex->width;
-    if (x < 0)
-        x += tex->width;
+    x += tex->width * (x < 0);
     y = y % tex->height;
-    if (y < 0)
-        y += tex->height;
+    y += tex->height * (y < 0);
     pix = tex->data[y * tex->width + x];
     return (t_color){ .r = (pix >> 16) & 0xFF,
                       .g = (pix >> 8) & 0xFF,
@@ -77,14 +90,12 @@ static t_color	sample_texture(t_texture *tex, double u, double v)
 /* Chess pattern from UV (returns color, does not mutate material) */
 static t_color	chess_color_from_uv(double u, double v, int scale)
 {
-    int	iu;
-    int	iv;
+    int		iu;
+    int		iv;
 
     iu = (int)floor(u * (double)scale);
     iv = (int)floor(v * (double)scale);
-    if (((iu + iv) & 1) == 0)
-        return (t_color){ .r = 255, .g = 255, .b = 255 };
-    return (t_color){ .r = 0, .g = 0, .b = 0 };
+    return (g_colors[(iu + iv) & 1]);
 }
 
 /* Bump via heightmap (best-effort). Uses MATERIAL_texture_addr define if available */
@@ -103,8 +114,6 @@ static t_vec3	apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, dou
     t_vec3	bitangent;
     t_vec3	pert;
 
-    if (!hit || !hit->material)
-        return (normal);
     bump = NULL;
     if (hit->material->texture_addr != NULL)
         bump = (t_texture *)hit->material->texture_addr;
@@ -134,8 +143,6 @@ t_color	apply_texture(t_hit *hit)
     double	v;
     t_texture	*tex;
 
-    if (!hit || !hit->material)
-        return (t_color){ .r = 0, .g = 0, .b = 0 };
     tex = (t_texture *)hit->material->texture_addr;
     if (!tex || !tex->data)
         return (hit->material->color);
@@ -143,37 +150,42 @@ t_color	apply_texture(t_hit *hit)
     return (sample_texture(tex, u, v));
 }
 
+/* Prepare a temporary hit and material for lighting: computes UV, applies bump,
+ * samples texture, blends with chess if present, and fills out_mat/out_hit.
+ */
+static void	prepare_hit_for_lighting(t_hit *hit, t_hit *out_hit, t_material *out_mat, double blend)
+{
+    double	u;
+    double	v;
+    t_vec3	normal;
+    t_color	tex_col;
+    t_color	albedo;
+
+    get_uv_for_hit(hit, &u, &v);
+    normal = apply_bump_map_if_present(hit, hit->normal, u, v);
+    tex_col = apply_texture(hit);
+    albedo = tex_col;
+    if (hit->material->chess > 0)
+        albedo = color_lerp(tex_col, chess_color_from_uv(u, v, hit->material->chess), blend);
+    *out_mat = *hit->material;
+    out_mat->color = albedo;
+    *out_hit = *hit;
+    out_hit->material = out_mat;
+    out_hit->normal = normal;
+}
+
 /* calculate_hit_color: do not mutate material. Create temporaries for lighting.
  * Steps: UV -> bump (normal) -> texture/chess (albedo) -> lighting + effects
  */
 t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth)
 {
-    int	scale;
-    t_color	base_color;
-    t_color	reflection_color;
-    t_color	refraction_color;
-    double	u;
-    double	v;
-    t_vec3	normal;
-    t_color	albedo;
+    t_hit	    tmp_hit;
     t_material	tmp_mat;
-    t_hit	tmp_hit;
+    t_color	    base_color;
+    t_color	    reflection_color;
+    t_color	    refraction_color;
 
-    if (!hit || !hit->material || !scene)
-        return (color_new(0, 0, 0));
-    u = 0.0;
-    v = 0.0;
-    get_uv_for_hit(hit, &u, &v);
-    normal = apply_bump_map_if_present(hit, hit->normal, u, v);
-    albedo = apply_texture(hit);
-    scale = hit->material->chess > 0 * hit->material->chess;
-    if (hit->material->chess > 0)
-        albedo = chess_color_from_uv(u, v, scale);
-    tmp_mat = *hit->material;
-    tmp_mat.color = albedo;
-    tmp_hit = *hit;
-    tmp_hit.material = &tmp_mat;
-    tmp_hit.normal = normal;
+    prepare_hit_for_lighting(hit, &tmp_hit, &tmp_mat, 0.5);
     base_color = calculate_lighting(tmp_hit.point, tmp_hit.normal, scene, tmp_hit.material);
     reflection_color = calculate_reflection(ray, &tmp_hit, scene, depth);
     refraction_color = calculate_refraction(ray, &tmp_hit, scene, depth);
