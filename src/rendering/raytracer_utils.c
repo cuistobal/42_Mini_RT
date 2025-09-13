@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/18 10:27:20 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:47:49 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,
 */
 t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v, double hw, double hh)
 {
-	return vec3_add(
-		vec3_add(
-			vec3_add(c->position, c->direction),
-			vec3_mult(c->right, (u - 0.5) * 2.0 * hw)),
-		vec3_mult(c->up, (0.5 - v) * 2.0 * hh));
+	return (vec3_add(
+			vec3_add(
+				vec3_add(c->position, c->direction),
+				vec3_mult(c->right, (u - 0.5) * 2.0 * hw)
+			),
+			vec3_mult(c->up, (0.5 - v) * 2.0 * hh)
+		)
+	);
 }
 
 /*
@@ -45,10 +48,11 @@ t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v, double hw
 */
 t_color	calculate_background_color(t_ray ray)
 {
-	   return ((t_color){
-			   (int)(135 + ray.direction.y * 50),
-			   (int)(206 + ray.direction.y * 49),
-			   255});
+	return ((t_color){
+		(int)(135 + ray.direction.y * 50),
+		(int)(206 + ray.direction.y * 49),
+		255
+	});
 }
 
 /*

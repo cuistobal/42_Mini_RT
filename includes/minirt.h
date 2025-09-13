@@ -385,7 +385,6 @@ typedef struct s_plight
 	t_light	*light;
 }	t_plight;
 
-
 typedef struct s_sah_split_vars
 {
 	int axis;
@@ -545,6 +544,13 @@ t_color	calculate_background_color(t_ray ray);
 void	render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 			double inv_width, double inv_height);
 t_color	calculate_hit_color(t_ray ray, t_hit *hit, t_scene *scene, int depth);
+
+/* Texture / bump / chess helpers (non-static helpers implemented in rendering/) */
+void		get_uv_for_hit(t_hit *hit, double *u, double *v);
+t_color		sample_texture(t_texture *tex, double u, double v);
+t_color		apply_texture(t_hit *hit);
+t_vec3		apply_bump_map_if_present(t_hit *hit, t_vec3 normal, double u, double v);
+t_color		color_lerp(t_color a, t_color b, double t);
 
 /* Progressive rendering functions */
 void	fill_pixel_block(t_minirt *rt, int x, int y, int step,
