@@ -96,7 +96,11 @@ t_color	apply_texture(t_hit *hit)
 
 	tex = (t_texture *)hit->material->texture_addr;
 	if (!tex || !tex->data)
-		return (hit->material->color);
+	{
+		if (!hit->material->chess)
+			return (hit->material->color);
+		return (color_new(0, 0, 0));
+	}
 	get_uv_for_hit(hit, &u, &v);
 	return (sample_texture(tex, u, v));
 }
