@@ -53,11 +53,12 @@ static void	quicksort_objects(t_object **arr, int low, int high, int axis)
 {
 	int	pivot;
 
-	if (low >= high)
-		return ;
-	pivot = partition(arr, low, high, axis);
-	quicksort_objects(arr, low, pivot - 1, axis);
-	quicksort_objects(arr, pivot + 1, high, axis);
+	if (low < high)
+	{
+		pivot = partition(arr, low, high, axis);
+		quicksort_objects(arr, low, pivot - 1, axis);
+		quicksort_objects(arr, pivot + 1, high, axis);
+	}
 }
 
 /*
