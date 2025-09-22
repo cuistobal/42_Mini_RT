@@ -12,21 +12,28 @@
 
 #include "../../includes/minirt.h"
 
-// Local constant colors for chess pattern
-static const t_color	g_colors[2] = {
-	(t_color){.r = 0, .g = 0, .b = 0},
-	(t_color){.r = 255, .g = 255, .b = 255}
-};
+// // Local constant colors for chess pattern
+// static const t_color	g_colors[2] = {
+// 	(t_color){.r = 0, .g = 0, .b = 0},
+// 	(t_color){.r = 255, .g = 255, .b = 255}
+// };
 
 /* Chess pattern from UV (returns color, does not mutate material) */
-static t_color	chess_color_from_uv(double u, double v, int scale)
+static t_color	chess_color_from_uv(double u, double v, int scale, t_color base)
 {
+	int i;
 	int	iu;
 	int	iv;
 
 	iu = (int)floor(u * (double)scale);
 	iv = (int)floor(v * (double)scale);
-	return (g_colors[(iu + iv) & 1]);
+	// return (g_colors[(iu + iv) & 1]);
+	i = (iu + iv) % 2;
+	return ((t_color){
+		.r = abs(base.r - 255 * i + 255 * (1 - i)),
+		.g = abs(base.g - 255 * i + 255 * (1 - i)),
+		.b = abs(base.b - 255 * i + 255 * (1 - i))
+	});
 }
 
 /* Prepare a temporary hit and material for lighting: computes UV,
@@ -48,7 +55,7 @@ static void	prepare_hit_for_lighting(t_hit *hit, t_hit *out_hit, \
 	albedo = tex_col;
 	if (hit->material->chess > 0)
 		albedo = color_lerp(tex_col, \
-				chess_color_from_uv(u, v, hit->material->chess), blend);
+				chess_color_from_uv(u, v, hit->material->chess, hit->material->color), blend);
 	*out_mat = *hit->material;
 	out_mat->color = albedo;
 	*out_hit = *hit;
