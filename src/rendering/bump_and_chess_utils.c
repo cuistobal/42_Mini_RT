@@ -87,6 +87,24 @@ t_color	sample_texture(t_texture *tex, double u, double v)
 	return (xpm_get_pixel_safe(tex, x, y));
 }
 
+t_color negative_color(t_color base_color)
+{
+	t_color	negative;
+
+	if (base_color.r > 127)
+		negative.r = base_color.r - 127;
+	else
+		negative.r = base_color.r + 127;
+	if (base_color.g > 127)
+		negative.g = base_color.g - 127;
+	else
+		negative.g = base_color.g + 127;
+	if (base_color.b > 127)
+		negative.b = base_color.b - 127;
+	else
+		negative.b = base_color.b + 127;
+	return (negative);
+}
 /* Returns the color resulting from texture sampling */
 t_color	apply_texture(t_hit *hit)
 {
@@ -99,7 +117,7 @@ t_color	apply_texture(t_hit *hit)
 	{
 		if (!hit->material->chess)
 			return (hit->material->color);
-		return (color_new(0, 0, 0));
+		return (negative_color(hit->material->color));
 	}
 	get_uv_for_hit(hit, &u, &v);
 	return (sample_texture(tex, u, v));
