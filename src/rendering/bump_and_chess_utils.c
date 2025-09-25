@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/13 12:20:28 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/25 12:48:15 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ t_color negative_color(t_color base_color)
 		negative.b = base_color.b + 127;
 	return (negative);
 }
+
 /* Returns the color resulting from texture sampling */
 t_color	apply_texture(t_hit *hit)
 {
