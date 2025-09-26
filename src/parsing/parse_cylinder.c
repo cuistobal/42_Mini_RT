@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/26 08:06:22 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:18:47 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static int	parse_c_tokens(char **tokens, t_object *c, t_minirt *rt)
 	return (parse_material(rt, &c->material, tokens + CYLINDER_TOKEN));
 }
 
-int	parse_c(char *line, t_minirt *rt)
+int	parse_cylinder(char *line, t_minirt *rt)
 {
 	int			i;
 	char		*tokens[CYLINDER_TOKEN + MATERIAL_TOKEN];
-	t_objec		*c;
+	t_object	*c;
 	t_vec3		end;
 
 	i = CYLINDER_TOKEN + MATERIAL_TOKEN;

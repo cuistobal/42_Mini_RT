@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/26 08:15:26 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:18:28 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ static void	variable_setup(int *axis, int *best_axis, double *best_cost, \
 	*best_cost = INFINITY;
 }
 
-static inline int	fuck_the_norm(t_aabb left_bounds, t_aabb right_bounds)
+static inline int	fuck_the_norm(t_aabb **lbounds, t_aabb **rbounds, int ret)
 {
-	safe_free((void **)left_bounds);
-	safe_free((void **)right_bounds);
+	safe_free((void **)lbounds);
+	safe_free((void **)rbounds);
 	return (ret);
 }
 
@@ -82,7 +82,7 @@ static inline int	fuck_the_norm(t_aabb left_bounds, t_aabb right_bounds)
 */
 int	find_sah_split(t_object **objects, int c, int *best_axis)
 {
-	t_sah_split_v	v;
+	t_sah_split_vars	v;
 
 	variable_setup(&v.axis, best_axis, &v.best_cost, &v.best_split);
 	allocate_bounds(&v.left_bounds, &v.right_bounds, c);
@@ -106,5 +106,5 @@ int	find_sah_split(t_object **objects, int c, int *best_axis)
 		}
 		v.axis++;
 	}
-	return (fuck_the_norm(&v.left_bounds), &v.right_bounds, v.best_split);
+	return (fuck_the_norm(&v.left_bounds, &v.right_bounds, v.best_split));
 }
