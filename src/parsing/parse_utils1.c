@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   parse_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 07:17:24 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/04 08:37:15 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:03:44 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	get_tokens(char **line, char *tokens[], int tcount)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < tcount)
+	while (i < tcount)
 	{
 		tokens[i] = get_next_token(line);
 		if (!tokens[i])
@@ -27,12 +27,12 @@ int	get_tokens(char **line, char *tokens[], int tcount)
 	return (1);
 }
 
-int get_material_tokens(char **line, char *tokens[], int tcount)
+int	get_material_tokens(char **line, char *tokens[], int tcount)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < tcount)
+	while (i < tcount)
 	{
 		if (!*line)
 			tokens[i] = NULL;
@@ -43,19 +43,19 @@ int get_material_tokens(char **line, char *tokens[], int tcount)
 	return (1);
 }
 
-void free_tokens(char *tokens[], int tcount)
+void	free_tokens(char *tokens[], int tcount)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < tcount)
+	while (i < tcount)
 	{
 		safe_free((void **)&tokens[i]);
 		i++;
 	}
 }
 
-int error_helper(t_object *obj, char *tokens[], int tcount)
+int	error_helper(t_object *obj, char *tokens[], int tcount)
 {
 	safe_free((void **)&obj);
 	free_tokens(tokens, tcount);

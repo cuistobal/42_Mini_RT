@@ -6,35 +6,37 @@
 /*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 07:42:33 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/13 09:29:59 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:02:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-static void load_texture(void *mlx_ptr, char *path, t_texture *texture)
+static void	load_texture(void *mlx_ptr, char *path, t_texture *texture)
 {
-    void        *img;
-    int         bpp;
-    int         line_length;
-    int         endian;
+	void	*img;
+	int		bpp;
+	int		endian;
+	int		line_length;
 
 	if (!texture || !path || !mlx_ptr)
-		return;
-	img = mlx_xpm_file_to_image(mlx_ptr, path, &texture->width, &texture->height);
+		return ;
+	img = mlx_xpm_file_to_image(mlx_ptr, path,
+			&texture->width, &texture->height);
 	if (!img)
 	{
 		texture->img_ptr = NULL;
 		texture->data = NULL;
-		return;
+		return ;
 	}
 	texture->img_ptr = img;
-	texture->data = (unsigned int *)mlx_get_data_addr(img, &bpp, &line_length, &endian);
+	texture->data = (unsigned int *)mlx_get_data_addr(img, &bpp,
+			&line_length, &endian);
 }
 
 int	parse_material(t_minirt *rt, t_material *material, char *material_tokens[])
 {	
-	int i;
+	int	i;
 
 	i = 0;
 	if (!rt || !material || !material_tokens)

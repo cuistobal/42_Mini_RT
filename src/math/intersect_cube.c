@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/26 07:51:53 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 07:59:49 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ double	intersect_cube(t_ray ray, t_object *cube)
 {
 	t_vec3			cube_min;
 	t_vec3			cube_max;
-	t_sresult	result;
+	t_sresult		result;
 
 	if (!cube || cube->type != CUBE)
 		return (-1.0);

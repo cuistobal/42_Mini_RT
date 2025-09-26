@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 09:05:04 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:06:55 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	parse_cube(char *line, t_minirt *rt)
 	t_color		color;
 	t_object	*cube;
 
-	if (!line || !rt) 
+	if (!line || !rt)
 		return (0);
 	if (!get_tokens(&line, tokens, CUBE_TOKEN) || !get_material_tokens(&line, \
 		tokens + CUBE_TOKEN, MATERIAL_TOKEN))

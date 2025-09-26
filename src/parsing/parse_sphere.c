@@ -6,13 +6,13 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/04 09:08:11 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:04:44 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-int parse_sphere_tokens(char **tokens, t_object *s, t_minirt *rt)
+int	parse_sphere_tokens(char **tokens, t_object *s, t_minirt *rt)
 {
 	if (!parse_vec3(tokens[0], &s->position)
 		|| !parse_double(tokens[1], &s->radius)

@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/19 09:06:21 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:00:51 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	parse_camera(char *line, t_minirt *rt)
 	if (rt->scene.camera.fov <= 0 || rt->scene.camera.fov >= 180)
 		return (free_camera_tokens(position_str, direction_str, fov_str), 0);
 	rt->scene.camera.up = vec3_new(0, 1, 0);
-	rt->scene.camera.right = vec3_normalize(vec3_cross(rt->scene.camera.direction, \
-				rt->scene.camera.up));
+	rt->scene.camera.right = vec3_normalize(\
+			vec3_cross(rt->scene.camera.direction, rt->scene.camera.up));
 	rt->scene.camera.up = vec3_normalize(vec3_cross(rt->scene.camera.right, \
 				rt->scene.camera.direction));
 	rt->scene.camera.move_speed = 0.5;

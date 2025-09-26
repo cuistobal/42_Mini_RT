@@ -6,19 +6,19 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 08:29:44 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:06:22 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-static int	validate_cylinder_params(double diameter, double height, \
+static int	validate_c_params(double diameter, double height, \
 		t_vec3 axis)
 {
 	return (diameter > 0 && height > 0 && vec3_length(axis) != 0);
 }	
 
-static int	parse_cylinder_tokens(char **tokens, t_object *c, t_minirt *rt)
+static int	parse_c_tokens(char **tokens, t_object *c, t_minirt *rt)
 {
 	if (!parse_vec3(tokens[0], &c->position)
 		|| !parse_vec3(tokens[1], &c->axis)
@@ -29,31 +29,31 @@ static int	parse_cylinder_tokens(char **tokens, t_object *c, t_minirt *rt)
 	return (parse_material(rt, &c->material, tokens + CYLINDER_TOKEN));
 }
 
-int	parse_cylinder(char *line, t_minirt *rt)
+int	parse_c(char *line, t_minirt *rt)
 {
-	int 		i;
+	int			i;
 	char		*tokens[CYLINDER_TOKEN + MATERIAL_TOKEN];
-	t_object	*cylinder;
+	t_objec		*c;
 	t_vec3		end;
 
-	i = CYLINDER_TOKEN + MATERIAL_TOKEN;	
+	i = CYLINDER_TOKEN + MATERIAL_TOKEN;
 	if (!line || !rt)
 		return (0);
-	if (!get_tokens(&line, tokens, CYLINDER_TOKEN) || !get_material_tokens(&line, \
-		tokens + CYLINDER_TOKEN, MATERIAL_TOKEN))
+	if (!get_tokens(&line, tokens, CYLINDER_TOKEN) || !get_material_tokens(
+			&line, tokens + CYLINDER_TOKEN, MATERIAL_TOKEN))
 		return (free_tokens(tokens, i), 0);
-	cylinder = safe_malloc(sizeof(t_object));
-	if (!cylinder)
+	c = safe_malloc(sizeof(t_object));
+	if (!c)
 		return (free_tokens(tokens, i), 0);
-	if (!parse_cylinder_tokens(tokens, cylinder, rt))
-		return (error_helper(cylinder, tokens, i));
-	if (!validate_cylinder_params(cylinder->radius / 2.0, \
-				cylinder->height, cylinder->axis))
-		return (error_helper(cylinder, tokens, i));
-	end = vec3_add(cylinder->position, \
-			vec3_mult(cylinder->axis, cylinder->height));
-	cylinder->centroid = vec3_mult(vec3_add(cylinder->position, end), 0.5);
-	cylinder->type = CYLINDER;
-	cylinder->next = NULL;
-	return (free_tokens(tokens, i), add_object_to_scene(&rt->scene, cylinder), 1);
+	if (!parse_c_tokens(tokens, c, rt))
+		return (error_helper(c, tokens, i));
+	if (!validate_c_params(c->radius / 2.0, \
+				c->height, c->axis))
+		return (error_helper(c, tokens, i));
+	end = vec3_add(c->position, \
+			vec3_mult(c->axis, c->height));
+	c->centroid = vec3_mult(vec3_add(c->position, end), 0.5);
+	c->type = CYLINDER;
+	c->next = NULL;
+	return (free_tokens(tokens, i), add_object_to_scene(&rt->scene, c), 1);
 }

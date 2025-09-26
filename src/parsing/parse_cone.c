@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/08 12:16:59 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:06:42 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	parse_cone_tokens(char **tokens, t_object *c, t_minirt *rt)
 //Add the object to pass its elements by reference instead of local vartiables
 int	parse_cone(char *line, t_minirt *rt)
 {
-	int 		i;
+	int			i;
 	char		*tokens[CONE_TOKEN + MATERIAL_TOKEN];
 	t_object	*cone;
 
