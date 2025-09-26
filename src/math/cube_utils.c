@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/01/28 00:00:00 by cuistobal       ###   ########.fr       */
+/*   Updated: 2025/09/26 07:51:22 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	test_slab_intersection(double ray_dir, double ray_orig,
 	return (1);
 }
 
-t_slab_intersections	calculate_slab_intersections(double ray_dir,
+t_sinter	calculate_slab_intersections(double ray_dir,
 	double ray_orig, double slab_min, double slab_max)
 {
-	t_slab_intersections	result;
+	t_sinter	result;
 
 	result.t1 = (slab_min - ray_orig) / ray_dir;
 	result.t2 = (slab_max - ray_orig) / ray_dir;
@@ -53,10 +53,10 @@ t_slab_intersections	calculate_slab_intersections(double ray_dir,
 	return (result);
 }
 
-t_slab_result	update_intersection_interval(t_slab_result prev,
+t_sresult	update_intersection_interval(t_sresult prev,
 	double t1, double t2)
 {
-	t_slab_result	result;
+	t_sresult	result;
 
 	result = prev;
 	if (t1 > result.t_min)

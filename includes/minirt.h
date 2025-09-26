@@ -1,11 +1,12 @@
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
+/*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/08/30 09:07:33 by chrleroy         ###   ########.fr       */
+/*   Created: 2025/09/26 07:48:03 by chrleroy          #+#    #+#             */
+/*   Updated: 2025/09/26 07:50:56 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,14 +229,14 @@ typedef struct s_slab_result
 	double	t_min;
 	double	t_max;
 	int		valid;
-}	t_slab_result;
+}	t_sresult;
 
 /* Slab intersections structure */
 typedef struct s_slab_intersections
 {
 	double	t1;
 	double	t2;
-}	t_slab_intersections;
+}	t_sinter;
 
 /* BVH (Bounding Volume Hierarchy) node structure */
 typedef struct s_bvh_node
@@ -551,7 +552,8 @@ void		render_pixel_at_coordinates(t_minirt *rt, int x, int y,
 t_color		calculate_hit_color(t_ray ray, t_hit *hit,
 				t_scene *scene, int depth);
 
-/* Texture / bump / chess helpers (non-static helpers implemented in rendering/) */
+/* Texture / bump / chess helpers (non-static helpers implemented 
+ * in rendering/) */
 void		get_uv_for_hit(t_hit *hit, double *u, double *v);
 t_color		sample_texture(t_texture *tex, double u, double v);
 t_color		apply_texture(t_hit *hit);
@@ -666,11 +668,10 @@ void		get_cube_bounds(t_object *cube,
 void		swap_values(double *t1, double *t2);
 int			test_slab_intersection(double ray_dir, double ray_orig,
 				double slab_min, double slab_max);
-t_slab_intersections	calculate_slab_intersections(double ray_dir,
-				double ray_orig,
-				double slab_min, double slab_max);
-t_slab_result		update_intersection_interval(t_slab_result prev,
-				double t1, double t2);
+t_sinter	calculate_slab_intersections(double ray_dir, double ray_orig, \
+		double slab_min, double slab_max);
+t_sresult	update_intersection_interval(t_sresult prev, double t1, double t2);
+
 /* ************************************************************************** */
 /*                             CONE UTILITY FUNCTIONS                        */
 /* ************************************************************************** */
