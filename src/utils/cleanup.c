@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 10:25:51 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/12 09:36:17 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:15:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	cleanup_object_list(t_mlx mlx, t_object *objects)
 		if (current->material.texture.img_ptr)
 			mlx_destroy_image(mlx.mlx_ptr, current->material.texture.img_ptr);
 		next = current->next;
-		safe_free((void **)&current);	
+		safe_free((void **)&current);
 		current = next;
 	}
 }

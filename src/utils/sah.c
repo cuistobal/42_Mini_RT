@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 10:24:05 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/30 09:31:56 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 08:15:26 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 /*
 **
 */
-static void	fill_bounds(t_object **objects, int count,
+static void	fill_bounds(t_object **objects, int c,
 	t_aabb *left, t_aabb *right)
 {
 	int	i;
 
 	i = 1;
 	left[0] = get_object_bounds(objects[0]);
-	while (i < count)
+	while (i < c)
 	{
 		left[i] = aabb_union(left[i - 1], get_object_bounds(objects[i]));
 		i++;
 	}
-	right[count - 1] = get_object_bounds(objects[count - 1]);
-	i = count - 2;
+	right[c - 1] = get_object_bounds(objects[c - 1]);
+	i = c - 2;
 	while (i >= 0)
 	{
 		right[i] = aabb_union(right[i + 1], get_object_bounds(objects[i]));
@@ -36,22 +36,24 @@ static void	fill_bounds(t_object **objects, int count,
 	}
 }
 
+/*
 static double	sah_cost(double left_area, double right_area,
-	int left_count, int right_count)
+	int left_c, int right_c)
 {
-	return (left_area * left_count + right_area * right_count);
+	return (left_area * left_c + right_area * right_c);
 }
+*/
 
 /*
 **
 */
 static void	allocate_bounds(t_aabb **left_bounds, t_aabb **right_bounds, \
-		int count)
+		int c)
 {
-	if (count <= 0)
+	if (c <= 0)
 		return ;
-	*left_bounds = safe_malloc(sizeof(t_aabb) * count);
-	*right_bounds = safe_malloc(sizeof(t_aabb) * count);
+	*left_bounds = safe_malloc(sizeof(t_aabb) * c);
+	*right_bounds = safe_malloc(sizeof(t_aabb) * c);
 }
 
 /*
@@ -66,38 +68,43 @@ static void	variable_setup(int *axis, int *best_axis, double *best_cost, \
 	*best_cost = INFINITY;
 }
 
+static inline int	fuck_the_norm(t_aabb left_bounds, t_aabb right_bounds)
+{
+	safe_free((void **)left_bounds);
+	safe_free((void **)right_bounds);
+	return (ret);
+}
+
 /*
 ** La norminette n'a qu'a bien se tenir
 ** Probably the least maintainable piece of crap within this project, thanks to
 ** norminette. We could have created a specific struct in this regard.
 */
-int	find_sah_split(t_object **objects, int count, int *best_axis)
+int	find_sah_split(t_object **objects, int c, int *best_axis)
 {
-	t_sah_split_vars	vars;
+	t_sah_split_v	v;
 
-	variable_setup(&vars.axis, best_axis, &vars.best_cost, &vars.best_split);
-	allocate_bounds(&vars.left_bounds, &vars.right_bounds, count);
-	while (vars.axis < 3)
+	variable_setup(&v.axis, best_axis, &v.best_cost, &v.best_split);
+	allocate_bounds(&v.left_bounds, &v.right_bounds, c);
+	while (v.axis < 3)
 	{
-		vars.split = 1;
-		sort_objects_axis(objects, count, vars.axis);
-		fill_bounds(objects, count, vars.left_bounds, vars.right_bounds);
-		while (vars.split < count)
+		v.split = 1;
+		sort_objects_axis(objects, c, v.axis);
+		fill_bounds(objects, c, v.left_bounds, v.right_bounds);
+		while (v.split < c)
 		{
-			vars.left_area = aabb_surface(vars.left_bounds[vars.split - 1]);
-			vars.right_area = aabb_surface(vars.right_bounds[vars.split]);
-			vars.cost = sah_cost(vars.left_area, vars.right_area, \
-					vars.split, count - vars.split);
-			if (vars.cost < vars.best_cost)
+			v.left_area = aabb_surface(v.left_bounds[v.split - 1]);
+			v.right_area = aabb_surface(v.right_bounds[v.split]);
+			v.cost = v.left_area * v.split + v.right_area * (c - v.split);
+			if (v.cost < v.best_cost)
 			{
-				vars.best_cost = vars.cost;
-				*best_axis = vars.axis;
-				vars.best_split = vars.split;
+				v.best_cost = v.cost;
+				*best_axis = v.axis;
+				v.best_split = v.split;
 			}
-			vars.split++;
+			v.split++;
 		}
-		vars.axis++;
+		v.axis++;
 	}
-	return (safe_free((void **)&vars.left_bounds), \
-			safe_free((void **)&vars.right_bounds), vars.best_split);
+	return (fuck_the_norm(&v.left_bounds), &v.right_bounds, v.best_split);
 }
