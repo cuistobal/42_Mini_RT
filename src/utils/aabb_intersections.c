@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 09:44:17 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/08/30 09:54:44 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/26 07:44:27 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static inline void	update_intersection_vars(t_aabb_query_vars *vars)
 {
-	vars->invD = 1.0 / vars->dir;
-	vars->t0 = (vars->bmn - vars->org) * vars->invD;
-	vars->t1 = (vars->bmx - vars->org) * vars->invD;
-	if (vars->invD < 0.0)
+	vars->invd = 1.0 / vars->dir;
+	vars->t0 = (vars->bmn - vars->org) * vars->invd;
+	vars->t1 = (vars->bmx - vars->org) * vars->invd;
+	if (vars->invd < 0.0)
 		swap(&vars->t0, &vars->t1);
 	vars->tmn = fmax(vars->tmn, vars->t0);
 	vars->tmx = fmin(vars->tmx, vars->t1);
