@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal         #+#    #+#             */
-/*   Updated: 2025/09/13 11:32:47 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 07:18:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@
 /* Chess pattern from UV (returns color, does not mutate material) */
 static t_color	chess_color_from_uv(double u, double v, int scale, t_color base)
 {
-	int i;
+	int	i;
 	int	iu;
 	int	iv;
 
 	iu = (int)floor(u * (double)scale);
 	iv = (int)floor(v * (double)scale);
-	// return (g_colors[(iu + iv) & 1]);
 	i = (iu + iv) % 2;
 	return ((t_color){
 		.r = abs(base.r - 255 * i + 255 * (1 - i)),
@@ -54,8 +53,8 @@ static void	prepare_hit_for_lighting(t_hit *hit, t_hit *out_hit, \
 	tex_col = apply_texture(hit);
 	albedo = tex_col;
 	if (hit->material->chess > 0)
-		albedo = color_lerp(tex_col, \
-				chess_color_from_uv(u, v, hit->material->chess, hit->material->color), blend);
+		albedo = color_lerp(tex_col, chess_color_from_uv(u, v,
+					hit->material->chess, hit->material->color), blend);
 	*out_mat = *hit->material;
 	out_mat->color = albedo;
 	*out_hit = *hit;

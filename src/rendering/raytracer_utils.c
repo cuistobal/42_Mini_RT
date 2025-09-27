@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/13 11:47:49 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 07:19:26 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,
 /*
 ** calculate_pixel_world_position - Convert screen coords to world position
 */
-t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v, double hw, double hh)
+t_vec3	calculate_pixel_world_position(t_camera *c, double u, double v,
+		double hw, double hh)
 {
 	return (vec3_add(
 			vec3_add(
