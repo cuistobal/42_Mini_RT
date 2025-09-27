@@ -6,23 +6,11 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/27 07:28:08 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 07:44:23 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
-
-/*
-// Allows color blending in cases when we have both texture and chess pattern
-t_color	color_lerp(t_color a, t_color b, double t)
-{
-	return ((t_color){
-		.r = (int)(a.r * (1.0 - t) + b.r * t),
-		.g = (int)(a.g * (1.0 - t) + b.g * t),
-		.b = (int)(a.b * (1.0 - t) + b.b * t)
-	});
-}
-*/
 
 /* Safe pixel read (wrap) */
 static t_color	xpm_get_pixel_safe(t_texture *tex, int x, int y)

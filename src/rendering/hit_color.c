@@ -6,17 +6,21 @@
 /*   By: cuistobal <cuistobal@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal         #+#    #+#             */
-/*   Updated: 2025/09/27 07:18:43 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 07:44:10 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minirt.h"
 
-// // Local constant colors for chess pattern
-// static const t_color	g_colors[2] = {
-// 	(t_color){.r = 0, .g = 0, .b = 0},
-// 	(t_color){.r = 255, .g = 255, .b = 255}
-// };
+// Allows color blending in cases when we have both texture and chess pattern
+t_color	color_lerp(t_color a, t_color b, double t)
+{
+	return ((t_color){
+		.r = (int)(a.r * (1.0 - t) + b.r * t),
+		.g = (int)(a.g * (1.0 - t) + b.g * t),
+		.b = (int)(a.b * (1.0 - t) + b.b * t)
+	});
+}
 
 /* Chess pattern from UV (returns color, does not mutate material) */
 static t_color	chess_color_from_uv(double u, double v, int scale, t_color base)
