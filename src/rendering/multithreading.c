@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 07:39:23 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/27 07:17:46 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:19:38 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static void	execute_rendering(t_intels *task)
 	}
 }
 
+/*
 // The thread's routine to divide redering into smaller chuncks
 void	*render_all_pixels(void *arg)
 {
@@ -121,4 +122,58 @@ void	*render_all_pixels(void *arg)
 	}
 	rt->args.completed_directives = 0;
 	return (NULL);
+}
+*/
+
+// The thread's routine to divide redering into smaller chuncks
+void	*render_all_pixels(void *arg)
+{
+	t_minirt	*rt;
+	t_intels	directive;
+
+	rt = (t_minirt *)arg;
+	while (1)
+	{
+		pthread_mutex_lock(&(rt->args.mutex_queue));
+		while (rt->args.ntask == 0 && rt->args.stop == 0)
+			pthread_cond_wait(&rt->args.cond_queue, &(rt->args.mutex_queue));
+		if (rt->args.stop == 1 && rt->args.ntask == 0)
+		{
+			pthread_mutex_unlock(&(rt->args.mutex_queue));
+			break ;
+		}
+		directive  = update_directives(rt);
+		pthread_mutex_unlock(&(rt->args.mutex_queue));
+		execute_rendering(&directive);
+		pthread_mutex_lock(&(rt->args.mutex_queue));
+		rt->args.completed_directives++;
+		check_directives(rt);
+		pthread_mutex_unlock(&(rt->args.mutex_queue));
+	}
+	rt->args.completed_directives = 0;
+	return (NULL);
+}
+
+void init_multi_thread(t_minirt *rt, pthread_t threads[])
+{
+	int	i;
+
+	i = 0;
+	while (i < NUM_THREAD)
+	{
+		threads[i] = 0;
+		i++;
+	}
+	if (pthread_mutex_init(&(rt->args.mutex_queue), NULL) || pthread_cond_init(&(rt->args.cond_queue), NULL))
+		kill_threads_rsc(rt,threads,1);
+	i = 0;
+	while(i < NUM_THREAD)
+	{
+		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))
+		{
+			perror("Error : Thread creation failed");
+			kill_threads_rsc(rt,threads,1);
+		}
+		i++;
+	}
 }

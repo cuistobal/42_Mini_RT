@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 07:48:03 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/26 07:50:56 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:14:28 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -566,6 +566,15 @@ void		fill_pixel_block(t_minirt *rt, int x, int y, int step,
 				t_color pixel_color);
 void		render_progressive_step(t_minirt *rt, int step,
 				double inv_width, double inv_height);
+
+/* Last minute norme additions*/
+void		create_directive(t_minirt *rt);
+t_intels	update_directives(t_minirt	*rt);
+void		check_directives(t_minirt	*rt);
+void		init_multi_thread(t_minirt *rt, pthread_t threads[]);
+int			kill_threads_rsc(t_minirt *rt, pthread_t threads[], int verror);
+
+
 
 /* ************************************************************************** */
 /*                            GRAPHICS FUNCTIONS                             */

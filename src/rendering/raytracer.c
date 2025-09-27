@@ -6,7 +6,7 @@
 /*   By: cuistobal <cuistobal@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 00:00:00 by cuistobal        #+#    #+#             */
-/*   Updated: 2025/09/27 07:43:03 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/27 15:18:29 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_ray	get_camera_ray(t_minirt *rt, t_camera *camera, double u, double v)
 /*
 ** render_scene - Main rendering function
 */
+/*
 void	render_scene(t_minirt *rt)
 {
 	int				i;
@@ -72,6 +73,23 @@ void	render_scene(t_minirt *rt)
 	i = 0;
 	while (i < NUM_THREAD)
 		pthread_join(threads[i++], NULL);
+	display_image(&rt->mlx);
+}
+*/
+
+void	render_scene(t_minirt *rt)
+{
+	pthread_t		threads[NUM_THREAD];
+
+	if (!rt || !rt->mlx.mlx_ptr || !rt->mlx.win_ptr)
+		return ;
+	rt->args.stop = 0;
+	rt->args.ntask = 0;
+	rt->args.completed_directives = 0;
+	setup_camera(&rt->scene.camera);
+	init_multi_thread(rt,threads);
+	create_directive(rt);
+	kill_threads_rsc(rt,threads,0);
 	display_image(&rt->mlx);
 }
 
