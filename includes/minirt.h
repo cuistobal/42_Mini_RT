@@ -6,7 +6,7 @@
 /*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 07:48:03 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/27 15:14:28 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:46:43 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -544,11 +544,10 @@ void		render_scene_optimized(t_minirt *rt);
 /* Raytracer utility functions */
 void		calculate_viewport_dimensions(t_minirt *rt, t_camera *camera,
 				double *half_width, double *half_height);
-t_vec3		calculate_pixel_world_position(t_camera *camera, double u,
-				double v, double half_width, double half_height);
+t_vec3		calculate_pixel_world_position(t_minirt *rt, t_camera *camera,
+				double u, double v);
 t_color		calculate_background_color(t_ray ray);
-void		render_pixel_at_coordinates(t_minirt *rt, int x, int y,
-				double inv_width, double inv_height);
+void		render_pixel_at_coordinates(t_minirt *rt, int x, int y);
 t_color		calculate_hit_color(t_ray ray, t_hit *hit,
 				t_scene *scene, int depth);
 
@@ -562,8 +561,6 @@ t_vec3		apply_bump_map_if_present(t_hit *hit,
 t_color		color_lerp(t_color a, t_color b, double t);
 
 /* Progressive rendering functions */
-void		fill_pixel_block(t_minirt *rt, int x, int y, int step,
-				t_color pixel_color);
 void		render_progressive_step(t_minirt *rt, int step,
 				double inv_width, double inv_height);
 
@@ -573,8 +570,6 @@ t_intels	update_directives(t_minirt	*rt);
 void		check_directives(t_minirt	*rt);
 void		init_multi_thread(t_minirt *rt, pthread_t threads[]);
 int			kill_threads_rsc(t_minirt *rt, pthread_t threads[], int verror);
-
-
 
 /* ************************************************************************** */
 /*                            GRAPHICS FUNCTIONS                             */

@@ -6,7 +6,7 @@
 /*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 07:39:23 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/28 16:01:19 by idioumas         ###   ########.fr       */
+/*   Updated: 2025/09/28 19:34:31 by chrleroy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,14 @@ static void	execute_rendering(t_intels *task)
 {
 	int		x;
 	int		y;
-	double	inv_width;
-	double	inv_height;
 
-	inv_width = 1.0 / (double)task->rt->mlx.width;
-	inv_height = 1.0 / (double)task->rt->mlx.height;
 	y = task->ystart;
 	while (y < task->yend)
 	{
 		x = task->xstart;
 		while (x < task->xend)
 		{
-			render_pixel_at_coordinates(task->rt, x, y, inv_width, inv_height);
+			render_pixel_at_coordinates(task->rt, x, y);
 			x++;
 		}
 		y++;
