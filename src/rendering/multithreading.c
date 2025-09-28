@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   multithreading.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chrleroy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 07:39:23 by chrleroy          #+#    #+#             */
-/*   Updated: 2025/09/27 15:19:38 by chrleroy         ###   ########.fr       */
+/*   Updated: 2025/09/28 16:01:19 by idioumas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@ void	send_directive(t_intels dirs)
 	pthread_cond_signal(&(dirs.rt->args.cond_queue));
 }
 
-// J ai modifie ton code -> j ai retire les if/else pour reduire le branching,
-// etant donne que les valeurs seront toujours valide (la resolution est 
-// forcement un multiple de 32).
-// J ai utilise << 5 qui equivaut a * 32 (2^5=32) mais en plsu rapide.
-// En tout ca nous fait gagner 100 ms, d'ailleurs on devrait garder ces valeur 
-// la dans la structure de pool_thread plutoit que de la recalculer 3600 fois 
-// par frame.
 void	create_directive(t_minirt *rt)
 {
 	int			i;
@@ -82,49 +75,6 @@ static void	execute_rendering(t_intels *task)
 	}
 }
 
-/*
-// The thread's routine to divide redering into smaller chuncks
-void	*render_all_pixels(void *arg)
-{
-	int			i;
-	t_minirt	*rt;
-	t_intels	directive;
-
-	rt = (t_minirt *)arg;
-	while (1)
-	{
-		i = 0;
-		pthread_mutex_lock(&(rt->args.mutex_queue));
-		while (rt->args.ntask == 0 && rt->args.stop == 0)
-			pthread_cond_wait(&rt->args.cond_queue, &(rt->args.mutex_queue));
-		if (rt->args.stop == 1 && rt->args.ntask == 0)
-		{
-			pthread_mutex_unlock(&(rt->args.mutex_queue));
-			break ;
-		}
-		directive = rt->args.directives_rendering[0];
-		while (i < rt->args.ntask - 1)
-		{
-			rt->args.directives_rendering[i] = rt->args.directives_rendering[i + 1];
-			i++;
-		}
-		rt->args.ntask--;
-		pthread_mutex_unlock(&(rt->args.mutex_queue));
-		execute_rendering(&directive);
-		pthread_mutex_lock(&(rt->args.mutex_queue));
-		rt->args.completed_directives++;
-		if (rt->args.completed_directives == (rt->args.total_directives))
-		{
-			rt->args.stop = 1;
-			pthread_cond_broadcast(&(rt->args.cond_queue));
-		}
-		pthread_mutex_unlock(&(rt->args.mutex_queue));
-	}
-	rt->args.completed_directives = 0;
-	return (NULL);
-}
-*/
-
 // The thread's routine to divide redering into smaller chuncks
 void	*render_all_pixels(void *arg)
 {
@@ -142,7 +92,7 @@ void	*render_all_pixels(void *arg)
 			pthread_mutex_unlock(&(rt->args.mutex_queue));
 			break ;
 		}
-		directive  = update_directives(rt);
+		directive = update_directives(rt);
 		pthread_mutex_unlock(&(rt->args.mutex_queue));
 		execute_rendering(&directive);
 		pthread_mutex_lock(&(rt->args.mutex_queue));
@@ -154,7 +104,7 @@ void	*render_all_pixels(void *arg)
 	return (NULL);
 }
 
-void init_multi_thread(t_minirt *rt, pthread_t threads[])
+void	init_multi_thread(t_minirt *rt, pthread_t threads[])
 {
 	int	i;
 
@@ -164,15 +114,16 @@ void init_multi_thread(t_minirt *rt, pthread_t threads[])
 		threads[i] = 0;
 		i++;
 	}
-	if (pthread_mutex_init(&(rt->args.mutex_queue), NULL) || pthread_cond_init(&(rt->args.cond_queue), NULL))
-		kill_threads_rsc(rt,threads,1);
+	if (pthread_mutex_init(&(rt->args.mutex_queue), NULL)
+		||pthread_cond_init(&(rt->args.cond_queue), NULL))
+		kill_threads_rsc(rt, threads, 1);
 	i = 0;
-	while(i < NUM_THREAD)
+	while (i < NUM_THREAD)
 	{
 		if (pthread_create(&threads[i], NULL, render_all_pixels, rt))
 		{
 			perror("Error : Thread creation failed");
-			kill_threads_rsc(rt,threads,1);
+			kill_threads_rsc(rt, threads, 1);
 		}
 		i++;
 	}
